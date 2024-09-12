@@ -1,6 +1,6 @@
 Abbreviation, Number, Title, Category, Pre-Requisites / Potential Sequences, Co-Requisites, Difficulty
 COSC, 101, Introduction to Programming, MJ, none, none
-COSC, 102, Introduction to Computer Science, MJ, COSC 101, MATH 132 or MATH 141 or MATH 147, none
+COSC, 102, Introduction to Computer Science, MJ, COSC 101, MATH 132 or MATH 141 or MATH 147
 COSC, 230, Computer Organization, MJ, COSC 102, none
 COSC, 202, Data Structures and Algorithms I, MJ, COSC 102, none
 COSC, 302, Data Structures and Algorithms II, MJ, COSC 202, none
