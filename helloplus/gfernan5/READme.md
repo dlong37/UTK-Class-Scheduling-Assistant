@@ -8,4 +8,4 @@ This is a simple website which has two pages; A Home page and a Hello! page whic
 Download the webpage folder and double click on index.html to launch the webpage.
 
 ### Note
-I will be learning Javascript for our COSC340 project but for the purposes of this assignment I did not include any Javascript because I have never made a webpage before so HTML and CSS felt like a great start for now
+I will be learning Javascript for our COSC340 project but for the purposes of this assignment I did not include any Javascript because I have never made a webpage before so HTML and CSS felt like a great start for now.
