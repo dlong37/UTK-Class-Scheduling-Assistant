@@ -1,0 +1,116 @@
+/* form stylesheet */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #ff8200, #ffffff);
+    font-family: sans-serif;
+}
+
+.bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4b4b4b;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 32px;
+}
+
+.form {
+    width: 400px;
+    height: auto;
+    color: #000000;
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    font-family: sans-serif;
+}
+.heading {
+    opacity: 0;
+    text-align: center;
+    font-size: 75px;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+
+input, .submit-button {
+    opacity: 0;
+    width: 80%;
+    height: 35px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    color: #000000;
+    padding: 15px;
+    transition: 0.5s;
+}
+
+input:focus, .submit-button:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+.submit-button {
+    opacity: 0;
+    width: auto;
+    padding: 0 20px;
+    background-color: #ff8200;
+    cursor: pointer;
+    margin: 50px auto 0;
+}
+
+.link {
+    opacity: 0;
+    text-align: center;
+    text-transform: capitalize;
+    color: #000000;
+    display: block;
+    margin: 30px auto;
+}
+.link:hover {
+    color: #ffffff;
+}
+
+.alert-box {
+    position: fixed;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 150px;
+    max-width: 90%;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    text-transform: capitalize;
+    background: rgb(50, 50, 200);
+    border-top: 10px solid rgb(20, 20, 125);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #ffffff;
+    font-family: sans-serif;
+    text-align: center;
+    transition: 0.5s ease-in-out;
+}
+
+.alert-box.show {
+    bottom: 15%;
+}
