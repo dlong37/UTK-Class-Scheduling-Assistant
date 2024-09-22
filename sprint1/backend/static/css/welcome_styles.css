@@ -1,0 +1,160 @@
+/*
+ * UTK COLORS!
+ * Tennessee Orange: #ff8200
+ * White: #fff;
+ * Smokey Gray: #4b4b4b
+ *
+ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navigation Bar */
+.navbar {
+    background: #4b4b4b;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+#navbar__logo {
+    background-color: #ff8200;
+    background-image: linear-gradient(to top, #fff 0%, #ff8200 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+#nav__img {
+    margin-right: 0.5rem;
+    height: 10%;
+    width: 10%;
+}
+
+/* Main Welcome Section */
+.welcome {
+    background-image: linear-gradient(to top, #fff 0%, #ff8200);
+}
+
+.welcome__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    height: 90vh;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+}
+
+.welcome__content h1 {
+    font-size: 3rem;
+}
+
+.welcome__content h2 {
+    font-size: 2rem;
+}
+
+.welcome__content p {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.welcome__btn {
+    font-size: 1rem;
+    background-color: #ff8200;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color:#4b4b4b;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s;
+    outline: none;
+}
+
+.welcome__btn a {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-decoration: none;
+}
+
+.welcome__btn:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #4b4b4b;
+    transition: all 0.35s;
+    border-radius: 4px;
+}
+
+.welcome__btn:hover {
+    color: #fff;
+}
+
+.welcome__btn:hover:after  {
+    width: 100%;
+}
+
+.welcome__img--container {
+    text-align: center;
+}
+
+#selection__img {
+    height: 100%;
+    width: 100%;
+}
+
+.about {
+    background-image: linear-gradient(to bottom, #fff 0%, #ff8200);
+}
+
+.about__container {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    height: 90vh;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+}
+
+.about__content h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.about__content p {
+    margin-top: 1rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-align: center;
+}
