@@ -1,7 +1,9 @@
+<!-- Here we reuse code from base.html, adding new title and page content -->
+
 {% extends "base.html" %}
+<title>{% block title %}Login{% endblock %}</title>
 
 {% block content %}
-
     <div class="alert-box">
         <p class="alert"></p>
     </div>
@@ -15,5 +17,4 @@
             <a href="/sign_up" class="link">Don't have an account? Register here</a>
         </div>
     </form>
-
 {% endblock %}

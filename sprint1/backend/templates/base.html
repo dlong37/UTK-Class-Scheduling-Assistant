@@ -1,3 +1,5 @@
+<!-- Frontend: this file contains the code that would be shared by several .html pages -->>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,6 +37,31 @@
                     <a class="nav-item nav-link" id="home" href="/">Home</a>
                 </div>
         </nav>
+
+        <!-- Error messages: error & success -->
+        <!-- Frontend: feel free to make changes -->>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category == 'error' %}
+                        <div class="alert alert-danger alter-dismissable fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% else %}
+                        <div class="alert alert-success alter-dismissable fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
         <div class="container">
             {% block content %}
             {% endblock %}
