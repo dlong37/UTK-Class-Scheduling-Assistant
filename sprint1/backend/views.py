@@ -10,10 +10,10 @@ views = Blueprint('views', __name__)
 
 @views.route('/')
 def home():
-    return render_template("welcome.html")
+    return render_template("welcome.html", user=current_user)
 
 @views.route('/main', methods=['GET', 'POST'])
-@login_required         # can only be accessed if user is logged in
+@login_required                   # can only be accessed if user is logged in
 def main():
     if request.method == 'POST':
         schedule = request.form.get('schedule')

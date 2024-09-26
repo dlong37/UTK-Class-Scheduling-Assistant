@@ -7,7 +7,8 @@
     <h1 align="center">Schedules</h1>
     <ul class="list-group-flush" id="schedules">
         {% for schedule in user.schedules %}
-        <li class="list-group-item">{{ schedule.data }}
+        <li class="list-group-item">
+            {{ schedule.data }}
             <!-- Delete button, uses a separate function to communicate with backend -->
             <button type="button" class="close" onClick="deleteSchedule({{ schedule.id }})">
                 <span aria-hidden="true">&times;</span>
