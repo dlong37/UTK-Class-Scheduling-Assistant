@@ -1,14 +1,17 @@
-// form loading animation
+window.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('.form');
+    const formElements = document.querySelectorAll('.form input, .form .submit-button');
 
-const form = [...document.querySelector('.form').children];
+    // Show the form container
+    form.classList.add('show');
 
-form.forEach((item, i) => {
-    setTimeout(() => {
-        item.style.opacity = 1;
-    }, i*100);
-})
-
-// form validation
+    // Delay showing form elements for a staggered effect
+    formElements.forEach((element, index) => {
+        setTimeout(() => {
+            element.classList.add('show');
+        }, 200 * index); // Adjust the delay for each element
+    });
+});
 
 document.querySelector('.submit-button').addEventListener('click', function(event) {
     event.preventDefault(); // Prevent form from submitting automatically
@@ -26,36 +29,56 @@ document.querySelector('.submit-button').addEventListener('click', function(even
             alertMessage.textContent = 'All fields are required!';
             alertBox.style.background = 'rgb(255, 110, 110)';
             alertBox.style.borderTopColor = 'rgb(255, 37, 37)';
-            alertBox.classList.add('show');
         } else {
             alertMessage.textContent = 'Registration successful!';
             alertBox.style.background = 'rgb(110, 200, 110)'; // Success color
             alertBox.style.borderTopColor = 'rgb(37, 200, 37)'; // Success border
-            alertBox.classList.add('show');
+
+            // redirect to welcome page for now...
+            setTimeout(function() {
+                window.location.href = '../welcome/welcome.html';
+            }, 1000);
         }
     } else {
-
         // login page
         if (!email || !password) {
             alertMessage.textContent = 'All fields are required!';
             alertBox.style.background = 'rgb(255, 110, 110)';
             alertBox.style.borderTopColor = 'rgb(255, 37, 37)';
-            alertBox.classList.add('show');
         } else if (email === 'admin@email.com' && password === 'password') {
             alertMessage.textContent = 'Login successful!';
             alertBox.style.background = 'rgb(110, 200, 110)'; // Success color
             alertBox.style.borderTopColor = 'rgb(37, 200, 37)'; // Success border
-            alertBox.classList.add('show');
+
+            // redirect to welcome page for now...
+            setTimeout(function() {
+                window.location.href = '../welcome/welcome.html';
+            }, 1000);
         } else {
             alertMessage.textContent = 'Invalid Credentials!';
             alertBox.style.background = 'rgb(255, 110, 110)';
             alertBox.style.borderTopColor = 'rgb(255, 37, 37)';
-            alertBox.classList.add('show');
         }
     }
 
-    // Hide the alert box after 3 seconds
+    // Show alert box with grow effect
+    alertBox.classList.add('show');
+
+    // Hide the alert box after 3 seconds with shrink effect
     setTimeout(function() {
         alertBox.classList.remove('show');
-    }, 3000);
+        alertBox.classList.add('hide'); // Shrink and hide
+
+        // Remove the hide class after animation completes
+        setTimeout(() => {
+            alertBox.classList.remove('hide');
+        }, 400); // 400ms matches the CSS transition duration
+    }, 2000);
+});
+
+// Add keypress listener for "Enter" key on the password field
+document.querySelector('.password').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        document.querySelector('.submit-button').click();
+    }
 });
