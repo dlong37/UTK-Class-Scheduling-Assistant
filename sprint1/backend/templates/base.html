@@ -1,0 +1,80 @@
+<!-- Frontend: this file contains the code that would be shared by several .html pages -->>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}UTK Class Scheduling Assistant{% endblock %}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <script src="https://kit.fontawesome.com/ee94e7919e.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="bar">
+            <p>UTK CSA</p>
+        </div>
+
+        <!-- Navbar Section -->
+        <nav class="navbar">
+            <button 
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbar"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar__container">
+                <a href="/" id="navbar__logo"><img src="images/UT Logo.png" alt="pic" id="nav__img">UTK CSA</a>
+            </div>
+                <div class="navbar-nav">
+                    <!-- Show certain links only to logged in or logged out users-->
+                    {% if user.is_authenticated %}
+                        <a class="nav-item nav-link" id="main" href="/main">Main</a>
+                        <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+                    {% else %}
+                        <a class="nav-item nav-link" id="home" href="/">Home</a>
+                        <a class="nav-item nav-link" id="login" href="/login">Login</a>
+                        <a class="nav-item nav-link" id="signUp" href="/sign_up">Sign Up</a>
+                    {% endif %}
+                </div>
+        </nav>
+
+        <!-- Error messages: error & success -->
+        <!-- Frontend: feel free to make changes -->>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category == 'error' %}
+                        <div class="alert alert-danger alter-dismissable fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% else %}
+                        <div class="alert alert-success alter-dismissable fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <script
+            type="text/javascript"
+            src="{{ url_for('static', filename='index.js') }}"
+        ></script>
+
+    </body>
+</html>

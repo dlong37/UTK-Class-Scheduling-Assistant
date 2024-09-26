@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Welcome Section -->
+     <div class="welcome">
+        <div class="welcome__container">
+            <div class="welcome__content">
+                <h1>Hi!</h1>
+                <h2>This is the UTK Class Scheduling Assistant</h2>
+                <p>Click here to get started!</p>
+                <button class="welcome__btn"><a href="/login">Get Started</a></button>
+            </div>
+        </div>
+     </div>
+
+     <!-- About Section -->
+      <div class="about">
+        <div class="about__container">
+            <div class="about__content">
+                <h1>What is the UTK CSA?</h1>
+                <p>When the registration season comes along for students at UTK,
+                    most students would agree that it can be a tedious process
+                    searching for which classes they must take. While the university
+                    has resources that provides information on whether or not they're
+                    on track to graduate, students still find themselves stressing over
+                    what classes to take the upcoming semester (if they haven't filled
+                    up already).
+                </p>
+                <p>With the UTK Class Scheduling Assistant, UTK students will save a lot
+                    of time (and anxiety!) when registering for classes by having a schedule
+                    generated for them based on their degree path. UTK CSA takes into account
+                    the core coursework, time conflicts, geographical location, and general
+                    difficulty of each class to create balanced workloads every semester.
+                </p>
+            </div>
+        </div>
+      </div>
+      {% endblock %}
