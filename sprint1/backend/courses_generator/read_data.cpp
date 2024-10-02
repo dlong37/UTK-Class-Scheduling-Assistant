@@ -183,11 +183,13 @@ int main(int argc, char** argv) {
         }
     }
 
+    // create a set so duplicates are remoced and classes are sorted
     set<string> taken_set;
     for(int i = 0; i < taken_vector.size(); i++) {
         taken_set.insert(taken_vector[i]);
     }
 
+    // print set
     set<string>::iterator it = taken_set.begin();
     while (it != taken_set.end()) {
         if (*it == "none") {
