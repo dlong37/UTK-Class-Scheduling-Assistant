@@ -24,6 +24,7 @@ class course {
         string lab_loc;
 };
 
+// coordinates for class locations
 const pair<double, double> APBcoord(35.95716565313402, -83.92699933505531);
 const pair<double, double> AYRcoord(35.95743065274119, -83.92592513641416);
 const pair<double, double> BECcoord(35.954316260640674, -83.92782712008297);
