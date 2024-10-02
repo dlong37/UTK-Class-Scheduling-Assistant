@@ -57,6 +57,7 @@ int main(int argc, char** argv) {
         return 1;
     }
 
+    // files streams + string buffer
     ifstream file; 
     string line;
 
@@ -78,6 +79,8 @@ int main(int argc, char** argv) {
         int i = 0;
         stringstream ss(line);
         while (getline(ss, line, ',')) { // separate by commas
+            // using i to keep track of the number of attributes we've read in,
+            // switch to read into the right properties
             switch (i) {
                 case(0):
                     my_course.abbrv = line;
@@ -185,13 +188,13 @@ int main(int argc, char** argv) {
         }
     }
 
-    // create a set so duplicates are remoced and classes are sorted
+    // create a set so duplicates are removed and classes are sorted alphabetically
     set<string> taken_set;
     for(int i = 0; i < taken_vector.size(); i++) {
         taken_set.insert(taken_vector[i]);
     }
 
-    // print set
+    // print inside the set
     set<string>::iterator it = taken_set.begin();
     while (it != taken_set.end()) {
         if (*it == "none") {
