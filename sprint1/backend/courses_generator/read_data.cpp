@@ -47,6 +47,7 @@ const pair<double, double> ZECcoord(35.95569385908873, -83.92376342399506);
 
 int main(int argc, char** argv) {
 
+    // argument checking
     bool failed = false;
     if(argc != 4) {
         failed = true;
