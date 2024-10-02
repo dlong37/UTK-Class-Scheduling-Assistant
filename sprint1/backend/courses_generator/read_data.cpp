@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <set>
 using namespace std;
 
 class course {
@@ -182,8 +183,19 @@ int main(int argc, char** argv) {
         }
     }
 
+    set<string> taken_set;
     for(int i = 0; i < taken_vector.size(); i++) {
-        cout << taken_vector[i] << endl;
+        taken_set.insert(taken_vector[i]);
     }
 
+    set<string>::iterator it = taken_set.begin();
+    while (it != taken_set.end()) {
+        if (*it == "none") {
+            it = taken_set.erase(it);
+        } 
+        else {
+            cout << *it << endl;
+            ++it;
+        }
+    }
 }
