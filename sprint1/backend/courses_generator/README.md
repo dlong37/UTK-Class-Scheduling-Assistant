@@ -7,8 +7,10 @@ location = none means there is no specific location for this course<br />
 Some courses have equivalents (such as normal and honors courses), so we would promote all equivalent courses to one certain course code and abbreviation, listed below.<br />
 
 STANDARD = EQUIVALENT<br />
-COSC 302 = 307
-MATH 141 = 147 = 132
-MATH 142 = 148
-COSC 311 = 317
-COSC 360 = 367
+<ol>
+  <li>COSC 302 = 307</li>
+  <li>MATH 141 = 147 = 132</li>
+  <li>MATH 142 = 148</li>
+  <li>COSC 311 = 317</li>
+  <li>COSC 360 = 367</li>
+</ol>
