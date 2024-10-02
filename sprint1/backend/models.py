@@ -15,7 +15,7 @@ class Schedule(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     # classes = db.relationship('Class')
 
-# Lookup how many-to-one/many-to-many?? relationship is set up: many schedules may have the same class
+# Lookup how many-to-many?? relationship is set up: many schedules may have the same class
 # class Class(db.Model):
 #    id = db.Column(....)
 #    ....
