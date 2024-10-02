@@ -14,3 +14,8 @@ STANDARD = EQUIVALENT<br />
   <li>COSC 311 = 317</li>
   <li>COSC 360 = 367</li>
 </ol>
+
+### Notations ###
+'-' : any<br />
+'|' : or<br />
+'&' : and<br />
