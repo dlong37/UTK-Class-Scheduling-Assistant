@@ -16,6 +16,6 @@ STANDARD = EQUIVALENT<br />
 </ol>
 
 ### Notations ###
-'-' : any<br />
-'|' : or<br />
-'&' : and<br />
+'-' : any course in this sequence<br />
+'|' : or (pick one in the sequence) <br />
+'&' : and (need both for the sequence)<br />
