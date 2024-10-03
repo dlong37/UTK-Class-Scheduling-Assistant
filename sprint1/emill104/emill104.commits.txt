@@ -1,208 +1,359 @@
 frontend/login/login.html
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  8)     <script src="https://kit.fontawesome.com/ee94e7919e.js" crossorigin="anonymous"></script>
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  9)     <link rel="preconnect" href="https://fonts.googleapis.com">
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 10)     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 11)     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 14)     <!-- Navbar Section -->
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 15)     <nav class="navbar">
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 16)         <div class="navbar__container">
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 17)             <a href="../welcome/welcome.html" id="navbar__logo"><img src="images/UT Logo.png" alt="pic" id="nav__img">UTK CSA</a>
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 18)         </div>
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 19)     </nav>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  1) <!DOCTYPE html>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  2) <html lang="en">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  3) <head>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  4)     <meta charset="UTF-8">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  5)     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  6)     <title>Login</title>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  7)     <link rel="stylesheet" href="styles.css">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  8)     <script src="https://kit.fontawesome.com/ee94e7919e.js" crossorigin="anonymous"></script>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  9)     <link rel="preconnect" href="https://fonts.googleapis.com">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 10)     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 11)     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 12) </head>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 13) <body>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 14)     <!-- Navbar Section -->
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 15)     <nav class="navbar">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 16)         <div class="navbar__container">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 17)             <a href="../welcome/welcome.html" id="navbar__logo"><img src="images/UT Logo.png" alt="pic" id="nav__img">UTK CSA</a>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 18)         </div>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 19)     </nav>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 20) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 21)     <div class="alert-box">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 22)         <p class="alert"></p>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 23)     </div>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 24) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 25)     <div class="form">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 26)         <h1 class="heading">Login</h1>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 27)         <input type="email" placeholder="Email" autocomplete="off" class="email" required>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 28)         <input type="password" placeholder="Password" autocomplete="off" class="password" required>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 29)         <button class="submit-button">Log In</button>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 30)         <a href="register.html" class="link">Don't have an account? Register here</a>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 31)     </div>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 32) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 33)     <script src="script.js"></script>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 34) </body>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 35) </html>
 
 frontend/login/register.html
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  8)     <script src="https://kit.fontawesome.com/ee94e7919e.js" crossorigin="anonymous"></script>
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  9)     <link rel="preconnect" href="https://fonts.googleapis.com">
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 10)     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 11)     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 14)     <!-- Navbar Section -->
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 15)     <nav class="navbar">
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 16)         <div class="navbar__container">
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 17)             <a href="../welcome/welcome.html" id="navbar__logo"><img src="images/UT Logo.png" alt="pic" id="nav__img">UTK CSA</a>
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 18)         </div>
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 19)     </nav>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  1) <!DOCTYPE html>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  2) <html lang="en">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  3) <head>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  4)     <meta charset="UTF-8">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  5)     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  6)     <title>Register Page</title>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  7)     <link rel="stylesheet" href="styles.css">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  8)     <script src="https://kit.fontawesome.com/ee94e7919e.js" crossorigin="anonymous"></script>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  9)     <link rel="preconnect" href="https://fonts.googleapis.com">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 10)     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 11)     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 12) </head>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 13) <body>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 14)     <!-- Navbar Section -->
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 15)     <nav class="navbar">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 16)         <div class="navbar__container">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 17)             <a href="../welcome/welcome.html" id="navbar__logo"><img src="images/UT Logo.png" alt="pic" id="nav__img">UTK CSA</a>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 18)         </div>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 19)     </nav>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 20) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 21)     <div class="alert-box">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 22)         <p class="alert"></p>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 23)     </div>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 24) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 25)     <div class="form">
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 26)         <h1 class="heading">Register</h1>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 27)         <input type="text" placeholder="Name" autocomplete="off" class="name" required>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 28)         <input type="email" placeholder="Email" autocomplete="off" class="email" required>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 29)         <input type="password" placeholder="Password" autocomplete="off" class="password" required>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 30)         <button class="submit-button">Register</button>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 31)         <a href="login.html" class="link">already have an account? log in here</a>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 32)     </div>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 33) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 34)     <script src="script.js"></script>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 35)     
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 36) </body>
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 37) </html>
 
 frontend/login/styles.css
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400   1) /* Global Styles */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400   3)     box-sizing: border-box;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400   6)     font-family: 'Poppins', sans-serif;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  13) /* Navigation Bar */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  14) .navbar {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  15)     background: #4b4b4b;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  16)     height: 80px;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  20)     font-size: 2rem;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  21)     position: sticky;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  22)     top: 0;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  23)     z-index: 999;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  26) #navbar__logo {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  27)     background-color: #ff8200;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  28)     background-image: linear-gradient(to top, #fff 0%, #ff8200 100%);
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  29)     background-size: 100%;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  30)     -webkit-background-clip: text;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  31)     -moz-background-clip: text;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  32)     -webkit-text-fill-color: transparent;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  33)     -moz-text-fill-color: transparent;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  34)     display: flex;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  35)     align-items: center;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  36)     justify-content: center;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  37)     text-decoration: none;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  38)     font-size: 2rem;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  41) #nav__img {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  42)     margin-right: 0.5rem;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  43)     height: 10%;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  44)     width: 10%;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  45) }
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  46) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  47) body {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  48)     background-image: linear-gradient(to top, rgba(255, 255, 255, 0.75), rgba(255, 130, 0, 0.75));
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  49) }
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  50) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  51) /* Form Styles */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  53)     opacity: 0;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  54)     transform: translateY(100px);
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  55)     transition: opacity 1s ease, transform 1s ease;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  56)     transition-delay: 0.2s;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  57)     display: flex;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  58)     flex-direction: column;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  59)     justify-content: center;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  60)     align-items: center;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  61)     margin: auto;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  63)     min-height: 100vh;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  64)     width: 100%;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  65)     max-width: 600px;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  66)     padding: 20px;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  67)     background-color: #fff; /* Set the background color inside the form */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  68)     border-radius: 10px;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  69)     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  70)     border: 15px solid transparent; /* Transparent border for the gradient */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  71)     border-image: linear-gradient(to top, #fff, #ff8200) 1; /* Apply the gradient as the border */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  72) }
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  73) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  74) .form.show {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  75)     opacity: 1;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  76)     transform: translateY(0);
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  78) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  81)     font-size: 3rem;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  82)     margin-bottom: 25px;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  83)     color: #333;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  84)     transition: all 0.3s ease;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  89)     transform: translateY(50px);
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  90)     transition: opacity 1s ease, transform 1s ease;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  91)     transition-delay: 0.2s;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  92)     width: 100%;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  93)     height: 45px;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  94)     margin: 16px 0;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  97)     border: 1px solid #ccc;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  98)     color: #000;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 100) }
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 101) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 102) input.show, .submit-button.show {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 103)     opacity: 1;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 104)     transform: translateY(0);
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 108)     background-color: #fff;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 109)     color: #000;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 110)     border: 1px solid #ff8200;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 111)     box-shadow: 0 0 8px rgba(255, 130, 0, 0.5);
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 116)     font-size: 1rem;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 118)     padding: 0 32px;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 119)     color:#fff;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 120)     margin-top: 2rem;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 122)     position: relative;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 128)     color: #000;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 130)     margin: 20px 0;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 131)     font-size: 1rem;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 133) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 135)     color: #ff8200;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 138) /* Alert Box */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 140)     position: absolute;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 141)     top: 25%;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 143)     transform: translate(-50%, -50%) scale(0); /* Start hidden and scaled down */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 145)     max-width: 90%;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 146)     padding: 15px 20px;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 147)     background-color: #3232c8;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 148)     color: #fff;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 149)     border-radius: 8px;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 151)     font-size: 1rem;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 152)     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 153)     opacity: 0; /* Start with opacity 0 */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 154)     transition: transform 0.4s ease, opacity 0.4s ease; /* Smooth transitions for scale and opacity */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 155)     z-index: 1;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 159)     transform: translate(-50%, -50%) scale(1); /* Grow to full size */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 160)     opacity: 1; /* Make visible */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 161) }
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 162) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 163) /* Animation for shrinking back */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 164) .alert-box.hide {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 165)     transform: translate(-50%, -50%) scale(0); /* Shrink back down */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 166)     opacity: 0; /* Fade out */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 168) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 169) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 170) /* Media Queries */
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 171) /* @media (max-width: 1000px) {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 172)     .navbar {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 173)         font-size: 1.2rem;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 174)         padding: 0 10px;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 175)     }
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 176) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 177)     #navbar__logo {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 178)         font-size: 1.5rem;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 179)     }
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 180) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 181)     .form {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 182)         width: 90%;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 183)         padding: 20px;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 184)     }
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 185) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 186)     .heading {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 187)         font-size: 2rem;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 188)     }
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 189) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 190)     input, .submit-button {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 191)         font-size: 1rem;
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 192)     }
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 193) } */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400   1) /* Global Styles */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400   2) * {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400   3)     box-sizing: border-box;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400   4)     margin: 0;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400   5)     padding: 0;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400   6)     font-family: 'Poppins', sans-serif;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400   7) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400   8) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400   9) *:focus {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  10)     outline: none;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  11) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  12) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  13) /* Navigation Bar */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  14) .navbar {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  15)     background: #4b4b4b;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  16)     height: 80px;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  17)     display: flex;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  18)     justify-content: center;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  19)     align-items: center;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  20)     font-size: 2rem;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  21)     position: sticky;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  22)     top: 0;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  23)     z-index: 999;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  24) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  25) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  26) #navbar__logo {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  27)     background-color: #ff8200;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  28)     background-image: linear-gradient(to top, #fff 0%, #ff8200 100%);
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  29)     background-size: 100%;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  30)     -webkit-background-clip: text;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  31)     -moz-background-clip: text;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  32)     -webkit-text-fill-color: transparent;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  33)     -moz-text-fill-color: transparent;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  34)     display: flex;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  35)     align-items: center;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  36)     justify-content: center;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  37)     text-decoration: none;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  38)     font-size: 2rem;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  39) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  40) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  41) #nav__img {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  42)     margin-right: 0.5rem;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  43)     height: 10%;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  44)     width: 10%;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  45) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  46) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  47) body {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  48)     background-image: linear-gradient(to top, rgba(255, 255, 255, 0.75), rgba(255, 130, 0, 0.75));
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  49) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  50) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  51) /* Form Styles */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  52) .form {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  53)     opacity: 0;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  54)     transform: translateY(100px);
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  55)     transition: opacity 1s ease, transform 1s ease;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  56)     transition-delay: 0.2s;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  57)     display: flex;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  58)     flex-direction: column;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  59)     justify-content: center;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  60)     align-items: center;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  61)     margin: auto;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  62)     height: auto;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  63)     min-height: 100vh;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  64)     width: 100%;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  65)     max-width: 600px;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  66)     padding: 20px;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  67)     background-color: #fff; /* Set the background color inside the form */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  68)     border-radius: 10px;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  69)     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  70)     border: 15px solid transparent; /* Transparent border for the gradient */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  71)     border-image: linear-gradient(to top, #fff, #ff8200) 1; /* Apply the gradient as the border */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  72) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  73) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  74) .form.show {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  75)     opacity: 1;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  76)     transform: translateY(0);
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  77) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  78) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  79) .heading {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  80)     text-align: center;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  81)     font-size: 3rem;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  82)     margin-bottom: 25px;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  83)     color: #333;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  84)     transition: all 0.3s ease;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  85) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  86) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  87) input, .submit-button {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  88)     opacity: 0;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  89)     transform: translateY(50px);
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  90)     transition: opacity 1s ease, transform 1s ease;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  91)     transition-delay: 0.2s;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  92)     width: 100%;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  93)     height: 45px;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  94)     margin: 16px 0;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  95)     border-radius: 5px;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  96)     background: rgba(255, 255, 255, 0.5);
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  97)     border: 1px solid #ccc;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  98)     color: #000;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  99)     padding: 15px;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 100) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 101) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 102) input.show, .submit-button.show {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 103)     opacity: 1;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 104)     transform: translateY(0);
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 105) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 106) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 107) input:focus, .submit-button:hover {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 108)     background-color: #fff;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 109)     color: #000;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 110)     border: 1px solid #ff8200;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 111)     box-shadow: 0 0 8px rgba(255, 130, 0, 0.5);
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 112) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 113) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 114) .submit-button {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 115)     width: auto;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 116)     font-size: 1rem;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 117)     background-color: #ff8200;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 118)     padding: 0 32px;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 119)     color:#fff;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 120)     margin-top: 2rem;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 121)     cursor: pointer;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 122)     position: relative;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 123) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 124) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 125) .link {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 126)     text-align: center;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 127)     text-transform: capitalize;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 128)     color: #000;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 129)     display: block;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 130)     margin: 20px 0;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 131)     font-size: 1rem;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 132) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 133) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 134) .link:hover {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 135)     color: #ff8200;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 136) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 137) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 138) /* Alert Box */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 139) .alert-box {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 140)     position: absolute;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 141)     top: 25%;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 142)     left: 50%;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 143)     transform: translate(-50%, -50%) scale(0); /* Start hidden and scaled down */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 144)     width: auto;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 145)     max-width: 90%;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 146)     padding: 15px 20px;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 147)     background-color: #3232c8;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 148)     color: #fff;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 149)     border-radius: 8px;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 150)     text-align: center;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 151)     font-size: 1rem;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 152)     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 153)     opacity: 0; /* Start with opacity 0 */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 154)     transition: transform 0.4s ease, opacity 0.4s ease; /* Smooth transitions for scale and opacity */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 155)     z-index: 1;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 156) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 157) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 158) .alert-box.show {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 159)     transform: translate(-50%, -50%) scale(1); /* Grow to full size */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 160)     opacity: 1; /* Make visible */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 161) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 162) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 163) /* Animation for shrinking back */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 164) .alert-box.hide {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 165)     transform: translate(-50%, -50%) scale(0); /* Shrink back down */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 166)     opacity: 0; /* Fade out */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 167) }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 168) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 169) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 170) /* Media Queries */
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 171) /* @media (max-width: 1000px) {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 172)     .navbar {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 173)         font-size: 1.2rem;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 174)         padding: 0 10px;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 175)     }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 176) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 177)     #navbar__logo {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 178)         font-size: 1.5rem;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 179)     }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 180) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 181)     .form {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 182)         width: 90%;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 183)         padding: 20px;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 184)     }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 185) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 186)     .heading {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 187)         font-size: 2rem;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 188)     }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 189) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 190)     input, .submit-button {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 191)         font-size: 1rem;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 192)     }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 193) } */
 
 frontend/login/script.js
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  1) window.addEventListener('DOMContentLoaded', () => {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  2)     const form = document.querySelector('.form');
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  3)     const formElements = document.querySelectorAll('.form input, .form .submit-button');
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  5)     // Show the form container
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  6)     form.classList.add('show');
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  8)     // Delay showing form elements for a staggered effect
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400  9)     formElements.forEach((element, index) => {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 10)         setTimeout(() => {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 11)             element.classList.add('show');
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 12)         }, 200 * index); // Adjust the delay for each element
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 13)     });
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 14) });
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 36) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 37)             // redirect to welcome page for now...
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 38)             setTimeout(function() {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 39)                 window.location.href = '../welcome/welcome.html';
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 40)             }, 1000);
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 52) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 53)             // redirect to welcome page for now...
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 54)             setTimeout(function() {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 55)                 window.location.href = '../welcome/welcome.html';
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 56)             }, 1000);
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 64)     // Show alert box with grow effect
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 65)     alertBox.classList.add('show');
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 66) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 67)     // Hide the alert box after 3 seconds with shrink effect
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 70)         alertBox.classList.add('hide'); // Shrink and hide
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 71) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 72)         // Remove the hide class after animation completes
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 73)         setTimeout(() => {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 74)             alertBox.classList.remove('hide');
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 75)         }, 400); // 400ms matches the CSS transition duration
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 76)     }, 2000);
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 77) });
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 78) 
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 79) // Add keypress listener for "Enter" key on the password field
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 80) document.querySelector('.password').addEventListener('keypress', function(event) {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 81)     if (event.key === 'Enter') {
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 82)         document.querySelector('.submit-button').click();
-23c9ebe7 (EthBeats 2024-09-26 09:19:26 -0400 83)     }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  1) window.addEventListener('DOMContentLoaded', () => {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  2)     const form = document.querySelector('.form');
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  3)     const formElements = document.querySelectorAll('.form input, .form .submit-button');
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  4) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  5)     // Show the form container
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  6)     form.classList.add('show');
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  7) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  8)     // Delay showing form elements for a staggered effect
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400  9)     formElements.forEach((element, index) => {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 10)         setTimeout(() => {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 11)             element.classList.add('show');
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 12)         }, 200 * index); // Adjust the delay for each element
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 13)     });
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 14) });
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 15) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 16) document.querySelector('.submit-button').addEventListener('click', function(event) {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 17)     event.preventDefault(); // Prevent form from submitting automatically
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 18) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 19)     const nameField = document.querySelector('.name');
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 20)     const email = document.querySelector('.email').value;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 21)     const password = document.querySelector('.password').value;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 22)     const alertBox = document.querySelector('.alert-box');
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 23)     const alertMessage = document.querySelector('.alert');
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 24) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 25)     if (nameField) {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 26)         const name = nameField.value;
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 27)         // register page
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 28)         if (!name || !email || !password) {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 29)             alertMessage.textContent = 'All fields are required!';
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 30)             alertBox.style.background = 'rgb(255, 110, 110)';
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 31)             alertBox.style.borderTopColor = 'rgb(255, 37, 37)';
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 32)         } else {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 33)             alertMessage.textContent = 'Registration successful!';
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 34)             alertBox.style.background = 'rgb(110, 200, 110)'; // Success color
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 35)             alertBox.style.borderTopColor = 'rgb(37, 200, 37)'; // Success border
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 36) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 37)             // redirect to welcome page for now...
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 38)             setTimeout(function() {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 39)                 window.location.href = '../welcome/welcome.html';
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 40)             }, 1000);
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 41)         }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 42)     } else {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 43)         // login page
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 44)         if (!email || !password) {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 45)             alertMessage.textContent = 'All fields are required!';
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 46)             alertBox.style.background = 'rgb(255, 110, 110)';
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 47)             alertBox.style.borderTopColor = 'rgb(255, 37, 37)';
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 48)         } else if (email === 'admin@email.com' && password === 'password') {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 49)             alertMessage.textContent = 'Login successful!';
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 50)             alertBox.style.background = 'rgb(110, 200, 110)'; // Success color
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 51)             alertBox.style.borderTopColor = 'rgb(37, 200, 37)'; // Success border
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 52) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 53)             // redirect to welcome page for now...
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 54)             setTimeout(function() {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 55)                 window.location.href = '../welcome/welcome.html';
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 56)             }, 1000);
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 57)         } else {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 58)             alertMessage.textContent = 'Invalid Credentials!';
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 59)             alertBox.style.background = 'rgb(255, 110, 110)';
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 60)             alertBox.style.borderTopColor = 'rgb(255, 37, 37)';
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 61)         }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 62)     }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 63) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 64)     // Show alert box with grow effect
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 65)     alertBox.classList.add('show');
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 66) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 67)     // Hide the alert box after 3 seconds with shrink effect
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 68)     setTimeout(function() {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 69)         alertBox.classList.remove('show');
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 70)         alertBox.classList.add('hide'); // Shrink and hide
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 71) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 72)         // Remove the hide class after animation completes
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 73)         setTimeout(() => {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 74)             alertBox.classList.remove('hide');
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 75)         }, 400); // 400ms matches the CSS transition duration
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 76)     }, 2000);
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 77) });
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 78) 
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 79) // Add keypress listener for "Enter" key on the password field
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 80) document.querySelector('.password').addEventListener('keypress', function(event) {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 81)     if (event.key === 'Enter') {
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 82)         document.querySelector('.submit-button').click();
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 83)     }
+5007b429 (EthBeats 2024-10-03 18:09:17 -0400 84) });
 
 backend/static/css/styles.css
 9949c041 (EthBeats 2024-10-02 23:49:31 -0400   2)  * styles.css
