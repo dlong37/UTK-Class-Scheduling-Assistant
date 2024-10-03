@@ -18,8 +18,8 @@
 I had problems when it came to designing the website through CSS, mainly figuring out how to make the links and the logo of our product look nice on our website. I also took a while to implement mobile responsiveness for the website and figure out how to still make it clean when the window was smaller.
 
 ## Issues I Worked On
-[#1](https://github.com/utk-cs340-fall24/UTK-Class-Scheduling-Assistant/issues/1): Fix frontend for home, login, register.
-[#2](https://github.com/utk-cs340-fall24/UTK-Class-Scheduling-Assistant/issues/5): Develop frontend for the main page.
+* [#1](https://github.com/utk-cs340-fall24/UTK-Class-Scheduling-Assistant/issues/1): Fix frontend for home, login, register.
+* [#2](https://github.com/utk-cs340-fall24/UTK-Class-Scheduling-Assistant/issues/5): Develop frontend for the main page.
 
 ## Files I Worked On
 #### Designing the Welcome Page on Frontend
