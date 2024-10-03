@@ -220,6 +220,10 @@
 /* Main Welcome Section */
 .welcome {
     background-image: linear-gradient(to top, #fff 0%, #ff8200);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .welcome__container {
@@ -301,10 +305,14 @@
 
 .about {
     background-image: linear-gradient(to bottom, #fff 0%, #ff8200);
+    padding: 20px;
+    margin-top: 20px;
+    min-height: 100vh;
 }
 
 .about__container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-self: center;
     margin: 0 auto;
@@ -338,6 +346,7 @@
         width: 100%;
         margin: 0 auto;
         height: 90vh;
+        padding: 20px;
     }
 
     .welcome__content {
@@ -367,7 +376,7 @@
     }
 
     .welcome__content h2 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .welcome__content p {
@@ -383,11 +392,12 @@
 
 @media screen and (max-width: 768px) {
     .about {
-        height: 1600px;
+        height: 2200px;
     }
 
     .about__container {
-        height: 180vh;
+        margin-top: 20px;
+        padding:20px;
     }
 
     .about__content h1 {
