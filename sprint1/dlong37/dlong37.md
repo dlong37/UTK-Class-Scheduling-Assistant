@@ -1,7 +1,7 @@
 # Sprint 1 Reflection
 
-**Name:** David Long
-**GitHubID:** dlong37
+**Name:** David Long <br>
+**GitHubID:** dlong37 <br>
 **Group Name:** UTK Class Scheduling Assistant
 
 ## What I Planned To Do
