@@ -65,6 +65,7 @@ int main(int argc, char** argv) {
     vector<course> course_vector;
     course my_course;
 
+    // open the available_courses file and error check opening
     string available_courses_file = argv[1];
     file.open(available_courses_file);
     if(!file.is_open()) {
@@ -134,6 +135,7 @@ int main(int argc, char** argv) {
     }
     file.close();
 
+    // open the major_courses file and error check opening
     string major_courses_file = argv[2];
     file.open(major_courses_file);
     if(!file.is_open()) {
@@ -142,6 +144,7 @@ int main(int argc, char** argv) {
         return 1;
     }
 
+    // reads from the major courses into a vector that holds the strings
     vector<string> major_vector;
     string major_course;
     while(getline(file, line)) {
@@ -150,6 +153,7 @@ int main(int argc, char** argv) {
     }
     file.close();
 
+    // open the taken_courses file and error check opening
     string taken_courses_file = argv[3];
     file.open(taken_courses_file);
     if(!file.is_open()) {
@@ -158,6 +162,7 @@ int main(int argc, char** argv) {
         return 1;
     }
 
+    // reads from the taken_courses file and saves them to a vector
     vector<string> taken_vector;
     string taken_course;
     while(getline(file, line)) {
@@ -166,6 +171,7 @@ int main(int argc, char** argv) {
     }
     file.close();
 
+    // expands the taken_courses vector to include all the pre reqs that are needed to get to a class in the taken_courses vector
     for(int i = 0; i < taken_vector.size(); i++) {
         string c = "";
         for(int j = 0; j < course_vector.size(); j++) {
