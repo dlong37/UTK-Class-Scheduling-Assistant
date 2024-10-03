@@ -1,0 +1,255 @@
+c9d0de24 helloplus/tdehoff/requirements.txt (tdehoff1 2024-09-16 20:58:30 -0400  1) blinker==1.8.2
+c9d0de24 helloplus/tdehoff/requirements.txt (tdehoff1 2024-09-16 20:58:30 -0400  2) click==8.1.7
+c9d0de24 helloplus/tdehoff/requirements.txt (tdehoff1 2024-09-16 20:58:30 -0400  3) Flask==3.0.3
+6b271d25 sprint1/backend/requirements.txt   (tdehoff1 2024-10-02 13:28:26 -0400  4) Flask-Login==0.6.3
+c9d0de24 helloplus/tdehoff/requirements.txt (tdehoff1 2024-09-16 20:58:30 -0400  5) Flask-SQLAlchemy==3.1.1
+c9d0de24 helloplus/tdehoff/requirements.txt (tdehoff1 2024-09-16 20:58:30 -0400  6) greenlet==3.1.0
+c9d0de24 helloplus/tdehoff/requirements.txt (tdehoff1 2024-09-16 20:58:30 -0400  7) itsdangerous==2.2.0
+c9d0de24 helloplus/tdehoff/requirements.txt (tdehoff1 2024-09-16 20:58:30 -0400  8) Jinja2==3.1.4
+c9d0de24 helloplus/tdehoff/requirements.txt (tdehoff1 2024-09-16 20:58:30 -0400  9) MarkupSafe==2.1.5
+c9d0de24 helloplus/tdehoff/requirements.txt (tdehoff1 2024-09-16 20:58:30 -0400 10) SQLAlchemy==2.0.35
+c9d0de24 helloplus/tdehoff/requirements.txt (tdehoff1 2024-09-16 20:58:30 -0400 11) typing_extensions==4.12.2
+c9d0de24 helloplus/tdehoff/requirements.txt (tdehoff1 2024-09-16 20:58:30 -0400 12) Werkzeug==3.0.4
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400  4) 
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400  5) app = create_app()
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400  6) 
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400  7) if __name__ == '__main__':
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400 13)     app.run(debug=True)
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400  1) from flask import Flask
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400  2) from flask_sqlalchemy import SQLAlchemy
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400  3) from os import path
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400  4) from flask_login import LoginManager
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400  5) 
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400  6) db = SQLAlchemy()
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400  7) DB_NAME = "database.db"
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400  8) 
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400  9) # Initialize web app
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400 10) def create_app():
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400 11)     app = Flask(__name__)
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 12)     # Used for password hashing
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400 13)     app.config['SECRET_KEY'] = 'bdqjfbkwbfjknjkwn'
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400 14) 
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 15)     # Database is created in backend/instance directory
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 16)     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 19)     db.init_app(app)
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 21) 
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400 22)     from .views import views
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400 23)     from .auth import auth
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400 24) 
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400 25)     app.register_blueprint(views, url_prefix='/')
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400 26)     app.register_blueprint(auth, url_prefix='/')
+7b06dea5 (tdehoff1          2024-09-22 18:29:29 -0400 27) 
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 28)     # Import database objects: may need to add more
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 30) 
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 31)     create_database(app)
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 32) 
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 33)     login_manager = LoginManager()
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 34)     login_manager.login_view = 'auth.login'
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 35)     login_manager.init_app(app)
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 36) 
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 37)     @login_manager.user_loader
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 38)     def load_user(id):
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 39)         return User.query.get(int(id))
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 40) 
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 41)     return app
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 42) 
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 43) # Check if database exists. If not - create one.
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 44) def create_database(app):
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 45)     if not path.exists('backend/' + DB_NAME):
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 46)         with app.app_context():
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 47)             db.create_all()
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400  1) # Backend for user authentication functionality
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400  2) 
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400  3) from flask import Blueprint, render_template, request, flash, redirect, url_for
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400  4) from .models import User
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400  5) from werkzeug.security import generate_password_hash, check_password_hash
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400  6) from . import db
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400  7) from flask_login import login_user, login_required, logout_user, current_user
+7b06dea5 (tdehoff1 2024-09-22 18:29:29 -0400  8) 
+7b06dea5 (tdehoff1 2024-09-22 18:29:29 -0400  9) auth = Blueprint('auth', __name__)
+7b06dea5 (tdehoff1 2024-09-22 18:29:29 -0400 10) 
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 11) # Log in
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 12) @auth.route('/login', methods=['GET', 'POST'])
+7b06dea5 (tdehoff1 2024-09-22 18:29:29 -0400 13) def login():
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 14)     # Get user credentials from the log in form
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 15)     if request.method == 'POST':
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 16)         email = request.form.get('email')
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 17)         password = request.form.get('password')
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 18) 
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 19)         # Search the database for a user with the provided email
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 20)         user = User.query.filter_by(email=email).first()    # use first result
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 21)         # If user found, compare passwords:
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 22)         if user:
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 23)             if check_password_hash(user.password, password):
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 24)                 # Notify the user and go to the main page if successful
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 25)                 flash('Logged in successfully!', category='success')
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 26)                 login_user(user, remember=True)             # remember the user is logged in
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 27)                 return redirect(url_for('views.main'))      # main route inside of views file
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 28)             else:
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 29)                 flash('Incorrect password, try again.', category='error')
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 30)         else:
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 31)             flash('Email does not exist.', category='error')
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 32) 
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 33)     return render_template("login.html", user=current_user)
+7b06dea5 (tdehoff1 2024-09-22 18:29:29 -0400 34) 
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 35) # Log out
+7b06dea5 (tdehoff1 2024-09-22 18:29:29 -0400 36) @auth.route('/logout')
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 37) @login_required         # can only be accessed if user is logged in
+7b06dea5 (tdehoff1 2024-09-22 18:29:29 -0400 38) def logout():
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 39)     logout_user()
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 40)     # Return to the log in page
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 41)     return redirect(url_for('auth.login'))
+7b06dea5 (tdehoff1 2024-09-22 18:29:29 -0400 42) 
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 43) # Register
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 44) @auth.route('sign_up', methods=['GET', 'POST'])
+7b06dea5 (tdehoff1 2024-09-22 18:29:29 -0400 45) def sign_up():
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 46)     if request.method == 'POST':
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 47)         email = request.form.get('email')
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 48)         name = request.form.get('name')
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 49)         password = request.form.get('password')
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 50) 
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 51)         # Error check if there is a user with the same email
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 52)         user = User.query.filter_by(email=email).first()
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 53)         if user:
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 54)             flash('User with this email already exists.', category='error')
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 55)         # Add more error checks
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 56)         elif len(email) < 4:
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 57)             flash('Email must be greater than 3 characters.', category='error')
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 58)         elif len(name) < 2:
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 59)             flash('Name must be greater than 1 character.', category='error')
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 60)         else:
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 61)             # Create a new user.
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 62)             # sha256 is a hashing algorithm, can be replaced.
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 63)             new_user = User(email=email, name=name, password=generate_password_hash(password, method='pbkdf2:sha256'))
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 64)             db.session.add(new_user)
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 65)             db.session.commit()
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 66)             # Notify the user and return to the welcome page if successful
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 67)             flash('Account created!', category='success')
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 68)             return redirect(url_for('views.home'))    # home route inside of views file
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 69) 
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 70)     return render_template("register.html", user=current_user)
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400  1) # Backend: Database stuff
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400  2) from . import db
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400  3) from flask_login import UserMixin
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400  4) from sqlalchemy.sql import func
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400  5) 
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 13) # Schema for 'Schedule' database object: what do we want to store?
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 14) # We might populate 'Schedule' object with some other kind of objects, like 'Class'
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 15) class Schedule(db.Model):
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 16)     id = db.Column(db.Integer, primary_key=True)
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 17)     # Data string for testing
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 18)     data = db.Column(db.String(1000))
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 19)     # In case we need to store the current date and time for anything:
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 20)     date = db.Column(db.DateTime(timezone=True), default=func.now())
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 21)     # Associate with a user object:
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 22)     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 25) 
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 31) 
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 36) 
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 37) # Schema for 'User' database object: what user info do we want to store?
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 38) class User(db.Model, UserMixin):
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 39)     id = db.Column(db.Integer, primary_key=True)    # Unique for each object
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 40)     email = db.Column(db.String(150), unique=True)  # 150 chars max, must be unique
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 41)     password = db.Column(db.String(150))
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 42)     name = db.Column(db.String(150))
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 43)     # List of created schedules
+b96bb182 (tdehoff1          2024-09-22 23:46:26 -0400 44)     schedules = db.relationship('Schedule')
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400  1) # Backend for routes to other pages
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400  2) 
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400  3) from flask import Blueprint, render_template, request, flash, jsonify
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400  4) from flask_login import login_required, current_user
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400  5) from .models import Schedule
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400  6) from . import db
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400  7) import json
+7b06dea5 (tdehoff1 2024-09-22 18:29:29 -0400  8) 
+7b06dea5 (tdehoff1 2024-09-22 18:29:29 -0400  9) views = Blueprint('views', __name__)
+7b06dea5 (tdehoff1 2024-09-22 18:29:29 -0400 10) 
+7b06dea5 (tdehoff1 2024-09-22 18:29:29 -0400 11) @views.route('/')
+7b06dea5 (tdehoff1 2024-09-22 18:29:29 -0400 12) def home():
+794d29bc (tdehoff1 2024-09-25 21:54:08 -0400 13)     return render_template("welcome.html", user=current_user)
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 14) 
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 15) @views.route('/main', methods=['GET', 'POST'])
+794d29bc (tdehoff1 2024-09-25 21:54:08 -0400 16) @login_required                   # can only be accessed if user is logged in
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 17) def main():
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 18)     if request.method == 'POST':
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 19)         schedule = request.form.get('schedule')
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 20)         
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 21)         if len(schedule) < 1:
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 22)             flash('Nothing added.', category='error')
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 23)         else:
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 24)             new_schedule = Schedule(data=schedule, user_id = current_user.id)
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 25)             db.session.add(new_schedule)
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 26)             db.session.commit()
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 27)             flash('Schedule added!', category='success')
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 28) 
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 29)     return render_template("main.html", user=current_user)
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 30) 
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 31) @views.route('/delete-schedule', methods=['POST'])
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 32) def delete_schedule():
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 33)     schedule = json.loads(request.data)
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 34)     scheduleId = schedule['scheduleId']
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 35)     schedule = Schedule.query.get(scheduleId)
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 36)     if schedule:
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 37)         if schedule.user_id == current_user.id:
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 38)             db.session.delete(schedule)
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 39)             db.session.commit()
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 40)     
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 41)     return jsonify({})
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 17) function deleteSchedule(scheduleId) {
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 18)     fetch('/delete-schedule', {
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 19)         method: 'POST',
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 20)         body: JSON.stringify({ scheduleId: scheduleId})
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 21)     }).then((_res) => {
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 22)         window.location.href = "/main";
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 23)     })
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400  2) 
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400  3) <!DOCTYPE html>
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400  4) <html lang="en">
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400  5)     <head>
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400  6)         <meta charset="UTF-8">
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400  7)         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400  8)         <title>{% block title %}UTK Class Scheduling Assistant{% endblock %}</title>
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400  9)         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400 12)         <script src="https://kit.fontawesome.com/ee94e7919e.js" crossorigin="anonymous"></script>
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400 13)         <link rel="preconnect" href="https://fonts.googleapis.com">
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400 14)         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400 15)         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400 16)     </head>
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400 17)     <body>
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400 19)         <nav class="navbar">
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400 20)             <div class="navbar__container">
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400 45)             </div>
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400 46)         </nav>
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 47) 
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 50)         {% with messages = get_flashed_messages(with_categories=true) %}
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 51)             {% if messages %}
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 52)                 {% for category, message in messages %}
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 53)                     {% if category == 'error' %}
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 54)                         <div class="alert alert-danger alter-dismissable fade show" role="alert">
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 55)                             {{ message }}
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 56)                             <button type="button" class="close" data-dismiss="alert">
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 57)                                 <span aria-hidden="true">&times;</span>
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 58)                             </button>
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 59)                         </div>
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 60)                     {% else %}
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 61)                         <div class="alert alert-success alter-dismissable fade show" role="alert">
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 62)                             {{ message }}
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 63)                             <button type="button" class="close" data-dismiss="alert">
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 64)                                 <span aria-hidden="true">&times;</span>
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 65)                             </button>
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 66)                         </div>
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 67)                     {% endif %}
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 68)                 {% endfor %}
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 69)             {% endif %}
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 70)         {% endwith %}
+b96bb182 (tdehoff1 2024-09-22 23:46:26 -0400 71) 
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400 73)         <div class="container">
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400 74)             {% block content %}
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400 75)             {% endblock %}
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400 76)         </div>
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 79)         <script
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 80)             type="text/javascript"
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 81)             src="{{ url_for('static', filename='index.js') }}"
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 82)         ></script>
+ae90b3ae (tdehoff1 2024-09-23 00:36:02 -0400 83) 
+23548c01 (tdehoff1 2024-09-22 20:12:55 -0400 84)     </body>
