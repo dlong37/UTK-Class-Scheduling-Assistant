@@ -34,7 +34,7 @@
     height: 50px;
     z-index: 1;
     width: 100%;
-    max-width: 1300px;
+    max-width: 1600px;
     margin: 0;
     padding: 0 20px;
 }
@@ -67,11 +67,12 @@
     list-style: none;
     text-align: center;
     margin-left: auto;
+    padding: 0;
 }
 
 .navbar__item {
     height: 80px;
-    margin: 0 20px;
+    margin: 0 15px;
 }
 
 .navbar__links {
@@ -80,8 +81,9 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    padding: 0 1rem;
+    padding: 0;
     height: 100%;
+    font-size: 1.5rem;
 }
 
 .navbar__btn {
@@ -90,6 +92,7 @@
     align-items: center;
     padding: 0 1rem;
     width: 100%;
+    font-size: 1.5rem;
 }
 
 .button {
