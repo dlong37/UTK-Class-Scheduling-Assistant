@@ -1,3 +1,4 @@
+eecs_courses.csv
 89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 137) COSC,101,Introduction to Programming,3,none,none,none,1430-1545,TR,DOU,none,none,none
 89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 138) COSC,101,Introduction to Programming,3,none,none,none,1430-1545,TR,WAB,none,none,none
 89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 139) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,0800-0850,F,MKB
@@ -78,6 +79,8 @@
 89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 214) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,0910-1000,MWF,ZEC,1430-1545,TR,ZEC
 89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 215) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1020-1110,MWF,ZEC,1430-1545,TR,ZEC
 89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 216) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+
+README.md
 a6320d23 (Lexy Andershock 2024-10-02 08:52:17 -0400  1) ## Notes for the CSV Files ##
 a6320d23 (Lexy Andershock 2024-10-02 08:52:17 -0400  2) Utilized the Fall '22 and Spring '23 course catalogs<br />
 a6320d23 (Lexy Andershock 2024-10-02 08:52:17 -0400  3) LcTime or LaTime of 0000-0000 denotes an online class<br />
@@ -99,6 +102,8 @@ aa18670f (Lexy Andershock 2024-10-02 08:56:55 -0400 16) </ol>
 5e7ba3c7 (Lexy Andershock 2024-10-02 09:00:41 -0400 19) '-' : any course in this sequence<br />
 5e7ba3c7 (Lexy Andershock 2024-10-02 09:00:41 -0400 20) '|' : or (pick one in the sequence) <br />
 5e7ba3c7 (Lexy Andershock 2024-10-02 09:00:41 -0400 21) '&' : and (need both for the sequence)<br />
+
+read_data.cpp
 6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400   1) #include <iostream>
 6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400   2) #include <string>
 6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400   3) #include <iomanip>
