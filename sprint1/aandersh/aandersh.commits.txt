@@ -1,1 +1,5 @@
+- read_data.cpp: UTK-Class-Scheduling-Assistant/sprint1/backend/courses_generator/read_data.cpp
 
+- eecs.csv: UTK-Class-Scheduling-Assistant/sprint1/backend/courses_generator/eecs_courses.csv
+
+- README.md: UTK-Class-Scheduling-Assistant/sprint1/backend/courses_generator/README.md
