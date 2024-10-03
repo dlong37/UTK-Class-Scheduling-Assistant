@@ -25,7 +25,7 @@ I had problems when it came to designing the website through CSS, mainly figurin
 #### Designing the Welcome Page on Frontend
 * UTK-Class-Scheduling-Assistant/sprint1/frontend/welcome/welcome.html
 * UTK-Class-Scheduling-Assistant/sprint1/frontend/welcome/styles.css
-* UTK-Class-Scheduling-Assistant/sprint1/frontend/welcome/script.js
+* UTK-Class-Scheduling-Assistant/sprint1/frontend/welcome/app.js
 
 ## What I Accomplished
 I was able to accomplish producing an aesthetically pleasing welcome page for the user to first see when they access our website, along with incorporating some functionality with buttons to direct users to different pages in our website.
