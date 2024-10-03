@@ -10,6 +10,9 @@
                 <p>Click here to get started!</p>
                 <button class="welcome__btn"><a href="/login">Get Started</a></button>
             </div>
+            <div class="welcome__img--container">
+                <img src="{{ url_for('static', filename='images/welcome_selection.svg') }}" alt="pic" id="selection__img">
+            </div>
         </div>
      </div>
 
@@ -35,4 +38,5 @@
             </div>
         </div>
       </div>
+
       {% endblock %}

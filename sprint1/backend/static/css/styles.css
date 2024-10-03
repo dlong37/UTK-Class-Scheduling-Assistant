@@ -1,11 +1,16 @@
 /*
+ * styles.css
+ 
  * UTK COLORS!
  * Tennessee Orange: #ff8200
  * White: #fff;
  * Smokey Gray: #4b4b4b
- *
  */
 
+/* 
+ * Global Styles
+ * Applies to all elements (*) to reset margins and paddings,
+ */
 * {
     margin: 0;
     padding: 0;
@@ -13,39 +18,318 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* 
+ * Removes the outline from focused elements 
+ * to eliminate the default focus ring.
+ */
 *:focus {
     outline: none;
 }
 
+/* 
+ * Navigation Bar Styles
+ * Styles the main navbar container.
+ */
+.navbar {
+    background: #4b4b4b;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+}
+
+/* 
+ * Navbar Container
+ * Ensures the content within the navbar is properly aligned and spaced.
+ */
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    z-index: 1;
+    width: 100%;
+    margin: 0;
+    padding: 0 20px;
+}
+
+/* 
+ * Navbar Logo
+ * Styles the logo with a Tennessee Orange to White gradient.
+ * Uses background-clip and text-fill to create a gradient text effect.
+ */
+#navbar__logo {
+    background-color: #ff8200;
+    background-image: linear-gradient(to top, #fff 0%, #ff8200 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: left;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+/* 
+ * Navbar Image
+ * Styles the image within the navbar logo.
+ */
+#nav__img {
+    margin-right: 0.5rem;
+    height: 10%;
+    width: 10%;
+}
+
+/* 
+ * Navbar Menu
+ * Styles the navigation links container.
+ */
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+    margin-left: auto;
+    padding: 0;
+}
+
+/* 
+ * Navbar Item
+ * Styles individual navigation items.
+ */
+.navbar__item {
+    height: 80px;
+    margin: 0 15px;
+}
+
+/* 
+ * Navbar Links
+ * Styles the actual links within the navbar.
+ */
+.navbar__links {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0;
+    height: 100%;
+    font-size: 1.5rem;
+}
+
+/* 
+ * Navbar Button Container
+ * Styles the container for buttons within the navbar.
+ */
+.navbar__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+/* 
+ * Button Styles
+ * Styles generic buttons with Tennessee Orange background and white text.
+ */
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #ff8200;
+    color: #fff;
+}
+
+/* 
+ * Button Hover Effect
+ * Changes the button background to Smokey Gray on hover with a smooth transition.
+ */
+.button:hover {
+    background: #141414;
+    transition: all 0.3s ease;
+}
+
+/* 
+ * Navbar Links Hover Effect
+ * Changes the link color to Tennessee Orange on hover with a smooth transition.
+ */
+.navbar__links:hover {
+    color: #ff8200;
+    transition: all 0.3s ease;
+}
+
+/* 
+ * Responsive Styles for Screens with Max Width 960px
+ * Adjusts the navbar and other components for smaller screens.
+ */
+@media screen and (max-width: 960px) {
+    .navbar__container {
+        justify-content: space-between;
+        height: 50px;
+        z-index: 1;
+        width: 100%;
+        max-width: 1300px;
+        padding: 0;
+    }
+
+    #nav__img {
+        display: flex;
+        margin-left: 1rem;
+        width: 10%;
+    }
+
+    /* 
+     * Navbar Menu for Mobile
+     * Initially hidden and positioned off-screen.
+     * Becomes visible when the 'active' class is added.
+     */
+    .navbar__menu {
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: -1000px;
+        opacity: 0;
+        transition: all 0.5s ease;
+        height: 50vh;
+        z-index: -1;
+        background: #131313;
+    }
+
+    /* 
+     * Active Navbar Menu
+     * Slides the menu into view when active.
+     */
+    .navbar__menu.active {
+        background: #131313;
+        top: 100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 99;
+        height: 50vh;
+        font-size: 1.6rem;
+    }
+
+    /* 
+     * Navbar Toggle Bars
+     * Styles the hamburger menu icon.
+     */
+    .navbar__toggle .bar {
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: #fff;
+    }
+
+    /* 
+     * Navbar Item Full Width
+     * Makes navbar items span the full width on mobile.
+     */
+    .navbar__item {
+        width: 100%;
+    }
+
+    /* 
+     * Navbar Links for Mobile
+     * Centers the links and adds padding for touch-friendly spacing.
+     */
+    .navbar__links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    /* 
+     * Mobile Menu Positioning
+     * Positions the mobile menu toggle button.
+     */
+    #mobile-menu {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+
+    /* 
+     * Navbar Button Adjustment for Mobile
+     * Adds padding at the bottom of the navbar button container.
+     */
+    .navbar_btn {
+        padding-bottom: 2rem;
+    }
+
+    /* 
+     * Button Adjustment for Mobile
+     * Reduces the button size and removes margins.
+     */
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 80px;
+        margin: 0;
+    }
+
+    /* 
+     * Navbar Toggle Bars Display
+     * Ensures the bars are visible and clickable.
+     */
+    .navbar__toggle .bar {
+        display: block;
+        cursor: pointer;
+    }
+
+    /* 
+     * Mobile Menu Active State
+     * Animates the hamburger icon into an 'X' when active.
+     */
+    #mobile-menu.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    #mobile-menu.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* 
+ * Body Styles
+ * Applies a linear gradient background to the entire page.
+ */
 body {
     background-image: linear-gradient(to top, rgba(255, 255, 255, 0.75), rgba(255, 130, 0, 0.75));
 }
 
-/* body {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(to bottom, #ff8200, #ffffff);
-    font-family: sans-serif;
-} */
-
-/* .bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #4b4b4b;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 32px;
-} */
-
-/* Form Styles */
+/* 
+ * Form Styles
+ * Styles for form containers, inputs, and buttons.
+ */
 .form {
     opacity: 0;
     transform: translateY(100px);
@@ -61,26 +345,38 @@ body {
     width: 100%;
     max-width: 600px;
     padding: 20px;
-    background-color: #fff; /* Set the background color inside the form */
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: 15px solid transparent; /* Transparent border for the gradient */
-    border-image: linear-gradient(to top, #fff, #ff8200) 1; /* Apply the gradient as the border */
+    border: 15px solid transparent;
+    border-image: linear-gradient(to top, #fff, #ff8200) 1;
 }
 
+/* 
+ * Show Class for Forms
+ * Reveals the form with a fade-in and slide-up effect.
+ */
 .form.show {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* 
+ * Heading Styles
+ * Styles for headings within the form.
+ */
 .heading {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 25px;
-    color: #333;
+    color: #333; /* Dark gray text */
     transition: all 0.3s ease;
 }
 
+/* 
+ * Input and Submit Button Styles
+ * Styles for input fields and submit buttons within the form.
+ */
 input, .submit-button {
     opacity: 0;
     transform: translateY(50px);
@@ -96,11 +392,19 @@ input, .submit-button {
     padding: 15px;
 }
 
+/* 
+ * Show Class for Inputs and Buttons
+ * Reveals inputs and buttons with a fade-in and slide-up effect.
+ */
 input.show, .submit-button.show {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* 
+ * Input Focus and Button Hover Effects
+ * Enhances user interaction by changing styles on focus and hover.
+ */
 input:focus, .submit-button:hover {
     background-color: #fff;
     color: #000;
@@ -108,17 +412,27 @@ input:focus, .submit-button:hover {
     box-shadow: 0 0 8px rgba(255, 130, 0, 0.5);
 }
 
+/* 
+ * Submit Button Specific Styles
+ * Further styles specific to the submit button.
+ */
 .submit-button {
     width: auto;
     font-size: 1rem;
     background-color: #ff8200;
     padding: 0 32px;
-    color:#fff;
+    color: #fff;
     margin-top: 2rem;
     cursor: pointer;
     position: relative;
+    transition: all 0.35s;
+    outline: none;
 }
 
+/* 
+ * Link Styles
+ * Styles for link elements, typically used for navigation or additional options.
+ */
 .link {
     text-align: center;
     text-transform: capitalize;
@@ -128,43 +442,281 @@ input:focus, .submit-button:hover {
     font-size: 1rem;
 }
 
+/* 
+ * Link Hover Effect
+ * Changes link color to Tennessee Orange on hover.
+ */
 .link:hover {
     color: #ff8200;
 }
 
-/* Navigation Bar */
-/* .navbar {
-    background: #4b4b4b;
-    height: 80px;
+/* 
+ * Main Welcome Section Styles
+ * Styles for the welcome section of the homepage.
+ */
+.welcome {
+    background-image: linear-gradient(to top, #fff 0%, #ff8200);
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 999;
 }
 
-#navbar__logo {
+/* 
+ * Welcome Container
+ * Centers the content within the welcome section using CSS Grid.
+ */
+.welcome__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    height: 90vh;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+}
+
+/* 
+ * Welcome Content Headings
+ * Styles for headings within the welcome content.
+ */
+.welcome__content h1 {
+    font-size: 3rem;
+}
+
+.welcome__content h2 {
+    font-size: 2rem;
+}
+
+.welcome__content p {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+/* 
+ * Welcome Button Styles
+ * Styles for buttons within the welcome section.
+ */
+.welcome__btn {
+    font-size: 1rem;
     background-color: #ff8200;
-    background-image: linear-gradient(to top, #fff 0%, #ff8200 100%);
-    background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 2rem;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #4b4b4b;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s;
+    outline: none;
 }
 
-#nav__img {
-    margin-right: 0.5rem;
-    height: 10%;
-    width: 10%;
-} */
+/* 
+ * Welcome Button Link Styles
+ * Ensures links within buttons are properly positioned and styled.
+ */
+.welcome__btn a {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-decoration: none;
+}
 
-/* Main Welcome Section */
+/* 
+ * Welcome Button After Pseudo-Element
+ * Creates a gradient overlay effect on the button.
+ */
+.welcome__btn:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #4b4b4b;
+    transition: all 0.35s;
+    border-radius: 4px;
+}
 
+/* 
+ * Welcome Button Hover Effect
+ * Changes the button text color to white on hover.
+ */
+.welcome__btn:hover {
+    color: #fff;
+}
+
+/* 
+ * Welcome Button After Hover Effect
+ * Expands the overlay to cover the entire button on hover.
+ */
+.welcome__btn:hover:after  {
+    width: 100%;
+}
+
+/* 
+ * Welcome Image Container
+ * Centers the image within the welcome section.
+ */
+.welcome__img--container {
+    text-align: center;
+}
+
+/* 
+ * Welcome Image Styles
+ * Sets the image dimensions within the welcome section.
+ */
+#selection__img {
+    height: 100%;
+    width: 100%;
+}
+
+/* 
+ * About Section Styles
+ * Styles for the about section of the website.
+ */
+.about {
+    background-image: linear-gradient(to bottom, #fff 0%, #ff8200);
+    padding: 20px;
+    margin-top: 20px;
+    min-height: 100vh;
+}
+
+/* 
+ * About Container
+ * Centers and aligns the content within the about section.
+ */
+.about__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    height: 90vh;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+}
+
+/* 
+ * About Content Headings
+ * Styles for headings within the about content.
+ */
+.about__content h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.about__content p {
+    margin-top: 1rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* 
+ * Responsive Styles for Screens with Max Width 768px
+ * Adjusts the welcome and about sections for medium-sized screens.
+ */
+@media screen and (max-width: 768px) {
+    .welcome__container {
+        display: grid;
+        grid-template-columns: auto;
+        align-items: center;
+        justify-self: center;
+        width: 100%;
+        margin: 0 auto;
+        height: 90vh;
+        padding: 20px;
+    }
+
+    .welcome__content {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .welcome__content h1 {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .welcome__content h2 {
+        font-size: 3rem;
+    }
+
+    .welcome__content p {
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+
+    /* 
+     * About Section Adjustments for Medium Screens
+     * Increases the height and adds padding.
+     */
+    .about {
+        height: 2200px;
+    }
+
+    .about__container {
+        margin-top: 20px;
+        padding: 20px;
+    }
+
+    .about__content h1 {
+        font-size: 2rem;
+        margin-top: 20rem;
+    }
+
+    .about__content p {
+        font-size: 1.5rem;
+    }
+}
+
+/* 
+ * Responsive Styles for Screens with Max Width 480px
+ * Further adjusts the welcome and about sections for small screens.
+ */
+@media screen and (max-width: 480px) {
+    .welcome__content h1 {
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+
+    .welcome__content h2 {
+        font-size: 1.5rem;
+    }
+
+    .welcome__content p {
+        margin-top: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .welcome__btn {
+        padding: 12px 36px;
+        margin: 2.5rem 0;
+    }
+
+    .about {
+        height: 1400px;
+        margin-top: 200rem;
+    }
+
+    .about__container {
+        margin-top: 20rem;
+    }
+
+    .about__content h1 {
+        font-size: 0.5rem;
+    }
+
+    .about__content p {
+        font-size: 0.25rem;
+    }
+}
