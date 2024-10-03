@@ -1,5 +1,218 @@
-- read_data.cpp: UTK-Class-Scheduling-Assistant/sprint1/backend/courses_generator/read_data.cpp
-
-- eecs.csv: UTK-Class-Scheduling-Assistant/sprint1/backend/courses_generator/eecs_courses.csv
-
-- README.md: UTK-Class-Scheduling-Assistant/sprint1/backend/courses_generator/README.md
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 137) COSC,101,Introduction to Programming,3,none,none,none,1430-1545,TR,DOU,none,none,none
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 138) COSC,101,Introduction to Programming,3,none,none,none,1430-1545,TR,WAB,none,none,none
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 139) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,0800-0850,F,MKB
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 140) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,0900-0950,F,MKB
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 141) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1100-1150,F,MKB
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 142) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1200-1250,F,MKB
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 143) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1300-1350,F,MKB
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 144) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1200-1250,W,MKB
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 145) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1300-1350,W,MKB
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 146) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1400-1450,W,MKB
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 147) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,0810-0925,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 148) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 149) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1120-1235,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 150) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1255-1410,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 151) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1430-1545,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 152) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1605-1720,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 153) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,0810-0925,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 154) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,0945-1100,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 155) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1120-1235,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 156) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1255-1410,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 157) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1430-1545,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 158) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1605-1720,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 159) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,0810-0925,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 160) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 161) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 162) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 163) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1605-1720,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 164) COSC,401,Senior Design Theory,2,OC,COSC 360,none,1130-1220,MWF,SRF,none,none,none
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 165) COSC,360,Systems Programming,4,none,COSC 302-COSC 230-ECE 256,none,1255-1410,TR,MKB,1130-1220,M,MKB
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 166) COSC,360,Systems Programming,4,none,COSC 302-COSC 230-ECE 256,none,1255-1410,TR,MKB,1240-1330,M,MKB
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 167) COSC,360,Systems Programming,4,none,COSC 302-COSC 230-ECE 256,none,1255-1410,TR,MKB,1350-1440,M,MKB
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 168) COSC,360,Systems Programming,4,none,COSC 302-COSC 230-ECE 256,none,1255-1410,TR,MKB,1500-1550,M,MKB
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 169) COSC,360,Systems Programming,4,none,COSC 302-COSC 230-ECE 256,none,1255-1410,TR,MKB,1610-1700,M,MKB
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 170) COSC,366,Introduction to Cybersecurity,3,none,COSC 302-COSC 230-ECE 256,none,0810-0925,TR,MKB,none,none,none
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 171) COSC,361,Operating Systems,3,none,COSC 360,none,0910-1000,MWF,MKB,none,none,none
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 172) COSC,365,Programming Languages and Systems,3,none,COSC 302,none,1350-1440,MWF,MKB,none,none,none
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 173) COSC,395,Junior Seminar,1,WC,COSC 302-ENGL 102-ENGL 132-ENGL 290-ENGL 298,none,1240-1330,W,MKB,none,none,none
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 174) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1350-1440,MWF,ZEC,1120-1235,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 175) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1350-1440,MWF,ZEC,1255-1410,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 176) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1350-1440,MWF,ZEC,1430-1545,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 177) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1350-1440,MWF,ZEC,1605-1720,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 178) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1240-1330,MWF,ZEC,1120-1235,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 179) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1240-1330,MWF,ZEC,1255-1410,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 180) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1240-1330,MWF,ZEC,1430-1545,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 181) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1240-1330,MWF,ZEC,1605-1720,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 182) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 183) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 184) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,0945-1100,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 185) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 186) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1120-1235,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 187) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1120-1235,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 188) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 189) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1255-1410,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 190) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1255-1410,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 191) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1255-1410,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 192) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1430-1545,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 193) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1430-1545,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 194) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 195) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1605-1720,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 196) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1605-1720,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 197) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1605-1720,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 198) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 199) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 200) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1130-1220,MWF,ZEC,1255-1410,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 201) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 202) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1240-1330,MWF,ZEC,0945-1100,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 203) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1240-1330,MWF,ZEC,1120-1235,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 204) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1240-1330,MWF,ZEC,1255-1410,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 205) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 206) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1020-1110,MWF,ZEC,0945-1100,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 207) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,0910-1000,MWF,ZEC,1120-1235,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 208) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1020-1110,MWF,ZEC,1120-1235,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 209) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,0910-1000,MWF,ZEC,1255-1410,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 210) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1020-1110,MWF,ZEC,1255-1410,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 211) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 212) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 213) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1130-1220,MWF,ZEC,1255-1410,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 214) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,0910-1000,MWF,ZEC,1430-1545,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 215) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1020-1110,MWF,ZEC,1430-1545,TR,ZEC
+89b31610 sprint1/backend/courses_generator/eecs_courses.csv (Lexy Andershock 2024-10-03 11:59:27 -0400 216) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+a6320d23 (Lexy Andershock 2024-10-02 08:52:17 -0400  1) ## Notes for the CSV Files ##
+a6320d23 (Lexy Andershock 2024-10-02 08:52:17 -0400  2) Utilized the Fall '22 and Spring '23 course catalogs<br />
+a6320d23 (Lexy Andershock 2024-10-02 08:52:17 -0400  3) LcTime or LaTime of 0000-0000 denotes an online class<br />
+a6320d23 (Lexy Andershock 2024-10-02 08:52:17 -0400  4) location = none means there is no specific location for this course<br />
+a6320d23 (Lexy Andershock 2024-10-02 08:52:17 -0400  5) 
+a6320d23 (Lexy Andershock 2024-10-02 08:52:17 -0400  6) ### Promotions ###
+a6320d23 (Lexy Andershock 2024-10-02 08:52:17 -0400  7) Some courses have equivalents (such as normal and honors courses), so we would promote all equivalent courses to one certain course code and abbreviation, listed below.<br />
+a6320d23 (Lexy Andershock 2024-10-02 08:52:17 -0400  8) 
+a6320d23 (Lexy Andershock 2024-10-02 08:52:17 -0400  9) STANDARD = EQUIVALENT<br />
+aa18670f (Lexy Andershock 2024-10-02 08:56:55 -0400 10) <ol>
+aa18670f (Lexy Andershock 2024-10-02 08:56:55 -0400 11)   <li>COSC 302 = 307</li>
+aa18670f (Lexy Andershock 2024-10-02 08:56:55 -0400 12)   <li>MATH 141 = 147 = 132</li>
+aa18670f (Lexy Andershock 2024-10-02 08:56:55 -0400 13)   <li>MATH 142 = 148</li>
+aa18670f (Lexy Andershock 2024-10-02 08:56:55 -0400 14)   <li>COSC 311 = 317</li>
+aa18670f (Lexy Andershock 2024-10-02 08:56:55 -0400 15)   <li>COSC 360 = 367</li>
+aa18670f (Lexy Andershock 2024-10-02 08:56:55 -0400 16) </ol>
+10162bcd (Lexy Andershock 2024-10-02 08:59:45 -0400 17) 
+10162bcd (Lexy Andershock 2024-10-02 08:59:45 -0400 18) ### Notations ###
+5e7ba3c7 (Lexy Andershock 2024-10-02 09:00:41 -0400 19) '-' : any course in this sequence<br />
+5e7ba3c7 (Lexy Andershock 2024-10-02 09:00:41 -0400 20) '|' : or (pick one in the sequence) <br />
+5e7ba3c7 (Lexy Andershock 2024-10-02 09:00:41 -0400 21) '&' : and (need both for the sequence)<br />
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400   1) #include <iostream>
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400   2) #include <string>
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400   3) #include <iomanip>
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400   4) #include <fstream>
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400   5) #include <sstream>
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400   6) #include <vector>
+b20208f6 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 14:31:34 -0400   7) #include <set>
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400   8) using namespace std;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400   9) 
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  10) class course {
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  11)     public:
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  12)         string abbrv;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  13)         int num;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  14)         string title;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  15)         int hours;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  16)         string attributes;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  17)         string pre_req;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  18)         string co_req;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  19)         string lec_time;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  20)         string lec_date;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  21)         string lec_loc;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  22)         string lab_time;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  23)         string lab_date;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  24)         string lab_loc;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  25) };
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  26) 
+c5538602 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 15:00:04 -0400  27) // coordinates for class locations
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  48) int main(int argc, char** argv) {
+54582771 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 15:09:24 -0400  50)     // argument checking
+0e144112 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 15:23:40 -0400  60)     // files streams + string buffer
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  61)     ifstream file; 
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  62)     string line;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  63) 
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  64)     // make vector that can hold class type course
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  65)     vector<course> course_vector;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  66)     course my_course;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  67) 
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  71)     if(!file.is_open()) {
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  74)         return 1;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  75)     }
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  76) 
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  77)     // Skip formatting string
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  78)     getline(file, line);
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  79)     while (getline(file, line)) { // get whole line
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  80)         int i = 0;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  81)         stringstream ss(line);
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  82)         while (getline(ss, line, ',')) { // separate by commas
+0e144112 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 15:23:40 -0400  83)             // using i to keep track of the number of attributes we've read in,
+0e144112 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 15:23:40 -0400  84)             // switch to read into the right properties
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  85)             switch (i) {
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  86)                 case(0):
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  87)                     my_course.abbrv = line;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  88)                     break;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  89)                 case(1):
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  90)                     my_course.num = stoi(line);
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  91)                     break;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  92)                 case(2):
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  93)                     my_course.title = line;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  94)                     break;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  95)                 case(3):
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  96)                     my_course.hours = stoi(line);
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  97)                     break;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  98)                 case(4):
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400  99)                     my_course.attributes = line;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 100)                     break;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 101)                 case(5):
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 103)                     break;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 104)                 case(6):
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 106)                     break;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 107)                 case(7):
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 108)                     my_course.lec_time = line;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 109)                     break;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 110)                 case(8):
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 111)                     my_course.lec_date = line;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 112)                     break;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 113)                 case(9):
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 114)                     my_course.lec_loc = line;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 115)                     break;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 116)                 case(10):
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 117)                     my_course.lab_time = line;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 118)                     break;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 119)                 case(11):
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 120)                     my_course.lab_date = line;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 121)                     break;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 122)                 case(12):
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 123)                     my_course.lab_loc = line;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 124)                     break;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 125)                 default:
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 126)                     cout << "error" << endl;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 127)                     return 1;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 128)             }
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 129)             i++; 
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 130)             if (i == 13) {
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 131)                 course_vector.push_back(my_course);
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 132)                 i = 0;
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 133)             }
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 134)         }
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 135)     }
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 164) 
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 172)     file.close();
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 173) 
+0e144112 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 15:23:40 -0400 197)     // create a set so duplicates are removed and classes are sorted alphabetically
+b20208f6 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 14:31:34 -0400 198)     set<string> taken_set;
+b20208f6 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 14:31:34 -0400 200)         taken_set.insert(taken_vector[i]);
+6e6c2fb0 sprint1/backend/bst/read_data.cpp               (Lexy Andershock 2024-09-28 16:45:08 -0400 201)     }
+0e144112 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 15:23:40 -0400 203)     // print inside the set
+b20208f6 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 14:31:34 -0400 204)     set<string>::iterator it = taken_set.begin();
+b20208f6 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 14:31:34 -0400 205)     while (it != taken_set.end()) {
+b20208f6 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 14:31:34 -0400 206)         if (*it == "none") {
+b20208f6 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 14:31:34 -0400 207)             it = taken_set.erase(it);
+b20208f6 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 14:31:34 -0400 208)         } 
+b20208f6 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 14:31:34 -0400 209)         else {
+b20208f6 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 14:31:34 -0400 210)             cout << *it << endl;
+b20208f6 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 14:31:34 -0400 211)             ++it;
+b20208f6 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 14:31:34 -0400 212)         }
+b20208f6 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 14:31:34 -0400 213)     }
+1c53aeb3 sprint1/backend/courses_generator/read_data.cpp (Lexy Andershock 2024-10-02 15:08:41 -0400 214) }
