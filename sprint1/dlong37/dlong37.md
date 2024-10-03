@@ -19,7 +19,7 @@ I had problems when it came to designing the website through CSS, mainly figurin
 
 ## Issues I Worked On
 * [#1](https://github.com/utk-cs340-fall24/UTK-Class-Scheduling-Assistant/issues/1): Fix frontend for home, login, register.
-* [#2](https://github.com/utk-cs340-fall24/UTK-Class-Scheduling-Assistant/issues/5): Develop frontend for the main page.
+* [#5](https://github.com/utk-cs340-fall24/UTK-Class-Scheduling-Assistant/issues/5): Develop frontend for the main page.
 
 ## Files I Worked On
 #### Designing the Welcome Page on Frontend
