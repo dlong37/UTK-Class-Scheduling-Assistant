@@ -1,12 +1,15 @@
-<!-- Here we reuse code from base.html, adding new title and page content -->
+<!-- We reuse code from base.html, adding new title and page content -->
 
 {% extends "base.html" %}
+
 <title>{% block title %}Register{% endblock %}</title>
 
 {% block content %}
     <form method="POST">
+        <!-- register Form -->
         <div class="form">
             <h1 class="heading">Register</h1>
+            <!-- require name, email, and password -->
             <input type="text" placeholder="Name" name="name" autocomplete="off" class="name" required>
             <input type="email" name="email" placeholder="Email" autocomplete="off" class="email" required>
             <input type="password" name="password" placeholder="Password" autocomplete="off" class="password" required>

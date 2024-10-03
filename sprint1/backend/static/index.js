@@ -1,3 +1,19 @@
+/*
+ * index.js
+ *
+ * button clicks
+ */
+const menu = document.querySelector('#mobile-menu');
+const menuLinks = document.querySelector('.navbar__menu');
+
+menu.addEventListener('click', function() {
+    menu.classList.toggle('is-active');
+    menuLinks.classList.toggle('active');
+})
+
+/*
+ * deletes schedules from main page
+ */
 function deleteSchedule(scheduleId) {
     fetch('/delete-schedule', {
         method: 'POST',
@@ -7,6 +23,9 @@ function deleteSchedule(scheduleId) {
     })
 }
 
+/*
+ * stagger animation for login/register forms
+ */
 window.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.form');
     const formElements = document.querySelectorAll('.form input, .form .submit-button');
@@ -22,7 +41,9 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Add keypress listener for "Enter" key on the password field
+/*
+ * adds "enter" keypress listener to submit login/register forms
+ */
 document.querySelector('.password').addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         document.querySelector('.submit-button').click();
