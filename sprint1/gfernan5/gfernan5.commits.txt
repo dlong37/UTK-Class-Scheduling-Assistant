@@ -1,0 +1,316 @@
+read_data.cpp:
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  28) const pair<double, double> APBcoord(35.95716565313402, -83.92699933505531);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  29) const pair<double, double> AYRcoord(35.95743065274119, -83.92592513641416);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  30) const pair<double, double> BECcoord(35.954316260640674, -83.92782712008297);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  31) const pair<double, double> BEOcoord(35.9481784481985, -83.94013149194797);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  32) const pair<double, double> DOUcoord(35.95775693538045, -83.92407556241893);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  33) const pair<double, double> HBBcoord(35.95573323240885, -83.928646419472);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  34) const pair<double, double> HPRcoord(35.95188743870127, -83.93253301808525);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  35) const pair<double, double> HSScoord(35.953522436651596, -83.92881407748088);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  36) const pair<double, double> JHBcoord(35.95919575620802, -83.92617622801401);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  37) const pair<double, double> LIBcoord(35.95511512399242, -83.92976548040959);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  38) const pair<double, double> MKBcoord(35.95863732223823, -83.92463257032564);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  39) const pair<double, double> MOScoord(35.9588754345924, -83.92702442104134);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  40) const pair<double, double> PERcoord(35.95668833001991, -83.92406905123228);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  41) const pair<double, double> PHYcoord(35.95656376894459, -83.92551827131747);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  42) const pair<double, double> SRFcoord(35.95730762715489, -83.92475009354663);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  43) const pair<double, double> STRcoord(35.95768764248766, -83.93108382310751);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  44) const pair<double, double> TICcoord(35.95577153518418, -83.9226653536677);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  45) const pair<double, double> WABcoord(35.95693990352076, -83.92768208583665);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  46) const pair<double, double> ZECcoord(35.95569385908873, -83.92376342399506);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  47) 
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  49) 
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  51)     bool failed = false;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  52)     if(argc != 4) {
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  53)         failed = true;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  54)     }
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  55)     if(failed) {
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  56)         cerr << "usage: " << argv[0] << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  57)         return 1;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  58)     }
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  59) 
+245172af sprint1/backend/courses_generator/read_data.cpp (Gian            2024-10-02 23:01:05 -0400  68)     // open the available_courses file and error check opening
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  69)     string available_courses_file = argv[1];
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  70)     file.open(available_courses_file);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  72)         cerr << "error: cannot open " << available_courses_file << endl;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400  73)         cerr << "usage: " << argv[0] << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 102)                     my_course.pre_req = line;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 105)                     my_course.co_req = line;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 136)     file.close();
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 137) 
+245172af sprint1/backend/courses_generator/read_data.cpp (Gian            2024-10-02 23:01:05 -0400 138)     // open the major_courses file and error check opening
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 139)     string major_courses_file = argv[2];
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 140)     file.open(major_courses_file);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 141)     if(!file.is_open()) {
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 142)         cerr << "error: cannot open " << major_courses_file << endl;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 143)         cerr << "usage: " << argv[0] << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 144)         return 1;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 145)     }
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 146) 
+245172af sprint1/backend/courses_generator/read_data.cpp (Gian            2024-10-02 23:01:05 -0400 147)     // reads from the major courses into a vector that holds the strings
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 148)     vector<string> major_vector;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 149)     string major_course;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 150)     while(getline(file, line)) {
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 151)         major_course = line;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 152)         major_vector.push_back(major_course);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 153)     }
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 154)     file.close();
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 155) 
+245172af sprint1/backend/courses_generator/read_data.cpp (Gian            2024-10-02 23:01:05 -0400 156)     // open the taken_courses file and error check opening
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 157)     string taken_courses_file = argv[3];
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 158)     file.open(taken_courses_file);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 159)     if(!file.is_open()) {
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 160)         cerr << "error: cannot open " << taken_courses_file << endl;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 161)         cerr << "usage: " << argv[0] << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 162)         return 1;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 163)     }
+245172af sprint1/backend/courses_generator/read_data.cpp (Gian            2024-10-02 23:01:05 -0400 165)     // reads from the taken_courses file and saves them to a vector
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 166)     vector<string> taken_vector;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 167)     string taken_course;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 168)     while(getline(file, line)) {
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 169)         taken_course = line;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 170)         taken_vector.push_back(taken_course);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 171)     }
+245172af sprint1/backend/courses_generator/read_data.cpp (Gian            2024-10-02 23:01:05 -0400 174)     // expands the taken_courses vector to include all the pre reqs that are needed to get to a class in the taken_courses vector
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 175)     for(int i = 0; i < taken_vector.size(); i++) {
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 176)         string c = "";
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 177)         for(int j = 0; j < course_vector.size(); j++) {
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 178)             c = course_vector[j].abbrv + " " + to_string(course_vector[j].num);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 179)             if(c == taken_vector[i]) {
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 180)                 string cc = course_vector[j].pre_req;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 181)                 string ccc = "";
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 182)                 for(int k = 0; k < cc.size(); k++) {
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 183)                     if(cc[k] == '-') {
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 184)                         taken_vector.push_back(ccc);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 185)                         ccc.clear();
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 186)                     }
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 187)                     if(cc[k] != '-') {
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 188)                         ccc.push_back(cc[k]);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 189)                     }
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 190)                 }
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 191)                 taken_vector.push_back(ccc);
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 192)                 break;
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 193)             }
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 194)         }
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 195)     }
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 196) 
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 199)     for(int i = 0; i < taken_vector.size(); i++) {
+5d816836 sprint1/backend/bst/read_data.cpp               (Gian            2024-09-29 16:33:26 -0400 202) 
+
+major_courses.csv:
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400   1) Abbreviation,Number,Title,Hours,Attributes,Pre-Requisites/PotentialSequences,Co-Requisites,LcTime,LcDate,LcLocation,LaTime,LaDate,LaLocation
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400   2) MATH,131,Calculus 1A Infused with Precalculus,3,none,none,none,0800-0850,MWF,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400   3) MATH,131,Calculus 1A Infused with Precalculus,3,none,none,none,1610-1700,MWF,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400   4) MATH,131,Calculus 1A Infused with Precalculus,3,none,none,none,1500-1550,MWF,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400   5) MATH,131,Calculus 1A Infused with Precalculus,3,none,none,none,1350-1440,MWF,HPR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400   6) MATH,131,Calculus 1A Infused with Precalculus,3,none,none,none,1350-1440,MWF,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400   7) MATH,131,Calculus 1A Infused with Precalculus,3,none,none,none,1240-1330,MWF,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400   8) MATH,131,Calculus 1A Infused with Precalculus,3,none,none,none,1130-1220,MWF,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400   9) MATH,131,Calculus 1A Infused with Precalculus,3,none,none,none,1020-1110,MWF,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  10) MATH,131,Calculus 1A Infused with Precalculus,3,none,none,none,0910-1000,MWF,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  11) MATH,132,Calculus 1B Infused with Precalculus,3,QR,MATH 131,none,1500-1550,MWF,HBB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  12) MATH,132,Calculus 1B Infused with Precalculus,3,QR,MATH 131,none,1240-1330,MWF,HPR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  13) MATH,132,Calculus 1B Infused with Precalculus,3,QR,MATH 131,none,1130-1220,MWF,HBB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  14) MATH,141,Calculus I,4,QR,MATH 130,none,0800-0850,MWF,HSS,0810-0925,R,HSS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  15) MATH,141,Calculus I,4,QR,MATH 130,none,1500-1550,MWF,HSS,1605-1720,R,HSS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  16) MATH,141,Calculus I,4,QR,MATH 130,none,1350-1420,MWF,HSS,1430-1545,R,HSS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  17) MATH,141,Calculus I,4,QR,MATH 130,none,1350-1440,MWF,HSS,1430-1545,R,HSS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  18) MATH,141,Calculus I,4,QR,MATH 130,none,1240-1330,MWF,MKB,1255-1410,R,HSS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  19) MATH,141,Calculus I,4,QR,MATH 130,none,1240-1330,MWF,HSS,1255-1410,R,HSS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  20) MATH,141,Calculus I,4,QR,MATH 130,none,1130-1220,MWF,TIC,1120-1235,R,HSS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  21) MATH,141,Calculus I,4,QR,MATH 130,none,1130-1220,MWF,HSS,1120-1235,R,HSS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  22) MATH,141,Calculus I,4,QR,MATH 130,none,1020-1110,MWF,HSS,1120-1235,R,BAS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  23) MATH,141,Calculus I,4,QR,MATH 130,none,1020-1110,MWF,HSS,1120-1235,R,AYR
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  24) MATH,141,Calculus I,4,QR,MATH 130,none,0910-1000,MWF,HSS,0810-0925,R,HSS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  25) MATH,141,Calculus I,4,QR,MATH 130,none,0800-0850,MWF,PER,0810-0925,R,PER
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  26) MATH,141,Calculus I,4,QR,MATH 130,none,1610-1700,MWF,PER,1605-1720,R,HSS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  27) MATH,141,Calculus I,4,QR,MATH 130,none,1500-1550,MWF,PER,1430-1545,R,PER
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  28) MATH,141,Calculus I,4,QR,MATH 130,none,1350-1440,MWF,PER,1255-1410,R,PER
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  29) MATH,141,Calculus I,4,QR,MATH 130,none,1020-1110,MWF,PER,1255-1410,R,TIC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  30) MATH,141,Calculus I,4,QR,MATH 130,none,1240-1330,MWF,AYR,1255-1410,R,AYR
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  31) MATH,141,Calculus I,4,QR,MATH 130,none,1130-1220,MWF,AYR,1120-1235,R,PER
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  32) MATH,147,Honors: Calculus I,4,QR,MATH 130,none,1240-1330,MWF,ZEC,0810-0925,R,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  33) MATH,142,Calculus II,4,QR,MATH 141,none,0910-1000,MWF,PER,0810-0925,T,NEB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  34) MATH,142,Calculus II,4,QR,MATH 141,none,0910-1000,MWF,JHB,0810-0925,T,PER
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  35) MATH,142,Calculus II,4,QR,MATH 141,none,0910-1000,MWF,PER,0810-0925,T,HSS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  36) MATH,142,Calculus II,4,QR,MATH 141,none,1500-1550,MWF,PER,1605-1720,T,PER
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  37) MATH,142,Calculus II,4,QR,MATH 141,none,1500-1550,MWF,PHY,1605-1720,T,HSS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  38) MATH,142,Calculus II,4,QR,MATH 141,none,1130-1220,MWF,MKB,1120-1235,T,PER
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  39) MATH,142,Calculus II,4,QR,MATH 141,none,1500-1550,MWF,HSS,1605-1720,T,HSS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  40) MATH,142,Calculus II,4,QR,MATH 141,none,1350-1440,MWF,PER,1430-1545,T,MOS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  41) MATH,142,Calculus II,4,QR,MATH 141,none,1350-1440,MWF,BEO,1430-1545,T,BAS
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  42) MATH,142,Calculus II,4,QR,MATH 141,none,1350-1440,MWF,WAB,1430-1545,T,PER
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  43) MATH,142,Calculus II,4,QR,MATH 141,none,1240-1330,MWF,PER,1255-1410,T,PER
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  44) MATH,142,Calculus II,4,QR,MATH 141,none,1240-1330,MWF,JHB,1255-1410,T,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  45) MATH,142,Calculus II,4,QR,MATH 141,none,1020-1110,MWF,MKB,0945-1100,T,NEB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  46) MATH,142,Calculus II,4,QR,MATH 141,none,1020-1110,MWF,LIB,0945-1100,T,PER
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  47) MATH,142,Calculus II,4,QR,MATH 141,none,1130-1220,MWF,MKB,1120-1235,T,NEB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  48) MATH,142,Calculus II,4,QR,MATH 141,none,1350-1440,MWF,PER,1430-1545,T,PER
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  49) MATH,148,Honors: Calculus II,4,QR,MATH 147,none,1130-1220,MWF,HSS,0810-0925,T,AYR
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  50) MATH,251,Matrix Algebra I,3,none,MATH 142,none,1120-1235,TR,AYR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  51) MATH,251,Matrix Algebra I,3,none,MATH 142,none,1020-1110,MWF,AYR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  52) MATH,251,Matrix Algebra I,3,none,MATH 142,none,1130-1220,MWF,AYR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  53) MATH,251,Matrix Algebra I,3,none,MATH 142,none,1240-1330,MWF,AYR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  54) MATH,251,Matrix Algebra I,3,none,MATH 142,none,1350-1440,MWF,AYR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  55) MATH,251,Matrix Algebra I,3,none,MATH 142,none,0945-1100,TR,AYR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  56) MATH,251,Matrix Algebra I,3,none,MATH 142,none,1430-1545,TR,AYR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  57) MATH,251,Matrix Algebra I,3,none,MATH 142,none,1255-1410,TR,AYR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  58) COSC,230,Computer Organization,3,none,COSC 102,none,1120-1235,TR,MKB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  59) COSC,202,Data Structures and Algorithms I,4,none,COSC 102,none,1255-1410,TR,DOU,0800-0850,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  60) COSC,202,Data Structures and Algorithms I,4,none,COSC 102,none,1255-1410,TR,DOU,0910-1000,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  61) COSC,202,Data Structures and Algorithms I,4,none,COSC 102,none,1255-1410,TR,DOU,1020-1110,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  62) COSC,202,Data Structures and Algorithms I,4,none,COSC 102,none,1255-1410,TR,DOU,1130-1220,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  63) COSC,202,Data Structures and Algorithms I,4,none,COSC 102,none,1255-1410,TR,DOU,1240-1330,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  64) COSC,202,Data Structures and Algorithms I,4,none,COSC 102,none,1255-1410,TR,DOU,1350-1440,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  65) COSC,302,Data Structures and Algorithms II,4,none,COSC 202,none,1120-1235,TR,SRF,0800-0850,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  66) COSC,302,Data Structures and Algorithms II,4,none,COSC 202,none,1120-1235,TR,SRF,0910-1000,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  67) COSC,302,Data Structures and Algorithms II,4,none,COSC 202,none,1120-1235,TR,SRF,1020-1110,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  68) COSC,302,Data Structures and Algorithms II,4,none,COSC 202,none,1120-1235,TR,SRF,1130-1220,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  69) COSC,302,Data Structures and Algorithms II,4,none,COSC 202,none,1120-1235,TR,SRF,1240-1330,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  70) COSC,302,Data Structures and Algorithms II,4,none,COSC 202,none,1120-1235,TR,SRF,1350-1440,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  71) COSC,307,Honors: Data Structures and Algorithms II,4,none,COSC 202,none,1120-1235,TR,SRF,0800-0850,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  72) COSC,307,Honors: Data Structures and Algorithms II,4,none,COSC 202,none,1120-1235,TR,SRF,0910-1000,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  73) COSC,307,Honors: Data Structures and Algorithms II,4,none,COSC 202,none,1120-1235,TR,SRF,1020-1110,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  74) COSC,307,Honors: Data Structures and Algorithms II,4,none,COSC 202,none,1120-1235,TR,SRF,1130-1220,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  75) COSC,307,Honors: Data Structures and Algorithms II,4,none,COSC 202,none,1120-1235,TR,SRF,1240-1330,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  76) COSC,307,Honors: Data Structures and Algorithms II,4,none,COSC 202,none,1120-1235,TR,SRF,1350-1440,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  77) COSC,311,Discrete Structures,3,none,COSC 202-MATH 142,none,1430-1545,TR,MKB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  78) COSC,317,Honors: Discrete Structures,3,none,COSC 202-MATH 142,none,1430-1545,TR,MKB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  79) ECE,313,Probability and Random Variables,3,none,MATH 142,none,0800-0850,MWF,MKB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  80) ECE,317,Honors: Probability and Random Variables,3,none,MATH 142,none,0800-0850,MWF,MKB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  81) COSC,312,Algorithm Analysis and Automata,3,none,COSC 311,none,0945-1100,TR,MKB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  82) COSC,340,Software Engineering,3,none,COSC 302,none,0810-0925,TR,MKB,none,none,none
+243d3ebf sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:38:39 -0400  83) COSC,402,Senior Design Praticum,3,AOC,COSC 401-ENGL 102-ENGL 132-ENGL 290-ENGL 298,none,1130-1220,MWF,MOS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  84) ENGL,355,Rhetoric and Writing,3,WC,ENGL 102-ENGL 118-ENGL 132-ENGL 290-ENGL 298,none,0945-1100,TR,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  85) ENGL,355,Rhetoric and Writing,3,WC,ENGL 102-ENGL 118-ENGL 132-ENGL 290-ENGL 298,none,1130-1220,MWF,AYR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  86) ENGL,355,Rhetoric and Writing,3,WC,ENGL 102-ENGL 118-ENGL 132-ENGL 290-ENGL 298,none,1120-1235,TR,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  87) ENGL,360,Technical and Professional Writing,3,WC,ENGL 102-ENGL 118-ENGL 132-ENGL 290-ENGL 298,none,0000-0000,MTWRF,none,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  88) ENGL,360,Technical and Professional Writing,3,WC,ENGL 102-ENGL 118-ENGL 132-ENGL 290-ENGL 298,none,0810-0925,TR,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  89) ENGL,360,Technical and Professional Writing,3,WC,ENGL 102-ENGL 118-ENGL 132-ENGL 290-ENGL 298,none,0945-1100,TR,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  90) ENGL,101,English Composition I,3,WC,none,none,0800-0850,MWF,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  91) ENGL,101,English Composition I,3,WC,none,none,0910-1000,MWF,MKB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  92) ENGL,101,English Composition I,3,WC,none,none,0810-0925,TR,PER,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  93) ENGL,101,English Composition I,3,WC,none,none,0945-1100,TR,DOU,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  94) ENGL,101,English Composition I,3,WC,none,none,1020-1110,MWF,AYR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  95) ENGL,101,English Composition I,3,WC,none,none,1130-1220,MWF,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  96) ENGL,101,English Composition I,3,WC,none,none,1120-1235,TR,STR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  97) ENGL,101,English Composition I,3,WC,none,none,1255-1410,TR,BEC,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  98) ENGL,101,English Composition I,3,WC,none,none,1240-1330,MWF,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400  99) ENGL,101,English Composition I,3,WC,none,none,1350-1440,MWF,JHB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 100) ENGL,101,English Composition I,3,WC,none,none,1500-1550,MWF,APB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 101) ENGL,101,English Composition I,3,WC,none,none,1430-1545,TR,MOS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 102) ENGL,101,English Composition I,3,WC,none,none,1410-1700,MWF,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 103) ENGL,101,English Composition I,3,WC,none,none,1605-1720,TR,AYR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 104) ENGL,102,English Composition II,3,WC,ENGL 101,none,0800-0850,MWF,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 105) ENGL,102,English Composition II,3,WC,ENGL 101,none,0910-1000,MWF,AYR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 106) ENGL,102,English Composition II,3,WC,ENGL 101,none,0810-0925,TR,ZEC,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 107) ENGL,102,English Composition II,3,WC,ENGL 101,none,0945-1100,TR,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 108) ENGL,102,English Composition II,3,WC,ENGL 101,none,1020-1110,MWF,MKB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 109) ENGL,102,English Composition II,3,WC,ENGL 101,none,1130-1220,MWF,DOU,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 110) ENGL,102,English Composition II,3,WC,ENGL 101,none,1120-1235,TR,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 111) ENGL,102,English Composition II,3,WC,ENGL 101,none,1255-1410,TR,BEC,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 112) ENGL,102,English Composition II,3,WC,ENGL 101,none,1240-1330,MWF,STR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 113) ENGL,102,English Composition II,3,WC,ENGL 101,none,1350-1440,MWF,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 114) ENGL,102,English Composition II,3,WC,ENGL 101,none,1500-1550,MWF,JHB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 115) ENGL,102,English Composition II,3,WC,ENGL 101,none,1430-1545,TR,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 116) ENGL,102,English Composition II,3,WC,ENGL 101,none,1410-1700,MWF,HSS,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 117) ENGL,102,English Composition II,3,WC,ENGL 101,none,1605-1720,TR,STR,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 118) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,0910-1000,MWF,ZEC,0810-0925,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 119) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 120) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,0910-1000,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 121) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,0910-1000,MWF,ZEC,1255-1410,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 122) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,0910-1000,MWF,ZEC,1430-1545,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 123) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,0910-1000,MWF,ZEC,0810-0925,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 124) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,0910-1000,MWF,ZEC,0810-0925,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 125) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 126) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,1020-1110,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 127) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,1020-1110,MWF,ZEC,1255-1410,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 128) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,1020-1110,MWF,ZEC,1430-1545,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 129) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,1020-1110,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 130) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 131) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 132) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,1130-1220,MWF,ZEC,1255-1410,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 133) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 134) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,1020-1110,MWF,ZEC,0810-0925,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 135) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,1020-1110,MWF,ZEC,1430-1545,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 136) EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,1020-1110,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 137) COSC,101,Introduction to Programming,3,none,none,none,1430-1545,TR,DOU,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 138) COSC,101,Introduction to Programming,3,none,none,none,1430-1545,TR,WAB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 139) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,0800-0850,F,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 140) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,0900-0950,F,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 141) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1100-1150,F,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 142) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1200-1250,F,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 143) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1300-1350,F,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 144) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1200-1250,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 145) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1300-1350,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 146) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1400-1450,W,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 147) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,0810-0925,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 148) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 149) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 150) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1255-1410,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 151) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1430-1545,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 152) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1605-1720,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 153) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,0810-0925,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 154) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 155) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 156) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1255-1410,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 157) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1430-1545,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 158) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1605-1720,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 159) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,0810-0925,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 160) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 161) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 162) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 163) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1605-1720,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 164) COSC,401,Senior Design Theory,2,OC,COSC 360,none,1130-1220,MWF,SRF,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 165) COSC,360,Systems Programming,4,none,COSC 302-COSC 230-ECE 256,none,1255-1410,TR,MKB,1130-1220,M,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 166) COSC,360,Systems Programming,4,none,COSC 302-COSC 230-ECE 256,none,1255-1410,TR,MKB,1240-1330,M,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 167) COSC,360,Systems Programming,4,none,COSC 302-COSC 230-ECE 256,none,1255-1410,TR,MKB,1350-1440,M,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 168) COSC,360,Systems Programming,4,none,COSC 302-COSC 230-ECE 256,none,1255-1410,TR,MKB,1500-1550,M,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 169) COSC,360,Systems Programming,4,none,COSC 302-COSC 230-ECE 256,none,1255-1410,TR,MKB,1610-1700,M,MKB
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 170) COSC,366,Introduction to Cybersecurity,3,none,COSC 302-COSC 230-ECE 256,none,0810-0925,TR,MKB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 171) COSC,361,Operating Systems,3,none,COSC 360,none,0910-1000,MWF,MKB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 172) COSC,365,Programming Languages and Systems,3,none,COSC 302,none,1350-1440,MWF,MKB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 173) COSC,395,Junior Seminar,1,WC,COSC 302-ENGL 102-ENGL 132-ENGL 290-ENGL 298,none,1240-1330,W,MKB,none,none,none
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 174) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1350-1440,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 175) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1350-1440,MWF,ZEC,1255-1410,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 176) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1350-1440,MWF,ZEC,1430-1545,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 177) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1350-1440,MWF,ZEC,1605-1720,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 178) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1240-1330,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 179) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1240-1330,MWF,ZEC,1255-1410,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 180) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1240-1330,MWF,ZEC,1430-1545,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 181) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1240-1330,MWF,ZEC,1605-1720,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 182) EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 183) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 184) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 185) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 186) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 187) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 188) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 189) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1255-1410,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 190) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1255-1410,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 191) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1255-1410,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 192) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1430-1545,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 193) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1430-1545,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 194) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 195) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1605-1720,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 196) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1605-1720,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 197) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1605-1720,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 198) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 199) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 200) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1130-1220,MWF,ZEC,1255-1410,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 201) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 202) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1240-1330,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 203) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1240-1330,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 204) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1240-1330,MWF,ZEC,1255-1410,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 205) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 206) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1020-1110,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 207) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,0910-1000,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 208) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1020-1110,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 209) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,0910-1000,MWF,ZEC,1255-1410,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 210) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1020-1110,MWF,ZEC,1255-1410,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 211) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 212) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 213) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1130-1220,MWF,ZEC,1255-1410,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 214) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,0910-1000,MWF,ZEC,1430-1545,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 215) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1020-1110,MWF,ZEC,1430-1545,TR,ZEC
+5d816836 sprint1/backend/bst/eecs_courses.csv (Gian 2024-09-29 16:33:26 -0400 216) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
