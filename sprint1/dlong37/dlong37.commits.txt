@@ -1,0 +1,517 @@
+frontend/welcome/welcome.html
+680846c3 (David Long 2024-10-03 17:42:31 -0400  1) <!DOCTYPE html>
+680846c3 (David Long 2024-10-03 17:42:31 -0400  2) <html lang="en">
+680846c3 (David Long 2024-10-03 17:42:31 -0400  3) <head>
+680846c3 (David Long 2024-10-03 17:42:31 -0400  4)     <meta charset="UTF-8">
+680846c3 (David Long 2024-10-03 17:42:31 -0400  5)     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+680846c3 (David Long 2024-10-03 17:42:31 -0400  6)     <title>UTK Class Scheduling Assistant</title>
+680846c3 (David Long 2024-10-03 17:42:31 -0400  7)     <link rel="stylesheet" href="styles.css">
+680846c3 (David Long 2024-10-03 17:42:31 -0400  8)     <script src="https://kit.fontawesome.com/ee94e7919e.js" crossorigin="anonymous"></script>
+680846c3 (David Long 2024-10-03 17:42:31 -0400  9)     <link rel="preconnect" href="https://fonts.googleapis.com">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 10)     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+680846c3 (David Long 2024-10-03 17:42:31 -0400 11)     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 12) </head>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 13) <body>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 14)     <!-- Navbar Section -->
+680846c3 (David Long 2024-10-03 17:42:31 -0400 15)     <nav class="navbar">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 16)         <div class="navbar__container">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 17)             <a href="/" id="navbar__logo"><img src="images/UT Logo.png" alt="pic" id="nav__img">UTK CSA</a>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 18)             <div class="navbar__toggle" id="mobile-menu">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 19)                 <span class="bar"></span>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 20)                 <span class="bar"></span>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 21)                 <span class="bar"></span>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 22)             </div>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 23)             <ul class="navbar__menu">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 24)                 <li class="navbar__item">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 25)                     <a href="/" class="navbar__links">Home</a>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 26)                 </li>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 27)                 <li class="navbar__btn">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 28)                     <a href="/" class="button">Log In/Register</a>       
+680846c3 (David Long 2024-10-03 17:42:31 -0400 29)                 </li>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 30)             </ul>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 31)         </div>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 32)     </nav>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 33)
+680846c3 (David Long 2024-10-03 17:42:31 -0400 34)     <!-- Welcome Section -->
+680846c3 (David Long 2024-10-03 17:42:31 -0400 35)      <div class="welcome">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 36)         <div class="welcome__container">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 37)             <div class="welcome__content">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 38)                 <h1>Hi!</h1>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 39)                 <h2>This is the UTK Class Scheduling Assistant</h2>      
+680846c3 (David Long 2024-10-03 17:42:31 -0400 40)                 <p>Click here to get started!</p>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 41)                 <button class="welcome__btn"><a href="/">Get Started</a></button>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 42)             </div>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 43)             <div class="welcome__img--container">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 44)                 <img src="images/welcome_selection.svg" alt="pic" id="selection__img">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 45)             </div>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 46)         </div>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 47)      </div>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 48)
+680846c3 (David Long 2024-10-03 17:42:31 -0400 49)      <!-- About Section -->
+680846c3 (David Long 2024-10-03 17:42:31 -0400 50)       <div class="about">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 51)         <div class="about__container">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 52)             <div class="about__content">
+680846c3 (David Long 2024-10-03 17:42:31 -0400 53)                 <h1>What is the UTK CSA?</h1>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 54)                 <p>When the registration season comes along for students at UTK,
+680846c3 (David Long 2024-10-03 17:42:31 -0400 55)                     most students would agree that it can be a tedious process
+680846c3 (David Long 2024-10-03 17:42:31 -0400 56)                     searching for which classes they must take. While the university
+680846c3 (David Long 2024-10-03 17:42:31 -0400 57)                     has resources that provides information on whether or not they're
+680846c3 (David Long 2024-10-03 17:42:31 -0400 58)                     on track to graduate, students still find themselves stressing over
+680846c3 (David Long 2024-10-03 17:42:31 -0400 59)                     what classes to take the upcoming semester (if they haven't filled
+680846c3 (David Long 2024-10-03 17:42:31 -0400 60)                     up already).
+680846c3 (David Long 2024-10-03 17:42:31 -0400 61)                 </p>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 62)                 <p>With the UTK Class Scheduling Assistant, UTK students will save a lot
+680846c3 (David Long 2024-10-03 17:42:31 -0400 63)                     of time (and anxiety!) when registering for classes by having a schedule
+680846c3 (David Long 2024-10-03 17:42:31 -0400 64)                     generated for them based on their degree path. UTK CSA takes into account
+680846c3 (David Long 2024-10-03 17:42:31 -0400 65)                     the core coursework, time conflicts, geographical location, and general
+680846c3 (David Long 2024-10-03 17:42:31 -0400 66)                     difficulty of each class to create balanced workloads every semester.
+680846c3 (David Long 2024-10-03 17:42:31 -0400 67)                 </p>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 68)             </div>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 69)         </div>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 70)       </div>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 71)
+680846c3 (David Long 2024-10-03 17:42:31 -0400 72)       <script src="app.js"></script>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 73) </body>
+680846c3 (David Long 2024-10-03 17:42:31 -0400 74) </html>
+
+frontend/welcome/styles.css
+4cad6643 (David Long 2024-10-03 17:46:56 -0400   1) /*
+4cad6643 (David Long 2024-10-03 17:46:56 -0400   2)  * UTK COLORS!
+4cad6643 (David Long 2024-10-03 17:46:56 -0400   3)  * Tennessee Orange: #ff8200
+4cad6643 (David Long 2024-10-03 17:46:56 -0400   4)  * White: #fff;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400   5)  * Smokey Gray: #4b4b4b
+4cad6643 (David Long 2024-10-03 17:46:56 -0400   6)  *
+4cad6643 (David Long 2024-10-03 17:46:56 -0400   7)  */
+4cad6643 (David Long 2024-10-03 17:46:56 -0400   8)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400   9)  * {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  10)     box-sizing: border-box;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  11)     margin: 0;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  12)     padding: 0;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  13)     font-family: 'Poppins', sans-serif;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  14) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  15)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  16) /* Navigation Bar */
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  17) .navbar {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  18)     background: #4b4b4b;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  19)     height: 80px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  20)     display: flex;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  21)     justify-content: space-between;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  22)     align-items: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  23)     font-size: 2rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  24)     position: sticky;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  25)     top: 0;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  26)     z-index: 999;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  27)     width: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  28) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  29)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  30) .navbar__container {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  31)     display: flex;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  32)     justify-content: space-between;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  33)     align-items: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  34)     height: 50px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  35)     z-index: 1;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  36)     width: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  37)     max-width: 1600px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  38)     margin: 0;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  39)     padding: 0 20px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  40) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  41)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  42) #navbar__logo {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  43)     background-color: #ff8200;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  44)     background-image: linear-gradient(to top, #fff 0%, #ff8200 100%);   
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  45)     background-size: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  46)     -webkit-background-clip: text;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  47)     -moz-background-clip: text;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  48)     -webkit-text-fill-color: transparent;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  49)     -moz-text-fill-color: transparent;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  50)     display: flex;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  51)     align-items: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  52)     cursor: pointer;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  53)     justify-content: left;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  54)     text-decoration: none;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  55)     font-size: 2rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  56) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  57)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  58) #nav__img {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  59)     margin-right: 0.5rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  60)     height: 10%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  61)     width: 10%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  62) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  63)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  64) .navbar__menu {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  65)     display: flex;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  66)     align-items: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  67)     list-style: none;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  68)     text-align: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  69)     margin-left: auto;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  70)     padding: 0;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  71) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  72)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  73) .navbar__item {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  74)     height: 80px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  75)     margin: 0 15px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  76) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  77)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  78) .navbar__links {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  79)     color: #fff;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  80)     display: flex;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  81)     align-items: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  82)     justify-content: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  83)     text-decoration: none;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  84)     padding: 0;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  85)     height: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  86)     font-size: 1.5rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  87) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  88)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  89) .navbar__btn {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  90)     display: flex;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  91)     justify-content: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  92)     align-items: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  93)     padding: 0 1rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  94)     width: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  95)     font-size: 1.5rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  96) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  97)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  98) .button {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400  99)     display: flex;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 100)     justify-content: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 101)     align-items: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 102)     text-decoration: none;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 103)     padding: 10px 20px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 104)     height: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 105)     width: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 106)     border: none;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 107)     outline: none;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 108)     border-radius: 4px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 109)     background: #ff8200;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 110)     color: #fff;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 111) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 112)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 113) .button:hover {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 114)     background: #141414;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 115)     transition: all 0.3s ease;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 116) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 117)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 118) .navbar__links:hover {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 119)     color: #ff8200;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 120)     transition: all 0.3s ease;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 121) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 122)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 123) @media screen and (max-width: 960px) {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 124)     .navbar__container {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 125)         justify-content: space-between;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 126)         height: 50px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 127)         z-index: 1;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 128)         width: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 129)         max-width: 1300px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 130)         padding: 0;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 131)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 132)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 133)     #nav__img {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 134)         display: flex;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 135)         margin-left: 1rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 136)         width: 10%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 137)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 138)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 139)     .navbar__menu {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 140)         display: grid;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 141)         grid-template-columns: auto;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 142)         margin: 0;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 143)         width: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 144)         position: absolute;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 145)         top: -1000px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 146)         opacity: 0;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 147)         transition: all 0.5s ease;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 148)         height: 50vh;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 149)         z-index: -1;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 150)         background: #131313;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 151)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 152)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 153)     .navbar__menu.active {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 154)         background: #131313;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 155)         top: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 156)         opacity: 1;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 157)         transition: all 0.5 ease;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 158)         z-index: 99;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 159)         height: 50vh;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 160)         font-size: 1.6rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 161)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 162)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 163)     .navbar__toggle .bar {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 164)         width: 25px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 165)         height: 3px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 166)         margin: 5px auto;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 167)         transition: all 0.3s ease-in-out;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 168)         background: #fff;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 169)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 170)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 171)     .navbar__item {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 172)         width: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 173)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 174)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 175)     .navbar__links {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 176)         text-align: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 177)         padding: 2rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 178)         width: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 179)         display: table;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 180)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 181)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 182)     #mobile-menu {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 183)         position: absolute;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 184)         top: 20%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 185)         right: 5%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 186)         transform: translate(5%, 20%);
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 187)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 188)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 189)     .navbar_btn {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 190)         padding-bottom: 2rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 191)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 192)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 193)     .button {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 194)         display: flex;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 195)         justify-content: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 196)         align-items: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 197)         width: 80%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 198)         height: 80px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 199)         margin: 0;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 200)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 201)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 202)     .navbar__toggle .bar {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 203)         display: block;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 204)         cursor: pointer;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 205)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 206)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 207)     #mobile-menu.is-active .bar:nth-child(2) {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 208)         opacity: 0;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 209)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 210)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 211)     #mobile-menu.is-active .bar:nth-child(1) {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 212)         transform: translateY(8px) rotate(45deg);
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 213)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 214)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 215)     #mobile-menu.is-active .bar:nth-child(3) {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 216)         transform: translateY(-8px) rotate(-45deg);
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 217)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 218) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 219)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 220) /* Main Welcome Section */
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 221) .welcome {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 222)     background-image: linear-gradient(to top, #fff 0%, #ff8200);        
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 223)     min-height: 100vh;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 224)     display: flex;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 225)     flex-direction: column;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 226)     justify-content: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 227) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 228)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 229) .welcome__container {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 230)     display: grid;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 231)     grid-template-columns: 1fr 1fr;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 232)     align-items: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 233)     justify-self: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 234)     margin: 0 auto;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 235)     height: 90vh;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 236)     z-index: 1;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 237)     width: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 238)     max-width: 1300px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 239)     padding: 0 50px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 240) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 241)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 242) .welcome__content h1 {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 243)     font-size: 3rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 244) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 245)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 246) .welcome__content h2 {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 247)     font-size: 2rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 248) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 249)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 250) .welcome__content p {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 251)     margin-top: 1rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 252)     font-size: 2rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 253)     font-weight: 500;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 254) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 255)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 256) .welcome__btn {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 257)     font-size: 1rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 258)     background-color: #ff8200;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 259)     padding: 14px 32px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 260)     border: none;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 261)     border-radius: 4px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 262)     color:#4b4b4b;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 263)     margin-top: 2rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 264)     cursor: pointer;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 265)     position: relative;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 266)     transition: all 0.35s;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 267)     outline: none;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 268) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 269)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 270) .welcome__btn a {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 271)     position: relative;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 272)     z-index: 2;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 273)     color: #fff;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 274)     text-decoration: none;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 275) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 276)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 277) .welcome__btn:after {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 278)     position: absolute;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 279)     content: '';
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 280)     top: 0;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 281)     left: 0;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 282)     width: 0;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 283)     height: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 284)     background: #4b4b4b;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 285)     transition: all 0.35s;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 286)     border-radius: 4px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 287) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 288)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 289) .welcome__btn:hover {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 290)     color: #fff;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 291) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 292)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 293) .welcome__btn:hover:after  {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 294)     width: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 295) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 296)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 297) .welcome__img--container {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 298)     text-align: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 299) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 300)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 301) #selection__img {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 302)     height: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 303)     width: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 304) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 305)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 306) @media screen and (max-width: 768px) {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 307)     .welcome__container {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 308)         display: grid;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 309)         grid-template-columns: auto;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 310)         align-items: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 311)         justify-self: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 312)         width: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 313)         margin: 0 auto;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 314)         height: 90vh;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 315)         padding: 20px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 316)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 317)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 318)     .welcome__content {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 319)         text-align: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 320)         margin-bottom: 4rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 321)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 322)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 323)     .welcome__content h1 {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 324)         font-size: 2.5rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 325)         margin-top: 2rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 326)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 327)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 328)     .welcome__content h2 {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 329)         font-size: 3rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 330)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 331)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 332)     .welcome__content p {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 333)         margin-top: 1rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 334)         font-size: 1.5rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 335)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 336) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 337)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 338) @media screen and (max-width: 480px) {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 339)     .welcome__content h1 {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 340)         font-size: 2rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 341)         margin-top: 3rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 342)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 343)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 344)     .welcome__content h2 {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 345)         font-size: 1.5rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 346)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 347)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 348)     .welcome__content p {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 349)         margin-top: 2rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 350)         font-size: 1.5rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 351)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 352)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 353)     .welcome__btn {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 354)         padding: 12px 36px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 355)         margin: 2.5rem 0;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 356)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 357) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 358)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 359) /* About Section */
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 360) .about {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 361)     background-image: linear-gradient(to bottom, #fff 0%, #ff8200);     
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 362)     padding: 20px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 363)     margin-top: 20px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 364)     min-height: 100vh;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 365) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 366)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 367) .about__container {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 368)     display: flex;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 369)     flex-direction: column;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 370)     align-items: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 371)     justify-self: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 372)     margin: 0 auto;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 373)     height: 90vh;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 374)     z-index: 1;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 375)     width: 100%;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 376)     max-width: 1300px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 377)     padding: 0 50px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 378) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 379)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 380) .about__content h1 {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 381)     font-size: 3rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 382)     text-align: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 383) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 384)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 385) .about__content p {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 386)     margin-top: 1rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 387)     margin-left: 5rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 388)     margin-right: 5rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 389)     font-size: 1.25rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 390)     font-weight: 400;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 391)     text-align: center;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 392) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 393)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 394) @media screen and (max-width: 768px) {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 395)     .about {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 396)         height: 2200px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 397)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 398)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 399)     .about__container {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 400)         margin-top: 20px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 401)         padding:20px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 402)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 403)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 404)     .about__content h1 {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 405)         font-size: 2rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 406)         margin-top: 20rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 407)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 408)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 409)     .about__content p {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 410)         font-size: 1.5rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 411)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 412) }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 413)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 414) @media screen and (max-width: 480px) {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 415)     .about {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 416)         height: 1400px;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 417)         margin-top: 200rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 418)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 419)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 420)     .about__container {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 421)         margin-top: 20rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 422)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 423)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 424)     .about__content h1 {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 425)         font-size: 0.5rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 426)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 427)
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 428)     .about__content p {
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 429)         font-size: 0.25rem;
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 430)     }
+4cad6643 (David Long 2024-10-03 17:46:56 -0400 431) }
+
+frontend/welcome/app.js
+2106ad50 (David Long 2024-10-03 17:50:33 -0400 1) const menu = document.querySelector('#mobile-menu');
+2106ad50 (David Long 2024-10-03 17:50:33 -0400 2) const menuLinks = document.querySelector('.navbar__menu');
+2106ad50 (David Long 2024-10-03 17:50:33 -0400 3) 
+2106ad50 (David Long 2024-10-03 17:50:33 -0400 4) menu.addEventListener('click', function() {
+2106ad50 (David Long 2024-10-03 17:50:33 -0400 5)     menu.classList.toggle('is-active');
+2106ad50 (David Long 2024-10-03 17:50:33 -0400 6)     menuLinks.classList.toggle('active');
+2106ad50 (David Long 2024-10-03 17:50:33 -0400 7) })
