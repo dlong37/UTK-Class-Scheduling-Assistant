@@ -8,7 +8,7 @@
     <ul class="list-group-flush" id="schedules">
         {% for schedule in user.schedules %}
         <li class="list-group-item">
-            {{ schedule.data }}
+            {{ schedule.class_ids }}
             <!-- Delete button, uses a separate function to communicate with backend -->
             <button type="button" class="close" onClick="deleteSchedule({{ schedule.id }})">
                 <span aria-hidden="true">&times;</span>
@@ -23,5 +23,8 @@
             <button type="submit" class="btn btn-primary">Add Schedule</button>
         </div>
     </form>
+
+    <!-- New search for classes button -->
+    <button class="class_search"><a href="/class_search">Search Classes</a></button>
     
 {% endblock %}

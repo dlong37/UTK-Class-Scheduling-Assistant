@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Search</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <!-- Include HTMX library -->
+  <script src="https://cdn.jsdelivr.net/npm/htmx.org/dist/htmx.min.js"></script>
+</head>
+<body>
+    <h1 align="center">Class Search</h1>
+
+        <!-- Search Form -->
+        <form method="GET" action="{{ url_for('views.class_search') }}" class="text-center">
+            <div class="form-group">
+                <input type="text" name="search" placeholder="Search by class name" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Search</button>
+        </form>
+    
+    <!-- Search Results -->
+    {% if classes %}
+        <h2 class="mt-4">Search Results:</h2>
+        <ul class="list-group-flush" id="classes">
+            {% for class in classes %}
+            <li class="list-group-item">
+                {{ class.name }} - {{ class.description }}
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <a href="{{ url_for('views.main') }}" class="btn btn-secondary mt-3">Return to My Schedules</a>
+</body>
+</html>
