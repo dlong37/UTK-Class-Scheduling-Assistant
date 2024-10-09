@@ -1,10 +1,14 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from os import path
 from flask_login import LoginManager
+from flask_migrate import Migrate
+
+from os import path
+# from .read_classes import read_classes_from_csv
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
+CLASSES_DB_NAME = "classes.db"
 
 # Initialize web app
 def create_app():
@@ -14,7 +18,10 @@ def create_app():
 
     # Database is created in backend/instance directory
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    app.config['SQLALCHEMY_BINDS'] = {'classes': f'sqlite:///{CLASSES_DB_NAME}'}
+
     db.init_app(app)
+    migrate = Migrate(app, db)
 
     from .views import views
     from .auth import auth
@@ -23,7 +30,7 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/')
 
     # Import database objects: may need to add more
-    from .models import User, Schedule
+    from .models import User, Schedule, Course
 
     create_database(app)
 
@@ -37,9 +44,15 @@ def create_app():
 
     return app
 
-# Check if database exists. If not - create one.
 def create_database(app):
+    # Check if the classes database exists
+    if not path.exists('backend/' + CLASSES_DB_NAME):
+        with app.app_context():
+            db.create_all(bind_key="classes")
+            print('New Classes Database Created.')
+
+    # Check if user database exists
     if not path.exists('backend/' + DB_NAME):
         with app.app_context():
             db.create_all()
-            print('New Database Created.')
+            print('New User Database Created.')
