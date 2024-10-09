@@ -2,24 +2,31 @@
 from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
+import json
 
-# Schema for 'Schedule' database object: what do we want to store?
-# We might populate 'Schedule' object with some other kind of objects, like 'Class'
+
+class Course(db.Model):
+    __bind_key__ = 'classes'    # comes from classes.db
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+#    time = db.Column(db.String(50), nullable=False)
+#    credits = db.Column(db.Integer, nullable=False)
+
+
+# Schema for 'Schedule' database object: have to add semester.
+# Cannot establish direct relationship with Course object.
+# Will try to hold array of class ids added to this schedule.
 class Schedule(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    # Data string for testing
-    data = db.Column(db.String(1000))
-    # In case we need to store the current date and time for anything:
     date = db.Column(db.DateTime(timezone=True), default=func.now())
+    
+    # Not sure which one will work yet: fix later!
+    class_ids = db.Column(db.Integer)
+    #class_ids = db.Column(db.JSON)
+    
     # Associate with a user object:
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    # classes = db.relationship('Class')
-
-# Lookup how many-to-many?? relationship is set up: many schedules may have the same class
-# class Class(db.Model):
-#    id = db.Column(....)
-#    ....
-#    schedule_id = db.Column(db.Integer, db.ForeignKey('schedule.id'))
 
 
 # Schema for 'User' database object: what user info do we want to store?
