@@ -8,6 +8,9 @@ const app = express();
 // Middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Serve static files from the current directory
+app.use(express.static(__dirname));
+
 // Serve the HTML file
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'schedules.html')); // Make sure the filename matches your HTML file
@@ -15,6 +18,8 @@ app.get('/', (req, res) => {
 
 // Handle form submission
 app.post('/submit', (req, res) => {
+    console.log('Received data', req.body); // Log incoming data for debugging
+
     const coreClass = req.body['core-class'];
     const electiveCredits = req.body['elective-credit'];
 
