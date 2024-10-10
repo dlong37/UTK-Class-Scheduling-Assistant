@@ -14,8 +14,8 @@
 
 <b>4. Initialize Project in the Directory</b>
 * Whether you decide to do it in this git folder or download the files locally into another folder, go to that folder and run the following commands to initialize the project and install the necessary packages:
-> npm init -y
-> npm install express body-parser fs
+'''npm init -y
+ npm install express body-parser fs'''
 
 <b>5. Start the Server</b>
 * Start the server using the following command:
