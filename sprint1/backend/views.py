@@ -49,7 +49,7 @@ def class_search():
     classes = Course.query
 
     if (search_term):
-        classes = classes.filter(Course.name.ilike(f'%{search_term}%'))  # Filter the query
+        classes = classes.filter(Course.abbreviation.ilike(f'%{search_term}%'))  # Filter the query
 
     results = classes.limit(10).all()  # Limit to 10 results and execute
     # For debugging: remove later

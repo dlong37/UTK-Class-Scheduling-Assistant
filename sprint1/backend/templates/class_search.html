@@ -24,7 +24,7 @@
         <ul class="list-group-flush" id="classes">
             {% for class in classes %}
             <li class="list-group-item">
-                {{ class.name }} - {{ class.description }}
+                {{ class.abbreviation }}{{ class.number }} - {{ class.title }}
             </li>
             {% endfor %}
         </ul>

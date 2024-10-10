@@ -1,4 +1,9 @@
-id,name,description
-0,Math 101,Introduction to Algebra
-1,Physics 202,General Physics II
-2,History 101,World History
+Id,Abbreviation,Number,Title,Hours,LcDate
+0,MATH,131,Calculus 1A Infused with Precalculus,3,MWF
+1,MATH,141,Calculus I,4,MWRF
+2,MATH,147,Honors: Calculus I,4,MWRF
+3,MATH,142,Calculus II,4,MTWF
+4,MATH,148,Honors: Calculus II,4,MTWF
+5,MATH,251,Matrix Algebra I,3,TR
+6,COSC,230,Computer Organization,3,TR
+7,COSC,202,Data Structures and Algorithms I,4,TWR
