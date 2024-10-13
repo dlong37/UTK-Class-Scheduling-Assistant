@@ -4,6 +4,7 @@
 
 <br>
 <b>NOTE:</b> Since our program already runs in Flask, you might already have Flask installed on your computer. If so, just skip to Step 2.
+<br>
 
 <b>2. Start the Server</b>
 * Start the server using the following command:
