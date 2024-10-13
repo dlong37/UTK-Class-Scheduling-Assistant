@@ -53,7 +53,9 @@ int main(int argc, char** argv) {
         failed = true;
     }
     if(failed) {
-        cerr << "usage: " << argv[0] << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
+        ofstream ferr("error.txt");
+        ferr << "usage: " << argv[0] << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
+        ferr.close();
         return 1;
     }
 
@@ -69,8 +71,10 @@ int main(int argc, char** argv) {
     string available_courses_file = argv[1];
     file.open(available_courses_file);
     if(!file.is_open()) {
-        cerr << "error: cannot open " << available_courses_file << endl;
-        cerr << "usage: " << argv[0] << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
+        ofstream ferr("error.txt");
+        ferr << "error: cannot open " << available_courses_file << endl;
+        ferr << "usage: " << argv[0] << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
+        ferr.close();
         return 1;
     }
 
@@ -139,8 +143,10 @@ int main(int argc, char** argv) {
     string major_courses_file = argv[2];
     file.open(major_courses_file);
     if(!file.is_open()) {
-        cerr << "error: cannot open " << major_courses_file << endl;
-        cerr << "usage: " << argv[0] << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
+        ofstream ferr("error.txt");
+        ferr << "error: cannot open " << major_courses_file << endl;
+        ferr << "usage: " << argv[0] << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
+        ferr.close();
         return 1;
     }
 
@@ -157,8 +163,10 @@ int main(int argc, char** argv) {
     string taken_courses_file = argv[3];
     file.open(taken_courses_file);
     if(!file.is_open()) {
-        cerr << "error: cannot open " << taken_courses_file << endl;
-        cerr << "usage: " << argv[0] << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
+        ofstream ferr("error.txt");
+        ferr << "error: cannot open " << taken_courses_file << endl;
+        ferr << "usage: " << argv[0] << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
+        ferr.close();
         return 1;
     }
 
@@ -207,8 +215,20 @@ int main(int argc, char** argv) {
             it = taken_set.erase(it);
         } 
         else {
-            cout << *it << endl;
+            //cout << *it << endl;
             ++it;
         }
+    }
+
+    for(int i = 0; i < major_vector.size(); i++) {
+        set<string>::iterator it = taken_set.begin();
+        while(it != taken_set.end()) {
+            if(*it == major_vector[i]) { major_vector.erase(major_vector.begin()+i); i--; }
+            else { ++it; }
+        }    
+    }
+
+    for(int i = 0; i < major_vector.size(); i++) {
+        cout << major_vector[i] << endl;
     }
 }

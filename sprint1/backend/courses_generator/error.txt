@@ -1,0 +1,2 @@
+error: cannot open major_course.csv
+usage: ./read_data available_courses_file.csv major_courses_file.csv taken_courses_file.csv
