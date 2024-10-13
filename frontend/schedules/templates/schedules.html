@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTK CSA - Schedules</title>
+    <link rel="stylesheet" href="../static/schedules.css">
+    <script src="https://kit.fontawesome.com/ee94e7919e.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/" id="navbar__logo"><img src="../static/images/UT Logo.png" alt="pic" id="nav__img">UTK CSA</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="/" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="/" class="button">Log In/Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Questionnaire Section -->
+    <div class="schedules">
+        <div class="schedules__container">
+            <form id="schedules-form" action="/submit" method="post">
+                <h1>Core Classes</h1>
+                <label for="question">What was your most recent core class?</label>
+                <select id="question" name="core-class">
+                    <option value="COSC 101">COSC 101</option>
+                    <option value="COSC 102">COSC 102</option>
+                    <option value="COSC 202">COSC 202</option>
+                    <option value="COSC 230">COSC 230</option>
+                    <option value="COSC 302">COSC 302</option>
+                    <option value="COSC 360">COSC 360</option>
+                    <option value="COSC 366">COSC 366</option>
+                    <option value="COSC 401">COSC 401</option>
+                </select>
+                <br><br>
+
+                <h1>Elective Classes</h1>
+                <label for="question">What elective credits do you have yet to satisfy? (Select multiple if needed)</label><br>
+                <label><input type="checkbox" name="elective-credit" value="QR"> Quantitative Reasoning (QR)</label><br>
+                <label><input type="checkbox" name="elective-credit" value="NS"> Natural Sciences (NS)</label><br>
+                <label><input type="checkbox" name="elective-credit" value="WC"> Written Communication (WC)</label><br>
+                <label><input type="checkbox" name="elective-credit" value="OC"> Oral Communication (OC)</label><br>
+                <label><input type="checkbox" name="elective-credit" value="AOC"> Applied Oral Communication (AOC)</label><br>
+                <label><input type="checkbox" name="elective-credit" value="SS"> Social Sciences (SS)</label><br>
+                <label><input type="checkbox" name="elective-credit" value="AH"> Arts and Humanities (AH)</label><br>
+                <label><input type="checkbox" name="elective-credit" value="GCI"> Global Citizenship International (GCI)</label><br>
+                <label><input type="checkbox" name="elective-credit" value="GCUS"> Global Citizenship United States (GCUS)</label><br>
+                <label><input type="checkbox" name="elective-credit" value="EP"> Expanded Perspectives (EP)</label><br>
+                <label><input type="checkbox" name="elective-credit" value="EI"> Engaged Inquiries (EI)</label><br>
+                <br><br>
+
+                <input type="submit" value="Submit">
+            </form>
+            <!-- Success message element -->
+            <div id="success-message" style="display: none; color: green; margin-top: 20px;">
+                Data saved successfully!
+            </div>
+        </div>
+    </div>
+    <script src="../static/schedules.js"></script>
+</body>
+</html>
