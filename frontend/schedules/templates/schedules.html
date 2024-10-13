@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTK CSA - Schedules</title>
-    <link rel="stylesheet" href="../static/schedules.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='schedules.css') }}">
     <script src="https://kit.fontawesome.com/ee94e7919e.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,6 +34,10 @@
     <!-- Questionnaire Section -->
     <div class="schedules">
         <div class="schedules__container">
+            <!-- Success message element -->
+            <div id="success-message" style="display: none; color: green; margin-top: 20px;">
+                Data saved successfully!
+            </div>
             <form id="schedules-form" action="/submit" method="post">
                 <h1>Core Classes</h1>
                 <label for="question">What was your most recent core class?</label>
@@ -66,12 +70,8 @@
 
                 <input type="submit" value="Submit">
             </form>
-            <!-- Success message element -->
-            <div id="success-message" style="display: none; color: green; margin-top: 20px;">
-                Data saved successfully!
-            </div>
         </div>
     </div>
-    <script src="../static/schedules.js"></script>
+    <script src="{{ url_for('static', filename='schedules.js') }}"></script>
 </body>
 </html>
