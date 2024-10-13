@@ -19,3 +19,7 @@ STANDARD = EQUIVALENT<br />
 '-' : any course in this sequence<br />
 '|' : or (pick one in the sequence) <br />
 '&' : and (need both for the sequence)<br />
+
+### Course Sequence ###
+This shows the pipeline of the courses needed to finish the major courses requirements (not including Vol Core or electives. <br />
+<img width="679" alt="Screenshot 2024-10-13 at 4 46 08 PM" src="https://github.com/user-attachments/assets/e5449590-6a43-4200-bce4-510f29d7db50">
