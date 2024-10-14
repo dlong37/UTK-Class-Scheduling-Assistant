@@ -5,6 +5,7 @@ from flask_login import login_required, current_user
 from .models import Schedule, Course
 from . import db
 import json
+import csv
 
 views = Blueprint('views', __name__)
 
@@ -56,3 +57,23 @@ def class_search():
     print(f"Classes found: {len(results)}")
 
     return render_template("class_search.html", classes=results, user=current_user)
+
+@views.route('/schedules')
+def index():
+    return render_template('schedules.html')
+
+# Handle form submission
+@views.route('/submit', methods=['POST'])
+def submit():
+    core_class = request.form.get('core-class')
+    elective_credits = request.form.getlist('elective-credit')
+
+    # Prepare data for CSV
+    data = [core_class, ','.join(elective_credits)]
+
+    # Write to CSV file
+    with open('data.csv', mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(data)
+
+    return 'Data saved successfully!'
