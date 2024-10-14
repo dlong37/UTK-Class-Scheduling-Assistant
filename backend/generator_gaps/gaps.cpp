@@ -23,6 +23,12 @@ class course {
         string lab_date;
         string lab_loc;
         float priority = 0;
+
+        // Define operator< for comparison (for use in std::set)
+        // NOTE: increase to encompass every course
+        bool operator<(const course& other) const {
+            return tie(abbrv, num, title) < tie(other.abbrv, other.num, other.title);
+        }
 };
 
 // coordinates for class locations
@@ -68,6 +74,7 @@ int main(int argc, char** argv) {
 
     // make vector that can hold class type course
     vector<course> course_vector;
+    set<course> course_set;
     course my_course;
 
     // open the available_courses file and error check opening
@@ -136,6 +143,7 @@ int main(int argc, char** argv) {
             i++; 
             if (i == 13) {
                 course_vector.push_back(my_course);
+                course_set.insert(my_course);
                 i = 0;
             }
         }
@@ -267,9 +275,22 @@ int main(int argc, char** argv) {
 
     // Ok! Now, assign a priority to the courses in major_vector by using the equation priority = time_between_classes - gap;
 
-    cout << "Remaining Courses Priorities:" << endl;
-    for(int i = 0; i < (int)major_vector.size(); i++) {
-        // lookup between course_vector and major_vector?
+    // Create a remaining courses set to assign priorites.
+    set<course> remaining_set;
+    cout << "\nAll courses available from database:" << endl;
+    set<course>::iterator it_course = course_set.begin();
+    while (it_course != course_set.end()) {
+        for (int j = 0; j < (int)major_vector.size(); j++) {
+            string name = it_course->abbrv + " " + to_string(it_course->num);
+            if (major_vector[j] == name) {
+                cout << name << " : " << it_course->priority << endl;
+                remaining_set.insert(*it_course);
+            }
+        }
+        it_course++;
     }
-    cout << endl;
+
+    // Calculate priority of remaining_courses.
+
+    // Once a class has been matched, remove from the remaining_set.
 }
