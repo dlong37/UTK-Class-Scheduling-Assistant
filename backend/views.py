@@ -16,16 +16,16 @@ def home():
 @views.route('/main', methods=['GET', 'POST'])
 @login_required                   # can only be accessed if user is logged in
 def main():
-    if request.method == 'POST':
-        schedule = request.form.get('schedule')
+    # if request.method == 'POST':
+    #     schedule = request.form.get('schedule')
         
-        if len(schedule) < 1:
-            flash('Nothing added.', category='error')
-        else:
-            new_schedule = Schedule(data=schedule, user_id = current_user.id)
-            db.session.add(new_schedule)
-            db.session.commit()
-            flash('Schedule added!', category='success')
+    #     if len(schedule) < 1:
+    #         flash('Nothing added.', category='error')
+    #     else:
+    #         new_schedule = Schedule(data=schedule, user_id = current_user.id)
+    #         db.session.add(new_schedule)
+    #         db.session.commit()
+    #         flash('Schedule added!', category='success')
 
     return render_template("main.html", user=current_user)
 
@@ -59,11 +59,13 @@ def class_search():
     return render_template("class_search.html", classes=results, user=current_user)
 
 @views.route('/schedules')
+@login_required
 def index():
     return render_template('schedules.html')
 
 # Handle form submission
 @views.route('/submit', methods=['POST'])
+@login_required
 def submit():
     core_class = request.form.get('core-class')
     elective_credits = request.form.getlist('elective-credit')

@@ -3,15 +3,15 @@ from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 from enum import Enum
-import json
+#import json
 
-class Weekdays(Enum):
-    __bind_key__ = 'classes'
-    Mon = "Mon"
-    Tue = "Tue"
-    Wed = "Wed"
-    Thu = "Thu"
-    Fri = "Fri"
+# class Weekdays(Enum):
+#     __bind_key__ = 'classes'
+#     Mon = "Mon"
+#     Tue = "Tue"
+#     Wed = "Wed"
+#     Thu = "Thu"
+#     Fri = "Fri"
 
 class Course(db.Model):
     __bind_key__ = 'classes'    # comes from classes.db
@@ -20,7 +20,7 @@ class Course(db.Model):
     number = db.Column(db.Integer, nullable=False)
     title = db.Column(db.String(50), nullable=False)
     hours = db.Column(db.Integer, nullable=False)
-    class_days = db.Column(db.JSON)
+    class_days = db.Column(db.String(5))
 #    time = db.Column(db.String(50), nullable=False)
 #    credits = db.Column(db.Integer, nullable=False)
 
