@@ -22,6 +22,7 @@ class course {
         string lab_time;
         string lab_date;
         string lab_loc;
+        float priority = 0;
 };
 
 // coordinates for class locations
@@ -230,7 +231,45 @@ int main(int argc, char** argv) {
         }    
     }
 
+    cout << "Remaining Courses:" << endl;
     for(int i = 0; i < (int)major_vector.size(); i++) {
         cout << major_vector[i] << endl;
     }
+    cout << endl;
+
+    // START OF THE GAPS PROGRAM
+    // NOTE:    add a flag at the start of the program when this is done!!
+
+    string input;
+    int user_hour;
+    int user_min;
+    cout << "What time would you like to start your classes?\nPlease enter in 24-hour time (0000-2359): ";
+    while (1) {
+        cin >> input;
+        if (input.length() == 4) { // check string length
+            user_hour = stoi(input.substr(0,2));
+            user_min = stoi(input.substr(2,2));
+            if (user_hour >= 0 && user_hour < 24 && user_min >= 0 && user_min < 60) {
+                break;
+            }
+        }
+        cout << "Please enter a valid time (0000-2359): ";
+    }
+
+    int gap;
+    cout << "How many minutes would you like between classes?: ";
+    while (1) {
+        cin >> gap;
+        if (gap > 0) {
+            break;
+        }
+    }
+
+    // Ok! Now, assign a priority to the courses in major_vector by using the equation priority = time_between_classes - gap;
+
+    cout << "Remaining Courses Priorities:" << endl;
+    for(int i = 0; i < (int)major_vector.size(); i++) {
+        // lookup between course_vector and major_vector?
+    }
+    cout << endl;
 }
