@@ -1,1 +1,1 @@
-usage: ./read_data available_courses_file.csv major_courses_file.csv taken_courses_file.csv
+usage: ./gaps available_courses_file.csv major_courses_file.csv taken_courses_file.csv

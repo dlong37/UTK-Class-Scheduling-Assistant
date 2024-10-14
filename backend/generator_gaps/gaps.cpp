@@ -56,7 +56,7 @@ int main(int argc, char** argv) {
         ofstream ferr("error.txt");
         ferr << "usage: " << argv[0] << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
         // Lexy added this command line argument back because she can't remember how to use the darn program, we can take this out, though.
-            cout << "usage: " << argv[0] << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
+            cout << "usage: " << argv[0] << " + eecs_courses.csv + major_courses.csv + taken_courses.csv" << endl;
         ferr.close();
         return 1;
     }
@@ -182,14 +182,14 @@ int main(int argc, char** argv) {
     file.close();
 
     // expands the taken_courses vector to include all the pre reqs that are needed to get to a class in the taken_courses vector
-    for(int i = 0; i < taken_vector.size(); i++) {
+    for(int i = 0; i < (int)taken_vector.size(); i++) {
         string c = "";
-        for(int j = 0; j < course_vector.size(); j++) {
+        for(int j = 0; j < (int)course_vector.size(); j++) {
             c = course_vector[j].abbrv + " " + to_string(course_vector[j].num);
             if(c == taken_vector[i]) {
                 string cc = course_vector[j].pre_req;
                 string ccc = "";
-                for(int k = 0; k < cc.size(); k++) {
+                for(int k = 0; k < (int)cc.size(); k++) {
                     if(cc[k] == '-') {
                         taken_vector.push_back(ccc);
                         ccc.clear();
@@ -206,7 +206,7 @@ int main(int argc, char** argv) {
 
     // create a set so duplicates are removed and classes are sorted alphabetically
     set<string> taken_set;
-    for(int i = 0; i < taken_vector.size(); i++) {
+    for(int i = 0; i < (int)taken_vector.size(); i++) {
         taken_set.insert(taken_vector[i]);
     }
 
@@ -222,7 +222,7 @@ int main(int argc, char** argv) {
         }
     }
 
-    for(int i = 0; i < major_vector.size(); i++) {
+    for(int i = 0; i < (int)major_vector.size(); i++) {
         set<string>::iterator it = taken_set.begin();
         while(it != taken_set.end()) {
             if(*it == major_vector[i]) { major_vector.erase(major_vector.begin()+i); i--; }
@@ -230,7 +230,7 @@ int main(int argc, char** argv) {
         }    
     }
 
-    for(int i = 0; i < major_vector.size(); i++) {
+    for(int i = 0; i < (int)major_vector.size(); i++) {
         cout << major_vector[i] << endl;
     }
 }
