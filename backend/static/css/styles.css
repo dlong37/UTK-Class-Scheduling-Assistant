@@ -720,3 +720,33 @@ input:focus, .submit-button:hover {
         font-size: 0.25rem;
     }
 }
+
+/* 
+ * Styles for the view_schedule page
+ */
+.course-list {
+    margin: 20px;
+}
+.course-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+.lecture, .lab {
+    margin-bottom: 10px;
+}
+.lab {
+    background-color: #fff5e5;
+    padding: 10px;
+    border-left: 4px solid #ff8200;
+}
+
+.created-on {
+    font-size: 1.2rem;
+    color: #4b4b4b;
+    margin: 10px 0;
+    text-align: center;
+    padding: 5px;
+}
