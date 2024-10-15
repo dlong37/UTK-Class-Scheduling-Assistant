@@ -56,6 +56,23 @@ priority_queue<course, vector<course>, CompareCourse> create_pq(int start_hour, 
     return pq;
 };
 
+void print_array( vector<vector<int>> arr) {
+    // Get number of rows
+    int rows = arr.size();
+    // Check if the matrix is non-empty and get the number of columns from the first row
+    if (rows > 0) {
+        int cols = arr[0].size();
+
+        // Nested for loops to print the matrix
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                std::cout << arr[i][j] << " ";  // Access elements by index
+            }
+            std::cout << std::endl;  // Newline after each row
+        }
+    }
+}
+
 // coordinates for class locations
 const pair<double, double> APBcoord(35.95716565313402, -83.92699933505531);
 const pair<double, double> AYRcoord(35.95743065274119, -83.92592513641416);
@@ -297,22 +314,20 @@ int main(int argc, char** argv) {
         cout << "Please enter a valid number of minutes (0-1439): ";
     }
 
+    int credit_hours;
+    cout << "How many credit hours would you like to take next semester?: ";
+    while (1) {
+        cin >> credit_hours;
+        if (credit_hours > 0) {
+            break;
+        }
+        cout << "Please enter a valid number of credit hours (>0): ";
+    }
+
     // Create the 2D matrix for the course scheduler
     vector<vector<int>> arr(60*24, vector<int>(5, 0));
-    // Get number of rows
-    int rows = arr.size();
-    // Check if the matrix is non-empty and get the number of columns from the first row
-    if (rows > 0) {
-        int cols = arr[0].size();
 
-        // Nested for loops to print the matrix
-        for (int i = 0; i < rows; ++i) {
-            for (int j = 0; j < cols; ++j) {
-                std::cout << arr[i][j] << " ";  // Access elements by index
-            }
-            std::cout << std::endl;  // Newline after each row
-        }
-    }
+    // print_array(arr);
 
     // Create a remaining courses vector to pull ALL reamining courses from the database.
     vector<course> remaining_vector;
@@ -336,8 +351,12 @@ int main(int argc, char** argv) {
         pq.pop();
     }
 
-    // Once a class has been matched + scheduled, remove all matching titles, abbreviations, and numbers from the remaining_vector.
+    course scheduled_class = pq.top();
 
-    // then, do some offsetting with gap and end time and loop until you reach desired credit hours
+    // Pop the queue, attempt to schedule - if it can't, remove the class from remaining_vector:
+
+    // Once a class has been matched + scheduled, remove all matching titles, abbreviations, and numbers from the remaining_vector:
+
+    // then, do some offsetting with gap and end time and loop until you reach desired credit hours OR there are no more classes / can't schedule:
     // prolly have to define an == operator
 }
