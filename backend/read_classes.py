@@ -4,18 +4,21 @@ import csv
 import os
 from backend import create_app, db
 import logging
-from backend.models import Course, Weekdays
+from backend.models import Course
+from datetime import datetime
 
 app = create_app()
+CLASSES_DB_NAME = "classes.db"
 
-days_mapping = {
-     'M': Weekdays.Mon,
-     'T': Weekdays.Tue,
-     'W': Weekdays.Wed,
-     'R': Weekdays.Thu,
-     'F': Weekdays.Fri,
-}
+# Format time string before recording it in the database
+def format_time(time_str):
+    start_time, end_time = time_str.split('-')
+    start = datetime.strptime(start_time, "%H%M")
+    end = datetime.strptime(end_time, "%H%M")
+    formatted_time = f"{start.strftime('%I:%M %p')} - {end.strftime('%I:%M %p')}"
+    return formatted_time
 
+# Write courses from csv to db
 def read_classes_from_csv():
     with app.app_context():
         # classes.csv must be in the same directory with read_classes.py
@@ -26,21 +29,17 @@ def read_classes_from_csv():
             reader = csv.DictReader(csvfile)
 
             for row in reader:
-                class_days = row['LcDate']
-                parsed_days = []
-                for day in class_days:
-                    if day in days_mapping:
-                        parsed_days.append(days_mapping[day])
-                    else:
-                        logging.warning(f"Invalid day '{day}' in row {row['name']}. Skipping.")
-                          
                 new_class = Course(
-                    id=row['Id'],
                     abbreviation=row['Abbreviation'],
                     number=row['Number'],
                     title=row['Title'],
-                    hours=row['Hours'],
-                    class_days=parsed_days,
+                    credit_hours=row['Hours'],
+                    lecture_time=format_time(row['LcTime']) if row['LcTime'] != 'none' else "",
+                    lecture_days=row['LcDate'] if row['LcDate'] != 'none' else "",
+                    lecture_location=row['LcLocation'] if row['LcLocation'] != 'none' else "",
+                    lab_time=format_time(row['LaTime']) if row['LaTime'] != 'none' else "",
+                    lab_days=row['LaDate'] if row['LaDate'] != 'none' else "",
+                    lab_location=row['LaLocation'] if row['LaLocation'] != 'none' else ""
                 )
 
                 db.session.add(new_class)
@@ -48,5 +47,13 @@ def read_classes_from_csv():
             db.session.commit()
 
 if __name__ == "__main__":
+    # Check if the classes database already exists
+    if not os.path.exists(f'instance/{CLASSES_DB_NAME}'):
+        with app.app_context():
+            db.create_all(bind_key="classes")
+            print('New Classes Database Created.')
+     
         read_classes_from_csv()
         print('Classes populated from CSV.')
+    else:
+        print(f"Database {CLASSES_DB_NAME} already exists.")

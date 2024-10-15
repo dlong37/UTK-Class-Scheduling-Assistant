@@ -5,6 +5,7 @@ from flask_login import login_required, current_user
 from .models import Schedule, Course
 from . import db
 import json
+import csv
 
 views = Blueprint('views', __name__)
 
@@ -16,17 +17,32 @@ def home():
 @login_required                   # can only be accessed if user is logged in
 def main():
     if request.method == 'POST':
-        schedule = request.form.get('schedule')
-        
-        if len(schedule) < 1:
+        input = request.form.get('class_ids')
+        if not input:
             flash('Nothing added.', category='error')
         else:
-            new_schedule = Schedule(data=schedule, user_id = current_user.id)
+            class_ids = list(map(int, input.split(',')))
+            new_schedule = Schedule(class_ids=class_ids, user_id = current_user.id)
             db.session.add(new_schedule)
             db.session.commit()
             flash('Schedule added!', category='success')
 
     return render_template("main.html", user=current_user)
+
+@views.route('/schedule/<int:schedule_id>', methods=['GET'])
+@login_required
+def view_schedule(schedule_id):
+    # Fetch the schedule and verify it belongs to the current user
+    schedule = Schedule.query.filter_by(id=schedule_id, user_id=current_user.id).first()
+
+    if not schedule:
+        flash('Error loading schedule.', category='error')
+        return render_template("main.html", user=current_user)
+    
+    class_ids = schedule.class_ids
+    courses = Course.query.filter(Course.id.in_(class_ids)).all()
+    return render_template('view_schedule.html', schedule=schedule, courses=courses, user=current_user)
+
 
 @views.route('/delete-schedule', methods=['POST'])
 def delete_schedule():
@@ -56,3 +72,25 @@ def class_search():
     print(f"Classes found: {len(results)}")
 
     return render_template("class_search.html", classes=results, user=current_user)
+
+@views.route('/schedules')
+@login_required
+def index():
+    return render_template('schedules.html')
+
+# Handle form submission
+@views.route('/submit', methods=['POST'])
+@login_required
+def submit():
+    core_class = request.form.get('core-class')
+    elective_credits = request.form.getlist('elective-credit')
+
+    # Prepare data for CSV
+    data = [core_class, ','.join(elective_credits)]
+
+    # Write to CSV file
+    with open('data.csv', mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(data)
+
+    return 'Data saved successfully!'

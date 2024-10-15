@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+<title>{% block title %}View Schedule{% endblock %}</title>
+
+{% block content %}
+    <h1 align="center">Schedule Details</h1>
+
+    <p class="created-on"> Created on: {{ schedule.date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+
+    <div class="course-list">
+        {% if courses %}
+            {% for course in courses %}
+                <div class="course-item">
+                    <div class="lecture">
+                        <p>
+                            <span><strong>{{ course.abbreviation }} {{ course.number }}</strong></span><br> 
+                            <span>{{ course.title }}</span> - 
+                            <span>{{ course.credit_hours }} hours</span><br>
+                            <span>{{ course.lecture_days }}</span>: 
+                            <span>{{ course.lecture_time }}</span>, 
+                            <span>{{ course.lecture_location }}</span>
+                        </p>
+                    </div>
+                    
+                    {% if course.lab_time != '' %}
+                        <div class="lab">
+                            <strong>Lab:</strong>
+                            <p>
+                                <span>{{ course.lab_days }}</span>: 
+                                <span>{{ course.lab_time }}</span>, 
+                                <span>{{ course.lab_location }}</span>
+                            </p>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No courses found for this schedule.</p>
+        {% endif %}
+    </div>
+
+    <a href="{{ url_for('views.main') }}" class="button">Back to Schedules</a>
+
+{% endblock %}

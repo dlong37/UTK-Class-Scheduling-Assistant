@@ -4,7 +4,6 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 
 from os import path
-# from .read_classes import read_classes_from_csv
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
@@ -45,14 +44,8 @@ def create_app():
     return app
 
 def create_database(app):
-    # Check if the classes database exists
-    if not path.exists('backend/' + CLASSES_DB_NAME):
-        with app.app_context():
-            db.create_all(bind_key="classes")
-            print('New Classes Database Created.')
-
     # Check if user database exists
-    if not path.exists('backend/' + DB_NAME):
+    if not path.exists('instance/' + DB_NAME):
         with app.app_context():
             db.create_all()
             print('New User Database Created.')
