@@ -42,7 +42,7 @@ priority_queue<course, vector<course>, CompareCourse> create_pq(int start_hour, 
         int startx = start_hour * MINS_PER_HOUR + start_min;
         int course_hour = stoi(remaining_vector[i].lec_time.substr(0, 2));
         int course_min = stoi(remaining_vector[i].lec_time.substr(2, 2));
-        // cout << course_hour << ":" << course_min;
+        cout << course_hour << ":" << course_min;
         int endx = course_hour * MINS_PER_HOUR + course_min;
         int duration = endx - startx;
         int priority = duration - gap;
@@ -50,7 +50,7 @@ priority_queue<course, vector<course>, CompareCourse> create_pq(int start_hour, 
             priority *= -1;
         }
         remaining_vector[i].priority = priority;
-        // cout << " - priority: " << priority << endl;
+        cout << remaining_vector[i].title << " - priority: " << priority << endl;
         pq.push(remaining_vector[i]);
     }
     return pq;
@@ -239,11 +239,12 @@ int main(int argc, char** argv) {
                 string cc = course_vector[j].pre_req;
                 string ccc = "";
                 for(int k = 0; k < (int)cc.size(); k++) {
-                    if(cc[k] == '-') {
+                    if (cc[k] == '|' || cc[k] == '&') {
+                        cout << "taken: " << ccc << endl;
                         taken_vector.push_back(ccc);
                         ccc.clear();
                     }
-                    if(cc[k] != '-') {
+                    if (cc[k] != '|' && cc[k] != '&') {
                         ccc.push_back(cc[k]);
                     }
                 }
@@ -346,21 +347,21 @@ int main(int argc, char** argv) {
     priority_queue<course, vector<course>, CompareCourse> pq = create_pq(user_hour, user_min, 0, remaining_vector);
 
     while (!pq.empty()) {
-        cout << pq.top().priority << " - ";
-        cout << pq.top().abbrv << " " << pq.top().num << " : " << pq.top().title << ", " << pq.top().lec_time << endl;
-        cout << "Pre-Reqs: " << pq.top().pre_req << endl;
+        int index = 0;
+        course scheduled_class = pq.top();
+        string pre_req = scheduled_class.pre_req;
+        cout << "Pre-Reqs for " << scheduled_class.title << ":" << endl;
+        for (int i = 0; i < (int)pre_req.size(); i++) {
+            if (pre_req[i] == '|' || pre_req[i] == '&') {
+                cout << "    " << pre_req.substr(index, i-index) << endl;
+                index = i+1;
+            }
+        }
         pq.pop();
     }
 
-    course scheduled_class = pq.top();
-
     // Pop the queue, attempt to schedule - if it can't, remove the class from remaining_vector:
     // filter all prereqs by "-" - use find + substr
-    string pre_req = scheduled_class.pre_req;
-    size_t found = pre_req.find("-");
-    if (found != string::npos) {
-        cout << "First occurrence is " << found << endl;
-    }
 
     // Once a class has been matched + scheduled, remove all matching titles, abbreviations, and numbers from the remaining_vector:
 

@@ -74,19 +74,19 @@ COSC,307,Honors: Data Structures and Algorithms II,4,none,COSC 202,none,1120-123
 COSC,307,Honors: Data Structures and Algorithms II,4,none,COSC 202,none,1120-1235,TR,SRF,1130-1220,W,MKB
 COSC,307,Honors: Data Structures and Algorithms II,4,none,COSC 202,none,1120-1235,TR,SRF,1240-1330,W,MKB
 COSC,307,Honors: Data Structures and Algorithms II,4,none,COSC 202,none,1120-1235,TR,SRF,1350-1440,W,MKB
-COSC,311,Discrete Structures,3,none,COSC 202-MATH 142,none,1430-1545,TR,MKB,none,none,none
-COSC,317,Honors: Discrete Structures,3,none,COSC 202-MATH 142,none,1430-1545,TR,MKB,none,none,none
+COSC,311,Discrete Structures,3,none,COSC 202&MATH 142,none,1430-1545,TR,MKB,none,none,none
+COSC,317,Honors: Discrete Structures,3,none,COSC 202&MATH 142,none,1430-1545,TR,MKB,none,none,none
 ECE,313,Probability and Random Variables,3,none,MATH 142,none,0800-0850,MWF,MKB,none,none,none
 ECE,317,Honors: Probability and Random Variables,3,none,MATH 142,none,0800-0850,MWF,MKB,none,none,none
 COSC,312,Algorithm Analysis and Automata,3,none,COSC 311,none,0945-1100,TR,MKB,none,none,none
 COSC,340,Software Engineering,3,none,COSC 302,none,0810-0925,TR,MKB,none,none,none
-COSC,402,Senior Design Praticum,3,AOC,COSC 401-ENGL 102-ENGL 132-ENGL 290-ENGL 298,none,1130-1220,MWF,MOS,none,none,none
-ENGL,355,Rhetoric and Writing,3,WC,ENGL 102-ENGL 118-ENGL 132-ENGL 290-ENGL 298,none,0945-1100,TR,HSS,none,none,none
-ENGL,355,Rhetoric and Writing,3,WC,ENGL 102-ENGL 118-ENGL 132-ENGL 290-ENGL 298,none,1130-1220,MWF,AYR,none,none,none
-ENGL,355,Rhetoric and Writing,3,WC,ENGL 102-ENGL 118-ENGL 132-ENGL 290-ENGL 298,none,1120-1235,TR,HSS,none,none,none
-ENGL,360,Technical and Professional Writing,3,WC,ENGL 102-ENGL 118-ENGL 132-ENGL 290-ENGL 298,none,0000-0000,MTWRF,none,none,none,none
-ENGL,360,Technical and Professional Writing,3,WC,ENGL 102-ENGL 118-ENGL 132-ENGL 290-ENGL 298,none,0810-0925,TR,HSS,none,none,none
-ENGL,360,Technical and Professional Writing,3,WC,ENGL 102-ENGL 118-ENGL 132-ENGL 290-ENGL 298,none,0945-1100,TR,HSS,none,none,none
+COSC,402,Senior Design Praticum,3,AOC,COSC 401&ENGL 102|ENGL 132|ENGL 290|ENGL 298,none,1130-1220,MWF,MOS,none,none,none
+ENGL,355,Rhetoric and Writing,3,WC,ENGL 102|ENGL 118|ENGL 132|ENGL 290|ENGL 298,none,0945-1100,TR,HSS,none,none,none
+ENGL,355,Rhetoric and Writing,3,WC,ENGL 102|ENGL 118|ENGL 132|ENGL 290|ENGL 298,none,1130-1220,MWF,AYR,none,none,none
+ENGL,355,Rhetoric and Writing,3,WC,ENGL 102|ENGL 118|ENGL 132|ENGL 290|ENGL 298,none,1120-1235,TR,HSS,none,none,none
+ENGL,360,Technical and Professional Writing,3,WC,ENGL 102|ENGL 118|ENGL 132|ENGL 290|ENGL 298,none,0000-0000,MTWRF,none,none,none,none
+ENGL,360,Technical and Professional Writing,3,WC,ENGL 102|ENGL 118|ENGL 132|ENGL 290|ENGL 298,none,0810-0925,TR,HSS,none,none,none
+ENGL,360,Technical and Professional Writing,3,WC,ENGL 102|ENGL 118|ENGL 132|ENGL 290|ENGL 298,none,0945-1100,TR,HSS,none,none,none
 ENGL,101,English Composition I,3,WC,none,none,0800-0850,MWF,HSS,none,none,none
 ENGL,101,English Composition I,3,WC,none,none,0910-1000,MWF,MKB,none,none,none
 ENGL,101,English Composition I,3,WC,none,none,0810-0925,TR,PER,none,none,none
@@ -162,15 +162,15 @@ EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MAT
 EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
 EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1605-1720,TR,ZEC
 COSC,401,Senior Design Theory,2,OC,COSC 360,none,1130-1220,MWF,SRF,none,none,none
-COSC,360,Systems Programming,4,none,COSC 302-COSC 230-ECE 256,none,1255-1410,TR,MKB,1130-1220,M,MKB
-COSC,360,Systems Programming,4,none,COSC 302-COSC 230-ECE 256,none,1255-1410,TR,MKB,1240-1330,M,MKB
-COSC,360,Systems Programming,4,none,COSC 302-COSC 230-ECE 256,none,1255-1410,TR,MKB,1350-1440,M,MKB
-COSC,360,Systems Programming,4,none,COSC 302-COSC 230-ECE 256,none,1255-1410,TR,MKB,1500-1550,M,MKB
-COSC,360,Systems Programming,4,none,COSC 302-COSC 230-ECE 256,none,1255-1410,TR,MKB,1610-1700,M,MKB
-COSC,366,Introduction to Cybersecurity,3,none,COSC 302-COSC 230-ECE 256,none,0810-0925,TR,MKB,none,none,none
+COSC,360,Systems Programming,4,none,COSC 302&COSC 230|ECE 256,none,1255-1410,TR,MKB,1130-1220,M,MKB
+COSC,360,Systems Programming,4,none,COSC 302&COSC 230|ECE 256,none,1255-1410,TR,MKB,1240-1330,M,MKB
+COSC,360,Systems Programming,4,none,COSC 302&COSC 230|ECE 256,none,1255-1410,TR,MKB,1350-1440,M,MKB
+COSC,360,Systems Programming,4,none,COSC 302&COSC 230|ECE 256,none,1255-1410,TR,MKB,1500-1550,M,MKB
+COSC,360,Systems Programming,4,none,COSC 302&COSC 230|ECE 256,none,1255-1410,TR,MKB,1610-1700,M,MKB
+COSC,366,Introduction to Cybersecurity,3,none,COSC 302&COSC 230|ECE 256,none,0810-0925,TR,MKB,none,none,none
 COSC,361,Operating Systems,3,none,COSC 360,none,0910-1000,MWF,MKB,none,none,none
 COSC,365,Programming Languages and Systems,3,none,COSC 302,none,1350-1440,MWF,MKB,none,none,none
-COSC,395,Junior Seminar,1,WC,COSC 302-ENGL 102-ENGL 132-ENGL 290-ENGL 298,none,1240-1330,W,MKB,none,none,none
+COSC,395,Junior Seminar,1,WC,COSC 302&ENGL 102|ENGL 132|ENGL 290|ENGL 298,none,1240-1330,W,MKB,none,none,none
 EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1350-1440,MWF,ZEC,1120-1235,TR,ZEC
 EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1350-1440,MWF,ZEC,1255-1410,TR,ZEC
 EF,141,Introduction to Physics and Modeling for Engineers I,4,EI,none,MATH 131,1350-1440,MWF,ZEC,1430-1545,TR,ZEC
@@ -195,13 +195,13 @@ EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 1
 EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1605-1720,TR,ZEC
 EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1020-1110,MWF,ZEC,1605-1720,TR,ZEC
 EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,1130-1220,MWF,ZEC,1605-1720,TR,ZEC
-EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
-EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
-EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1130-1220,MWF,ZEC,1255-1410,TR,ZEC
-EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
-EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1240-1330,MWF,ZEC,0945-1100,TR,ZEC
-EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1240-1330,MWF,ZEC,1120-1235,TR,ZEC
-EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131-EF 141,MATH 132,1240-1330,MWF,ZEC,1255-1410,TR,ZEC
+EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1130-1220,MWF,ZEC,1255-1410,TR,ZEC
+EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1240-1330,MWF,ZEC,0945-1100,TR,ZEC
+EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1240-1330,MWF,ZEC,1120-1235,TR,ZEC
+EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1240-1330,MWF,ZEC,1255-1410,TR,ZEC
 EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
 EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1020-1110,MWF,ZEC,0945-1100,TR,ZEC
 EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,0910-1000,MWF,ZEC,1120-1235,TR,ZEC
