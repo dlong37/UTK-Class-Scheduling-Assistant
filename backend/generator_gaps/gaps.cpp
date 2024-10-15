@@ -5,6 +5,7 @@
 #include <sstream>
 #include <vector>
 #include <set>
+#include <queue>
 using namespace std;
 
 class course {
@@ -22,13 +23,14 @@ class course {
         string lab_time;
         string lab_date;
         string lab_loc;
-        float priority = 0;
+        int priority = 0;
+};
 
-        // Define operator< for comparison (for use in std::set)
-        // NOTE: increase to encompass every course
-        bool operator<(const course& other) const {
-            return tie(abbrv, num, title) < tie(other.abbrv, other.num, other.title);
-        }
+// Custom comparator for min-heap (compare by age)
+struct CompareCourse {
+    bool operator()(const course& c1, const course& c2) {
+        return c1.priority > c2.priority;  // Min-heap: closer to 0 = higher priority
+    }
 };
 
 // coordinates for class locations
@@ -74,7 +76,6 @@ int main(int argc, char** argv) {
 
     // make vector that can hold class type course
     vector<course> course_vector;
-    set<course> course_set;
     course my_course;
 
     // open the available_courses file and error check opening
@@ -143,7 +144,6 @@ int main(int argc, char** argv) {
             i++; 
             if (i == 13) {
                 course_vector.push_back(my_course);
-                course_set.insert(my_course);
                 i = 0;
             }
         }
@@ -276,21 +276,48 @@ int main(int argc, char** argv) {
     // Ok! Now, assign a priority to the courses in major_vector by using the equation priority = time_between_classes - gap;
 
     // Create a remaining courses set to assign priorites.
-    set<course> remaining_set;
+    vector<course> remaining_vector;
     cout << "\nAll courses available from database:" << endl;
-    set<course>::iterator it_course = course_set.begin();
-    while (it_course != course_set.end()) {
+    for (int i = 0; i < (int)course_vector.size(); i++) {
         for (int j = 0; j < (int)major_vector.size(); j++) {
-            string name = it_course->abbrv + " " + to_string(it_course->num);
+            string name = course_vector[i].abbrv + " " + to_string(course_vector[i].num);
             if (major_vector[j] == name) {
-                cout << name << " : " << it_course->priority << endl;
-                remaining_set.insert(*it_course);
+                // cout << name << " : " << it_course->priority << endl;
+                remaining_vector.push_back(course_vector[i]);
             }
         }
-        it_course++;
     }
 
-    // Calculate priority of remaining_courses.
+    // Create min heap priority queue
+    priority_queue<course, vector<course>, CompareCourse> pq;
 
-    // Once a class has been matched, remove from the remaining_set.
+    // Calculate priority of remaining_courses.
+    const int MINS_PER_HOUR = 60;
+    int startx = user_hour * MINS_PER_HOUR + user_min;
+
+    for (int i = 0; i < (int)remaining_vector.size(); i++) {
+        int course_hour = stoi(remaining_vector[i].lec_time.substr(0, 2));
+        int course_min = stoi(remaining_vector[i].lec_time.substr(2, 2));
+        // cout << course_hour << ":" << course_min;
+        int endx = course_hour * MINS_PER_HOUR + course_min;
+        int duration = endx - startx;
+        int priority = duration;
+        if (priority < 0) {
+            priority *= -1;
+        }
+        remaining_vector[i].priority = priority;
+        // cout << " - priority: " << priority << endl;
+        pq.push(remaining_vector[i]);
+    }
+
+    while (!pq.empty()) {
+        cout << pq.top().priority << " - ";
+        cout << pq.top().abbrv << " " << pq.top().num << " : " << pq.top().title << ", " << pq.top().lec_time << endl;
+        pq.pop();
+    }
+
+    // Once a class has been matched, remove from the remaining_vector.
+
+    // then, do some offsetting with gap and end time and loop until you reach desired credit hours
+    // prolly have to define an == operator
 }
