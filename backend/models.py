@@ -19,22 +19,20 @@ class Course(db.Model):
     abbreviation = db.Column(db.String(4), nullable=False)
     number = db.Column(db.Integer, nullable=False)
     title = db.Column(db.String(50), nullable=False)
-    hours = db.Column(db.Integer, nullable=False)
-    class_days = db.Column(db.String(5))
-#    time = db.Column(db.String(50), nullable=False)
-#    credits = db.Column(db.Integer, nullable=False)
+    credit_hours = db.Column(db.Integer, nullable=False)
+    lecture_time = db.Column(db.String(10))
+    lecture_days = db.Column(db.String(5))
+    lecture_location = db.Column(db.String(5))
+    lab_time = db.Column(db.String(10))
+    lab_days = db.Column(db.String(5))
+    lab_location = db.Column(db.String(5))
 
 
 # Schema for 'Schedule' database object: have to add semester.
-# Cannot establish direct relationship with Course object.
-# Will try to hold array of class ids added to this schedule.
 class Schedule(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime(timezone=True), default=func.now())
-    
-    # Not sure which one will work yet: fix later!
-    class_ids = db.Column(db.Integer)
-    #class_ids = db.Column(db.JSON)
+    class_ids = db.Column(db.JSON, nullable=False)
     
     # Associate with a user object:
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

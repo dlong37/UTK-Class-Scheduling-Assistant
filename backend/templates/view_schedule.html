@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+<title>{% block title %}View Schedule{% endblock %}</title>
+
+{% block content %}
+    <h1 align="center">Schedule Details</h1>
+
+    <p>Created on: {{ schedule.date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+
+    <h3>Courses:</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <!-- <th>Course ID</th>      Debugging only -->
+                <th>Abbreviation</th>
+                <th>Course Title</th>
+                <th>Hours</th>
+                <th>Class Days</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if courses %}
+                {% for course in courses %}
+                <tr>
+                    <!-- <td>{{ course.id }}</td>       Debugging only-->
+                    <td>{{ course.abbreviation }} {{ course.number }}</td>
+                    <td>{{ course.title }}</td>
+                    <td>{{ course.credit_hours }}</td>
+                    <td>{{ course.lecture_days }}  {{ course.lecture_time }} {{ course.lecture_location }}</td>
+                    <td>{{ course.lab_days }}  {{ course.lab_time }} {{ course.lab_location }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">No courses found for this schedule.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('views.main') }}" class="btn btn-secondary">Back to Schedules</a>
+{% endblock %}
