@@ -348,12 +348,19 @@ int main(int argc, char** argv) {
     while (!pq.empty()) {
         cout << pq.top().priority << " - ";
         cout << pq.top().abbrv << " " << pq.top().num << " : " << pq.top().title << ", " << pq.top().lec_time << endl;
+        cout << "Pre-Reqs: " << pq.top().pre_req << endl;
         pq.pop();
     }
 
     course scheduled_class = pq.top();
 
     // Pop the queue, attempt to schedule - if it can't, remove the class from remaining_vector:
+    // filter all prereqs by "-" - use find + substr
+    string pre_req = scheduled_class.pre_req;
+    size_t found = pre_req.find("-");
+    if (found != string::npos) {
+        cout << "First occurrence is " << found << endl;
+    }
 
     // Once a class has been matched + scheduled, remove all matching titles, abbreviations, and numbers from the remaining_vector:
 
