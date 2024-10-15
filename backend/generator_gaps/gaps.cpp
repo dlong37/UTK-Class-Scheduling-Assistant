@@ -8,6 +8,8 @@
 #include <queue>
 using namespace std;
 
+#define MINS_PER_HOUR 60
+
 class course {
     public:
         string abbrv;
@@ -31,6 +33,27 @@ struct CompareCourse {
     bool operator()(const course& c1, const course& c2) {
         return c1.priority > c2.priority;  // Min-heap: closer to 0 = higher priority
     }
+};
+
+priority_queue<course, vector<course>, CompareCourse> create_pq(int start_hour, int start_min, int gap, vector<course> remaining_vector) {
+    priority_queue<course, vector<course>, CompareCourse> pq;
+    for (int i = 0; i < (int)remaining_vector.size(); i++) {
+        // calculate start time in minutes
+        int startx = start_hour * MINS_PER_HOUR + start_min;
+        int course_hour = stoi(remaining_vector[i].lec_time.substr(0, 2));
+        int course_min = stoi(remaining_vector[i].lec_time.substr(2, 2));
+        // cout << course_hour << ":" << course_min;
+        int endx = course_hour * MINS_PER_HOUR + course_min;
+        int duration = endx - startx;
+        int priority = duration - gap;
+        if (priority < 0) {
+            priority *= -1;
+        }
+        remaining_vector[i].priority = priority;
+        // cout << " - priority: " << priority << endl;
+        pq.push(remaining_vector[i]);
+    }
+    return pq;
 };
 
 // coordinates for class locations
@@ -268,14 +291,30 @@ int main(int argc, char** argv) {
     cout << "How many minutes would you like between classes?: ";
     while (1) {
         cin >> gap;
-        if (gap > 0) {
+        if (gap >= 0 && gap < 1440) {
             break;
+        }
+        cout << "Please enter a valid number of minutes (0-1439): ";
+    }
+
+    // Create the 2D matrix for the course scheduler
+    vector<vector<int>> arr(60*24, vector<int>(5, 0));
+    // Get number of rows
+    int rows = arr.size();
+    // Check if the matrix is non-empty and get the number of columns from the first row
+    if (rows > 0) {
+        int cols = arr[0].size();
+
+        // Nested for loops to print the matrix
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                std::cout << arr[i][j] << " ";  // Access elements by index
+            }
+            std::cout << std::endl;  // Newline after each row
         }
     }
 
-    // Ok! Now, assign a priority to the courses in major_vector by using the equation priority = time_between_classes - gap;
-
-    // Create a remaining courses set to assign priorites.
+    // Create a remaining courses vector to pull ALL reamining courses from the database.
     vector<course> remaining_vector;
     cout << "\nAll courses available from database:" << endl;
     for (int i = 0; i < (int)course_vector.size(); i++) {
@@ -288,27 +327,8 @@ int main(int argc, char** argv) {
         }
     }
 
-    // Create min heap priority queue
-    priority_queue<course, vector<course>, CompareCourse> pq;
-
-    // Calculate priority of remaining_courses.
-    const int MINS_PER_HOUR = 60;
-    int startx = user_hour * MINS_PER_HOUR + user_min;
-
-    for (int i = 0; i < (int)remaining_vector.size(); i++) {
-        int course_hour = stoi(remaining_vector[i].lec_time.substr(0, 2));
-        int course_min = stoi(remaining_vector[i].lec_time.substr(2, 2));
-        // cout << course_hour << ":" << course_min;
-        int endx = course_hour * MINS_PER_HOUR + course_min;
-        int duration = endx - startx;
-        int priority = duration;
-        if (priority < 0) {
-            priority *= -1;
-        }
-        remaining_vector[i].priority = priority;
-        // cout << " - priority: " << priority << endl;
-        pq.push(remaining_vector[i]);
-    }
+    // Create min heap priority queue - gap of 0 since this is the first one.
+    priority_queue<course, vector<course>, CompareCourse> pq = create_pq(user_hour, user_min, 0, remaining_vector);
 
     while (!pq.empty()) {
         cout << pq.top().priority << " - ";
@@ -316,7 +336,7 @@ int main(int argc, char** argv) {
         pq.pop();
     }
 
-    // Once a class has been matched, remove from the remaining_vector.
+    // Once a class has been matched + scheduled, remove all matching titles, abbreviations, and numbers from the remaining_vector.
 
     // then, do some offsetting with gap and end time and loop until you reach desired credit hours
     // prolly have to define an == operator
