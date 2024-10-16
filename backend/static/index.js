@@ -47,3 +47,21 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+/*
+ * stagger animation for schedule page
+ */
+window.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('.schedules__container');
+    const formElements = document.querySelectorAll('.schedules__container input[type="checkbox"], .schedules__container select, .schedules__container input[type="submit"]')
+
+    // show form container
+    form.classList.add('show');
+
+    // delay showing form elements for a staggered effect
+    formElements.forEach((element, index) => {
+        setTimeout(() => {
+            element.classList.add('show');
+        }, 200 * index);
+    });
+})

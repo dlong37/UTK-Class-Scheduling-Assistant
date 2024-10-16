@@ -377,7 +377,7 @@ body {
  * Input and Submit Button Styles
  * Styles for input fields and submit buttons within the form.
  */
-input, .submit-button {
+input[type="email"], input[type="password"], .submit-button {
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 1s ease, transform 1s ease;
@@ -455,7 +455,7 @@ input:focus, .submit-button:hover {
  * Styles for the welcome section of the homepage.
  */
 .welcome {
-    background-image: linear-gradient(to top, #fff 0%, #ff8200);
+    background-image: linear-gradient(to top, #fff, #ff8200);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -580,9 +580,8 @@ input:focus, .submit-button:hover {
  * Styles for the about section of the website.
  */
 .about {
-    background-image: linear-gradient(to bottom, #fff 0%, #ff8200);
+    background-image: linear-gradient(to top, #ff8200, #fff);
     padding: 20px;
-    margin-top: 20px;
     min-height: 100vh;
 }
 
