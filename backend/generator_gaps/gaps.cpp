@@ -38,6 +38,7 @@ struct CompareCourse {
 priority_queue<course, vector<course>, CompareCourse> create_pq(int start_hour, int start_min, int gap, vector<course> remaining_vector) {
     priority_queue<course, vector<course>, CompareCourse> pq;
     for (int i = 0; i < (int)remaining_vector.size(); i++) {
+        cout << remaining_vector[i].title << " - ";
         // calculate start time in minutes
         int startx = start_hour * MINS_PER_HOUR + start_min;
         int course_hour = stoi(remaining_vector[i].lec_time.substr(0, 2));
@@ -50,7 +51,7 @@ priority_queue<course, vector<course>, CompareCourse> create_pq(int start_hour, 
             priority *= -1;
         }
         remaining_vector[i].priority = priority;
-        cout << remaining_vector[i].title << " - priority: " << priority << endl;
+        cout << " - priority: " << priority << endl;
         pq.push(remaining_vector[i]);
     }
     return pq;
@@ -240,7 +241,6 @@ int main(int argc, char** argv) {
                 string ccc = "";
                 for(int k = 0; k < (int)cc.size(); k++) {
                     if (cc[k] == '|' || cc[k] == '&') {
-                        cout << "taken: " << ccc << endl;
                         taken_vector.push_back(ccc);
                         ccc.clear();
                     }
