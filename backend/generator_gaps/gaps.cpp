@@ -76,7 +76,11 @@ void print_array( vector<vector<int>> arr) {
             std::cout << std::endl;  // Newline after each row
         }
     }
-}
+};
+
+void check_pr(vector<string> taken_vector, vector<string> or_vector, priority_queue<course, vector<course>, CompareCourse> pq) {
+
+};
 
 // coordinates for class locations
 const pair<double, double> APBcoord(35.95716565313402, -83.92699933505531);
@@ -358,8 +362,13 @@ int main(int argc, char** argv) {
     vector<string> or_vector;
 
     // check that course meets pre-reqs
-    while (!pq.empty()) {
+    bool schedule = true;
+    while (schedule) {
         int index = 0;
+        // check for empty pq
+        if (pq.size() == 0) {
+            break;
+        }
         course scheduled_class = pq.top();
         string pre_req = scheduled_class.pre_req;
         string pr;
@@ -367,34 +376,65 @@ int main(int argc, char** argv) {
         // check for multiple pre-reqs
         cout << "Pre-Reqs for " << scheduled_class.abbrv << " " << scheduled_class.num << " - " << scheduled_class.title << ":" << endl;
         for (int i = 0; i < (int)pre_req.size(); i++) {
+            // hit an OR sign
             if (pre_req[i] == '|') { // add to OR vector only
+                cout << "    " << pre_req.substr(index, i-index) << " |" << endl;
                 // just push
                 pr = pre_req.substr(index, i-index);
                 or_vector.push_back(pr);
-
-                cout << "    " << pre_req.substr(index, i-index) << " |" << endl;
                 index = i+1;
             }
+            // hit an AND sign
             if (pre_req[i] == '&') { // check OR vector + clear / break
+                cout << "    " << pre_req.substr(index, i-index) << " & " << endl;
                 // push class onto the OR vector
                 pr = pre_req.substr(index, i-index);
                 or_vector.push_back(pr);
                 // then check + clear
-                // ...
-                cout << "    " << pre_req.substr(index, i-index) << " & " << endl;
+                for (int j = 0; j < (int)taken_vector.size(); j++) {
+                    for (int k = 0; k < (int)or_vector.size(); k++) {
+                        if (taken_vector[j] == or_vector[k]) {
+                            or_vector.clear();
+                            break;
+                        }
+                    }
+                    if (or_vector.size() == 0) { break; }
+                }
+                // if we checked, but weren't able to match, this class is unabled to be scheduled
+                if (or_vector.size() != 0) {
+                    cout << "    UNABLE TO SCHEDULE" << endl;
+                    pq.pop();
+                }
                 index = i+1;
             }
+            // grabs last class
             if (i == (int)pre_req.size()-1 && pre_req != "none") { // grab the last course / the only course if no other pre-reqs
+                cout << "    " << pre_req.substr(index, pre_req.size() - index) << endl;
                 // push
                 pr = pre_req.substr(index, pre_req.size() - index);
                 or_vector.push_back(pr);
                 // final check
-                cout << "    " << pre_req.substr(index, pre_req.size() - index) << endl;
+                for (int j = 0; j < (int)taken_vector.size(); j++) {
+                    for (int k = 0; k < (int)or_vector.size(); k++) {
+                        if (taken_vector[j] == or_vector[k]) {
+                            or_vector.clear();
+                            break;
+                        }
+                    }
+                    if (or_vector.size() == 0) { break; }
+                }
+                // if we checked, but weren't able to match, this class is unabled to be scheduled
+                if (or_vector.size() != 0) {
+                    cout << "    UNABLE TO SCHEDULE" << endl;
+                    pq.pop();
+                }
+                else {
+                    schedule = false;
+                    cout << endl;
+                    cout << "Scheduling " << scheduled_class.abbrv << " " << scheduled_class.num << " - " << scheduled_class.title << endl;
+                }
             }
         }
-        // check remaining OR vector
-
-        pq.pop();
     }
 
     // Pop the queue, attempt to schedule - if it can't, remove the class from remaining_vector:
