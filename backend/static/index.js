@@ -9,7 +9,7 @@ const menuLinks = document.querySelector('.navbar__menu');
 menu.addEventListener('click', function() {
     menu.classList.toggle('is-active');
     menuLinks.classList.toggle('active');
-})
+});
 
 /*
  * deletes schedules from main page
@@ -17,10 +17,10 @@ menu.addEventListener('click', function() {
 function deleteSchedule(scheduleId) {
     fetch('/delete-schedule', {
         method: 'POST',
-        body: JSON.stringify({ scheduleId: scheduleId})
+        body: JSON.stringify({ scheduleId: scheduleId })
     }).then((_res) => {
         window.location.href = "/main";
-    })
+    });
 }
 
 /*
@@ -39,13 +39,11 @@ window.addEventListener('DOMContentLoaded', () => {
             element.classList.add('show');
         }, 200 * index); // Adjust the delay for each element
     });
-});
 
-/*
- * adds "enter" keypress listener to submit login/register forms
- */
-document.querySelector('.password').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        document.querySelector('.submit-button').click();
-    }
+    // Adds "enter" keypress listener to submit login/register forms
+    document.querySelector('.password').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            document.querySelector('.submit-button').click();
+        }
+    });
 });
