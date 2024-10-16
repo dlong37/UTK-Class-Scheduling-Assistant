@@ -439,6 +439,9 @@ int main(int argc, char** argv) {
     cout << "Scheduling " << pq.top().abbrv << " " << pq.top().num << " : " << pq.top().title << " at " << pq.top().lec_time << endl;
 
     // set up the new user time
+    string new_start_hour = pq.top().lec_time.substr(5, 2);
+    string new_start_min = pq.top().lec_time.substr(7, 2);
+    cout << new_start_hour << ":" << new_start_min << endl;
     // Once a class has been matched + scheduled, remove all matching titles, abbreviations, and numbers from the remaining_vector + major_vector:
 
     // then, do some offsetting with gap and end time and loop until you reach desired credit hours OR there are no more classes / can't schedule:
