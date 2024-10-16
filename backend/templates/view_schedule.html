@@ -4,38 +4,40 @@
 {% block content %}
     <h1 align="center">Schedule Details</h1>
 
-    <p>Created on: {{ schedule.date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+    <p class="created-on"> Created on: {{ schedule.date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
 
-    <h3>Courses:</h3>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <!-- <th>Course ID</th>      Debugging only -->
-                <th>Abbreviation</th>
-                <th>Course Title</th>
-                <th>Hours</th>
-                <th>Class Days</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% if courses %}
-                {% for course in courses %}
-                <tr>
-                    <!-- <td>{{ course.id }}</td>       Debugging only-->
-                    <td>{{ course.abbreviation }} {{ course.number }}</td>
-                    <td>{{ course.title }}</td>
-                    <td>{{ course.credit_hours }}</td>
-                    <td>{{ course.lecture_days }}  {{ course.lecture_time }} {{ course.lecture_location }}</td>
-                    <td>{{ course.lab_days }}  {{ course.lab_time }} {{ course.lab_location }}</td>
-                </tr>
-                {% endfor %}
-            {% else %}
-                <tr>
-                    <td colspan="5">No courses found for this schedule.</td>
-                </tr>
-            {% endif %}
-        </tbody>
-    </table>
+    <div class="course-list">
+        {% if courses %}
+            {% for course in courses %}
+                <div class="course-item">
+                    <div class="lecture">
+                        <p>
+                            <span><strong>{{ course.abbreviation }} {{ course.number }}</strong></span><br> 
+                            <span>{{ course.title }}</span> - 
+                            <span>{{ course.credit_hours }} hours</span><br>
+                            <span>{{ course.lecture_days }}</span>: 
+                            <span>{{ course.lecture_time }}</span>, 
+                            <span>{{ course.lecture_location }}</span>
+                        </p>
+                    </div>
+                    
+                    {% if course.lab_time != '' %}
+                        <div class="lab">
+                            <strong>Lab:</strong>
+                            <p>
+                                <span>{{ course.lab_days }}</span>: 
+                                <span>{{ course.lab_time }}</span>, 
+                                <span>{{ course.lab_location }}</span>
+                            </p>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No courses found for this schedule.</p>
+        {% endif %}
+    </div>
 
-    <a href="{{ url_for('views.main') }}" class="btn btn-secondary">Back to Schedules</a>
+    <a href="{{ url_for('views.main') }}" class="button">Back to Schedules</a>
+
 {% endblock %}

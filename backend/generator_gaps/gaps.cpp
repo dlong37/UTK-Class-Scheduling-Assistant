@@ -26,6 +26,10 @@ class course {
         string lab_date;
         string lab_loc;
         int priority = 0;
+
+    bool operator==(const course *mc) const {
+        return ((this->abbrv == mc->abbrv) && (this->num == mc->num));
+    }
 };
 
 // Custom comparator for min-heap (compare by age)
@@ -38,11 +42,12 @@ struct CompareCourse {
 priority_queue<course, vector<course>, CompareCourse> create_pq(int start_hour, int start_min, int gap, vector<course> remaining_vector) {
     priority_queue<course, vector<course>, CompareCourse> pq;
     for (int i = 0; i < (int)remaining_vector.size(); i++) {
+        cout << remaining_vector[i].title << " - ";
         // calculate start time in minutes
         int startx = start_hour * MINS_PER_HOUR + start_min;
         int course_hour = stoi(remaining_vector[i].lec_time.substr(0, 2));
         int course_min = stoi(remaining_vector[i].lec_time.substr(2, 2));
-        // cout << course_hour << ":" << course_min;
+        cout << course_hour << ":" << course_min;
         int endx = course_hour * MINS_PER_HOUR + course_min;
         int duration = endx - startx;
         int priority = duration - gap;
@@ -50,7 +55,7 @@ priority_queue<course, vector<course>, CompareCourse> create_pq(int start_hour, 
             priority *= -1;
         }
         remaining_vector[i].priority = priority;
-        // cout << " - priority: " << priority << endl;
+        cout << " - priority: " << priority << endl;
         pq.push(remaining_vector[i]);
     }
     return pq;
@@ -239,11 +244,11 @@ int main(int argc, char** argv) {
                 string cc = course_vector[j].pre_req;
                 string ccc = "";
                 for(int k = 0; k < (int)cc.size(); k++) {
-                    if(cc[k] == '-') {
+                    if (cc[k] == '|' || cc[k] == '&') {
                         taken_vector.push_back(ccc);
                         ccc.clear();
                     }
-                    if(cc[k] != '-') {
+                    if (cc[k] != '|' && cc[k] != '&') {
                         ccc.push_back(cc[k]);
                     }
                 }
@@ -255,8 +260,10 @@ int main(int argc, char** argv) {
 
     // create a set so duplicates are removed and classes are sorted alphabetically
     set<string> taken_set;
+    cout << "Taken courses: " << endl;
     for(int i = 0; i < (int)taken_vector.size(); i++) {
         taken_set.insert(taken_vector[i]);
+        cout << taken_vector[i] << endl;
     }
 
     // print inside the set
@@ -314,6 +321,7 @@ int main(int argc, char** argv) {
         cout << "Please enter a valid number of minutes (0-1439): ";
     }
 
+    /*
     int credit_hours;
     cout << "How many credit hours would you like to take next semester?: ";
     while (1) {
@@ -323,6 +331,7 @@ int main(int argc, char** argv) {
         }
         cout << "Please enter a valid number of credit hours (>0): ";
     }
+    */
 
     // Create the 2D matrix for the course scheduler
     vector<vector<int>> arr(60*24, vector<int>(5, 0));
@@ -345,22 +354,51 @@ int main(int argc, char** argv) {
     // Create min heap priority queue - gap of 0 since this is the first one.
     priority_queue<course, vector<course>, CompareCourse> pq = create_pq(user_hour, user_min, 0, remaining_vector);
 
+    // create OR vector to cross compare with taken vector.
+    vector<string> or_vector;
+
+    // check that course meets pre-reqs
     while (!pq.empty()) {
-        cout << pq.top().priority << " - ";
-        cout << pq.top().abbrv << " " << pq.top().num << " : " << pq.top().title << ", " << pq.top().lec_time << endl;
-        cout << "Pre-Reqs: " << pq.top().pre_req << endl;
+        int index = 0;
+        course scheduled_class = pq.top();
+        string pre_req = scheduled_class.pre_req;
+        string pr;
+
+        // check for multiple pre-reqs
+        cout << "Pre-Reqs for " << scheduled_class.abbrv << " " << scheduled_class.num << " - " << scheduled_class.title << ":" << endl;
+        for (int i = 0; i < (int)pre_req.size(); i++) {
+            if (pre_req[i] == '|') { // add to OR vector only
+                // just push
+                pr = pre_req.substr(index, i-index);
+                or_vector.push_back(pr);
+
+                cout << "    " << pre_req.substr(index, i-index) << " |" << endl;
+                index = i+1;
+            }
+            if (pre_req[i] == '&') { // check OR vector + clear / break
+                // push class onto the OR vector
+                pr = pre_req.substr(index, i-index);
+                or_vector.push_back(pr);
+                // then check + clear
+                // ...
+                cout << "    " << pre_req.substr(index, i-index) << " & " << endl;
+                index = i+1;
+            }
+            if (i == (int)pre_req.size()-1 && pre_req != "none") { // grab the last course / the only course if no other pre-reqs
+                // push
+                pr = pre_req.substr(index, pre_req.size() - index);
+                or_vector.push_back(pr);
+                // final check
+                cout << "    " << pre_req.substr(index, pre_req.size() - index) << endl;
+            }
+        }
+        // check remaining OR vector
+
         pq.pop();
     }
 
-    course scheduled_class = pq.top();
-
     // Pop the queue, attempt to schedule - if it can't, remove the class from remaining_vector:
     // filter all prereqs by "-" - use find + substr
-    string pre_req = scheduled_class.pre_req;
-    size_t found = pre_req.find("-");
-    if (found != string::npos) {
-        cout << "First occurrence is " << found << endl;
-    }
 
     // Once a class has been matched + scheduled, remove all matching titles, abbreviations, and numbers from the remaining_vector:
 
