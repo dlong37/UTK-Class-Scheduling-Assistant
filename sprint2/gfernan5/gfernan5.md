@@ -18,10 +18,10 @@ ClassSchedulingAssisstant
 The main issue we encountered was how to deal with multiple pre-reqs for a course where you only needed 1 out of several. It took a little brainstorming to figure out how to get that working. Another issue I encountered was determining distances between two buildings. I forgot to convert from degrees to radians which was throwing off the sin and cos functions used in the haversine function, which was fun figuring out how to solve.
 
 ### Issues you worked on
-* Issue #15: https://github.com/utk-cs340-fall24/UTK-Class-Scheduling-Assistant/issues/15
-* Issue #16: https://github.com/utk-cs340-fall24/UTK-Class-Scheduling-Assistant/issues/16
-* Issue #17: https://github.com/utk-cs340-fall24/UTK-Class-Scheduling-Assistant/issues/17
-* Issue #33: https://github.com/utk-cs340-fall24/UTK-Class-Scheduling-Assistant/issues/33
+* Issue #15, Error check to file: https://github.com/utk-cs340-fall24/UTK-Class-Scheduling-Assistant/issues/15
+* Issue #16, Calculate distances: https://github.com/utk-cs340-fall24/UTK-Class-Scheduling-Assistant/issues/16
+* Issue #17, Identify next courses: https://github.com/utk-cs340-fall24/UTK-Class-Scheduling-Assistant/issues/17
+* Issue #33, Make program functions: https://github.com/utk-cs340-fall24/UTK-Class-Scheduling-Assistant/issues/33
 
 ### Files you worked on
 * Support.h: backend/generator_location/Support.h
