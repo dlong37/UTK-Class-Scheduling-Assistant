@@ -126,11 +126,11 @@ void expand_vector(vector<string> &taken_vector, vector<course> &course_vector) 
                 string cc = course_vector[j].pre_req;
                 string ccc = "";
                 for(int k = 0; k < cc.size(); k++) {
-                    if(cc[k] == '-') {
+                    if(cc[k] == '&' || cc[k] == '|') {
                         taken_vector.push_back(ccc);
                         ccc.clear();
                     }
-                    if(cc[k] != '-') {
+                    if(cc[k] != '&' && cc[k] != '|') {
                         ccc.push_back(cc[k]);
                     }
                 }
@@ -159,11 +159,13 @@ void remove_duplicates(set<string> &taken_set, vector<string> &taken_vector, vec
     }
 
     for(int i = 0; i < major_vector.size(); i++) {
-        set<string>::iterator it = taken_set.begin();
-        while(it != taken_set.end()) {
-            if(*it == major_vector[i]) { major_vector.erase(major_vector.begin()+i); i--; }
-            else { ++it; }
-        }    
+        for(set<string>::iterator it = taken_set.begin(); it != taken_set.end(); ++it) {
+            if(major_vector[i] == *it) {
+                major_vector.erase(major_vector.begin()+i);
+                i--;
+                break;
+            }
+        }   
     }
 }
 
@@ -196,4 +198,8 @@ int error_check(string s, int argc, int i) {
         return 1;
     }
     return 0;
+}
+
+void optimize_loc(vector<string> major_vector, vector<vector<float>> distance_vector, string s, int hours) {
+    
 }

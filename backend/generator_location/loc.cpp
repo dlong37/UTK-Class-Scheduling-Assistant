@@ -23,6 +23,7 @@ int main(int argc, char** argv) {
     vector<string> major_vector;
     read_file2(major_vector, file);
 
+    cout << "Major vector:" << endl; 
     for(int i = 0; i < (int)major_vector.size(); i++) {
         cout << major_vector[i] << endl;
     }
@@ -35,6 +36,7 @@ int main(int argc, char** argv) {
     vector<string> taken_vector;
     read_file2(taken_vector, file);
 
+    cout << "taken vector:" << endl;
     for(int i = 0; i < (int)taken_vector.size(); i++) {
         cout << taken_vector[i] << endl;
     }
@@ -43,6 +45,7 @@ int main(int argc, char** argv) {
     // expands the taken_courses vector to include all the pre reqs that are needed to get to a class in the taken_courses vector
     expand_vector(taken_vector, course_vector);
 
+    cout << "taken vector expanded:" << endl;
     for(int i = 0; i < (int)taken_vector.size(); i++) {
         cout << taken_vector[i] << endl;
     }
@@ -51,6 +54,7 @@ int main(int argc, char** argv) {
     // create a set so duplicates are removed and classes are sorted alphabetically
     set<string> taken_set;
     remove_duplicates(taken_set, taken_vector, major_vector);
+    cout << "taken set:" << endl;
     for(set<string>::iterator it = taken_set.begin(); it != taken_set.end(); ++it) {
         cout << *it << std::endl;
     }
@@ -59,11 +63,21 @@ int main(int argc, char** argv) {
     vector<vector<float>> distance_vector;
     calc_distance(distance_vector);
 
+    cout << "distance vector:" << endl;
     for(int i = 0; i < 19; i++) {
         for(int j = 0; j < 19; j++) {
             printf("%f ", distance_vector[i][j]);
         }
         printf("\n");
     }
+    cout << endl;
+
+    cout << "Major vector shrunk:" << endl;
+    for(int i = 0; i < (int)major_vector.size(); i++) {
+        cout << major_vector[i] << endl;
+    }
+    cout << endl;
+
+    optimize_loc(major_vector, distance_vector, argv[1], 15);
     
 }
