@@ -85,8 +85,79 @@ void print_array( vector<vector<int>> arr) {
     }
 };
 
-void check_pr(vector<string> taken_vector, vector<string> or_vector, priority_queue<course, vector<course>, CompareCourse> pq) {
+void check_pr(vector<string> taken_vector, priority_queue<course, vector<course>, CompareCourse> &pq) {
+    // create OR vector to cross compare with taken vector.
+    vector<string> or_vector;
+    // check that course meets pre-reqs
+    bool schedule = true;
+    while (schedule) {
+        int index = 0;
+        // check for empty pq
+        if (pq.size() == 0) {
+            return;
+        }
+        course scheduled_class = pq.top();
+        string pre_req = scheduled_class.pre_req;
+        string pr;
 
+        // check for multiple pre-reqs
+        for (int i = 0; i < (int)pre_req.size(); i++) {
+            // hit an OR sign
+            if (pre_req[i] == '|') { // add to OR vector only
+                // just push
+                pr = pre_req.substr(index, i-index);
+                or_vector.push_back(pr);
+                index = i+1;
+            }
+            // hit an AND sign
+            if (pre_req[i] == '&') { // check OR vector + clear / break
+                // push class onto the OR vector
+                pr = pre_req.substr(index, i-index);
+                or_vector.push_back(pr);
+                // then check + clear
+                for (int j = 0; j < (int)taken_vector.size(); j++) {
+                    for (int k = 0; k < (int)or_vector.size(); k++) {
+                        if (taken_vector[j] == or_vector[k]) {
+                            or_vector.clear();
+                            break;
+                        }
+                    }
+                    if (or_vector.size() == 0) { break; }
+                }
+                // if we checked, but weren't able to match, this class is unabled to be scheduled
+                if (or_vector.size() != 0) {
+                    pq.pop();
+                    break;
+                }
+                index = i+1;
+            }
+            // grabs last class
+            if (i == (int)pre_req.size()-1) { // grab the last course / the only course if no other pre-reqs
+                // push
+                pr = pre_req.substr(index, pre_req.size() - index);
+                or_vector.push_back(pr);
+                // final check
+                for (int j = 0; j < (int)taken_vector.size(); j++) {
+                    for (int k = 0; k < (int)or_vector.size(); k++) {
+                        if (taken_vector[j] == or_vector[k]) {
+                            or_vector.clear();
+                            break;
+                        }
+                    }
+                    if (or_vector.size() == 0) { break; }
+                }
+                // if we checked, but weren't able to match, this class is unabled to be scheduled
+                if (or_vector.size() != 0) {
+                    pq.pop();
+                    break;
+                }
+                else { // otherwise, we can schedule this class!
+                    schedule = false;
+                    return;
+                }
+            }
+        }
+    }
 };
 
 // coordinates for class locations
@@ -342,9 +413,9 @@ int main(int argc, char** argv) {
     */
 
     // Create the 2D matrix for the course scheduler
-    vector<vector<int>> arr(60*24, vector<int>(5, 0));
+    vector<vector<int>> schedule(60*24, vector<int>(5, 0));
 
-    // print_array(arr);
+    // print_array(schedule);
 
     // Create a remaining courses vector to pull ALL reamining courses from the database.
     vector<course> remaining_vector;
@@ -363,85 +434,30 @@ int main(int argc, char** argv) {
 
     print_pq(pq);
 
-    // create OR vector to cross compare with taken vector.
-    vector<string> or_vector;
-
-    // check that course meets pre-reqs
-    bool schedule = true;
-    while (schedule) {
-        int index = 0;
-        // check for empty pq
-        if (pq.size() == 0) {
-            break;
-        }
-        course scheduled_class = pq.top();
-        string pre_req = scheduled_class.pre_req;
-        string pr;
-
-        // check for multiple pre-reqs
-        for (int i = 0; i < (int)pre_req.size(); i++) {
-            // hit an OR sign
-            if (pre_req[i] == '|') { // add to OR vector only
-                // just push
-                pr = pre_req.substr(index, i-index);
-                or_vector.push_back(pr);
-                index = i+1;
-            }
-            // hit an AND sign
-            if (pre_req[i] == '&') { // check OR vector + clear / break
-                // push class onto the OR vector
-                pr = pre_req.substr(index, i-index);
-                or_vector.push_back(pr);
-                // then check + clear
-                for (int j = 0; j < (int)taken_vector.size(); j++) {
-                    for (int k = 0; k < (int)or_vector.size(); k++) {
-                        if (taken_vector[j] == or_vector[k]) {
-                            or_vector.clear();
-                            break;
-                        }
-                    }
-                    if (or_vector.size() == 0) { break; }
-                }
-                // if we checked, but weren't able to match, this class is unabled to be scheduled
-                if (or_vector.size() != 0) {
-                    pq.pop();
-                    break;
-                }
-                index = i+1;
-            }
-            // grabs last class
-            if (i == (int)pre_req.size()-1 && pre_req != "none") { // grab the last course / the only course if no other pre-reqs
-                // push
-                pr = pre_req.substr(index, pre_req.size() - index);
-                or_vector.push_back(pr);
-                // final check
-                for (int j = 0; j < (int)taken_vector.size(); j++) {
-                    for (int k = 0; k < (int)or_vector.size(); k++) {
-                        if (taken_vector[j] == or_vector[k]) {
-                            or_vector.clear();
-                            break;
-                        }
-                    }
-                    if (or_vector.size() == 0) { break; }
-                }
-                // if we checked, but weren't able to match, this class is unabled to be scheduled
-                if (or_vector.size() != 0) {
-                    pq.pop();
-                    break;
-                }
-                else { // otherwise, we can schedule this class!
-                    schedule = false;
-                    break;
-                }
-            }
-        }
-    }
+    check_pr(taken_vector, pq);
     cout << "Scheduling " << pq.top().abbrv << " " << pq.top().num << " : " << pq.top().title << " at " << pq.top().lec_time << endl;
 
+    // attempt to schedule
+    //int startx = start_hour * MINS_PER_HOUR + start_min;
+    int lec_start_time = stoi(pq.top().lec_time.substr(0, 2)) * MINS_PER_HOUR + stoi(pq.top().lec_time.substr(2, 2));
+        cout << "lec start time: " << lec_start_time << endl;
+    int lec_end_time = stoi(pq.top().lec_time.substr(5, 2)) * MINS_PER_HOUR + stoi(pq.top().lec_time.substr(7, 2));
+        cout << "lec end time: " << lec_end_time << endl;
+    int lab_start_time = 0;
+        cout << "lab start time: " << lab_start_time << endl;
+    int lab_end_time = 0;
+        cout << "lab start time: " << lab_end_time << endl;
+
+    if (pq.top().lab_time != "none") {
+        lab_start_time = stoi(pq.top().lab_time.substr(0, 2)) * MINS_PER_HOUR + stoi(pq.top().lab_time.substr(2, 2));
+        lab_end_time = stoi(pq.top().lab_time.substr(5, 2)) * MINS_PER_HOUR + stoi(pq.top().lab_time.substr(7, 2));
+    }
+
+    string lec_days = pq.top().lec_date;
+    string lab_days = pq.top().lab_date;
+
     // set up the new user time
-    string new_start_hour = pq.top().lec_time.substr(5, 2);
-    string new_start_min = pq.top().lec_time.substr(7, 2);
-    cout << new_start_hour << ":" << new_start_min << endl;
+
     // Once a class has been matched + scheduled, remove all matching titles, abbreviations, and numbers from the remaining_vector + major_vector:
 
     // then, do some offsetting with gap and end time and loop until you reach desired credit hours OR there are no more classes / can't schedule:
