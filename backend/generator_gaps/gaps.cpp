@@ -440,13 +440,13 @@ int main(int argc, char** argv) {
     // attempt to schedule
     //int startx = start_hour * MINS_PER_HOUR + start_min;
     int lec_start_time = stoi(pq.top().lec_time.substr(0, 2)) * MINS_PER_HOUR + stoi(pq.top().lec_time.substr(2, 2));
-        cout << "lec start time: " << lec_start_time << endl;
+        // cout << "lec start time: " << lec_start_time << endl;
     int lec_end_time = stoi(pq.top().lec_time.substr(5, 2)) * MINS_PER_HOUR + stoi(pq.top().lec_time.substr(7, 2));
-        cout << "lec end time: " << lec_end_time << endl;
+        // cout << "lec end time: " << lec_end_time << endl;
     int lab_start_time = 0;
-        cout << "lab start time: " << lab_start_time << endl;
+        // cout << "lab start time: " << lab_start_time << endl;
     int lab_end_time = 0;
-        cout << "lab start time: " << lab_end_time << endl;
+        // cout << "lab start time: " << lab_end_time << endl;
 
     if (pq.top().lab_time != "none") {
         lab_start_time = stoi(pq.top().lab_time.substr(0, 2)) * MINS_PER_HOUR + stoi(pq.top().lab_time.substr(2, 2));
