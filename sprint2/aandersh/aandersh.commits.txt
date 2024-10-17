@@ -1,4 +1,4 @@
-eecs_courses.csv
+eecs_courses.csv:
 186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  77) COSC,311,Discrete Structures,3,none,COSC 202&MATH 142,none,1430-1545,TR,MKB,none,none,none
 186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  78) COSC,317,Honors: Discrete Structures,3,none,COSC 202&MATH 142,none,1430-1545,TR,MKB,none,none,none
 186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  83) COSC,402,Senior Design Praticum,3,AOC,COSC 401&ENGL 102|ENGL 132|ENGL 290|ENGL 298,none,1130-1220,MWF,MOS,none,none,none
