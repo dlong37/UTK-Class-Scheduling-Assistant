@@ -1,0 +1,309 @@
+frontend/schedules/templates/schedules.html
+56525cb9 (David Long 2024-10-13 14:40:19 -0400   1) <!DOCTYPE html>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400   2) <html lang="en">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400   3) <head>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400   4)     <meta charset="UTF-8">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400   5)     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400   6)     <title>UTK CSA - Schedules</title>
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400   7)     <link rel="stylesheet" href="{{ url_for('static', filename='schedules.css') }}">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400   8)     <script src="https://kit.fontawesome.com/ee94e7919e.js" crossorigin="anonymous"></script>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400   9)     <link rel="preconnect" href="https://fonts.googleapis.com">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  10)     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  11)     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  12) </head>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  13) <body>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  14)     <!-- Navbar Section -->
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  15)     <nav class="navbar">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  16)         <div class="navbar__container">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  17)             <a href="/" id="navbar__logo"><img src="../static/images/UT Logo.png" alt="pic" id="nav__img">UTK CSA</a>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  18)             <div class="navbar__toggle" id="mobile-menu">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  19)                 <span class="bar"></span>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  20)                 <span class="bar"></span>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  21)                 <span class="bar"></span>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  22)             </div>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  23)             <ul class="navbar__menu">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  24)                 <li class="navbar__item">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  25)                     <a href="/" class="navbar__links">Home</a>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  26)                 </li>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  27)                 <li class="navbar__btn">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  28)                     <a href="/" class="button">Log In/Register</a>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  29)                 </li>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  30)             </ul>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  31)         </div>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  32)     </nav>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  33)
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  34)     <!-- Questionnaire Section -->
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  35)     <div class="schedules">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  36)         <div class="schedules__container">
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400  37)             <!-- Success message element -->
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400  38)             <div id="success-message" style="display: none; color: green; margin-top: 20px;">
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400  39)                 Data saved successfully!
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400  40)             </div>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  41)             <form id="schedules-form" action="/submit" method="post">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  42)                 <h1>Core Classes</h1>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  43)                 <label for="question">What was your most recent core class?</label>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  44)                 <select id="question" name="core-class">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  45)                     <option value="COSC 101">COSC 101</option>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  46)                     <option value="COSC 102">COSC 102</option>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  47)                     <option value="COSC 202">COSC 202</option>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  48)                     <option value="COSC 230">COSC 230</option>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  49)                     <option value="COSC 302">COSC 302</option>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  50)                     <option value="COSC 360">COSC 360</option>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  51)                     <option value="COSC 366">COSC 366</option>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  52)                     <option value="COSC 401">COSC 401</option>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  53)                 </select>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  54)                 <br><br>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  55)
+710b05cf (David Long 2024-10-16 17:32:38 -0400  56)                 <h1>Sequences</h1>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  57)                 <label for="question">What was your most recent class in this sequence?</label>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  58)                 <select id="question" name="sequence-1">
+710b05cf (David Long 2024-10-16 17:32:38 -0400  59)                     <option value="MATH 141">MATH 141</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  60)                     <option value="MATH 142">MATH 142</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  61)                     <option value="MATH 251">MATH 251</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  62)                     <option value="ECE 313">ECE 313</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  63)                 </select>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  64)                 <br><br>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  65)
+710b05cf (David Long 2024-10-16 17:32:38 -0400  66)                 <label for="question">What was your most recent class in this sequence?</label>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  67)                 <select id="question" name="sequence-2">
+710b05cf (David Long 2024-10-16 17:32:38 -0400  68)                     <option value="ENGL 101">ENGL 101</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  69)                     <option value="ENGL 102">ENGL 102</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  70)                     <option value="ENGL 355">ENGL 355</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  71)                 </select>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  72)                 <br><br>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  73)
+710b05cf (David Long 2024-10-16 17:32:38 -0400  74)                 <label for="question">What was your most recent class in this sequence?</label>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  75)                 <select id="question" name="sequence-3">
+710b05cf (David Long 2024-10-16 17:32:38 -0400  76)                     <option value="COSC 311">COSC 311</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  77)                     <option value="COSC 312">COSC 312</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  78)                 </select>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  79)                 <br><br>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  80)
+710b05cf (David Long 2024-10-16 17:32:38 -0400  81)                 <label for="question">What was your most recent class in this sequence?</label>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  82)                 <select id="question" name="sequence-4">
+710b05cf (David Long 2024-10-16 17:32:38 -0400  83)                     <option value="COSC 302">COSC 302</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  84)                     <option value="COSC 365">COSC 365</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  85)                     <option value="COSC 366">COSC 366</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  86)                     <option value="COSC 395">COSC 395</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  87)                     <option value="COSC 340">COSC 340</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  88)                 </select>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  89)                 <br><br>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  90)
+710b05cf (David Long 2024-10-16 17:32:38 -0400  91)                 <label for="question">What was your most recent class in this sequence?</label>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  92)                 <select id="question" name="sequence-5">
+710b05cf (David Long 2024-10-16 17:32:38 -0400  93)                     <option value="COSC 360">COSC 360</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  94)                     <option value="COSC 361">COSC 361</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  95)                 </select>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  96)                 <br><br>
+710b05cf (David Long 2024-10-16 17:32:38 -0400  97)
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  98)                 <h1>Elective Classes</h1>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  99)                 <label for="question">What elective credits do you have yet to satisfy? (Select multiple if needed)</label><br>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 100)                 <label><input type="checkbox" name="elective-credit" value="QR"> Quantitative Reasoning (QR)</label><br>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 101)                 <label><input type="checkbox" name="elective-credit" value="NS"> Natural Sciences (NS)</label><br>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 102)                 <label><input type="checkbox" name="elective-credit" value="WC"> Written Communication (WC)</label><br>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 103)                 <label><input type="checkbox" name="elective-credit" value="OC"> Oral Communication (OC)</label><br>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 104)                 <label><input type="checkbox" name="elective-credit" value="AOC"> Applied Oral Communication (AOC)</label><br>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 105)                 <label><input type="checkbox" name="elective-credit" value="SS"> Social Sciences (SS)</label><br>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 106)                 <label><input type="checkbox" name="elective-credit" value="AH"> Arts and Humanities (AH)</label><br>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 107)                 <label><input type="checkbox" name="elective-credit" value="GCI"> Global Citizenship International (GCI)</label><br>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 108)                 <label><input type="checkbox" name="elective-credit" value="GCUS"> Global Citizenship United States (GCUS)</label><br>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 109)                 <label><input type="checkbox" name="elective-credit" value="EP"> Expanded Perspectives (EP)</label><br>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 110)                 <label><input type="checkbox" name="elective-credit" value="EI"> Engaged Inquiries (EI)</label><br>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 111)                 <br><br>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 112)
+710b05cf (David Long 2024-10-16 17:32:38 -0400 113)                 <h1>Credit Hours</h1>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 114)                 <label for="question">How many credit hours would you prefer to take this upcoming semester?</label>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 115)                 <select id="question" name="credit-hours">
+710b05cf (David Long 2024-10-16 17:32:38 -0400 116)                     <option value="12">12</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 117)                     <option value="13">13</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 118)                     <option value="14">14</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 119)                     <option value="15">15</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 120)                     <option value="16">16</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 121)                     <option value="17">17</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 122)                     <option value="18">18</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 123)                     <option value="19">19</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 124)                 </select>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 125)                 <br><br>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 126)
+710b05cf (David Long 2024-10-16 17:32:38 -0400 127)                 <h1>Time of Day Preferences</h1>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 128)                 <label for="question">What time would you like your classes to start on MWF?</label>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 129)                 <select id="question" name="MWF-start-time">
+efe97e35 (David Long 2024-10-16 21:48:18 -0400 130)                     <option value="0800">8:00</option>
+efe97e35 (David Long 2024-10-16 21:48:18 -0400 131)                     <option value="0910">9:10</option>
+efe97e35 (David Long 2024-10-16 21:48:18 -0400 132)                     <option value="1020">10:20</option>
+efe97e35 (David Long 2024-10-16 21:48:18 -0400 133)                     <option value="1130">11:30</option>
+efe97e35 (David Long 2024-10-16 21:48:18 -0400 134)                     <option value="1240">12:40</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 135)                 </select>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 136)                 <br><br>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 137)
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 138)                 <label for="question">What time would you like your classes to start on TR?</label>
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 139)                 <select id="question" name="TR-start-time">
+efe97e35 (David Long 2024-10-16 21:48:18 -0400 140)                     <option value="0810">8:10</option>
+efe97e35 (David Long 2024-10-16 21:48:18 -0400 141)                     <option value="0945">9:45</option>
+efe97e35 (David Long 2024-10-16 21:48:18 -0400 142)                     <option value="1120">11:20</option>
+efe97e35 (David Long 2024-10-16 21:48:18 -0400 143)                     <option value="1255">12:55</option>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 144)                 </select>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 145)                 <br><br>
+710b05cf (David Long 2024-10-16 17:32:38 -0400 146)
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 147)                 <input type="submit" value="Submit">
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 148)             </form>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 149)         </div>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 150)     </div>
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 151)     <script src="{{ url_for('static', filename='schedules.js') }}"></script>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 152) </body>
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 153) </html>
+
+frontend/schedules/static/schedules.css
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 220) /* Questionnaire */
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 221) .schedules {
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 222)     background-image: linear-gradient(to top, #fff 0%, #ff8200);
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 223)     padding: 30px;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 224)     border-radius: 10px;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 225)     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 226)     margin-top: 20px;
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 227) }
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 228)
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 229) .schedules__container {
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 230)     background-color: #fff;
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 231)     justify-content: center;
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 232)     align-items: center;
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 233)     display: flex;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 234)     flex-direction: column;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 235) }
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 236)
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 237) .schedules__container h1 {
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 238)     color: #ff8200;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 239)     font-size: 1.5rem;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 240)     margin-bottom: 20px;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 241) }
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 242)
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 243) .schedules__container label {
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 244)     display: block;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 245)     margin: 10px 0 5px;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 246)     color: #141414;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 247) }
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 248)
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 249) select, input[type="checkbox"] {
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 250)     margin-bottom: 15px;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 251) }
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 252)
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 253) input[type="submit"] {
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 254)     background-color: #ff8200;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 255)     color: #fff;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 256)     border: none;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 257)     padding: 10px 20px;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 258)     border-radius: 5px;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 259)     cursor: pointer;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 260)     font-size: 1em;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 261) }
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 262)
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 263) input[type="submit"]:hover {
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 264)     background-color: darkorange;
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 265) }
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 266)
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 267) #success-message {
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 268)     font-size: 1.2em;
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 269)     font-weight: bold;
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 270)     padding: 10px;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 271)     border: 1px solid #ff8200;
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 272)     border-radius: 5px;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 273)     background-color: rgba(255, 130, 0, 0.1); /* Light orange background */
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 274)     color: #ff8200;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 275)     margin-bottom: 20px;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 276)     text-align: center;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 277)     width: 100%;
+0109b6c5 (David Long 2024-10-13 17:00:24 -0400 278)     max-width: 600px;
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 279) }
+
+frontend/schedules/static/schedules.js
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  1) // Button code from app.js for the welcome page.
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  2) const menu = document.querySelector('#mobile-menu');
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  3) const menuLinks = document.querySelector('.navbar__menu');
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  4) 
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  5) menu.addEventListener('click', function() {
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  6)     menu.classList.toggle('is-active');
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  7)     menuLinks.classList.toggle('active');
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  8) })
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  9) 
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 10) document.getElementById('schedules-form').addEventListener('submit', function(event) {
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 11)     event.preventDefault(); // Prevent the default form submission
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 12) 
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 13)     const formData = new FormData(this); // Gather form data
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 14) 
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 15)     fetch('/submit', {
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 16)         method: 'POST',
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 17)         body: formData
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 18)     })
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 19)     .then(response => {
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 20)         if (!response.ok) {
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 21)             throw new Error('Network response was not ok');
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 22)         }
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 23)         return response.text();
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 24)     })
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 25)     .then(data => {
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 26)         // Show the success message
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 27)         document.getElementById('success-message').style.display = 'block';
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 28) 
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 29)         // Optionally clear the form fields after submission
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 30)         this.reset();
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 31)     })
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 32)     .catch(error => {
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 33)         console.error('There was a problem with the fetch operation:', error);
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 34)     });
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 35) });
+
+frontend/schedules/app.py
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  1) from flask import Flask, request, render_template
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  2) import csv
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  3)
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  4) app = Flask(__name__)
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  5)
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  6) # Serve the HTML file
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  7) @app.route('/')
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  8) def index():
+56525cb9 (David Long 2024-10-13 14:40:19 -0400  9)     return render_template('schedules.html')
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 10)
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 11) # Handle form submission
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 12) @app.route('/submit', methods=['POST'])
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 13) def submit():
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 14)     core_class = request.form.get('core-class')
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 15)     seq_1 = request.form.get('sequence-1')
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 16)     seq_2 = request.form.get('sequence-2')
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 17)     seq_3 = request.form.get('sequence-3')
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 18)     seq_4 = request.form.get('sequence-4')
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 19)     seq_5 = request.form.get('sequence-5')
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 20)     elective_credits = request.form.getlist('elective-credit')
+710b05cf (David Long 2024-10-16 17:32:38 -0400 21)     credit_hours = request.form.get('credit-hours')
+710b05cf (David Long 2024-10-16 17:32:38 -0400 22)     mwf_start_time = request.form.get('MWF-start-time')
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 23)     tr_start_time = request.form.get('TR-start-time')
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 24)
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 25)     # Prepare data for CSV
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 26)     data_entries = [
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 27)         [core_class],
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 28)         [seq_1],
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 29)         [seq_2],
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 30)         [seq_3],
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 31)         [seq_4],
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 32)         [seq_5],
+710b05cf (David Long 2024-10-16 17:32:38 -0400 33)     ]
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 34)
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 35)     # Add elective credits as separate entries
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 36)     for credit in elective_credits:
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 37)         data_entries.append([credit])
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 38)
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 39)     # Add other data
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 40)     data_entries.append([credit_hours])
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 41)     data_entries.append([mwf_start_time])
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 42)     data_entries.append([tr_start_time])
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 43)
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 44)
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 45)     # Write to CSV file
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 46)     with open('data.csv', mode='a', newline='') as file:
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 47)         writer = csv.writer(file)
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 48)         for entry in data_entries:
+30bd9456 (David Long 2024-10-16 20:48:08 -0400 49)             writer.writerow(entry)
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 50)
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 51)     return 'Data saved successfully!'
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 52)
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 53) if __name__ == '__main__':
+56525cb9 (David Long 2024-10-13 14:40:19 -0400 54)     app.run(port=3000, debug=True)
