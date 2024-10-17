@@ -36,7 +36,7 @@ Group Name: UTK-Class-Scheduling-Assistant</br>
    * added a grammar to account for types of pre-reqs - those that must be explicity satisified ('&') or pre-reqs in a sequence where only one course had to be satisfied ('|').
 - major_courses.csv: UTK-Class-Scheduling-Assistant/backend/generator_gaps/major_courses.csv
   * updated major_courses to include more required classes in the major, like MATH + EF (not just COSC).
-  * also wrote new code that no longer needs this list to be in order (orginally, we were going to automatically schedule the course in the first index of major_vector, but I modified it so now any class can be scheduled as long as its pre-reqs are satisifed.
+  * also wrote new code that no longer needs this list to be in order (orginally, we were going to automatically schedule the course in the first index of major_vector, but I modified it so now any class can be scheduled as long as its pre-reqs are satisifed).
 - taken_courses.csv: UTK-Class-Scheduling-Assistant/backend/generator_gaps/taken_courses.csv
 - taken_courses_2.csv: UTK-Class-Scheduling-Assistant/backend/generator_gaps/taken_courses_2.csv
 - taken_courses_3.csv: UTK-Class-Scheduling-Assistant/backend/generator_gaps/taken_courses_3.csv
