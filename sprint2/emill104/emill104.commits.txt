@@ -1,0 +1,751 @@
+backend/templates/base.html
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400  5) <head>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400  6)     <meta charset="UTF-8">
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400  7)     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400  8)     <title>{% block title %}UTK Class Scheduling Assistant{% endblock %}</title>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400  9)     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 11)     <!-- additional head content -->
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 12)     {% block head %}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 13)     
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 14)     {% endblock %}
+8dea9945 backend/templates/base.html         (EthBeats 2024-10-16 10:24:37 -0400 15) 
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 16)     <!-- import font -->
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 17)     <script src="https://kit.fontawesome.com/ee94e7919e.js" crossorigin="anonymous"></script>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 18)     <link rel="preconnect" href="https://fonts.googleapis.com">
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 19)     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 20)     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 21) 
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 22)     <!-- Bootstrap JS -->
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 23)     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 24) </head>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 25) <body>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 26)     <!-- navbar section -->
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 27)     <nav class="navbar">
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 28)         <div class="navbar__container">
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 29)             <a href="/" id="navbar__logo"><img src="{{ url_for('static', filename='images/UT Logo.png') }}" alt="pic" id="nav__img">UTK CSA</a>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 30)             <div class="navbar__toggle" id="mobile-menu">
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 31)                 <span class="bar"></span>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 32)                 <span class="bar"></span>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 33)                 <span class="bar"></span>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 35)             <!-- change Navbar buttons based on user status -->
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 36)             <ul class="navbar__menu">
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 37)                 <li class="navbar__item">
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 38)                     <a href="/" class="navbar__links">Home</a>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 39)                 </li>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 40)                 {% if current_user.is_authenticated %}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 45)                         <a href="/logout" class="button">Log Out</a>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 49)                         <a href="/login" class="button">Log In/Register</a>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 52)             </ul>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 53)         </div>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 54)     </nav>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 56)     <!-- display flash messages with improved Bootstrap styling -->
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 57)     {% with messages = get_flashed_messages(with_categories=true) %}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 58)     {% if messages %}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 59)         {% for category, message in messages %}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 60)             {% if category == 'error' %}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 61)                 <div class="alert alert-error alert-dismissible fade show" role="alert">
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 62)                     {{ message }}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 63)                     <button type="button" class="close" data-bs-dismiss="alert">
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 64)                         <span aria-hidden="true">&times;</span>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 65)                     </button>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 66)                 </div>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 67)             {% elif category == 'success' %}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 68)                 <div class="alert alert-success alert-dismissible fade show" role="alert">
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 69)                     {{ message }}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 70)                     <button type="button" class="close" data-bs-dismiss="alert">
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 71)                         <span aria-hidden="true">&times;</span>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 72)                     </button>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 73)                 </div>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 74)             {% endif %}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 75)         {% endfor %}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 76)     {% endif %}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 77)     {% endwith %}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 79)     <!-- other html components -->
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 80)     {% block content %}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 81) 
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 82)     {% endblock %}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 83) 
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 84)     <!-- JS files -->
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 85)     <script src="{{ url_for('static', filename='index.js') }}"></script>
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 87)     {% block scripts %}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 89)     {% endblock %}
+df923a6b backend/templates/base.html         (EthBeats 2024-10-16 16:56:51 -0400 90) </body>
+
+backend/templates/class_search.html
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400  1) {% extends "base.html" %}
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400  3) {% block title %}
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400  4)     Class Search
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400  5) {% endblock %}
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400  6) 
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400  7) {% block content %}
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400  8)     <div class="content">
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400  9)         <h1 class="heading">Class Search</h1>
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 10) 
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 11)             <!-- Search Form -->
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 12)             <form method="GET" action="{{ url_for('views.class_search') }}">
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 13)                 <div class="form-group">
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 14)                     <input type="text" name="search" placeholder="Search by class name" class="form-control" required>
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 15)                 </div>
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 16)                 <button type="submit">Search</button>
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 17)             </form>
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 18)         
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 19)         <!-- Search Results -->
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 20)         {% if classes %}
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 21)             <h2 class="mt-4">Search Results:</h2>
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 22)             <ul class="list-group-flush" id="classes">
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 23)                 {% for class in classes %}
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 24)                 <li class="list-group-item">
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 25)                     {{ class.abbreviation }}{{ class.number }} - {{ class.title }}
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 26)                 </li>
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 27)                 {% endfor %}
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 28)             </ul>
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 29)         {% endif %}
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 30)         
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 31)         <a href="{{ url_for('views.main') }}" class="return-button">Return to My Schedules</a>
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 32)     </div>
+731b31b2 backend/templates/class_search.html         (EthBeats 2024-10-17 01:55:00 -0400 33) {% endblock %}
+
+backend/templates/main.html
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400  5) {% block title %}
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400  6)     UTK CSA
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400  7) {% endblock %}
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400  9) {% block content %}
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 10)     <div class="content">
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 11)         <h1 class="heading">My Schedules</h1>
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 12)         <ul class="list-group-flush" id="schedules">
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 13)             {% for schedule in user.schedules %}
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 14)             <li class="list-group-item">
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 15)                 <a href="{{ url_for('views.view_schedule', schedule_id=schedule.id) }}">
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 16)                     {{ schedule.date.strftime('%Y-%m-%d %H:%M:%S') }}
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 17)                 </a>
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 19)                 <!-- Delete button, uses a separate function to communicate with backend -->
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 20)                 <button type="button" class="close" onClick="deleteSchedule({{ schedule.id }})">
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 21)                     <span aria-hidden="true">&times;</span>
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 22)                 </button>
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 23)             </li>
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 24)             {% endfor %}
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 25)         </ul>
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 26)         <form class="schedule-form" method="POST">
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 27)             <textarea name="class_ids" id="class_ids" class="form-control" placeholder="Enter class IDs separated by commas"></textarea>
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 28)             <br/>
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 29)                 <button type="submit" class="btn btn-primary">Add Schedule</button>
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 30)         </form>
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 32)         <!-- New search for classes button -->
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 33)         <div class="button-container">
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 34)             <button class="class_search"><a href="/class_search">Search Classes</a></button>
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 35)             <button class="schedules"><a href="/schedules">Schedule Questionnaire</a></button>
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 36)         </div>
+731b31b2 backend/templates/main.html         (EthBeats 2024-10-17 01:55:00 -0400 37)     </div>
+
+backend/templates/schedules.html
+df923a6b (EthBeats   2024-10-16 16:56:51 -0400   1) {% extends "base.html" %}
+df923a6b (EthBeats   2024-10-16 16:56:51 -0400   2) 
+df923a6b (EthBeats   2024-10-16 16:56:51 -0400   3) {% block title %}
+df923a6b (EthBeats   2024-10-16 16:56:51 -0400   4)     Schedules
+df923a6b (EthBeats   2024-10-16 16:56:51 -0400   5) {% endblock %}
+df923a6b (EthBeats   2024-10-16 16:56:51 -0400   6) 
+df923a6b (EthBeats   2024-10-16 16:56:51 -0400   7) {% block content %}
+df923a6b (EthBeats   2024-10-16 16:56:51 -0400  16)                 <h1 class="heading">Schedule Questionnaire</h1>
+df923a6b (EthBeats   2024-10-16 16:56:51 -0400  17)                 <h1 class="subheading">Core Classes</h1>
+677735b7 (EthBeats   2024-10-16 21:42:41 -0400  31)                 <h1 class="subheading">Sequences</h1>
+df923a6b (EthBeats   2024-10-16 16:56:51 -0400  73)                 <h1 class="subheading">Elective Classes</h1>
+87c8ae7a (EthBeats   2024-10-16 20:50:38 -0400  75)                 <label>Quantitative Reasoning (QR)<input type="checkbox" name="elective-credit" value="QR"></label><br>
+87c8ae7a (EthBeats   2024-10-16 20:50:38 -0400  76)                 <label>Natural Sciences (NS)<input type="checkbox" name="elective-credit" value="NS"></label><br>
+87c8ae7a (EthBeats   2024-10-16 20:50:38 -0400  77)                 <label>Written Communication (WC)<input type="checkbox" name="elective-credit" value="WC"></label><br>
+87c8ae7a (EthBeats   2024-10-16 20:50:38 -0400  78)                 <label>Oral Communication (OC)<input type="checkbox" name="elective-credit" value="OC"></label><br>
+87c8ae7a (EthBeats   2024-10-16 20:50:38 -0400  79)                 <label>Applied Oral Communication (AOC)<input type="checkbox" name="elective-credit" value="AOC"></label><br>
+87c8ae7a (EthBeats   2024-10-16 20:50:38 -0400  80)                 <label>Social Sciences (SS)<input type="checkbox" name="elective-credit" value="SS"></label><br>
+87c8ae7a (EthBeats   2024-10-16 20:50:38 -0400  81)                 <label>Arts and Humanities (AH)<input type="checkbox" name="elective-credit" value="AH"></label><br>
+87c8ae7a (EthBeats   2024-10-16 20:50:38 -0400  82)                 <label>Global Citizenship International (GCI)<input type="checkbox" name="elective-credit" value="GCI"></label><br>
+87c8ae7a (EthBeats   2024-10-16 20:50:38 -0400  83)                 <label>Global Citizenship United States (GCUS)<input type="checkbox" name="elective-credit" value="GCUS"></label><br>
+87c8ae7a (EthBeats   2024-10-16 20:50:38 -0400  84)                 <label>Expanded Perspectives (EP)<input type="checkbox" name="elective-credit" value="EP"></label><br>
+87c8ae7a (EthBeats   2024-10-16 20:50:38 -0400  85)                 <label>Engaged Inquiries (EI)<input type="checkbox" name="elective-credit" value="EI"></label><br>
+677735b7 (EthBeats   2024-10-16 21:42:41 -0400  88)                 <h1 class="subheading">Credit Hours</h1>
+677735b7 (EthBeats   2024-10-16 21:42:41 -0400 102)                 <h1 class="subheading">Time of Day Preferences</h1>
+677735b7 (EthBeats   2024-10-16 21:42:41 -0400 120)                 <br><br><br>
+df923a6b (EthBeats   2024-10-16 16:56:51 -0400 126) {% endblock %}
+
+backend/templates/view_schedule.html
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400  2) 
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400  3) {% block title %}
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400  4)     View Schedule
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400  5) {% endblock %}
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400  8)     <div class="content">
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400  9)         <h1 class="heading">Schedule Details</h1>
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 11)         <p class="created-on"> Created on: {{ schedule.date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 13)         <div class="course-list">
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 14)             {% if courses %}
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 15)                 {% for course in courses %}
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 16)                     <div class="course-item">
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 17)                         <div class="lecture">
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 19)                                 <span><strong>{{ course.abbreviation }} {{ course.number }}</strong></span><br> 
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 20)                                 <span>{{ course.title }}</span> - 
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 21)                                 <span>{{ course.credit_hours }} hours</span><br>
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 22)                                 <span>{{ course.lecture_days }}</span>: 
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 23)                                 <span>{{ course.lecture_time }}</span>, 
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 24)                                 <span>{{ course.lecture_location }}</span>
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 27)                         
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 28)                         {% if course.lab_time != '' %}
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 29)                             <div class="lab">
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 30)                                 <strong>Lab:</strong>
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 31)                                 <p>
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 32)                                     <span>{{ course.lab_days }}</span>: 
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 33)                                     <span>{{ course.lab_time }}</span>, 
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 34)                                     <span>{{ course.lab_location }}</span>
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 35)                                 </p>
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 36)                             </div>
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 37)                         {% endif %}
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 38)                     </div>
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 39)                 {% endfor %}
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 40)             {% else %}
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 41)                 <p>No courses found for this schedule.</p>
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 42)             {% endif %}
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 43)         </div>
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 45)         <a href="{{ url_for('views.main') }}" class="return-button">Back to Schedules</a>
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 46)     </div>
+731b31b2 (EthBeats 2024-10-17 01:55:00 -0400 47) {% endblock %}
+
+backend/static/css/styles.css
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  731) 
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  732) /* Flash message custom styles */
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  733) .alert {
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  734)     display: flex;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  735)     justify-content: space-between;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  736)     align-items: center;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  737)     margin: auto;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  738)     width: auto;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  739)     height: auto;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  740)     border-radius: 15px;          
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  741)     padding: 15px;                 
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  742)     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); 
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  743)     font-family: 'Poppins', sans-serif; 
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  744)     max-width: 500px;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  745)     animation: slideIn 0.5s ease-in-out;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  746) }
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  747) 
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  748) /* Specific styles for success and error messages */
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  749) .alert-success {
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  750)     background-color: #d4edda;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  751)     color: #155724;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  752)     border: 1px solid #c3e6cb;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  753) }
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  754) 
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  755) .alert-error {
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  756)     background-color: #f8d7da;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  757)     color: #721c24;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  758)     border: 1px solid #f5c6cb;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  759) }
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  760) 
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  761) /* Close button */
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  762) .btn-close {
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  763)     cursor: pointer;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  764)     width: 15px;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  765)     height: 15px;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  766) }
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  767) 
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  768) /* Add animation for smooth appearance */
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  769) @keyframes slideIn {
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  770)     from {
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  771)         transform: scale(50%);
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  772)         opacity: 0;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  773)     }
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  774)     to {
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  775)         transform: scale(100%);
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  776)         opacity: 1;
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  777)     }
+ee558668 backend/static/css/styles.css         (EthBeats 2024-10-16 10:32:49 -0400  778) }
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  779) 
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  780) /* Container for the questionnaire form, initially hidden with opacity 0 and positioned below view */
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  781) .schedules__container {
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  782)     opacity: 0;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  783)     transform: translateY(100px);
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  784)     transition: opacity 1s ease, transform 1s ease;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  785)     transition-delay: 0.2s;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  786)     display: flex;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  787)     flex-direction: column;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  788)     justify-content: center;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  789)     align-items: center;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  790)     margin: auto;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  791)     height: auto;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  792)     min-height: 100vh;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  793)     width: 100%;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  794)     max-width: 850px;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  795)     padding: 20px;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  796)     background-color: #fff;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  797)     border-radius: 10px;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  798)     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  799)     border: 15px solid transparent;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  800)     border-image: linear-gradient(to top, #fff, #ff8200) 1;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  801) }
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  802) 
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  803) /* Transition to make the container visible and animate into place */
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  804) .schedules__container.show {
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  805)     opacity: 1;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  806)     transform: translateY(0);
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  807) }
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  808) 
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  809) /* Styling for dropdown select menus inside the form */
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  810) .schedules__container select {
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  811)     background-color: #fff;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  812)     color: #fff;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  813)     padding: 10px 20px;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  814)     border: none;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  815)     border-radius: 5px;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  816)     cursor: pointer;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  817)     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  818)     width: 25%;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  819)     height: auto;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  820) }
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  821) 
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  822) /* Change the background color of the dropdown when focused */
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  823) .schedules__container select:focus {
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  824)     background-color: #ff8200;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  825) }
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  826) 
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  827) /* Styling for checkbox inputs, including cursor pointer and shadow */
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  828) .schedules__container input[type="checkbox"] {
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  829)     margin-right: 5px;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  830)     padding: 10px 10px;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  831)     cursor: pointer;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  832)     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  833)     scale: 1.5;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  834) }
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  835) 
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  836) /* Initial hidden state for checkboxes, select menus, and submit buttons with transitions */
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  837) .schedules__container input[type="checkbox"], .schedules__container select, .schedules__container input[type="submit"] {
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  838)     opacity: 0;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  839)     transform: translateY(50px);
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  840)     transition: opacity 1s ease, transform 1s ease;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  841)     transition-delay: 0.2s;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  842)     border-radius: 5px;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  843)     border: 1px solid #ccc;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  844)     color: #000;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  845)     padding: 15px;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  846) }
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  847) 
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  848) /* Visible state for checkboxes, select menus, and submit buttons with transitions */
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  849) .schedules__container input[type="checkbox"].show, .schedules__container select.show, .schedules__container input[type="submit"].show {
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  850)     opacity: 1;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  851)     transform: translateY(0);
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  852) }
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  853) 
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  854) /* Label styling for form inputs, with transitions for opacity and positioning */
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  855) .schedules__container label {
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  856)     opacity: 0;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  857)     transform: translateY(100px);
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  858)     transition: opacity 1s ease, transform 1s ease;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  859)     transition-delay: 0.2s;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  860)     display: flex;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  861)     justify-content: space-between;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  862)     align-items: center;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  863)     width: 100%;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  864)     margin: 5px 0;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  865)     cursor: pointer;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  866) }
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  867) 
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  868) /* Visible state for labels with transitions */
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  869) .schedules__container label.show {
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  870)     opacity: 1;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  871)     transform: translateY(0);
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  872) }
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  873) 
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  874) /* Styling for the submit button with padding, colors, and hover effects */
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  875) input[type="submit"] {
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  876)     background-color: #ff8200;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  877)     color: #fff;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  878)     border: none;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  879)     display: block;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  880)     padding: 10px 20px;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  881)     margin: 20px auto;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  882)     border-radius: 5px;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  883)     cursor: pointer;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  884)     font-size: 1em;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  885)     width: 25%;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  886)     transition: all 0.35s;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  887) }
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  888) 
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  889) /* Hover effect for the submit button with color and border changes */
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  890) input[type="submit"]:hover {
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  891)     background-color: #fff;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  892)     color: #000;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  893)     border: 1px solid #ff8200;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  894)     box-shadow: 0 0 8px rgba(255, 130, 0, 0.5);
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  895) }
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  896) 
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  897) /* Success message styling for form submission with background, color, and padding */
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  898) #success-message {
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  899)     font-size: 1.2em;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  900)     font-weight: bold;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  901)     padding: 10px;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  902)     border: 1px solid #ff8200;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  903)     border-radius: 5px;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  904)     background-color: rgba(255, 130, 0, 0.1); /* Light orange background */
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  905)     color: #ff8200;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  906)     margin-bottom: 20px;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  907)     text-align: center;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  908)     width: 100%;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  909)     max-width: 600px;
+fa3cfed4 backend/static/css/styles.css         (EthBeats 2024-10-16 22:19:18 -0400  910) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  911) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  912) /* Container for schedules */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  913) #schedules {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  914)     list-style-type: none;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  915)     padding: 0;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  916) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  917) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  918) .content {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  919)     background-image: linear-gradient(to top, #fff, #ff8200);
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  920)     min-height: 100vh;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  921)     display: flex;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  922)     flex-direction: column;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  923)     justify-content: center;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  924) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  925) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  926) /* Initially hide the list items and buttons */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  927) .list-group-item,
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  928) form,
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  929) button.class_search,
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  930) button.schedules {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  931)     opacity: 0;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  932)     transform: translateY(50px);
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  933)     transition: opacity 0.5s ease, transform 0.5s ease;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  934) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  935) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  936) /* Show the elements with smooth animation */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  937) .list-group-item.show,
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  938) form.show,
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  939) button.class_search.show,
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  940) button.schedules.show {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  941)     opacity: 1;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  942)     transform: translateY(0);
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  943) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  944) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  945) /* List Group Styles */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  946) .list-group-flush {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  947)     width: 60%;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  948)     margin: 0 auto;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  949)     background-color: #fff;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  950)     border-radius: 10px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  951)     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  952)     padding: 10px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  953) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  954) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  955) /* Individual List Item Styles */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  956) .list-group-item {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  957)     display: flex;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  958)     justify-content: space-between;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  959)     align-items: center;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  960)     padding: 15px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  961)     border-bottom: 1px solid #ddd;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  962)     transition: background-color 0.3s ease;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  963) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  964) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  965) .list-group-item:hover {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  966)     background-color: #f1f1f1;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  967) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  968) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  969) .list-group-item:last-child {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  970)     border-bottom: none;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  971) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  972) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  973) /* Schedule Link Styling */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  974) .list-group-item a {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  975)     text-decoration: none;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  976)     font-weight: bold;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  977)     color: #007bff;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  978)     font-size: 1.2rem;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  979)     transition: color 0.3s ease;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  980) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  981) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  982) .list-group-item a:hover {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  983)     color: #0056b3;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  984)     text-decoration: underline;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  985) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  986) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  987) /* Close/Delete Button Styling */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  988) button.close {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  989)     background: none;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  990)     border: none;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  991)     color: #dc3545;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  992)     font-size: 1.5rem;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  993)     cursor: pointer;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  994)     transition: color 0.3s ease;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  995) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  996) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  997) button.close:hover {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  998)     color: #c82333;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400  999) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1000) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1001) /* Add Schedule Form */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1002) .schedule-form {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1003)     width: 60%;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1004)     margin: 30px auto;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1005)     padding: 20px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1006)     background-color: #fff;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1007)     border-radius: 10px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1008)     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1009) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1010) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1011) /* Textarea for Class IDs */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1012) textarea.form-control {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1013)     width: 100%;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1014)     border: 1px solid #ccc;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1015)     border-radius: 5px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1016)     padding: 10px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1017)     font-size: 1rem;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1018)     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1019)     transition: border-color 0.3s ease;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1020) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1021) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1022) textarea.form-control:focus {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1023)     border-color: #007bff;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1024)     outline: none;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1025) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1026) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1027) /* Submit Button */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1028) button.btn-primary {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1029)     display: block;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1030)     width: 100%;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1031)     background-color: #ff8200;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1032)     border: none;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1033)     color: white;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1034)     padding: 10px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1035)     font-size: 1rem;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1036)     border-radius: 5px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1037)     cursor: pointer;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1038)     transition: background-color 0.3s ease, transform 0.2s ease;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1039) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1040) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1041) button.btn-primary:hover {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1042)     background-color: #e57300;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1043)     transform: translateY(-3px);
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1044) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1045) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1046) button.btn-primary:active {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1047)     background-color: #cc6600;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1048)     transform: translateY(0);
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1049) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1050) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1051) .button-container {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1052)     display: flex;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1053)     justify-content: center;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1054) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1055) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1056) /* Additional Buttons (Class Search & Questionnaire) */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1057) button.class_search, button.schedules {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1058)     margin: 100px auto;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1059)     display: inline-block;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1060)     background-color: #ff8200;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1061)     padding: 10px 20px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1062)     font-size: 1rem;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1063)     color: white;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1064)     border: none;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1065)     border-radius: 5px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1066)     cursor: pointer;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1067)     transition: background-color 0.3s ease, transform 0.2s ease;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1068) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1069) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1070) button.class_search:hover, button.schedules:hover {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1071)     background-color: #fff;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1072)     color: #000;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1073)     border: 1px solid #ff8200;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1074)     box-shadow: 0 0 8px rgba(255, 130, 0, 0.5);
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1075)     transform: translateY(-3px);
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1076) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1077) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1078) button.class_search a, button.schedules a {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1079)     color: #fff;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1080)     text-decoration: none;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1081) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1082) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1083) button.class_search a:hover, button.schedules a:hover {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1084)     color: #000;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1085) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1086) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1087) /* Created On date styling */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1088) .created-on {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1089)     font-size: 1.2rem;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1090)     color: #666;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1091)     margin-bottom: 20px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1092)     text-align: center;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1093) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1094) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1095) /* Course list styling */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1096) .course-list {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1097)     margin-top: 20px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1098) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1099) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1100) /* Individual course item styling */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1101) .course-item {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1102)     border: 1px solid #ddd;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1103)     border-radius: 8px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1104)     padding: 15px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1105)     margin-bottom: 15px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1106)     background-color: #f1f1f1;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1107) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1108) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1109) /* Lecture and Lab details */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1110) .lecture, .lab {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1111)     margin-bottom: 10px; /* Space below lecture and lab details */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1112) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1113) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1114) .lecture p, .lab p {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1115)     margin: 0; /* Remove default margin from paragraphs */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1116) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1117) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1118) /* Button styling */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1119) .return-button {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1120)     display: inline-block;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1121)     background-color: #ff8200;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1122)     color: #fff;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1123)     padding: 10px 20px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1124)     border: none;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1125)     border-radius: 5px; 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1126)     text-decoration: none;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1127)     font-size: 1.2rem;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1128)     text-align: center;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1129)     margin-top: 20px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1130)     transition: background-color 0.3s;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1131) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1132) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1133) /* Button hover effect */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1134) .return-button:hover {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1135)     background-color: #fff;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1136)     color: #000;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1137)     border: 1px solid #ff8200;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1138)     box-shadow: 0 0 8px rgba(255, 130, 0, 0.5);
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1139) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1140) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1141) /************/
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1142) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1143) /* Form group styling */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1144) .form-group {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1145)     display: flex;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1146)     justify-content: center;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1147)     margin-bottom: 20px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1148) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1149) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1150) /* Search button styling */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1151) button[type="submit"] {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1152)     background-color: #ff8200;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1153)     color: #fff;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1154)     padding: 12px 20px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1155)     border: none;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1156)     border-radius: 5px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1157)     cursor: pointer;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1158)     font-size: 1rem;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1159)     width: 100%;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1160)     transition: background-color 0.3s, transform 0.3s;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1161) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1162) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1163) /* Button hover effect */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1164) button[type="submit"]:hover {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1165)     background-color: #fff;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1166)     color: #ff8200;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1167)     border: 1px solid #ff8200;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1168)     transform: translateY(-2px);
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1169) }
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1170) 
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1171) /* Search results list item styling */
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1172) .list-group-item {
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1173)     padding: 15px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1174)     border: 1px solid #ddd;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1175)     border-radius: 5px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1176)     background-color: #f9f9f9;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1177)     margin-bottom: 10px;
+731b31b2 backend/static/css/styles.css         (EthBeats 2024-10-17 01:55:00 -0400 1178) }
+
+backend/static/index.js
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400   3)  */
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400   4) 
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400   5) /*
+8dea9945 backend/static/index.js         (EthBeats 2024-10-16 10:24:37 -0400  14) });
+8dea9945 backend/static/index.js         (EthBeats 2024-10-16 10:24:37 -0400  22)         body: JSON.stringify({ scheduleId: scheduleId })
+8dea9945 backend/static/index.js         (EthBeats 2024-10-16 10:24:37 -0400  25)     });
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400  35)     // show the form container
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400  38)     // delay showing form elements for a staggered effect
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400  42)         }, 200 * index);
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400  45)     // adds "enter" keypress listener to submit login/register forms
+8dea9945 backend/static/index.js         (EthBeats 2024-10-16 10:24:37 -0400  46)     document.querySelector('.password').addEventListener('keypress', function(event) {
+8dea9945 backend/static/index.js         (EthBeats 2024-10-16 10:24:37 -0400  47)         if (event.key === 'Enter') {
+8dea9945 backend/static/index.js         (EthBeats 2024-10-16 10:24:37 -0400  48)             document.querySelector('.submit-button').click();
+8dea9945 backend/static/index.js         (EthBeats 2024-10-16 10:24:37 -0400  49)         }
+8dea9945 backend/static/index.js         (EthBeats 2024-10-16 10:24:37 -0400  50)     });
+8dea9945 backend/static/index.js         (EthBeats 2024-10-16 10:24:37 -0400  51) });
+df923a6b backend/static/index.js         (EthBeats 2024-10-16 16:56:51 -0400  52) 
+df923a6b backend/static/index.js         (EthBeats 2024-10-16 16:56:51 -0400  53) /*
+df923a6b backend/static/index.js         (EthBeats 2024-10-16 16:56:51 -0400  54)  * stagger animation for schedule page
+df923a6b backend/static/index.js         (EthBeats 2024-10-16 16:56:51 -0400  55)  */
+df923a6b backend/static/index.js         (EthBeats 2024-10-16 16:56:51 -0400  56) window.addEventListener('DOMContentLoaded', () => {
+df923a6b backend/static/index.js         (EthBeats 2024-10-16 16:56:51 -0400  57)     const form = document.querySelector('.schedules__container');
+87c8ae7a backend/static/index.js         (EthBeats 2024-10-16 20:50:38 -0400  58)     const formElements = document.querySelectorAll('.schedules__container input[type="checkbox"], .schedules__container select, .schedules__container input[type="submit"], .schedules__container label')
+df923a6b backend/static/index.js         (EthBeats 2024-10-16 16:56:51 -0400  59) 
+df923a6b backend/static/index.js         (EthBeats 2024-10-16 16:56:51 -0400  60)     // show form container
+df923a6b backend/static/index.js         (EthBeats 2024-10-16 16:56:51 -0400  61)     form.classList.add('show');
+df923a6b backend/static/index.js         (EthBeats 2024-10-16 16:56:51 -0400  62) 
+df923a6b backend/static/index.js         (EthBeats 2024-10-16 16:56:51 -0400  63)     // delay showing form elements for a staggered effect
+df923a6b backend/static/index.js         (EthBeats 2024-10-16 16:56:51 -0400  64)     formElements.forEach((element, index) => {
+df923a6b backend/static/index.js         (EthBeats 2024-10-16 16:56:51 -0400  65)         setTimeout(() => {
+df923a6b backend/static/index.js         (EthBeats 2024-10-16 16:56:51 -0400  66)             element.classList.add('show');
+87c8ae7a backend/static/index.js         (EthBeats 2024-10-16 20:50:38 -0400  67)         }, 25 * index);
+df923a6b backend/static/index.js         (EthBeats 2024-10-16 16:56:51 -0400  68)     });
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400  69) })
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400  70) 
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  71) /*
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  72)  * stagger animation for main page
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  73)  */
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  74) window.addEventListener('DOMContentLoaded', () => {
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  75)     const listItems = document.querySelectorAll('#schedules .list-group-item');
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  76)     const form = document.querySelector('form');
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  77)     const additionalButtons = document.querySelectorAll('button.class_search, button.schedules');
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  78) 
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  79)     // Animate each list item with staggered delay
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  80)     listItems.forEach((item, index) => {
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  81)         setTimeout(() => {
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  82)             item.classList.add('show');
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  83)         }, 200 * index); // Delay of 100ms between each item
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  84)     });
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  85) 
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  86)     // Animate the form
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  87)     setTimeout(() => {
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  88)         form.classList.add('show');
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  89)     }, 100 * listItems.length); // Delay after the last list item
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  90) 
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  91)     // Animate additional buttons (Search Classes, Schedule Questionnaire)
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  92)     additionalButtons.forEach((button, index) => {
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  93)         setTimeout(() => {
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  94)             button.classList.add('show');
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  95)         }, 200 * (listItems.length + index + 1)); // Delay after the form
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  96)     });
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  97) });
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  98) 
+731b31b2 backend/static/index.js         (EthBeats 2024-10-17 01:55:00 -0400  99) 
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 100) /*
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 101)  * submit form with success message
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 102)  */
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 103) document.getElementById('schedules-form').addEventListener('submit', function(event) {
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 104)     event.preventDefault(); // prevent the default form submission
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 105) 
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 106)     const formData = new FormData(this);
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 107) 
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 108)     fetch('/submit', {
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 109)         method: 'POST',
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 110)         body: formData
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 111)     })
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 112)     .then(response => {
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 113)         if (!response.ok) {
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 114)             throw new Error('Network response was not ok');
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 115)         }
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 116)         return response.text();
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 117)     })
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 118)     .then(data => {
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 119)         // show the success message
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 120)         document.getElementById('success-message').style.display = 'block';
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 121) 
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 122)         // optionally clear the form fields after submission
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 123)         this.reset();
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 124)     })
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 125)     .catch(error => {
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 126)         console.error('There was a problem with the fetch operation:', error);
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 127)     });
+fa3cfed4 backend/static/index.js         (EthBeats 2024-10-16 22:19:18 -0400 128) });
