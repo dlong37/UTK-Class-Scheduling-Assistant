@@ -1,6 +1,8 @@
 /*
  * index.js
- *
+ */
+
+/*
  * button clicks
  */
 const menu = document.querySelector('#mobile-menu');
@@ -30,20 +32,68 @@ window.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.form');
     const formElements = document.querySelectorAll('.form input, .form .submit-button');
 
-    // Show the form container
+    // show the form container
     form.classList.add('show');
 
-    // Delay showing form elements for a staggered effect
+    // delay showing form elements for a staggered effect
     formElements.forEach((element, index) => {
         setTimeout(() => {
             element.classList.add('show');
-        }, 200 * index); // Adjust the delay for each element
+        }, 200 * index);
     });
 
-    // Adds "enter" keypress listener to submit login/register forms
+    // adds "enter" keypress listener to submit login/register forms
     document.querySelector('.password').addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
             document.querySelector('.submit-button').click();
         }
+    });
+});
+
+/*
+ * stagger animation for schedule page
+ */
+window.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('.schedules__container');
+    const formElements = document.querySelectorAll('.schedules__container input[type="checkbox"], .schedules__container select, .schedules__container input[type="submit"], .schedules__container label')
+
+    // show form container
+    form.classList.add('show');
+
+    // delay showing form elements for a staggered effect
+    formElements.forEach((element, index) => {
+        setTimeout(() => {
+            element.classList.add('show');
+        }, 25 * index);
+    });
+})
+
+/*
+ * submit form with success message
+ */
+document.getElementById('schedules-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // prevent the default form submission
+
+    const formData = new FormData(this);
+
+    fetch('/submit', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text();
+    })
+    .then(data => {
+        // show the success message
+        document.getElementById('success-message').style.display = 'block';
+
+        // optionally clear the form fields after submission
+        this.reset();
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
     });
 });
