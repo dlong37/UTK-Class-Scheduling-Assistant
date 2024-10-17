@@ -1,0 +1,333 @@
+eecs_courses.csv
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  77) COSC,311,Discrete Structures,3,none,COSC 202&MATH 142,none,1430-1545,TR,MKB,none,none,none
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  78) COSC,317,Honors: Discrete Structures,3,none,COSC 202&MATH 142,none,1430-1545,TR,MKB,none,none,none
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  83) COSC,402,Senior Design Praticum,3,AOC,COSC 401&ENGL 102|ENGL 132|ENGL 290|ENGL 298,none,1130-1220,MWF,MOS,none,none,none
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  84) ENGL,355,Rhetoric and Writing,3,WC,ENGL 102|ENGL 118|ENGL 132|ENGL 290|ENGL 298,none,0945-1100,TR,HSS,none,none,none
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  85) ENGL,355,Rhetoric and Writing,3,WC,ENGL 102|ENGL 118|ENGL 132|ENGL 290|ENGL 298,none,1130-1220,MWF,AYR,none,none,none
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  86) ENGL,355,Rhetoric and Writing,3,WC,ENGL 102|ENGL 118|ENGL 132|ENGL 290|ENGL 298,none,1120-1235,TR,HSS,none,none,none
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  87) ENGL,360,Technical and Professional Writing,3,WC,ENGL 102|ENGL 118|ENGL 132|ENGL 290|ENGL 298,none,0000-0000,MTWRF,none,none,none,none
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  88) ENGL,360,Technical and Professional Writing,3,WC,ENGL 102|ENGL 118|ENGL 132|ENGL 290|ENGL 298,none,0810-0925,TR,HSS,none,none,none
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  89) ENGL,360,Technical and Professional Writing,3,WC,ENGL 102|ENGL 118|ENGL 132|ENGL 290|ENGL 298,none,0945-1100,TR,HSS,none,none,none
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 147) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,0810-0925,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 148) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 149) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1120-1235,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 150) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1255-1410,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 151) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1430-1545,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 152) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1605-1720,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 153) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,0810-0925,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 154) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,0945-1100,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 155) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1120-1235,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 156) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1255-1410,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 157) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1430-1545,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 158) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1605-1720,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 159) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,0810-0925,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 160) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 161) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 162) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 163) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,1605-1720,TR,ZEC
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 165) COSC,360,Systems Programming,4,none,COSC 302&COSC 230|ECE 256,none,1255-1410,TR,MKB,1130-1220,M,MKB
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 166) COSC,360,Systems Programming,4,none,COSC 302&COSC 230|ECE 256,none,1255-1410,TR,MKB,1240-1330,M,MKB
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 167) COSC,360,Systems Programming,4,none,COSC 302&COSC 230|ECE 256,none,1255-1410,TR,MKB,1350-1440,M,MKB
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 168) COSC,360,Systems Programming,4,none,COSC 302&COSC 230|ECE 256,none,1255-1410,TR,MKB,1500-1550,M,MKB
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 169) COSC,360,Systems Programming,4,none,COSC 302&COSC 230|ECE 256,none,1255-1410,TR,MKB,1610-1700,M,MKB
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 170) COSC,366,Introduction to Cybersecurity,3,none,COSC 302&COSC 230|ECE 256,none,0810-0925,TR,MKB,none,none,none
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 173) COSC,395,Junior Seminar,1,WC,COSC 302&ENGL 102|ENGL 132|ENGL 290|ENGL 298,none,1240-1330,W,MKB,none,none,none
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 183) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 184) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,0945-1100,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 185) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 186) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1120-1235,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 187) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1120-1235,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 188) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 189) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1255-1410,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 190) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1255-1410,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 191) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,1255-1410,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 192) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1430-1545,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 193) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1430-1545,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 194) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 195) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1605-1720,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 196) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1605-1720,TR,ZEC
+ec92259b (Lexy Andershock 2024-10-15 22:54:10 -0400 197) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,1605-1720,TR,ZEC
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 198) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 199) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 200) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1130-1220,MWF,ZEC,1255-1410,TR,ZEC
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 201) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 202) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1240-1330,MWF,ZEC,0945-1100,TR,ZEC
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 203) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1240-1330,MWF,ZEC,1120-1235,TR,ZEC
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 204) EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1240-1330,MWF,ZEC,1255-1410,TR,ZEC
+
+major_courses.csv
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  2) EF 151
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  3) MATH 141
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  4) ENGL 101
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  6) EF 152
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  7) MATH 142
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400  8) ENGL 102
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 10) MATH 251
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 11) ECE 313
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 12) ENGL 355
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 14) COSC 311
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 15) COSC 312
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 17) COSC 365
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 21) COSC 360
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 22) COSC 361
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 23) COSC 401
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 24) COSC 402
+
+taken_courses.csv
+5e753f91 (Lexy Andershock 2024-10-14 11:13:10 -0400 1) COSC 360
+5e753f91 (Lexy Andershock 2024-10-14 11:13:10 -0400 2) COSC 340
+5e753f91 (Lexy Andershock 2024-10-14 11:13:10 -0400 3) COSC 312
+5e753f91 (Lexy Andershock 2024-10-14 11:13:10 -0400 4) ECE 313
+5e753f91 (Lexy Andershock 2024-10-14 11:13:10 -0400 5) MATH 251
+1ea39bc9 (Lexy Andershock 2024-10-14 10:21:00 -0400 6) MATH 142
+1ea39bc9 (Lexy Andershock 2024-10-14 10:21:00 -0400 7) EF 152
+186678d8 (Lexy Andershock 2024-10-15 16:52:20 -0400 8) ENGL 102
+
+taken_courses_2.csv
+5180f86c (Lexy Andershock 2024-10-17 08:36:56 -0400 1) COSC 202
+5180f86c (Lexy Andershock 2024-10-17 08:36:56 -0400 2) MATH 251
+5180f86c (Lexy Andershock 2024-10-17 08:36:56 -0400 3) MATH 142
+5180f86c (Lexy Andershock 2024-10-17 08:36:56 -0400 4) EF 152
+5180f86c (Lexy Andershock 2024-10-17 08:36:56 -0400 5) ENGL 102
+
+taken_courses_3.csv
+5180f86c (Lexy Andershock 2024-10-17 08:36:56 -0400 1) COSC 101
+5180f86c (Lexy Andershock 2024-10-17 08:36:56 -0400 2) EF 151
+5180f86c (Lexy Andershock 2024-10-17 08:36:56 -0400 3) MATH 141
+5180f86c (Lexy Andershock 2024-10-17 08:36:56 -0400 4) ENGL 101
+
+gaps.cpp1ea39bc9 backend/generator_gaps/read_data.cpp (Lexy Andershock 2024-10-14 10:21:00 -0400   1) #include <iostream>
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400   8) #include <queue>
+1ea39bc9 backend/generator_gaps/read_data.cpp (Lexy Andershock 2024-10-14 10:21:00 -0400  10) 
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  11) #define MINS_PER_HOUR 60
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  12) 
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400  28)         int priority = 0;
+d6a436bb backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 09:58:54 -0400  29) 
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400  30)     // bool operator==(const course *mc) const {
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400  31)     //     return ((this->abbrv == mc->abbrv) && (this->num == mc->num));
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400  32)     // }
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400  33) };
+a888d34f backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 15:10:12 -0400  34) 
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400  35) // Custom comparator for min-heap (compare by age)
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400  36) struct CompareCourse {
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400  37)     bool operator()(const course& c1, const course& c2) {
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400  38)         return c1.priority > c2.priority;  // Min-heap: closer to 0 = higher priority
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400  39)     }
+1ea39bc9 backend/generator_gaps/read_data.cpp (Lexy Andershock 2024-10-14 10:21:00 -0400  40) };
+1ea39bc9 backend/generator_gaps/read_data.cpp (Lexy Andershock 2024-10-14 10:21:00 -0400  41) 
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  42) priority_queue<course, vector<course>, CompareCourse> create_pq(int start_hour, int start_min, int gap, vector<course> remaining_vector) {
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  43)     priority_queue<course, vector<course>, CompareCourse> pq;
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  44)     for (int i = 0; i < (int)remaining_vector.size(); i++) {
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  45)         // calculate start time in minutes
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  46)         int startx = start_hour * MINS_PER_HOUR + start_min;
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  47)         int course_hour = stoi(remaining_vector[i].lec_time.substr(0, 2));
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  48)         int course_min = stoi(remaining_vector[i].lec_time.substr(2, 2));
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  49)         int endx = course_hour * MINS_PER_HOUR + course_min;
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  50)         int duration = endx - startx;
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  51)         int priority = duration - gap;
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  52)         if (priority < 0) {
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  53)             priority *= -1;
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  54)         }
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  55)         remaining_vector[i].priority = priority;
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  56)         pq.push(remaining_vector[i]);
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  57)     }
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  58)     return pq;
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  59) };
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400  60) 
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400  61) void print_pq(priority_queue<course, vector<course>, CompareCourse> pq) {
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400  62)     priority_queue<course, vector<course>, CompareCourse> print = pq;
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400  63)     cout << "\nPriority Queue: " << endl;
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400  64)     while (!print.empty()) {
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400  65)         cout << print.top().abbrv << " " << print.top().num << " : " << print.top().title << " at " << print.top().lec_time << " (" << print.top().priority << ")" << endl;
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400  66)         print.pop(); 
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400  67)     }
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400  68)     cout << endl;
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400  69) }
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400  70) 
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400  71) void print_array( vector<vector<int>> arr) {
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400  72)     // Get number of rows
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400  73)     int rows = arr.size();
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400  74)     // Check if the matrix is non-empty and get the number of columns from the first row
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400  75)     if (rows > 0) {
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400  76)         int cols = arr[0].size();
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400  77) 
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400  78)         // Nested for loops to print the matrix
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400  79)         for (int i = 0; i < rows; ++i) {
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400  80)             for (int j = 0; j < cols; ++j) {
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400  81)                 std::cout << arr[i][j] << " ";  // Access elements by index
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400  82)             }
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400  83)             std::cout << std::endl;  // Newline after each row
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400  84)         }
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400  85)     }
+0f65ec05 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 11:13:15 -0400  86) };
+0f65ec05 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 11:13:15 -0400  87) 
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400  88) void check_pr(vector<string> taken_vector, priority_queue<course, vector<course>, CompareCourse> &pq) {
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400  89)     // create OR vector to cross compare with taken vector.
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400  90)     vector<string> or_vector;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400  91)     // check that course meets pre-reqs
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400  92)     bool schedule = true;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400  93)     while (schedule) {
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400  94)         int index = 0;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400  95)         // check for empty pq
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400  96)         if (pq.size() == 0) {
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400  97)             return;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400  98)         }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400  99)         course scheduled_class = pq.top();
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 100)         string pre_req = scheduled_class.pre_req;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 101)         string pr;
+0f65ec05 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 11:13:15 -0400 102) 
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 103)         // check for multiple pre-reqs
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 104)         for (int i = 0; i < (int)pre_req.size(); i++) {
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 105)             // hit an OR sign
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 106)             if (pre_req[i] == '|') { // add to OR vector only
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 107)                 // just push
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 108)                 pr = pre_req.substr(index, i-index);
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 109)                 or_vector.push_back(pr);
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 110)                 index = i+1;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 111)             }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 112)             // hit an AND sign
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 113)             if (pre_req[i] == '&') { // check OR vector + clear / break
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 114)                 // push class onto the OR vector
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 115)                 pr = pre_req.substr(index, i-index);
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 116)                 or_vector.push_back(pr);
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 117)                 // then check + clear
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 118)                 for (int j = 0; j < (int)taken_vector.size(); j++) {
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 119)                     for (int k = 0; k < (int)or_vector.size(); k++) {
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 120)                         if (taken_vector[j] == or_vector[k]) {
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 121)                             or_vector.clear();
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 122)                             break;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 123)                         }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 124)                     }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 125)                     if (or_vector.size() == 0) { break; }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 126)                 }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 127)                 // if we checked, but weren't able to match, this class is unabled to be scheduled
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 128)                 if (or_vector.size() != 0) {
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 129)                     pq.pop();
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 130)                     break;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 131)                 }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 132)                 index = i+1;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 133)             }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 134)             // grabs last class
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 135)             if (i == (int)pre_req.size()-1) { // grab the last course / the only course if no other pre-reqs
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 136)                 // push
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 137)                 pr = pre_req.substr(index, pre_req.size() - index);
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 138)                 or_vector.push_back(pr);
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 139)                 // final check
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 140)                 for (int j = 0; j < (int)taken_vector.size(); j++) {
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 141)                     for (int k = 0; k < (int)or_vector.size(); k++) {
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 142)                         if (taken_vector[j] == or_vector[k]) {
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 143)                             or_vector.clear();
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 144)                             break;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 145)                         }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 146)                     }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 147)                     if (or_vector.size() == 0) { break; }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 148)                 }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 149)                 // if we checked, but weren't able to match, this class is unabled to be scheduled
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 150)                 if (or_vector.size() != 0) {
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 151)                     pq.pop();
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 152)                     break;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 153)                 }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 154)                 else { // otherwise, we can schedule this class!
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 155)                     schedule = false;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 156)                     return;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 157)                 }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 158)             }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 159)         }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 160)     }
+0f65ec05 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 11:13:15 -0400 161) };
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400 162) 
+186678d8 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 16:52:20 -0400 328)                     if (cc[k] == '|' || cc[k] == '&') {
+186678d8 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 16:52:20 -0400 332)                     if (cc[k] != '|' && cc[k] != '&') {
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 373) 
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 374)     // START OF THE GAPS PROGRAM
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 375)     // NOTE:    add a flag at the start of the program when this is done!!
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 376) 
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 377)     string input;
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 378)     int user_hour;
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 379)     int user_min;
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 380)     cout << "What time would you like to start your classes?\nPlease enter in 24-hour time (0000-2359): ";
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 381)     while (1) {
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 382)         cin >> input;
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 383)         if (input.length() == 4) { // check string length
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 384)             user_hour = stoi(input.substr(0,2));
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 385)             user_min = stoi(input.substr(2,2));
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 386)             if (user_hour >= 0 && user_hour < 24 && user_min >= 0 && user_min < 60) {
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 387)                 break;
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 388)             }
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 389)         }
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 390)         cout << "Please enter a valid time (0000-2359): ";
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 391)     }
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 392) 
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 393)     int gap;
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 394)     cout << "How many minutes would you like between classes?: ";
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 395)     while (1) {
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 396)         cin >> gap;
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400 397)         if (gap >= 0 && gap < 1440) {
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 398)             break;
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 399)         }
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400 400)         cout << "Please enter a valid number of minutes (0-1439): ";
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 401)     }
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 402) 
+d6a436bb backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 09:58:54 -0400 403)     /*
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400 404)     int credit_hours;
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400 405)     cout << "How many credit hours would you like to take next semester?: ";
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400 406)     while (1) {
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400 407)         cin >> credit_hours;
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400 408)         if (credit_hours > 0) {
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400 409)             break;
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400 410)         }
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400 411)         cout << "Please enter a valid number of credit hours (>0): ";
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400 412)     }
+d6a436bb backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 09:58:54 -0400 413)     */
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400 414) 
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400 415)     // Create the 2D matrix for the course scheduler
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 416)     vector<vector<int>> schedule(60*24, vector<int>(5, 0));
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 417) 
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 418)     // print_array(schedule);
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400 419) 
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400 420)     // Create a remaining courses vector to pull ALL reamining courses from the database.
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400 421)     vector<course> remaining_vector;
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400 422)     for (int i = 0; i < (int)course_vector.size(); i++) {
+a888d34f backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 15:10:12 -0400 423)         for (int j = 0; j < (int)major_vector.size(); j++) {
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400 424)             string name = course_vector[i].abbrv + " " + to_string(course_vector[i].num);
+a888d34f backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 15:10:12 -0400 425)             if (major_vector[j] == name) {
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400 426)                 // cout << name << " : " << it_course->priority << endl;
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400 427)                 remaining_vector.push_back(course_vector[i]);
+a888d34f backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 15:10:12 -0400 428)             }
+a888d34f backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 15:10:12 -0400 429)         }
+5e753f91 backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 11:13:10 -0400 430)     }
+a888d34f backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 15:10:12 -0400 431) 
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400 432)     // Create min heap priority queue - gap of 0 since this is the first one.
+86a1a27b backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:06:04 -0400 433)     priority_queue<course, vector<course>, CompareCourse> pq = create_pq(user_hour, user_min, 0, remaining_vector);
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400 434) 
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400 435)     print_pq(pq);
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400 436) 
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 437)     check_pr(taken_vector, pq);
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 438)     cout << "Scheduling " << pq.top().abbrv << " " << pq.top().num << " : " << pq.top().title << " at " << pq.top().lec_time << endl;
+d6a436bb backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 09:58:54 -0400 439) 
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 440)     // attempt to schedule
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 441)     //int startx = start_hour * MINS_PER_HOUR + start_min;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 442)     int lec_start_time = stoi(pq.top().lec_time.substr(0, 2)) * MINS_PER_HOUR + stoi(pq.top().lec_time.substr(2, 2));
+5180f86c backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-17 08:36:56 -0400 443)         // cout << "lec start time: " << lec_start_time << endl;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 444)     int lec_end_time = stoi(pq.top().lec_time.substr(5, 2)) * MINS_PER_HOUR + stoi(pq.top().lec_time.substr(7, 2));
+5180f86c backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-17 08:36:56 -0400 445)         // cout << "lec end time: " << lec_end_time << endl;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 446)     int lab_start_time = 0;
+5180f86c backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-17 08:36:56 -0400 447)         // cout << "lab start time: " << lab_start_time << endl;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 448)     int lab_end_time = 0;
+5180f86c backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-17 08:36:56 -0400 449)         // cout << "lab start time: " << lab_end_time << endl;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 450) 
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 451)     if (pq.top().lab_time != "none") {
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 452)         lab_start_time = stoi(pq.top().lab_time.substr(0, 2)) * MINS_PER_HOUR + stoi(pq.top().lab_time.substr(2, 2));
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 453)         lab_end_time = stoi(pq.top().lab_time.substr(5, 2)) * MINS_PER_HOUR + stoi(pq.top().lab_time.substr(7, 2));
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400 454)     }
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 455) 
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 456)     string lec_days = pq.top().lec_date;
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 457)     string lab_days = pq.top().lab_date;
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400 458) 
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400 459)     // set up the new user time
+77a6d2dc backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 23:27:17 -0400 460) 
+300deb9e backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-16 15:02:11 -0400 461)     // Once a class has been matched + scheduled, remove all matching titles, abbreviations, and numbers from the remaining_vector + major_vector:
+a888d34f backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 15:10:12 -0400 462) 
+3b6093be backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-15 09:29:17 -0400 463)     // then, do some offsetting with gap and end time and loop until you reach desired credit hours OR there are no more classes / can't schedule:
+d7fe750a backend/generator_gaps/gaps.cpp      (Lexy Andershock 2024-10-14 22:49:35 -0400 464)     // prolly have to define an == operator
+1ea39bc9 backend/generator_gaps/read_data.cpp (Lexy Andershock 2024-10-14 10:21:00 -0400 465) }
