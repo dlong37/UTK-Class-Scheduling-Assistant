@@ -9,7 +9,7 @@ const menuLinks = document.querySelector('.navbar__menu');
 menu.addEventListener('click', function() {
     menu.classList.toggle('is-active');
     menuLinks.classList.toggle('active');
-})
+});
 
 /*
  * deletes schedules from main page
@@ -17,10 +17,10 @@ menu.addEventListener('click', function() {
 function deleteSchedule(scheduleId) {
     fetch('/delete-schedule', {
         method: 'POST',
-        body: JSON.stringify({ scheduleId: scheduleId})
+        body: JSON.stringify({ scheduleId: scheduleId })
     }).then((_res) => {
         window.location.href = "/main";
-    })
+    });
 }
 
 /*
@@ -39,13 +39,29 @@ window.addEventListener('DOMContentLoaded', () => {
             element.classList.add('show');
         }, 200 * index); // Adjust the delay for each element
     });
+
+    // Adds "enter" keypress listener to submit login/register forms
+    document.querySelector('.password').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            document.querySelector('.submit-button').click();
+        }
+    });
 });
 
 /*
- * adds "enter" keypress listener to submit login/register forms
+ * stagger animation for schedule page
  */
-document.querySelector('.password').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        document.querySelector('.submit-button').click();
-    }
-});
+window.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('.schedules__container');
+    const formElements = document.querySelectorAll('.schedules__container input[type="checkbox"], .schedules__container select, .schedules__container input[type="submit"], .schedules__container label')
+
+    // show form container
+    form.classList.add('show');
+
+    // delay showing form elements for a staggered effect
+    formElements.forEach((element, index) => {
+        setTimeout(() => {
+            element.classList.add('show');
+        }, 25 * index);
+    });
+})
