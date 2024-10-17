@@ -23,10 +23,10 @@ I had problems when it came to how to transfer the HTML form answers to a CSV fi
 
 ## Files I Worked On
 #### Designing the Schedule Questionnaire Page on Frontend
-* UTK-Class-Scheduling-Assistant/sprint1/frontend/schedules/templates/schedules.html
-* UTK-Class-Scheduling-Assistant/sprint1/frontend/schedules/static/schedules.css
-* UTK-Class-Scheduling-Assistant/sprint1/frontend/schedules/static/schedules.js
-* UTK-Class-Scheduling-Assistant/sprint1/frontend/schedules/app.py
+* UTK-Class-Scheduling-Assistant/frontend/schedules/templates/schedules.html
+* UTK-Class-Scheduling-Assistant/frontend/schedules/static/schedules.css
+* UTK-Class-Scheduling-Assistant/frontend/schedules/static/schedules.js
+* UTK-Class-Scheduling-Assistant/frontend/schedules/app.py
 
 ## What I Accomplished
 I was able to accomplish producing a fully functional question form prompting the user for answers, and I was able to transfer these answers to a CSV file for the backend C++ programs to use when filtering out classes to be generated. I also was able to gain more experience with JavaScript and Python/Flask in this process.
