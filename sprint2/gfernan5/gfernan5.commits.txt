@@ -1,0 +1,355 @@
+Support.h:
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  1) #ifndef SUPPORT_H
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  2) #define SUPPORT_H
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  3) #include <iostream>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  4) #include <string>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  5) #include <iomanip>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  6) #include <fstream>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  7) #include <sstream>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  8) #include <vector>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  9) #include <cmath>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 10) #include <set>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 11) #include <utility>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 12) using namespace std;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 13) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 14) class course {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 15)     public:
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 16)         string abbrv;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 17)         int num;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 18)         string title;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 19)         int hours;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 20)         string attributes;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 21)         string pre_req;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 22)         string co_req;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 23)         string lec_time;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 24)         string lec_date;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 25)         string lec_loc;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 26)         string lab_time;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 27)         string lab_date;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 28)         string lab_loc;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 29) };
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 30) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 31) // coordinates for class locations
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 32) const pair<double, double> APBcoord(35.95716565313402, -83.92699933505531);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 33) const pair<double, double> AYRcoord(35.95743065274119, -83.92592513641416);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 34) const pair<double, double> BECcoord(35.954316260640674, -83.92782712008297);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 35) const pair<double, double> BEOcoord(35.9481784481985, -83.94013149194797);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 36) const pair<double, double> DOUcoord(35.95775693538045, -83.92407556241893);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 37) const pair<double, double> HBBcoord(35.95573323240885, -83.928646419472);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 38) const pair<double, double> HPRcoord(35.95188743870127, -83.93253301808525);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 39) const pair<double, double> HSScoord(35.953522436651596, -83.92881407748088);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 40) const pair<double, double> JHBcoord(35.95919575620802, -83.92617622801401);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 41) const pair<double, double> LIBcoord(35.95511512399242, -83.92976548040959);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 42) const pair<double, double> MKBcoord(35.95863732223823, -83.92463257032564);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 43) const pair<double, double> MOScoord(35.9588754345924, -83.92702442104134);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 44) const pair<double, double> PERcoord(35.95668833001991, -83.92406905123228);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 45) const pair<double, double> PHYcoord(35.95656376894459, -83.92551827131747);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 46) const pair<double, double> SRFcoord(35.95730762715489, -83.92475009354663);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 47) const pair<double, double> STRcoord(35.95768764248766, -83.93108382310751);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 48) const pair<double, double> TICcoord(35.95577153518418, -83.9226653536677);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 49) const pair<double, double> WABcoord(35.95693990352076, -83.92768208583665);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 50) const pair<double, double> ZECcoord(35.95569385908873, -83.92376342399506);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 51) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 52) void calc_distance(vector<vector<float> > &distance_vector);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 53) void print_error(string r, string s, int i);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 54) int read_file(ifstream &file, vector<course> &course_vector);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 55) void expand_vector(vector<string> &taken_vector, vector<course> &course_vector);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 56) void remove_duplicates(set<string> &taken_set, vector<string> &taken_vector, vector<string> &major_vector);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 57) int open_file(string file_name, ifstream &file, string args);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 58) void read_file2(vector<string> &vector, ifstream &file);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 59) int error_check(string s, int argc, int i);
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 60) void optimize_loc(vector<string> major_vector, vector<vector<float>> distance_vector, string s, int hours);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 61) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 62) #endif
+
+Support.cpp:
+d77bb731 (Gian 2024-10-16 21:01:14 -0400   1) #include <iostream>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400   2) #include <string>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400   3) #include <iomanip>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400   4) #include <fstream>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400   5) #include <sstream>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400   6) #include <vector>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400   7) #include <cmath>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400   8) #include <set>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400   9) #include <utility>
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  10) #include "Support.h"
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  11) using namespace std;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  12) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  13) vector<pair<double, double>> coordinates = { APBcoord, AYRcoord, BECcoord, BEOcoord, DOUcoord, HBBcoord, HPRcoord, HSScoord, JHBcoord, LIBcoord, MKBcoord, MOScoord, PERcoord, PHYcoord, SRFcoord, STRcoord, TICcoord, WABcoord, ZECcoord };
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  14) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  15) void calc_distance(vector<vector<float> > &distance_vector) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  16)     distance_vector.resize(19);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  17)     for(int i = 0; i < 19; i++) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  18)         distance_vector[i].resize(19);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  19)     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  20) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  21)     for(int i = 0; i < 19; i++) {
+aa8563ea (Gian 2024-10-17 14:49:24 -0400  22)         for(int j = 0; j <= i; j++) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  23)             float la1 = coordinates[i].first*(M_PI/180.0);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  24)             float la2 = coordinates[j].first*(M_PI/180.0);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  25)             float lo1 = coordinates[i].second*(M_PI/180.0);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  26)             float lo2 = coordinates[j].second*(M_PI/180.0);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  27)             float temp1 = ((la2 - la1)/2);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  28)             float temp2 = ((lo2 - lo1)/2);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  29) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  30)             float temp3 = (sin(temp1))*(sin(temp1));
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  31)             float temp4 = cos(la1);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  32)             float temp5 = cos(la2);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  33)             float temp6 = (sin(temp2))*(sin(temp2));
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  34) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  35)             float temp7 = temp3 + (temp4*temp5*temp6);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  36) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  37)             float temp8 = sqrt(temp7);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  38) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  39)             float distance = 2*(3963.0)*(asin(temp8));
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  40) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  41)             distance = 0.001*round(distance/0.001);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  42) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  43)             distance_vector[i][j] = distance;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  44)         }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  45)     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  46) }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  47) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  48) void print_error(string r, string s, int i) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  49)     ofstream ferr("error.txt");
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  50)     if(i == 1) { ferr << "error: cannot open " << s << endl; }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  51)     ferr << "usage: " << r << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  52)     ferr.close();
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  53) }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  54) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  55) int read_file(ifstream &file, vector<course> &course_vector) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  56)     course my_course;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  57)     string line;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  58)     getline(file, line);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  59)     while (getline(file, line)) { // get whole line
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  60)         int i = 0;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  61)         stringstream ss(line);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  62)         while (getline(ss, line, ',')) { // separate by commas
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  63)             // using i to keep track of the number of attributes we've read in,
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  64)             // switch to read into the right properties
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  65)             switch (i) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  66)                 case(0):
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  67)                     my_course.abbrv = line;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  68)                     break;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  69)                 case(1):
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  70)                     my_course.num = stoi(line);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  71)                     break;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  72)                 case(2):
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  73)                     my_course.title = line;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  74)                     break;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  75)                 case(3):
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  76)                     my_course.hours = stoi(line);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  77)                     break;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  78)                 case(4):
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  79)                     my_course.attributes = line;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  80)                     break;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  81)                 case(5):
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  82)                     my_course.pre_req = line;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  83)                     break;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  84)                 case(6):
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  85)                     my_course.co_req = line;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  86)                     break;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  87)                 case(7):
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  88)                     my_course.lec_time = line;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  89)                     break;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  90)                 case(8):
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  91)                     my_course.lec_date = line;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  92)                     break;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  93)                 case(9):
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  94)                     my_course.lec_loc = line;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  95)                     break;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  96)                 case(10):
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  97)                     my_course.lab_time = line;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  98)                     break;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  99)                 case(11):
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 100)                     my_course.lab_date = line;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 101)                     break;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 102)                 case(12):
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 103)                     my_course.lab_loc = line;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 104)                     break;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 105)                 default:
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 106)                     cout << "error" << endl;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 107)                     return 1;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 108)             }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 109)             i++; 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 110)             if (i == 13) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 111)                 course_vector.push_back(my_course);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 112)                 i = 0;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 113)             }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 114)         }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 115)     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 116)     file.close();
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 117)     return 0;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 118) }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 119) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 120) void expand_vector(vector<string> &taken_vector, vector<course> &course_vector) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 121)     for(int i = 0; i < taken_vector.size(); i++) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 122)         string c = "";
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 123)         for(int j = 0; j < course_vector.size(); j++) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 124)             c = course_vector[j].abbrv + " " + to_string(course_vector[j].num);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 125)             if(c == taken_vector[i]) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 126)                 string cc = course_vector[j].pre_req;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 127)                 string ccc = "";
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 128)                 for(int k = 0; k < cc.size(); k++) {
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 129)                     if(cc[k] == '&' || cc[k] == '|') {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 130)                         taken_vector.push_back(ccc);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 131)                         ccc.clear();
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 132)                     }
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 133)                     if(cc[k] != '&' && cc[k] != '|') {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 134)                         ccc.push_back(cc[k]);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 135)                     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 136)                 }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 137)                 taken_vector.push_back(ccc);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 138)                 break;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 139)             }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 140)         }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 141)     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 142) }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 143) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 144) void remove_duplicates(set<string> &taken_set, vector<string> &taken_vector, vector<string> &major_vector) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 145)     for(int i = 0; i < taken_vector.size(); i++) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 146)         taken_set.insert(taken_vector[i]);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 147)     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 148) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 149)     // print inside the set
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 150)     set<string>::iterator it = taken_set.begin();
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 151)     while (it != taken_set.end()) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 152)         if (*it == "none") {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 153)             it = taken_set.erase(it);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 154)         } 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 155)         else {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 156)             //cout << *it << endl;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 157)             ++it;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 158)         }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 159)     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 160) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 161)     for(int i = 0; i < major_vector.size(); i++) {
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 162)         for(set<string>::iterator it = taken_set.begin(); it != taken_set.end(); ++it) {
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 163)             if(major_vector[i] == *it) {
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 164)                 major_vector.erase(major_vector.begin()+i);
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 165)                 i--;
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 166)                 break;
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 167)             }
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 168)         }   
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 169)     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 170) }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 171) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 172) int open_file(string file_name, ifstream &file, string args) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 173)     file.open(file_name);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 174)     if(!file.is_open()) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 175)         print_error(args, file_name, 1);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 176)         return 1;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 177)     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 178)     return 0;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 179) }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 180) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 181) void read_file2(vector<string> &vector, ifstream &file) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 182)     string line;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 183)     string course;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 184)     while(getline(file, line)) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 185)         course = line;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 186)         vector.push_back(course);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 187)     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 188)     file.close();
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 189) }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 190) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 191) int error_check(string s, int argc, int i) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 192)     bool failed = false;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 193)     if(argc != i) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 194)         failed = true;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 195)     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 196)     if(failed) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 197)         print_error(s, "no", 0);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 198)         return 1;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 199)     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 200)     return 0;
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 201) }
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 202) 
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 203) void optimize_loc(vector<string> major_vector, vector<vector<float>> distance_vector, string s, int hours) {
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 204)     
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 205) }
+
+loc.cpp:
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  1) #include "Support.h"
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  2) using namespace std;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  3) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  4) int main(int argc, char** argv) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  5) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  6)     // argument checking
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  7)     if(error_check(argv[0], argc, 4)) { return 1; }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  8) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400  9)     // files streams
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 10)     ifstream file; 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 11) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 12)     // open the available_courses file and error check opening
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 13)     if(open_file(argv[1], file, argv[0])) { return 1; }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 14) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 15)     // make vector that can hold class type course
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 16)     vector<course> course_vector;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 17)     if(read_file(file, course_vector)) { return 1; }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 18) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 19)     // open the major_courses file and error check opening
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 20)     if(open_file(argv[2], file, argv[0])) { return 1; }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 21) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 22)     // reads from the major courses into a vector that holds the strings
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 23)     vector<string> major_vector;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 24)     read_file2(major_vector, file);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 25) 
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 26)     cout << "Major vector:" << endl; 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 27)     for(int i = 0; i < (int)major_vector.size(); i++) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 28)         cout << major_vector[i] << endl;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 29)     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 30)     cout << endl;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 31) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 32)     // open the taken_courses file and error check opening
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 33)     if(open_file(argv[3], file, argv[0])) { return 1; }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 34) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 35)     // reads from the taken_courses file and saves them to a vector
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 36)     vector<string> taken_vector;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 37)     read_file2(taken_vector, file);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 38) 
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 39)     cout << "taken vector:" << endl;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 40)     for(int i = 0; i < (int)taken_vector.size(); i++) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 41)         cout << taken_vector[i] << endl;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 42)     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 43)     cout << endl;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 44) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 45)     // expands the taken_courses vector to include all the pre reqs that are needed to get to a class in the taken_courses vector
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 46)     expand_vector(taken_vector, course_vector);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 47) 
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 48)     cout << "taken vector expanded:" << endl;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 49)     for(int i = 0; i < (int)taken_vector.size(); i++) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 50)         cout << taken_vector[i] << endl;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 51)     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 52)     cout << endl;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 53) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 54)     // create a set so duplicates are removed and classes are sorted alphabetically
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 55)     set<string> taken_set;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 56)     remove_duplicates(taken_set, taken_vector, major_vector);
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 57)     cout << "taken set:" << endl;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 58)     for(set<string>::iterator it = taken_set.begin(); it != taken_set.end(); ++it) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 59)         cout << *it << std::endl;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 60)     }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 61)     cout << endl;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 62) 
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 63)     vector<vector<float>> distance_vector;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 64)     calc_distance(distance_vector);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 65) 
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 66)     cout << "distance vector:" << endl;
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 67)     for(int i = 0; i < 19; i++) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 68)         for(int j = 0; j < 19; j++) {
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 69)             printf("%f ", distance_vector[i][j]);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 70)         }
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 71)         printf("\n");
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 72)     }
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 73)     cout << endl;
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 74) 
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 75)     cout << "Major vector shrunk:" << endl;
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 76)     for(int i = 0; i < (int)major_vector.size(); i++) {
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 77)         cout << major_vector[i] << endl;
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 78)     }
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 79)     cout << endl;
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 80) 
+a5b39689 (Gian 2024-10-16 21:55:19 -0400 81)     optimize_loc(major_vector, distance_vector, argv[1], 15);
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 82)     
+d77bb731 (Gian 2024-10-16 21:01:14 -0400 83) }
