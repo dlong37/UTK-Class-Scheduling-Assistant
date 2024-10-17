@@ -19,7 +19,7 @@ void calc_distance(vector<vector<float> > &distance_vector) {
     }
 
     for(int i = 0; i < 19; i++) {
-        for(int j = 0; j < 19; j++) {
+        for(int j = 0; j <= i; j++) {
             float la1 = coordinates[i].first*(M_PI/180.0);
             float la2 = coordinates[j].first*(M_PI/180.0);
             float lo1 = coordinates[i].second*(M_PI/180.0);
