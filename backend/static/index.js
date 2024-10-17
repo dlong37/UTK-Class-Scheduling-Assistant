@@ -69,6 +69,35 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 /*
+ * stagger animation for main page
+ */
+window.addEventListener('DOMContentLoaded', () => {
+    const listItems = document.querySelectorAll('#schedules .list-group-item');
+    const form = document.querySelector('form');
+    const additionalButtons = document.querySelectorAll('button.class_search, button.schedules');
+
+    // Animate each list item with staggered delay
+    listItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.classList.add('show');
+        }, 200 * index); // Delay of 100ms between each item
+    });
+
+    // Animate the form
+    setTimeout(() => {
+        form.classList.add('show');
+    }, 100 * listItems.length); // Delay after the last list item
+
+    // Animate additional buttons (Search Classes, Schedule Questionnaire)
+    additionalButtons.forEach((button, index) => {
+        setTimeout(() => {
+            button.classList.add('show');
+        }, 200 * (listItems.length + index + 1)); // Delay after the form
+    });
+});
+
+
+/*
  * submit form with success message
  */
 document.getElementById('schedules-form').addEventListener('submit', function(event) {

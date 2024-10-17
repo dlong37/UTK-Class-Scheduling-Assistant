@@ -1,33 +1,39 @@
 <!-- Main page that can only be accessed after logging in-->
 
 {% extends "base.html" %}
-<title>{% block title %}UTK CSA{% endblock %}</title>
+
+{% block title %}
+    UTK CSA
+{% endblock %}
 
 {% block content %}
-    <h1 align="center">My Schedules</h1>
-    <ul class="list-group-flush" id="schedules">
-        {% for schedule in user.schedules %}
-        <li class="list-group-item">
-            <a href="{{ url_for('views.view_schedule', schedule_id=schedule.id) }}">
-                {{ schedule.date.strftime('%Y-%m-%d %H:%M:%S') }}
-            </a>
+    <div class="content">
+        <h1 class="heading">My Schedules</h1>
+        <ul class="list-group-flush" id="schedules">
+            {% for schedule in user.schedules %}
+            <li class="list-group-item">
+                <a href="{{ url_for('views.view_schedule', schedule_id=schedule.id) }}">
+                    {{ schedule.date.strftime('%Y-%m-%d %H:%M:%S') }}
+                </a>
 
+                <!-- Delete button, uses a separate function to communicate with backend -->
+                <button type="button" class="close" onClick="deleteSchedule({{ schedule.id }})">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </li>
+            {% endfor %}
+        </ul>
+        <form class="schedule-form" method="POST">
+            <textarea name="class_ids" id="class_ids" class="form-control" placeholder="Enter class IDs separated by commas"></textarea>
+            <br/>
+                <button type="submit" class="btn btn-primary">Add Schedule</button>
+        </form>
 
-            <!-- Delete button, uses a separate function to communicate with backend -->
-            <button type="button" class="close" onClick="deleteSchedule({{ schedule.id }})">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </li>
-        {% endfor %}
-    </ul>
-    <form method="POST">
-        <textarea name="class_ids" id="class_ids" class="form-control" placeholder="Enter class IDs separated by commas"></textarea>
-        <br />
-            <button type="submit" class="btn btn-primary">Add Schedule</button>
-    </form>
-
-    <!-- New search for classes button -->
-    <button class="class_search"><a href="/class_search">Search Classes</a></button>
-    <button class="schedules"><a href="/schedules">Schedule Questionnaire</a></button>
+        <!-- New search for classes button -->
+        <div class="button-container">
+            <button class="class_search"><a href="/class_search">Search Classes</a></button>
+            <button class="schedules"><a href="/schedules">Schedule Questionnaire</a></button>
+        </div>
+    </div>
     
 {% endblock %}
