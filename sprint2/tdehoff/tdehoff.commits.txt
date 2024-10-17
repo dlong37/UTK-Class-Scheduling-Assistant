@@ -1,0 +1,201 @@
+* backend/models.py
+32d10148 sprint1/backend/models.py (tdehoff1   2024-10-10 16:11:07 -0400  5) from enum import Enum
+72315b53 backend/models.py         (tdehoff1   2024-10-14 18:20:49 -0400  6) #import json
+72315b53 backend/models.py         (tdehoff1   2024-10-14 18:20:49 -0400  8) # class Weekdays(Enum):
+72315b53 backend/models.py         (tdehoff1   2024-10-14 18:20:49 -0400  9) #     __bind_key__ = 'classes'
+72315b53 backend/models.py         (tdehoff1   2024-10-14 18:20:49 -0400 10) #     Mon = "Mon"
+72315b53 backend/models.py         (tdehoff1   2024-10-14 18:20:49 -0400 11) #     Tue = "Tue"
+72315b53 backend/models.py         (tdehoff1   2024-10-14 18:20:49 -0400 12) #     Wed = "Wed"
+72315b53 backend/models.py         (tdehoff1   2024-10-14 18:20:49 -0400 13) #     Thu = "Thu"
+72315b53 backend/models.py         (tdehoff1   2024-10-14 18:20:49 -0400 14) #     Fri = "Fri"
+adca4aaf sprint1/backend/models.py (tdehoff1   2024-10-09 14:38:11 -0400 15) 
+adca4aaf sprint1/backend/models.py (tdehoff1   2024-10-09 14:38:11 -0400 16) class Course(db.Model):
+adca4aaf sprint1/backend/models.py (tdehoff1   2024-10-09 14:38:11 -0400 17)     __bind_key__ = 'classes'    # comes from classes.db
+adca4aaf sprint1/backend/models.py (tdehoff1   2024-10-09 14:38:11 -0400 18)     id = db.Column(db.Integer, primary_key=True)
+32d10148 sprint1/backend/models.py (tdehoff1   2024-10-10 16:11:07 -0400 19)     abbreviation = db.Column(db.String(4), nullable=False)
+32d10148 sprint1/backend/models.py (tdehoff1   2024-10-10 16:11:07 -0400 20)     number = db.Column(db.Integer, nullable=False)
+32d10148 sprint1/backend/models.py (tdehoff1   2024-10-10 16:11:07 -0400 21)     title = db.Column(db.String(50), nullable=False)
+bc7d63bd backend/models.py         (tdehoff1   2024-10-15 12:36:07 -0400 22)     credit_hours = db.Column(db.Integer, nullable=False)
+bc7d63bd backend/models.py         (tdehoff1   2024-10-15 12:36:07 -0400 23)     lecture_time = db.Column(db.String(10))
+bc7d63bd backend/models.py         (tdehoff1   2024-10-15 12:36:07 -0400 24)     lecture_days = db.Column(db.String(5))
+bc7d63bd backend/models.py         (tdehoff1   2024-10-15 12:36:07 -0400 25)     lecture_location = db.Column(db.String(5))
+bc7d63bd backend/models.py         (tdehoff1   2024-10-15 12:36:07 -0400 26)     lab_time = db.Column(db.String(10))
+bc7d63bd backend/models.py         (tdehoff1   2024-10-15 12:36:07 -0400 27)     lab_days = db.Column(db.String(5))
+bc7d63bd backend/models.py         (tdehoff1   2024-10-15 12:36:07 -0400 28)     lab_location = db.Column(db.String(5))
+adca4aaf sprint1/backend/models.py (tdehoff1   2024-10-09 14:38:11 -0400 29) 
+adca4aaf sprint1/backend/models.py (tdehoff1   2024-10-09 14:38:11 -0400 30) 
+adca4aaf sprint1/backend/models.py (tdehoff1   2024-10-09 14:38:11 -0400 31) # Schema for 'Schedule' database object: have to add semester.
+bc7d63bd backend/models.py         (tdehoff1   2024-10-15 12:36:07 -0400 35)     class_ids = db.Column(db.JSON, nullable=False)
+adca4aaf sprint1/backend/models.py (tdehoff1   2024-10-09 14:38:11 -0400 36)     
+
+* backend/views.py
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400   5) from .models import Schedule, Course
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400   8) import csv
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  19)     if request.method == 'POST':
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  20)         input = request.form.get('class_ids')
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  21)         if not input:
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  22)             flash('Nothing added.', category='error')
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  23)         else:
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  24)             class_ids = list(map(int, input.split(',')))
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  25)             new_schedule = Schedule(class_ids=class_ids, user_id = current_user.id)
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  26)             db.session.add(new_schedule)
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  27)             db.session.commit()
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  28)             flash('Schedule added!', category='success')
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  32) @views.route('/schedule/<int:schedule_id>', methods=['GET'])
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  33) @login_required
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  34) def view_schedule(schedule_id):
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  35)     # Fetch the schedule and verify it belongs to the current user
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  36)     schedule = Schedule.query.filter_by(id=schedule_id, user_id=current_user.id).first()
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  37) 
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  38)     if not schedule:
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  39)         flash('Error loading schedule.', category='error')
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  40)         return render_template("main.html", user=current_user)
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  41)     
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  42)     class_ids = schedule.class_ids
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  43)     courses = Course.query.filter(Course.id.in_(class_ids)).all()
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  44)     return render_template('view_schedule.html', schedule=schedule, courses=courses, user=current_user)
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  45) 
+bc7d63bd backend/views.py         (tdehoff1   2024-10-15 12:36:07 -0400  46) 
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  57)     return jsonify({})
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  58) 
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  59) @views.route('/class_search', methods=['GET', 'POST'])
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  60) @login_required
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  61) def class_search():
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  62)     search_term = request.args.get('search')
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  63)     # For debugging: remove later
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  64)     print(f"Search term: '{search_term}'")
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  65)     classes = Course.query
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  66) 
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  67)     if (search_term):
+32d10148 sprint1/backend/views.py (tdehoff1   2024-10-10 16:11:07 -0400  68)         classes = classes.filter(Course.abbreviation.ilike(f'%{search_term}%'))  # Filter the query
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  69) 
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  70)     results = classes.limit(10).all()  # Limit to 10 results and execute
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  71)     # For debugging: remove later
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  72)     print(f"Classes found: {len(results)}")
+85ce474a sprint1/backend/views.py (tdehoff1   2024-10-09 14:40:50 -0400  73) 
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400  74)     return render_template("class_search.html", classes=results, user=current_user)
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400  75) 
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400  76) @views.route('/schedules')
+72315b53 backend/views.py         (tdehoff1   2024-10-14 18:20:49 -0400  77) @login_required
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400  78) def index():
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400  79)     return render_template('schedules.html')
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400  80) 
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400  81) # Handle form submission
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400  82) @views.route('/submit', methods=['POST'])
+72315b53 backend/views.py         (tdehoff1   2024-10-14 18:20:49 -0400  83) @login_required
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400  84) def submit():
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400  85)     core_class = request.form.get('core-class')
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400  91)     elective_credits = request.form.getlist('elective-credit')
+4fb3febc backend/views.py         (tdehoff1   2024-10-16 18:00:56 -0400  92)     credit_hours = request.form.get('credit-hours')
+4fb3febc backend/views.py         (tdehoff1   2024-10-16 18:00:56 -0400  93)     mwf_start_time = request.form.get('MWF-start-time')
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400  95) 
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400  96)     # Prepare data for CSV
+4fb3febc backend/views.py         (tdehoff1   2024-10-16 18:00:56 -0400 104)     ]
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400 105) 
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400 116)     # Write to CSV file
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400 117)     with open('data.csv', mode='a', newline='') as file:
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400 118)         writer = csv.writer(file)
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400 121) 
+f86d9e83 backend/views.py         (tdehoff1   2024-10-14 14:39:15 -0400 122)     return 'Data saved successfully!'
+
+* backend/__init\__.py
+48b83136 sprint1/backend/__init__.py (tdehoff1   2024-10-09 14:42:41 -0400  4) from flask_migrate import Migrate
+48b83136 sprint1/backend/__init__.py (tdehoff1   2024-10-09 14:42:41 -0400  5) 
+48b83136 sprint1/backend/__init__.py (tdehoff1   2024-10-09 14:42:41 -0400  6) from os import path
+48b83136 sprint1/backend/__init__.py (tdehoff1   2024-10-09 14:42:41 -0400 10) CLASSES_DB_NAME = "classes.db"
+48b83136 sprint1/backend/__init__.py (tdehoff1   2024-10-09 14:42:41 -0400 20)     app.config['SQLALCHEMY_BINDS'] = {'classes': f'sqlite:///{CLASSES_DB_NAME}'}
+48b83136 sprint1/backend/__init__.py (tdehoff1   2024-10-09 14:42:41 -0400 21) 
+48b83136 sprint1/backend/__init__.py (tdehoff1   2024-10-09 14:42:41 -0400 23)     migrate = Migrate(app, db)
+48b83136 sprint1/backend/__init__.py (tdehoff1   2024-10-09 14:42:41 -0400 32)     from .models import User, Schedule, Course
+48b83136 sprint1/backend/__init__.py (tdehoff1   2024-10-09 14:42:41 -0400 47)     # Check if user database exists
+72315b53 backend/__init__.py         (tdehoff1   2024-10-14 18:20:49 -0400 48)     if not path.exists('instance/' + DB_NAME):
+48b83136 sprint1/backend/__init__.py (tdehoff1   2024-10-09 14:42:41 -0400 51)             print('New User Database Created.')
+
+* backend/read_classes.py
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400  1) # Script to read courses from csv file to database
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400  2) 
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400  3) import csv
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400  4) import os
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400  5) from backend import create_app, db
+32d10148 sprint1/backend/read_classes.py (tdehoff1 2024-10-10 16:11:07 -0400  6) import logging
+72315b53 backend/read_classes.py         (tdehoff1 2024-10-14 18:20:49 -0400  7) from backend.models import Course
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400  8) from datetime import datetime
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400  9) 
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 10) app = create_app()
+72315b53 backend/read_classes.py         (tdehoff1 2024-10-14 18:20:49 -0400 11) CLASSES_DB_NAME = "classes.db"
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 12) 
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400 13) # Format time string before recording it in the database
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400 14) def format_time(time_str):
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400 15)     start_time, end_time = time_str.split('-')
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400 16)     start = datetime.strptime(start_time, "%H%M")
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400 17)     end = datetime.strptime(end_time, "%H%M")
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400 18)     formatted_time = f"{start.strftime('%I:%M %p')} - {end.strftime('%I:%M %p')}"
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400 19)     return formatted_time
+32d10148 sprint1/backend/read_classes.py (tdehoff1 2024-10-10 16:11:07 -0400 20) 
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400 21) # Write courses from csv to db
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 22) def read_classes_from_csv():
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 23)     with app.app_context():
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 24)         # classes.csv must be in the same directory with read_classes.py
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 25)         base_dir = os.path.dirname(os.path.abspath(__file__))
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 26)         csv_file_path = os.path.join(base_dir, 'classes.csv')
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 27) 
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 28)         with open(csv_file_path, mode='r') as csvfile:
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 29)             reader = csv.DictReader(csvfile)
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 30) 
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 31)             for row in reader:
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 32)                 new_class = Course(
+32d10148 sprint1/backend/read_classes.py (tdehoff1 2024-10-10 16:11:07 -0400 33)                     abbreviation=row['Abbreviation'],
+32d10148 sprint1/backend/read_classes.py (tdehoff1 2024-10-10 16:11:07 -0400 34)                     number=row['Number'],
+32d10148 sprint1/backend/read_classes.py (tdehoff1 2024-10-10 16:11:07 -0400 35)                     title=row['Title'],
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400 36)                     credit_hours=row['Hours'],
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400 37)                     lecture_time=format_time(row['LcTime']) if row['LcTime'] != 'none' else "",
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400 38)                     lecture_days=row['LcDate'] if row['LcDate'] != 'none' else "",
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400 39)                     lecture_location=row['LcLocation'] if row['LcLocation'] != 'none' else "",
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400 40)                     lab_time=format_time(row['LaTime']) if row['LaTime'] != 'none' else "",
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400 41)                     lab_days=row['LaDate'] if row['LaDate'] != 'none' else "",
+bc7d63bd backend/read_classes.py         (tdehoff1 2024-10-15 12:36:07 -0400 42)                     lab_location=row['LaLocation'] if row['LaLocation'] != 'none' else ""
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 43)                 )
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 44) 
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 45)                 db.session.add(new_class)
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 46) 
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 47)             db.session.commit()
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 48) 
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 49) if __name__ == "__main__":
+72315b53 backend/read_classes.py         (tdehoff1 2024-10-14 18:20:49 -0400 50)     # Check if the classes database already exists
+72315b53 backend/read_classes.py         (tdehoff1 2024-10-14 18:20:49 -0400 51)     if not os.path.exists(f'instance/{CLASSES_DB_NAME}'):
+72315b53 backend/read_classes.py         (tdehoff1 2024-10-14 18:20:49 -0400 52)         with app.app_context():
+72315b53 backend/read_classes.py         (tdehoff1 2024-10-14 18:20:49 -0400 53)             db.create_all(bind_key="classes")
+72315b53 backend/read_classes.py         (tdehoff1 2024-10-14 18:20:49 -0400 54)             print('New Classes Database Created.')
+72315b53 backend/read_classes.py         (tdehoff1 2024-10-14 18:20:49 -0400 55)      
+48b83136 sprint1/backend/read_classes.py (tdehoff1 2024-10-09 14:42:41 -0400 56)         read_classes_from_csv()
+72315b53 backend/read_classes.py         (tdehoff1 2024-10-14 18:20:49 -0400 57)         print('Classes populated from CSV.')
+72315b53 backend/read_classes.py         (tdehoff1 2024-10-14 18:20:49 -0400 58)     else:
+72315b53 backend/read_classes.py         (tdehoff1 2024-10-14 18:20:49 -0400 59)         print(f"Database {CLASSES_DB_NAME} already exists.")
+
+* backend/classes.csv: copied data from eecs_courses.csv
+
+* backend/templates/class_search.html
+-> For some reason only shows this much, see commit 85ce474
+85ce474a sprint1/backend/templates/class_search.html (tdehoff1 2024-10-09 14:40:50 -0400  2) 
+32b9ea2c backend/templates/class_search.html         (tdehoff1 2024-10-17 16:51:33 -0400 24)                 <li class="list-group-items">
+
+* backend/templates/main.html
+-> Don't see my commits by using git blame
+
+* backend/templates/view_schedule.html
+-> See commits bc7d63b and f6e24b6
+
+* backend/static/css/styles.css  
+-> See commit f6e24b6
+bc7d63bd (tdehoff1 2024-10-15 12:36:07 -0400  1) {% extends "base.html" %}
+bc7d63bd (tdehoff1 2024-10-15 12:36:07 -0400  6) 
+bc7d63bd (tdehoff1 2024-10-15 12:36:07 -0400  7) {% block content %}
+bc7d63bd (tdehoff1 2024-10-15 12:36:07 -0400 10) 
+bc7d63bd (tdehoff1 2024-10-15 12:36:07 -0400 12) 
+f6e24b64 (tdehoff1 2024-10-15 13:13:00 -0400 18)                             <p>
+f6e24b64 (tdehoff1 2024-10-15 13:13:00 -0400 25)                             </p>
+f6e24b64 (tdehoff1 2024-10-15 13:13:00 -0400 26)                         </div>
+f6e24b64 (tdehoff1 2024-10-15 13:13:00 -0400 44) 
+
+* backend/static/index.js  
+-> See commit f86d9e8
