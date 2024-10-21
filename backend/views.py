@@ -121,7 +121,7 @@ def submit():
         os.makedirs(directory)
 
     # Write to CSV file
-    with open('data.csv', mode='a', newline='') as file:
+    with open(os.path.join(directory, 'data.csv'), mode='a', newline='') as file:
         writer = csv.writer(file)
         for entry in data_entries:
             writer.writerow(entry)
