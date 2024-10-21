@@ -113,15 +113,15 @@ def submit():
     data_entries.append([mwf_start_time])
     data_entries.append([tr_start_time])
 
-    # Defines the directory where the csv file will be saved
-    directory = 'courses_generator'
+    # # Defines the directory where the csv file will be saved
+    # directory = 'courses_generator'
 
-    # Create the directory if it doesn't exist
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+    # # Create the directory if it doesn't exist
+    # if not os.path.exists(directory):
+    #     os.makedirs(directory)
 
     # Write to CSV file
-    with open(os.path.join(directory, 'data.csv'), mode='a', newline='') as file:
+    with open('data.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
         for entry in data_entries:
             writer.writerow(entry)
