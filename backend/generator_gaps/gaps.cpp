@@ -518,7 +518,7 @@ int main(int argc, char** argv) {
     bool lec_conflicts = check_conflicts(lec_start_time, lec_end_time, lec_days, schedule); // lecture conflicts
     bool lab_conflicts = check_conflicts(lab_start_time, lab_end_time, lab_days, schedule); // lab conflicts
     
-    // attempt to schedule
+    // schedule the course - may fail if co-reqs cannot be scheduled
     if (lec_conflicts == false && lab_conflicts == false) {
         // schedule lecture time
         for (int i = 0; i < (int)lec_days.length(); i++) {
@@ -567,7 +567,15 @@ int main(int argc, char** argv) {
 
         // check for co-reqs
         if (pq.top().co_req != "none") {
-            cout << "Co-Reqs must also be scheduled." << endl;
+            // schedule co-reqs!
+            // create a remaining vector, consisting only of the co-req courses
+            // create a new priority queue
+            // check pre-reqs
+            // check conflicts - if this doesn't work, pop + try again
+            // schedule
+        }
+        else {
+            success_scheduled = true;
         }
 
         // Once a class + it's co-reqs has been matched + scheduled, remove all matching titles, abbreviations, and numbers from the remaining_vector + major_vector:
