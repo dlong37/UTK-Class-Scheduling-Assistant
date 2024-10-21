@@ -1,6 +1,6 @@
 # Backend for routes to other pages
 
-from flask import Blueprint, render_template, request, flash, jsonify
+from flask import Blueprint, render_template, request, flash, jsonify, redirect, url_for
 from flask_login import login_required, current_user
 from .models import Schedule, Course
 from . import db
@@ -126,4 +126,9 @@ def submit():
         for entry in data_entries:
             writer.writerow(entry)
 
-    return 'Data saved successfully!'
+    return redirect(url_for('views.class_generation'))
+
+@views.route('/generator', methods=['GET'])
+@login_required
+def class_generation():
+    return render_template('generator.html')

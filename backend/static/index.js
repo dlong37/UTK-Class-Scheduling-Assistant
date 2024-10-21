@@ -101,7 +101,7 @@ window.addEventListener('DOMContentLoaded', () => {
  * submit form with success message
  */
 document.getElementById('schedules-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // prevent the default form submission
+    // event.preventDefault(); // prevent the default form submission
 
     const formData = new FormData(this);
 
