@@ -32,7 +32,7 @@ class course {
     // }
 };
 
-// Custom comparator for min-heap (compare by age)
+// Custom comparator for min-heap
 struct CompareCourse {
     bool operator()(const course& c1, const course& c2) {
         return c1.priority > c2.priority;  // Min-heap: closer to 0 = higher priority
@@ -76,14 +76,34 @@ void print_array( vector<vector<int>> arr) {
         int cols = arr[0].size();
 
         // Nested for loops to print the matrix
-        for (int i = 0; i < rows; ++i) {
-            for (int j = 0; j < cols; ++j) {
-                std::cout << arr[i][j] << " ";  // Access elements by index
+        for (int i = 0; i < cols; ++i) {
+            for (int j = 0; j < rows; ++j) {
+                if (arr[j][i] == 1) { // Access elements by index
+                    // print by day + min
+                    if (i == 0) {
+                        cout << "M at " << j << endl;
+                    }
+                    else if (i == 1) {
+                        cout << "T at " << j << endl;
+                    }
+                    else if (i == 2) {
+                        cout << "W at " << j << endl;
+                    }
+                    else if (i == 3) {
+                        cout << "R at " << j << endl;
+                    }
+                    else if (i == 4) {
+                        cout << "F at " << j << endl;
+                    }
+                }
             }
-            std::cout << std::endl;  // Newline after each row
         }
     }
 };
+
+// vector<course> create_remaining_vector() {
+
+// };
 
 void check_pr(vector<string> taken_vector, priority_queue<course, vector<course>, CompareCourse> &pq) {
     // create OR vector to cross compare with taken vector.
@@ -158,6 +178,43 @@ void check_pr(vector<string> taken_vector, priority_queue<course, vector<course>
             }
         }
     }
+};
+
+bool check_conflicts(int start_time, int end_time, string days, vector<vector<int>> schedule) {
+    // where there are no days
+    if (days == "none") {
+        return false;
+    }
+    for (int i = 0; i < (int)days.length(); i++) {
+        for (int j = start_time; j < end_time; j++) {
+            if (days[i] == 'M') {
+                if (schedule[j][0] == 1) {
+                    return true;
+                }
+            }
+            else if (days[i] == 'T') {
+                if (schedule[j][1] == 1) {
+                    return true;
+                }
+            }
+            else if (days[i] == 'W') {
+                if (schedule[j][2] == 1) {
+                    return true;
+                }
+            }
+            else if (days[i] == 'R') {
+                if (schedule[j][3] == 1) {
+                    return true;
+                }
+            }
+            else if (days[i] == 'F') {
+                if (schedule[j][4] == 1) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
 };
 
 // coordinates for class locations
@@ -415,15 +472,12 @@ int main(int argc, char** argv) {
     // Create the 2D matrix for the course scheduler
     vector<vector<int>> schedule(60*24, vector<int>(5, 0));
 
-    // print_array(schedule);
-
     // Create a remaining courses vector to pull ALL reamining courses from the database.
     vector<course> remaining_vector;
     for (int i = 0; i < (int)course_vector.size(); i++) {
         for (int j = 0; j < (int)major_vector.size(); j++) {
             string name = course_vector[i].abbrv + " " + to_string(course_vector[i].num);
             if (major_vector[j] == name) {
-                // cout << name << " : " << it_course->priority << endl;
                 remaining_vector.push_back(course_vector[i]);
             }
         }
@@ -437,16 +491,16 @@ int main(int argc, char** argv) {
     check_pr(taken_vector, pq);
     cout << "Scheduling " << pq.top().abbrv << " " << pq.top().num << " : " << pq.top().title << " at " << pq.top().lec_time << endl;
 
+    /* WRAP IN A FUNCTION WHEN FINISHED */
     // attempt to schedule
-    //int startx = start_hour * MINS_PER_HOUR + start_min;
     int lec_start_time = stoi(pq.top().lec_time.substr(0, 2)) * MINS_PER_HOUR + stoi(pq.top().lec_time.substr(2, 2));
-        // cout << "lec start time: " << lec_start_time << endl;
+        cout << "lec start time: " << lec_start_time << endl;
     int lec_end_time = stoi(pq.top().lec_time.substr(5, 2)) * MINS_PER_HOUR + stoi(pq.top().lec_time.substr(7, 2));
-        // cout << "lec end time: " << lec_end_time << endl;
+        cout << "lec end time: " << lec_end_time << endl;
     int lab_start_time = 0;
-        // cout << "lab start time: " << lab_start_time << endl;
+        cout << "lab start time: " << lab_start_time << endl;
     int lab_end_time = 0;
-        // cout << "lab start time: " << lab_end_time << endl;
+        cout << "lab start time: " << lab_end_time << endl;
 
     if (pq.top().lab_time != "none") {
         lab_start_time = stoi(pq.top().lab_time.substr(0, 2)) * MINS_PER_HOUR + stoi(pq.top().lab_time.substr(2, 2));
@@ -456,9 +510,71 @@ int main(int argc, char** argv) {
     string lec_days = pq.top().lec_date;
     string lab_days = pq.top().lab_date;
 
-    // set up the new user time
+    // create a temp schedule to hold old values - but as to not destroy the previous schedule in case there are conflicts! only in use with co-reqs
+    vector<vector<int>> temp_schedule = schedule;
+    bool success_scheduled;
 
-    // Once a class has been matched + scheduled, remove all matching titles, abbreviations, and numbers from the remaining_vector + major_vector:
+    // check for conflicts
+    bool lec_conflicts = check_conflicts(lec_start_time, lec_end_time, lec_days, schedule); // lecture conflicts
+    bool lab_conflicts = check_conflicts(lab_start_time, lab_end_time, lab_days, schedule); // lab conflicts
+    
+    // attempt to schedule
+    if (lec_conflicts == false && lab_conflicts == false) {
+        // schedule lecture time
+        for (int i = 0; i < (int)lec_days.length(); i++) {
+            for (int j = lec_start_time; j < lec_end_time; j++) {
+                if (lec_days[i] == 'M') {
+                    temp_schedule[j][0] = 1;
+                }
+                else if (lec_days[i] == 'T') {
+                    temp_schedule[j][1] = 1;
+                }
+                else if (lec_days[i] == 'W') {
+                    temp_schedule[j][2] = 1;
+                }
+                else if (lec_days[i] == 'R') {
+                    temp_schedule[j][3] = 1;
+                }
+                else if (lec_days[i] == 'F') {
+                    temp_schedule[j][4] = 1;
+                }
+            }
+        }
+
+        // schedule lab time
+        if (lab_days != "none") {
+            for (int i = 0; i < (int)lab_days.length(); i++) {
+                for (int j = lab_start_time; j < lab_end_time; j++) {
+                    if (lab_days[i] == 'M') {
+                        temp_schedule[j][0] = 1;
+                    }
+                    else if (lab_days[i] == 'T') {
+                        temp_schedule[j][1] = 1;
+                    }
+                    else if (lab_days[i] == 'W') {
+                        temp_schedule[j][2] = 1;
+                    }
+                    else if (lab_days[i] == 'R') {
+                        temp_schedule[j][3] = 1;
+                    }
+                    else if (lab_days[i] == 'F') {
+                        temp_schedule[j][4] = 1;
+                    }
+                }
+            }
+        }
+        // set up the new user time
+
+        // check for co-reqs
+        if (pq.top().co_req != "none") {
+            cout << "Co-Reqs must also be scheduled." << endl;
+        }
+
+        // Once a class + it's co-reqs has been matched + scheduled, remove all matching titles, abbreviations, and numbers from the remaining_vector + major_vector:
+    }
+
+    print_array(temp_schedule);
+
 
     // then, do some offsetting with gap and end time and loop until you reach desired credit hours OR there are no more classes / can't schedule:
     // prolly have to define an == operator
