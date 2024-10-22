@@ -35,6 +35,15 @@
                                 </p>
                             </div>
                         {% endif %}
+                        
+                        <!-- Section Search Button -->
+                         <form action="{{ url_for('views.class_search') }}" method="get" style="display: inline;">
+                            <input type="hidden" name="abbreviation" value="{{ course.abbreviation }}">
+                            <input type="hidden" name="number" value="{{ course.number }}">
+                            <input type="hidden" name="schedule_id" value="{{ schedule.id }}">
+                            <button type="submit">Find Other Sections</button>
+                        </form>
+
                     </div>
                 {% endfor %}
             {% else %}

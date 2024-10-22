@@ -60,19 +60,19 @@ def delete_schedule():
 @views.route('/class_search', methods=['GET', 'POST'])
 @login_required
 def class_search():
-    search_term = request.args.get('search')
+    abbreviation = request.args.get('abbreviation')
+    number = request.args.get('number')
+    schedule_id = request.args.get('schedule_id')
     # For debugging: remove later
-    print(f"Search term: '{search_term}'")
+    print(f"Search term: '{abbreviation}{number}'")
     classes = Course.query
 
-    if (search_term):
-        classes = classes.filter(Course.abbreviation.ilike(f'%{search_term}%'))  # Filter the query
-
-    results = classes.limit(10).all()  # Limit to 10 results and execute
+    if abbreviation and number:
+        results = classes.filter(Course.abbreviation == abbreviation, Course.number == number)
     # For debugging: remove later
-    print(f"Classes found: {len(results)}")
+    print(f"Classes found: {results}")
 
-    return render_template("class_search.html", classes=results, user=current_user)
+    return render_template("class_search.html", classes=results, user=current_user, schedule_id=schedule_id)
 
 @views.route('/schedules')
 @login_required
