@@ -10,10 +10,12 @@ import os
 
 views = Blueprint('views', __name__)
 
+# Welcome page
 @views.route('/')
 def home():
     return render_template("welcome.html", user=current_user)
 
+# Main: user's schedules list
 @views.route('/main', methods=['GET', 'POST'])
 @login_required                   # can only be accessed if user is logged in
 def main():
@@ -30,6 +32,7 @@ def main():
 
     return render_template("main.html", user=current_user)
 
+# Display classes in selected schedule
 @views.route('/schedule/<int:schedule_id>', methods=['GET'])
 @login_required
 def view_schedule(schedule_id):
@@ -44,7 +47,7 @@ def view_schedule(schedule_id):
     courses = Course.query.filter(Course.id.in_(class_ids)).all()
     return render_template('view_schedule.html', schedule=schedule, courses=courses, user=current_user)
 
-
+# Delete schedule from the main page
 @views.route('/delete-schedule', methods=['POST'])
 def delete_schedule():
     schedule = json.loads(request.data)
@@ -57,23 +60,55 @@ def delete_schedule():
     
     return jsonify({})
 
+# Search selected course sections
 @views.route('/class_search', methods=['GET', 'POST'])
 @login_required
 def class_search():
     abbreviation = request.args.get('abbreviation')
     number = request.args.get('number')
     schedule_id = request.args.get('schedule_id')
+    class_id = request.args.get('class_id')
     # For debugging: remove later
-    print(f"Search term: '{abbreviation}{number}'")
+    print(f"Search term: '{abbreviation}{number}', class_id: {class_id}")
     classes = Course.query
 
     if abbreviation and number:
         results = classes.filter(Course.abbreviation == abbreviation, Course.number == number)
-    # For debugging: remove later
-    print(f"Classes found: {results}")
 
-    return render_template("class_search.html", classes=results, user=current_user, schedule_id=schedule_id)
+    return render_template("class_search.html", classes=results, user=current_user, schedule_id=schedule_id, class_id=class_id)
 
+# Update schedule course with a search result
+@views.route('/replace_class', methods=['POST'])
+@login_required
+def replace_class():
+    data = json.loads(request.data)
+
+    schedule_id = int(data['scheduleId'])
+    old_class_id = int(data['oldClassId'])
+    new_class_id = int(data['newClassId'])
+
+    schedule = Schedule.query.get(schedule_id)
+    
+    if schedule:
+        if schedule.user_id == current_user.id:
+            # For debugging: remove later
+            print(f"Class ids: {schedule.class_ids}")
+            if old_class_id in schedule.class_ids:
+                # For debugging: remove later
+                print(f"Old class id: {old_class_id}, new class id: {new_class_id}")
+
+                schedule.class_ids.remove(old_class_id)
+                schedule.class_ids.append(new_class_id)
+                
+                # For debugging: remove later
+                print(f"Class ids: {schedule.class_ids}")
+
+                db.session.commit()
+                return jsonify(success=True)
+
+    return jsonify(success=False)
+
+# Schedule Questionnaire
 @views.route('/schedules')
 @login_required
 def index():

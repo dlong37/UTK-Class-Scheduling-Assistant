@@ -3,7 +3,8 @@ from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 from enum import Enum
-#import json
+from sqlalchemy.ext.mutable import MutableList
+from sqlalchemy import JSON
 
 # class Weekdays(Enum):
 #     __bind_key__ = 'classes'
@@ -32,7 +33,8 @@ class Course(db.Model):
 class Schedule(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime(timezone=True), default=func.now())
-    class_ids = db.Column(db.JSON, nullable=False)
+    # Use JSON's MutableList as array
+    class_ids = db.Column(MutableList.as_mutable(JSON), nullable=False, default=list)
     
     # Associate with a user object:
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

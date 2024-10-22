@@ -26,6 +26,31 @@ function deleteSchedule(scheduleId) {
 }
 
 /*
+ * replace course in schedule
+ */
+function replaceCourse(scheduleId, oldClassId, newClassId) {
+    fetch('/replace_class', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            scheduleId: scheduleId,
+            oldClassId: oldClassId,
+            newClassId: newClassId
+        }),
+    }).then((res) => {
+        if (res.ok) {
+            window.location.href = `/schedule/${scheduleId}` ;
+        } else {
+            console.error('Failed to replace course.');
+        }
+    }).catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
+/*
  * stagger animation for login/register forms
  */
 window.addEventListener('DOMContentLoaded', () => {
