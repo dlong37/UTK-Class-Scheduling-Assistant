@@ -88,6 +88,6 @@ int main(int argc, char** argv) {
     }
     cout << endl;
 
-    optimize_loc(major_vector, distance_vector, argv[1], 15);
+    optimize_loc(course_vector, taken_set, major_vector, distance_vector, argv[1], 15);
     
 }

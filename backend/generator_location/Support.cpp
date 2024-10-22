@@ -153,7 +153,6 @@ void remove_duplicates(set<string> &taken_set, vector<string> &taken_vector, vec
             it = taken_set.erase(it);
         } 
         else {
-            //cout << *it << endl;
             ++it;
         }
     }
@@ -200,6 +199,28 @@ int error_check(string s, int argc, int i) {
     return 0;
 }
 
-void optimize_loc(vector<string> major_vector, vector<vector<float>> distance_vector, string s, int hours) {
-    
+void optimize_loc(vector<course> course_vector, set<string> taken_set, vector<string> major_vector, vector<vector<float>> distance_vector, string s, int hours) {
+    int t = 0;
+    int i = 0;
+    vector<string> jaibesoin;
+    while(t < hours) {
+        
+    }
+
+
+    // while(t < hours) {
+    //     for(int j = 0; j < (int)course_vector.size(); j++) {
+    //         string tempTitle = course_vector[j].abbrv + " " + to_string(course_vector[j].num);
+    //         if(tempTitle == major_vector[i]) {
+    //             vector<vector<string>> temppre;
+    //             check_prereqs(course_vector[j], temppre);
+    //         }
+    //     }
+    //     t++;
+    //     //jaibesoin.push_back(major_vector[0]);
+    // }
+}
+
+int check_prereqs(course c, vector<vector<string>> &pres) {
+
 }

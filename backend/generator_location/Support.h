@@ -57,6 +57,7 @@ void remove_duplicates(set<string> &taken_set, vector<string> &taken_vector, vec
 int open_file(string file_name, ifstream &file, string args);
 void read_file2(vector<string> &vector, ifstream &file);
 int error_check(string s, int argc, int i);
-void optimize_loc(vector<string> major_vector, vector<vector<float>> distance_vector, string s, int hours);
+void optimize_loc(vector<course> course_vector, set<string> taken_set, vector<string> major_vector, vector<vector<float>> distance_vector, string s, int hours);
+int check_prereqs(course c, vector<vector<string>> &pres);
 
 #endif
