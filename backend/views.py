@@ -126,9 +126,9 @@ def submit():
         for entry in data_entries:
             writer.writerow(entry)
 
-    return redirect(url_for('views.class_generation'))
+    return redirect(url_for('views.generate'))
 
-@views.route('/generator', methods=['GET'])
+@views.route('/generated_schedule', methods=['GET'])
 @login_required
-def class_generation():
-    return render_template('generator.html')
+def generate():
+    return render_template('generated_schedule.html')

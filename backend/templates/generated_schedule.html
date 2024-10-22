@@ -1,0 +1,49 @@
+<!-- HTML doc for Generated Schedule Page -->
+
+{% extends "base.html" %}
+
+{% block title %}
+    Generator
+{% endblock %}
+
+{% block content %}
+    <div class="schedule-container">
+        <h1 class="heading">Generated Schedule</h1>
+        <!-- MWF Table -->
+        <div class="table-container">
+            <h1 class="subheading">MWF Schedule</h1>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Monday</th>
+                        <th>Wednesday</th>
+                        <th>Friday</th>
+                    </tr>
+                </thead>
+                <tbody id="mwf-schedule-body">
+                    <!-- MWF Rows will be added dynamically by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- TR Table -->
+        <div class="table-container">
+            <h1 class="subheading">TR Schedule</h1>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Tuesday</th>
+                        <th>Thursday</th>
+                    </tr>
+                </thead>
+                <tbody id="tr-schedule-body">
+                    <!-- TR Rows will be added dynamically by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='generated_schedule.js') }}"></script>
+{% endblock %}

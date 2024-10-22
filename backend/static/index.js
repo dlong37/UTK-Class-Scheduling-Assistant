@@ -96,6 +96,23 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+/*
+ * stagger animation for generator page
+ */
+window.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('.schedule-container');
+    const formElements = document.querySelectorAll('.schedule-container, .table-container');
+
+    // show form container
+    form.classList.add('show');
+
+    // delay showing form elements for a staggered effect
+    formElements.forEach((element, index) => {
+        setTimeout(() => {
+            element.classList.add('show');
+        }, 25 * index);
+    });
+})
 
 /*
  * submit form with success message

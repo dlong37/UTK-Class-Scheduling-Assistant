@@ -1176,3 +1176,98 @@ button[type="submit"]:hover {
     background-color: #f9f9f9;
     margin-bottom: 10px;
 }
+
+/* 
+ * Generated Schedule Page Styling
+ */
+.schedule-container {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease, transform 1s ease;
+    transition-delay: 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 50px;
+    margin: auto;
+    height: auto;
+    max-width: 1200px;
+    min-height: 100vh;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 15px solid transparent;
+    border-image: linear-gradient(to top, #fff, #ff8200) 1;
+} 
+
+.schedule-container.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Each table's container */
+.table-container {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease, transform 1s ease;
+    transition-delay: 0.2s;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.table-container.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Styling for the schedule tables */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-table th,
+.schedule-table td {
+    border: 1px solid #ddd; /* Light gray border for cleaner look */
+    padding: 15px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Header styling */
+.schedule-table th {
+    background-color: #fafafa;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    padding: 20px 15px;
+}
+
+/* Default cell styling */
+.schedule-table td {
+    height: 80px;
+    background-color: #fff;
+}
+
+/* Highlight occupied cells */
+.schedule-table td.occupied {
+    background-color: #ff8200; /* orange for occupied slots */
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Add spacing between the table rows and table itself */
+.schedule-table tr {
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect on table rows */
+.schedule-table tr:hover td {
+    background-color: rgba(255, 82, 0, 0.33);
+}
