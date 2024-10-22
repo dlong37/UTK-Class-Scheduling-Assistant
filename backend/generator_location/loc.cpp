@@ -4,20 +4,28 @@ using namespace std;
 int main(int argc, char** argv) {
 
     // argument checking
-    if(error_check(argv[0], argc, 4)) { return 1; }
+    if(error_check(argv[0], argc, 4)) {
+        return 1;
+    }
 
     // files streams
     ifstream file; 
 
     // open the available_courses file and error check opening
-    if(open_file(argv[1], file, argv[0])) { return 1; }
+    if(open_file(argv[1], file, argv[0])) {
+        return 1;
+    }
 
     // make vector that can hold class type course
     vector<course> course_vector;
-    if(read_file(file, course_vector)) { return 1; }
+    if(read_file(file, course_vector)) {
+        return 1;
+    }
 
     // open the major_courses file and error check opening
-    if(open_file(argv[2], file, argv[0])) { return 1; }
+    if(open_file(argv[2], file, argv[0])) {
+        return 1;
+    }
 
     // reads from the major courses into a vector that holds the strings
     vector<string> major_vector;
@@ -30,7 +38,9 @@ int main(int argc, char** argv) {
     cout << endl;
 
     // open the taken_courses file and error check opening
-    if(open_file(argv[3], file, argv[0])) { return 1; }
+    if(open_file(argv[3], file, argv[0])) {
+        return 1;
+    }
 
     // reads from the taken_courses file and saves them to a vector
     vector<string> taken_vector;
