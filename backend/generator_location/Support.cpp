@@ -201,9 +201,8 @@ int error_check(string s, int argc, int i) {
     return 0;
 }
 
-void optimize_loc(vector<course> course_vector, set<string> taken_set, vector<string> major_vector, vector<vector<float>> distance_vector, string s, int hours) {
+void find_next_courses(vector<string> &needed, vector<course> course_vector, set<string> taken_set, vector<string> major_vector, vector<vector<float>> distance_vector, string s, int hours) {
     int t = 0;
-    vector<string> jaibesoin;
     srand (time(NULL));
     while(t < hours) {
         int i = rand() % major_vector.size();
@@ -213,7 +212,7 @@ void optimize_loc(vector<course> course_vector, set<string> taken_set, vector<st
                 vector<vector<string>> temppre(5, vector<string>(5, "NULL"));
                 if(get_prereqs(course_vector[j], temppre)) {
                     if(check_prereqs(taken_set, temppre)) {
-                        jaibesoin.push_back(tempTitle);
+                        needed.push_back(tempTitle);
                         major_vector.erase(major_vector.begin()+i);
                         t += course_vector[j].hours;
                     }
@@ -222,17 +221,13 @@ void optimize_loc(vector<course> course_vector, set<string> taken_set, vector<st
                     }
                 }
                 else {
-                    jaibesoin.push_back(tempTitle);
+                    needed.push_back(tempTitle);
                     major_vector.erase(major_vector.begin()+i);
                     t += course_vector[j].hours;
                 }
                 break;
             }
         }
-    }
-
-    for(int i = 0; i < jaibesoin.size(); i++) {
-        cout << jaibesoin[i] << endl;
     }
 }
 
