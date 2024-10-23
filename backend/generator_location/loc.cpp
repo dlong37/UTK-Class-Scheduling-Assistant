@@ -88,6 +88,10 @@ int main(int argc, char** argv) {
     }
     cout << endl;
 
-    optimize_loc(major_vector, distance_vector, argv[1], 15);
+    vector<string> needed;
+    find_next_courses(needed, course_vector, taken_set, major_vector, distance_vector, argv[1], 15);
+    for(int i = 0; i < needed.size(); i++) {
+        cout << needed[i] << endl;
+    }
     
 }

@@ -369,7 +369,7 @@ body {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 25px;
-    color: #333; /* Dark gray text */
+    color: #333; Dark gray text
     transition: all 0.3s ease;
 }
 
@@ -924,14 +924,14 @@ input[type="submit"]:hover {
 }
 
 /* Initially hide the list items and buttons */
-.list-group-item,
+/* .list-group-item,
 form,
 button.class_search,
 button.schedules {
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.5s ease, transform 0.5s ease;
-}
+} */
 
 /* Show the elements with smooth animation */
 .list-group-item.show,
@@ -1267,18 +1267,32 @@ button[type="submit"]:hover {
     transition: background-color 0.3s ease;
 }
 
-/* Hover effect on table rows *
-.schedule-table tr:hover td {
-    background-color: rgba(255, 82, 0, 0.33);
-}*/
+/* Search Button Styles */
+.section-search-button {
+    all: unset;
+    display: inline-flex;
+    align-items: center; 
+    justify-content: center;
+    width: auto;
+    height: auto;
+    padding: 4px; 
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+}
 
-  
-.schedule-grid {
-    display: grid;
-    grid-template-columns: 100px repeat(5, 1fr); /* First column for time slots, rest for days */
-    grid-template-rows: 30px 20px repeat(11, 1px); /* Default height for hour slots */
-    gap: 5px; /* Gap between grid items */
-    border: 1px solid #ccc; /* Border around the grid */
+/* Image inside the button */
+.section-search-button img {
+    width: 25px; 
+    height: auto;
+}
+
+/* Hover Effect */
+.section-search-button:hover {
+    opacity: 0.8; 
+    transform: scale(1.1);
 }
 
 /* Empty top-left corner */

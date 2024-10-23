@@ -15,7 +15,18 @@
                 {% for course in courses %}
                     <div class="course-item">
                         <div class="lecture">
-                            <p>
+                            <p>                              
+                                <!-- Section Search Button -->
+                                <form action="{{ url_for('views.class_search') }}" method="get" style="display: inline;">
+                                    <input type="hidden" name="abbreviation" value="{{ course.abbreviation }}">
+                                    <input type="hidden" name="number" value="{{ course.number }}">
+                                    <input type="hidden" name="schedule_id" value="{{ schedule.id }}">
+                                    <input type="hidden" name="class_id" value="{{ course.id }}">
+
+                                    <button title="Find Other Sections" class="section-search-button">
+                                        <img src="{{ url_for('static', filename='images/search_img.png') }}" alt="Find Other Sections">
+                                    </button>
+                                </form>
                                 <span><strong>{{ course.abbreviation }} {{ course.number }}</strong></span><br> 
                                 <span>{{ course.title }}</span> - 
                                 <span>{{ course.credit_hours }} hours</span><br>
@@ -35,15 +46,6 @@
                                 </p>
                             </div>
                         {% endif %}
-                        
-                        <!-- Section Search Button -->
-                         <form action="{{ url_for('views.class_search') }}" method="get" style="display: inline;">
-                            <input type="hidden" name="abbreviation" value="{{ course.abbreviation }}">
-                            <input type="hidden" name="number" value="{{ course.number }}">
-                            <input type="hidden" name="schedule_id" value="{{ schedule.id }}">
-                            <input type="hidden" name="class_id" value="{{ course.id }}">
-                            <button type="submit">Find Other Sections</button>
-                        </form>
 
                     </div>
                 {% endfor %}
