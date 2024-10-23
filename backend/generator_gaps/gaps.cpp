@@ -10,6 +10,11 @@ using namespace std;
 
 #define MINS_PER_HOUR 60
 
+int user_hour = 0;
+int user_min = 0;
+int gap = 0;
+int credit_hours = 0;
+
 class course {
     public:
         string abbrv;
@@ -39,10 +44,12 @@ struct CompareCourse {
     }
 };
 
-priority_queue<course, vector<course>, CompareCourse> create_pq(int start_hour, int start_min, int gap, vector<course> remaining_vector) {
+priority_queue<course, vector<course>, CompareCourse> create_pq(int start_hour, int start_min, int gap, vector<course> remaining_vector, vector<vector<int>> schedule) {
     priority_queue<course, vector<course>, CompareCourse> pq;
     for (int i = 0; i < (int)remaining_vector.size(); i++) {
         // calculate start time in minutes
+        // only based on lecture days! I would love to do labs as well, but that would require deep structural changes
+        
         int startx = start_hour * MINS_PER_HOUR + start_min;
         int course_hour = stoi(remaining_vector[i].lec_time.substr(0, 2));
         int course_min = stoi(remaining_vector[i].lec_time.substr(2, 2));
@@ -453,8 +460,6 @@ int main(int argc, char** argv) {
     // NOTE:    add a flag at the start of the program when this is done!!
 
     string input;
-    int user_hour;
-    int user_min;
     cout << "What time would you like to start your classes?\nPlease enter in 24-hour time (0000-2359): ";
     while (1) {
         cin >> input;
@@ -468,7 +473,6 @@ int main(int argc, char** argv) {
         cout << "Please enter a valid time (0000-2359): ";
     }
 
-    int gap;
     cout << "How many minutes would you like between classes?: ";
     while (1) {
         cin >> gap;
@@ -479,7 +483,6 @@ int main(int argc, char** argv) {
     }
 
     /*
-    int credit_hours;
     cout << "How many credit hours would you like to take next semester?: ";
     while (1) {
         cin >> credit_hours;
@@ -505,7 +508,7 @@ int main(int argc, char** argv) {
     }
 
     // Create min heap priority queue - gap of 0 since this is the first one.
-    priority_queue<course, vector<course>, CompareCourse> pq = create_pq(user_hour, user_min, 0, remaining_vector);
+    priority_queue<course, vector<course>, CompareCourse> pq = create_pq(user_hour, user_min, 0, remaining_vector, schedule);
 
     print_pq(pq);
 
