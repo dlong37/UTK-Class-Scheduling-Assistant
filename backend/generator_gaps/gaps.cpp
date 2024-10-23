@@ -101,10 +101,6 @@ void print_array( vector<vector<int>> arr) {
     }
 };
 
-// vector<course> create_remaining_vector() {
-
-// };
-
 void check_pr(vector<string> taken_vector, priority_queue<course, vector<course>, CompareCourse> &pq) {
     // create OR vector to cross compare with taken vector.
     vector<string> or_vector;
@@ -215,6 +211,31 @@ bool check_conflicts(int start_time, int end_time, string days, vector<vector<in
         }
     }
     return false;
+};
+
+void add_to_schedule(int start_time, int end_time, string days, vector<vector<int>> schedule) {
+    if (days == "none") {
+        return;
+    }
+    for (int i = 0; i < (int)days.length(); i++) {
+        for (int j = start_time; j < end_time; j++) {
+            if (days[i] == 'M') {
+                schedule[j][0] = 1;
+            }
+            else if (days[i] == 'T') {
+                schedule[j][1] = 1;
+            }
+            else if (days[i] == 'W') {
+                schedule[j][2] = 1;
+            }
+            else if (days[i] == 'R') {
+                schedule[j][3] = 1;
+            }
+            else if (days[i] == 'F') {
+                schedule[j][4] = 1;
+            }
+        }
+    }
 };
 
 // coordinates for class locations
@@ -520,54 +541,14 @@ int main(int argc, char** argv) {
     
     // schedule the course - may fail if co-reqs cannot be scheduled
     if (lec_conflicts == false && lab_conflicts == false) {
-        // schedule lecture time
-        for (int i = 0; i < (int)lec_days.length(); i++) {
-            for (int j = lec_start_time; j < lec_end_time; j++) {
-                if (lec_days[i] == 'M') {
-                    temp_schedule[j][0] = 1;
-                }
-                else if (lec_days[i] == 'T') {
-                    temp_schedule[j][1] = 1;
-                }
-                else if (lec_days[i] == 'W') {
-                    temp_schedule[j][2] = 1;
-                }
-                else if (lec_days[i] == 'R') {
-                    temp_schedule[j][3] = 1;
-                }
-                else if (lec_days[i] == 'F') {
-                    temp_schedule[j][4] = 1;
-                }
-            }
-        }
+        // schedule
+        add_to_schedule(lec_start_time, lec_end_time, lec_days, temp_schedule); // lecture time
+        add_to_schedule(lab_start_time, lab_end_time, lab_days, temp_schedule); // lab time
 
-        // schedule lab time
-        if (lab_days != "none") {
-            for (int i = 0; i < (int)lab_days.length(); i++) {
-                for (int j = lab_start_time; j < lab_end_time; j++) {
-                    if (lab_days[i] == 'M') {
-                        temp_schedule[j][0] = 1;
-                    }
-                    else if (lab_days[i] == 'T') {
-                        temp_schedule[j][1] = 1;
-                    }
-                    else if (lab_days[i] == 'W') {
-                        temp_schedule[j][2] = 1;
-                    }
-                    else if (lab_days[i] == 'R') {
-                        temp_schedule[j][3] = 1;
-                    }
-                    else if (lab_days[i] == 'F') {
-                        temp_schedule[j][4] = 1;
-                    }
-                }
-            }
-        }
-        // set up the new user time
+        // set up the new user time (from lecture)
 
         // check for co-reqs
         if (pq.top().co_req != "none") {
-            // schedule co-reqs!
             // create a remaining vector, consisting only of the co-req courses
             // create a new priority queue
             // check pre-reqs

@@ -195,13 +195,13 @@ EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&M
 EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1605-1720,TR,ZEC
 EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1605-1720,TR,ZEC
 EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,1605-1720,TR,ZEC
-EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
-EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
-EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1130-1220,MWF,ZEC,1255-1410,TR,ZEC
-EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
-EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1240-1330,MWF,ZEC,0945-1100,TR,ZEC
-EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1240-1330,MWF,ZEC,1120-1235,TR,ZEC
-EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131|EF 141,MATH 132,1240-1330,MWF,ZEC,1255-1410,TR,ZEC
+EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131&EF 141,MATH 132,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131&EF 141,MATH 132,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131&EF 141,MATH 132,1130-1220,MWF,ZEC,1255-1410,TR,ZEC
+EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131&EF 141,MATH 132,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131&EF 141,MATH 132,1240-1330,MWF,ZEC,0945-1100,TR,ZEC
+EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131&EF 141,MATH 132,1240-1330,MWF,ZEC,1120-1235,TR,ZEC
+EF,142,Introduction to Physics and Modeling for Engineers II,4,EI,MATH 131&EF 141,MATH 132,1240-1330,MWF,ZEC,1255-1410,TR,ZEC
 EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
 EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1020-1110,MWF,ZEC,0945-1100,TR,ZEC
 EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,0910-1000,MWF,ZEC,1120-1235,TR,ZEC
