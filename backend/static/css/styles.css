@@ -1206,8 +1206,8 @@ button[type="submit"]:hover {
     opacity: 1;
     transform: translateY(0);
 }
-
-/* Each table's container */
+/*
+/* Each table's container *
 .table-container {
     opacity: 0;
     transform: translateY(100px);
@@ -1223,7 +1223,7 @@ button[type="submit"]:hover {
     transform: translateY(0);
 }
 
-/* Styling for the schedule tables */
+/* Styling for the schedule tables *
 .schedule-table {
     width: 100%;
     border-collapse: collapse;
@@ -1233,13 +1233,13 @@ button[type="submit"]:hover {
 
 .schedule-table th,
 .schedule-table td {
-    border: 1px solid #ddd; /* Light gray border for cleaner look */
+    border: 1px solid #ddd; /* Light gray border for cleaner look *
     padding: 15px;
     text-align: center;
     font-size: 1rem;
 }
 
-/* Header styling */
+/* Header styling *
 .schedule-table th {
     background-color: #fafafa;
     font-weight: bold;
@@ -1249,25 +1249,80 @@ button[type="submit"]:hover {
     padding: 20px 15px;
 }
 
-/* Default cell styling */
+/* Default cell styling *
 .schedule-table td {
     height: 80px;
     background-color: #fff;
 }
 
-/* Highlight occupied cells */
+/* Highlight occupied cells *
 .schedule-table td.occupied {
-    background-color: #ff8200; /* orange for occupied slots */
+    background-color: #ff8200; /* orange for occupied slots *
     color: #fff;
     font-weight: bold;
 }
 
-/* Add spacing between the table rows and table itself */
+/* Add spacing between the table rows and table itself *
 .schedule-table tr {
     transition: background-color 0.3s ease;
 }
 
-/* Hover effect on table rows */
+/* Hover effect on table rows *
 .schedule-table tr:hover td {
     background-color: rgba(255, 82, 0, 0.33);
+}*/
+
+  
+.schedule-grid {
+    display: grid;
+    grid-template-columns: 100px repeat(5, 1fr); /* First column for time slots, rest for days */
+    grid-template-rows: 30px 20px repeat(11, 1px); /* Default height for hour slots */
+    gap: 5px; /* Gap between grid items */
+    border: 1px solid #ccc; /* Border around the grid */
 }
+
+/* Empty top-left corner */
+.empty-cell {
+    background-color: #f5f5f5; /* Light gray for empty cell */
+}
+
+/* Time slots on the left */
+.time-slot {
+    background-color: #f5f5f5; /* Light gray background for time slots */
+    padding: 1px; /* Padding for time slots */
+    text-align: center; /* Center text */
+    grid-column: 1; /* Span first column */
+    font-size: 12px; /* Font size for hour slots */
+}
+
+/* Smaller time slots for :05, :10, etc. */
+.time-slot.small {
+    height: 1px; /* Very small height for smaller slots */
+    line-height: 1px; /* Center text vertically for smaller slots */
+    font-size: 0; /* Hide text */
+    display: block; /* Ensure the slot is a block element */
+}
+
+/* Day headers */
+.day-header {
+    background-color: #ddd; /* Light gray for headers */
+    padding: 10px; /* Padding for headers */
+    text-align: center; /* Center text in headers */
+    font-weight: bold; /* Bold text for headers */
+}
+
+/* Class styles */
+.class {
+    background-color: #ff8200; /* Orange background for classes */
+    padding: 2px; /* Reduced padding for class blocks */
+    text-align: center; /* Center text */
+    border: 1px solid #ccc; /* Border around class blocks */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Column classes for each day */
+.mon { grid-column: 2; } /* Monday's column */
+.tue { grid-column: 3; } /* Tuesday's column */
+.wed { grid-column: 4; } /* Wednesday's column */
+.thu { grid-column: 5; } /* Thursday's column */
+.fri { grid-column: 6; } /* Friday's column */
