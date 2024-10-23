@@ -7,6 +7,8 @@
 #include <cmath>
 #include <set>
 #include <utility>
+#include <time.h>
+#include <stdlib.h>
 #include "Support.h"
 using namespace std;
 
@@ -201,26 +203,77 @@ int error_check(string s, int argc, int i) {
 
 void optimize_loc(vector<course> course_vector, set<string> taken_set, vector<string> major_vector, vector<vector<float>> distance_vector, string s, int hours) {
     int t = 0;
-    int i = 0;
     vector<string> jaibesoin;
+    srand (time(NULL));
     while(t < hours) {
-        
+        int i = rand() % major_vector.size();
+        for(int j = 0; j < (int)course_vector.size(); j++) {
+            string tempTitle = course_vector[j].abbrv + " " + to_string(course_vector[j].num);
+            if(tempTitle == major_vector[i]) {
+                vector<vector<string>> temppre(5, vector<string>(5, "NULL"));
+                if(get_prereqs(course_vector[j], temppre)) {
+                    if(check_prereqs(taken_set, temppre)) {
+                        jaibesoin.push_back(tempTitle);
+                        major_vector.erase(major_vector.begin()+i);
+                        t += course_vector[j].hours;
+                    }
+                    else {
+                        major_vector.erase(major_vector.begin()+i);
+                    }
+                }
+                else {
+                    jaibesoin.push_back(tempTitle);
+                    major_vector.erase(major_vector.begin()+i);
+                    t += course_vector[j].hours;
+                }
+                break;
+            }
+        }
     }
 
-
-    // while(t < hours) {
-    //     for(int j = 0; j < (int)course_vector.size(); j++) {
-    //         string tempTitle = course_vector[j].abbrv + " " + to_string(course_vector[j].num);
-    //         if(tempTitle == major_vector[i]) {
-    //             vector<vector<string>> temppre;
-    //             check_prereqs(course_vector[j], temppre);
-    //         }
-    //     }
-    //     t++;
-    //     //jaibesoin.push_back(major_vector[0]);
-    // }
+    for(int i = 0; i < jaibesoin.size(); i++) {
+        cout << jaibesoin[i] << endl;
+    }
 }
 
-int check_prereqs(course c, vector<vector<string>> &pres) {
+bool get_prereqs(course c, vector<vector<string>> &temppre) {
+    string cc = c.pre_req;
+    string ccc = "";
+    int loc = 0;
+    int locloc = 0;
+    int pushedback = 0;
+    for(int i = 0; i < cc.size(); i++) {
+        if(cc[i] == '&' || cc[i] == '|') {
+            if(cc[i] == '&') { temppre[loc][locloc] = ccc; loc++; locloc = 0; pushedback++; }
+            else { temppre[loc][locloc] = ccc; locloc++; pushedback++; }
+            ccc.clear();
+        }
+        if(cc[i] != '&' && cc[i] != '|') {
+            ccc.push_back(cc[i]);
+        }
+    }
+    temppre[loc][locloc] = ccc;
+    if(ccc != "none") { pushedback++; }
+    else { temppre[loc][locloc] = "NULL"; }
+    if(pushedback > 0) { return true; }
+    else { return false; }
+}
 
+bool check_prereqs(set<string> taken_set, vector<vector<string>> temppre) {
+    int needed = 0;
+    for(int i = 0; i < temppre.size(); i++) {
+        if(temppre[i][0] != "NULL") {
+            needed++;
+        }
+    }
+    for(int i = 0; i < temppre.size(); i++) {
+        for(int j = 0; j < temppre[i].size(); j++) {
+            if(taken_set.find(temppre[i][j]) != taken_set.end()) {
+                needed--;
+                break;
+            }
+        }
+    }
+    if(needed == 0) { return true; }
+    else { return false; }
 }
