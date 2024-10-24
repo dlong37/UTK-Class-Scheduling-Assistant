@@ -393,6 +393,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 cr = c.co_req.substr(index, i-index);
                 or_vector.push_back(cr);
                 index = i+1;
+                cout << "push " << cr << endl;
             }
 
             // hit an AND sign: check OR vector + attempt to schedule
@@ -400,6 +401,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 // push class onto the OR vector
                 cr = c.co_req.substr(index, i-index);
                 or_vector.push_back(cr);
+                cout << "push " << cr << endl;
 
                 /* attempt to schedule one of the co-reqs */
                 bool taken;
@@ -462,6 +464,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 // push
                 cr = c.co_req.substr(index, c.co_req.size() - index);
                 or_vector.push_back(cr);
+                cout << "push last class" << cr << endl;
 
                 /* final attempt to schedule */
                 bool taken;
@@ -518,9 +521,9 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 }
                 else {
                     cout << "all co-reqs successfully scheduled" << endl;
-                    for (int j = 0; j < (int)scheduled_cr.size(); j++) {
-                        scheduled_courses.push_back(scheduled_cr[j]);
-                    }
+                    // for (int j = 0; j < (int)scheduled_cr.size(); j++) {
+                    //     scheduled_courses.push_back(scheduled_cr[j]);
+                    // }
                     temp_schedule = cr_schedule;
                 }
             }
@@ -618,6 +621,10 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
                 cout << "Time Conflicts!" << endl;
                 pq.pop();
             }
+        }
+        else if (pq.empty()) {
+            cout << "No more schedulable classes." << endl;
+            break;
         }
         else {
             pq.pop();
