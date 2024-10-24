@@ -37,6 +37,7 @@ int user_min = 0;
 int gap = 0;
 int credit_hours = 0;
 vector<course> scheduled_courses;
+vector<course> perm_courses;
 
 // Custom comparator for min-heap
 struct CompareCourse {
@@ -401,30 +402,50 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 or_vector.push_back(cr);
 
                 /* attempt to schedule one of the co-reqs */
-
-                // create a vector of courses from the or_vector
-                vector<course> remaining_crs = create_remaining_vector(course_vector, or_vector);
-                // create a new priority queue for just the co-reqs
-                priority_queue<course, vector<course>, CompareCourse> cr_pq = create_pq(remaining_crs, temp_schedule);
-                // check pre-reqs
-                while(1) {
-                    if (check_pr(taken_vector, cr_pq) == true) {
-                        // check conflicts
-                        if (check_conflicts(cr_schedule, cr_pq.top()) == false) {
-                            // schedule
-                            add_to_schedule(cr_schedule, cr_pq.top());
-                            scheduled_cr.push_back(cr_pq.top());
+                bool taken;
+                for (int j = 0; j < (int)taken_vector.size(); j++) {
+                    for (int k = 0; k < (int)or_vector.size(); k++) {
+                        if (taken_vector[j] == or_vector[k]) {
+                            taken = true;
                             or_vector.clear();
+                        }
+                    }
+                }
+                // check taken vector first
+                for (int j = 0; j < (int)perm_courses.size(); j++) {
+                    string name = perm_courses[j].abbrv + " " + to_string(perm_courses[j].num);
+                    for (int k = 0; k < (int)or_vector.size(); k++) {
+                        if (name == or_vector[k]) {
+                            taken = true;
+                            or_vector.clear();
+                        }
+                    }
+                }
+                if (taken == false) {
+                    // create a vector of courses from the or_vector
+                    vector<course> remaining_crs = create_remaining_vector(course_vector, or_vector);
+                    // create a new priority queue for just the co-reqs
+                    priority_queue<course, vector<course>, CompareCourse> cr_pq = create_pq(remaining_crs, temp_schedule);
+                    // check pre-reqs
+                    while(1) {
+                        if (check_pr(taken_vector, cr_pq) == true) {
+                            // check conflicts
+                            if (check_conflicts(cr_schedule, cr_pq.top()) == false) {
+                                // schedule
+                                add_to_schedule(cr_schedule, cr_pq.top());
+                                scheduled_cr.push_back(cr_pq.top());
+                                or_vector.clear();
+                                break;
+                            }
+                            // if this doesn't work, pop the queue + try again
+                            cr_pq.pop();
+                        }
+                        else { 
+                            cout << "failed to schedule a co-req" << endl;
+                            cr_scheduled = false;
+                            scheduled_cr.clear();
                             break;
                         }
-                        // if this doesn't work, pop the queue + try again
-                        cr_pq.pop();
-                    }
-                    else { 
-                        cout << "failed to schedule a co-req" << endl;
-                        cr_scheduled = false;
-                        scheduled_cr.clear();
-                        break;
                     }
                 }
                 // if we checked, but weren't able to match, this class is unabled to be scheduled
@@ -443,30 +464,50 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 or_vector.push_back(cr);
 
                 /* final attempt to schedule */
-
-                // create a vector of courses from the or_vector
-                vector<course> remaining_crs = create_remaining_vector(course_vector, or_vector);
-                // create a new priority queue for just the co-reqs
-                priority_queue<course, vector<course>, CompareCourse> cr_pq = create_pq(remaining_crs, temp_schedule);
-                // check pre-reqs
-                while(1) {
-                    if (check_pr(taken_vector, cr_pq) == true) {
-                        // check conflicts
-                        if (check_conflicts(cr_schedule, cr_pq.top()) == false) {
-                            // schedule
-                            add_to_schedule(cr_schedule, cr_pq.top());
-                            scheduled_cr.push_back(cr_pq.top());
+                bool taken;
+                for (int j = 0; j < (int)taken_vector.size(); j++) {
+                    for (int k = 0; k < (int)or_vector.size(); k++) {
+                        if (taken_vector[j] == or_vector[k]) {
+                            taken = true;
                             or_vector.clear();
+                        }
+                    }
+                }
+                // check taken vector first
+                for (int j = 0; j < (int)perm_courses.size(); j++) {
+                    string name = perm_courses[j].abbrv + " " + to_string(perm_courses[j].num);
+                    for (int k = 0; k < (int)or_vector.size(); k++) {
+                        if (name == or_vector[k]) {
+                            taken = true;
+                            or_vector.clear();
+                        }
+                    }
+                }
+                if (taken == false) {
+                    // create a vector of courses from the or_vector
+                    vector<course> remaining_crs = create_remaining_vector(course_vector, or_vector);
+                    // create a new priority queue for just the co-reqs
+                    priority_queue<course, vector<course>, CompareCourse> cr_pq = create_pq(remaining_crs, temp_schedule);
+                    // check pre-reqs
+                    while(1) {
+                        if (check_pr(taken_vector, cr_pq) == true) {
+                            // check conflicts
+                            if (check_conflicts(cr_schedule, cr_pq.top()) == false) {
+                                // schedule
+                                add_to_schedule(cr_schedule, cr_pq.top());
+                                scheduled_cr.push_back(cr_pq.top());
+                                or_vector.clear();
+                                break;
+                            }
+                            // if this doesn't work, pop the queue + try again
+                            cr_pq.pop();
+                        }
+                        else { 
+                            cout << "failed to schedule a co-req" << endl;
+                            cr_scheduled = false;
+                            scheduled_cr.clear();
                             break;
                         }
-                        // if this doesn't work, pop the queue + try again
-                        cr_pq.pop();
-                    }
-                    else { 
-                        cout << "failed to schedule a co-req" << endl;
-                        cr_scheduled = false;
-                        scheduled_cr.clear();
-                        break;
                     }
                 }
                 // if we checked, but weren't able to match, this class is unabled to be scheduled
@@ -489,14 +530,15 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
 };
 
 void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector, vector<string> taken_vector, vector<string> major_vector) {
+    ofstream appendfile("lexy_schedule.csv");
     // loop here until credit hours are met
     int total_hours = 0;
     int passes = 0;
-    while (total_hours < credit_hours) {
-        bool scheduled_success;
-        vector<course> remaining_vector;
-        priority_queue<course, vector<course>, CompareCourse> pq;
+    bool scheduled_success;
+    vector<course> remaining_vector;
+    priority_queue<course, vector<course>, CompareCourse> pq;
 
+    while (total_hours < credit_hours) {
         if (passes == 0 || scheduled_success == true) {
             // Create a remaining courses vector to pull ALL reamining courses from the database.
             remaining_vector = create_remaining_vector(course_vector, major_vector);
@@ -541,10 +583,29 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
                             }
                         }
                     }
-                    // determine number of credit hours
-                    for (int i = 0; i < (int)scheduled_courses.size(); i++) {
-                        total_hours += scheduled_courses[i].hours;
-                        cout << "SCHEDULED " << scheduled_courses[i].abbrv << " " << scheduled_courses[i].num << endl;
+                    // determine number of credit hours + write to file
+                    if (appendfile.is_open()) {
+                        for (int i = 0; i < (int)scheduled_courses.size(); i++) {
+                            total_hours += scheduled_courses[i].hours;
+                            perm_courses.push_back(scheduled_courses[i]);
+                            cout << "SCHEDULED " << scheduled_courses[i].abbrv << " " << scheduled_courses[i].num << endl;
+                            // Abbreviation,Number,Title,Hours,Attributes,LcTime,LcDate,LcLocation,LaTime,LaDate,LaLocation
+                            appendfile << 
+                            scheduled_courses[i].abbrv << "," << 
+                            scheduled_courses[i].num << "," <<
+                            scheduled_courses[i].title << "," <<
+                            scheduled_courses[i].hours << "," <<
+                            scheduled_courses[i].attributes << "," <<
+                            scheduled_courses[i].lec_time << "," <<
+                            scheduled_courses[i].lec_date << "," <<
+                            scheduled_courses[i].lec_loc << "," <<
+                            scheduled_courses[i].lab_time << "," <<
+                            scheduled_courses[i].lab_date << "," <<
+                            scheduled_courses[i].lab_loc << endl;
+                        }
+                    }
+                    else {
+                        cerr << "Unable to open file." << endl;
                     }
                     scheduled_courses.clear();
                 }
@@ -562,6 +623,7 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
             pq.pop();
         }
     }
+    appendfile.close();
 };
 
 // coordinates for class locations
