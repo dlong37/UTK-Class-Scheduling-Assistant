@@ -220,10 +220,10 @@ AFST,331,Race and Ethnicity in American Literature,3,AH & GCUS,ENGL 102,none,143
 AFST,331,Race and Ethnicity in American Literature,3,AH & GCUS,ENGL 102,none,1430-1545,TR,HSS,none,none,none
 AFST,333,Black American Literature and Aesthetics,3,AH & GCUS,ENGL 102,none,1120-1235,TR,HMC,none,none,none
 ALEC,211,Knowledge/Society/Leadership,3,AH,none,none,1605-1720,TR,BEO,none,none,none
-ALEC,211,Knowledge/Society/Leadership,3,AH,none,none,0001-0002,none,none,none,none,none
+ALEC,211,Knowledge/Society/Leadership,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
 ALEC,211,Knowledge/Society/Leadership,3,AH,none,none,0945-1100,TR,BAS,none,none,none
 ANTH,443,Archaeology and Art of Ancient Greece,3,AH & GCI & EI,none,none,1430-1545,TR,HSS,none,none,none
-ANTH,444,Archaeology and Art of Ancient Italy and Rome,3,AH & GCI & EI,none,none,1020=1110,MWF,DOU,none,none,none
+ANTH,444,Archaeology and Art of Ancient Italy and Rome,3,AH & GCI & EI,none,none,1020-1110,MWF,DOU,none,none,none
 ARAB,251,Whole New Worlds: Fantasy/Sci-Fi/Dystopia in the Middle East,3,AH,none,none,1255-1410,TR,BEC,none,none,none
 ARCH,111,Architecture and the Built Environment,3,AH,none,none,1430-1545,TR,none,none,none,none
 ARCH,117,Honors: Architecture and the Built Environment,3,AH,none,none,1430-1545,TR,none,none,none,none
@@ -251,7 +251,7 @@ ARTH,173,Western Art: Renaissance to Contemporary,3,AH & GCI,none,none,1350-1440
 ARTH,451,The Art of Italy (1250-1450),3,AH & GCI,none,none,0945-1100,TR,AAB,none,none,none
 ARTH,452,The Art of Italy (1475-1600),3,AH & GCI,none,none,1240-1330,MWF,AAB,none,none,none
 ARTH,473,19th-Century American Art,3,AH & GCUS,none,none,0910-1000,MWF,AAB,none,none,none
-CLAS,253,Greek and Roman Literature in English Translation,3,AH & GCI,none,none,0001-0002,none,none,none,none,none
+CLAS,253,Greek and Roman Literature in English Translation,3,AH & GCI,none,none,0000-0000,MTWRF,none,none,none,none
 CLAS,254,Greek and Roman Epic in English Translation,3,AH & GCI,none,none,1605-1720,TR,AYR,none,none,none
 CLAS,254,Greek and Roman Epic in English Translation,3,AH & GCI,none,none,1605-1720,TR,AYR,none,none,none
 CLAS,255,Greek and Roman Drama in English Translation,3,AH & GCI,none,none,1130-1220,MWF,FER,none,none,none
@@ -279,143 +279,346 @@ ENGL,208,Honors: British Literature II: Wordsworth to the Present,3,AH,ENGL 102,
 ENGL,209,Introduction to Jane Austen,3,AH & GCI & WC,ENGL 102,none,0910-1000,MWF,HSS,none,none,none
 ENGL,209,Introduction to Jane Austen,3,AH & GCI & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
 ENGL,209,Introduction to Jane Austen,3,AH & GCI & WC,ENGL 102,none,1430-1545,TR,HSS,none,none,none
-ENGL,217,Honors: Introduction to Shakespeare,3,AH & WC,ENGL 102,none,
-ENGL,218,Honors: Introduction to Jane Austen,3,AH & GCI & WC,ENGL 102,none,
-ENGL,221,World Literature I: Ancient through Early Modern,3,AH & GCI,ENGL 102,none,
-ENGL,222,World Literature II: The Eighteenth-Century to the Present,3,AH,ENGL 102,none,
-ENGL,225,Introduction to African Literature,3,AH & GCI,ENGL 102,none,
-ENGL,226,Introduction to Caribbean Literature,3,AH & GCI,ENGL 102,none,
-ENGL,231,American Literature I: Colonial Era to the Civil War,3,AH & GCUS,ENGL 102,none,
-ENGL,232,American Literature II: Civil War to the Present,3,AH,ENGL 102,none,
-ENGL,233,Major Black Writers,3,AH & GCUS,ENGL 102,none,
-ENGL,237,Honors: American Literature I: Colonial Era to the Civil War,3,AH & GCUS & WC,ENGL 102,none,
-ENGL,238,Honors: American Literature II: Civil War to the Present,3,AH & WC,ENGL 102,none,
-ENGL,247,Honors: Introduction to Poetry,3,AH & WC,ENGL 102,none,
-ENGL,248,Honors: Introduction to Drama,3,AH & WC,ENGL 102,none,
-ENGL,250,Popular Fiction,3,AH,none,none
-ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,
-ENGL,252,Introduction to Drama,3,AH & WC,ENGL 102,none,
-ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,
-ENGL,254,Themes in Literature,3,AH & WC,ENGL 102,none,
-ENGL,258,Honors: Introduction to Fiction,3,AH & WC,ENGL 102,none,
-ENGL,278,Honors: Themes in Literature,3,AH & WC,ENGL 102,none,
-ENGL,281,Introduction to Film Studies,3,AH,ENGL 102,none,
-ENGL,301,British Culture to 1660,3,AH & GCI,ENGL 102,none,
-ENGL,302,British Culture: 1660 to Present,3,AH & GCI,none,none,
-ENGL,303,American Cultures,3,AH,ENGL 102,none,
-ENGL,331,Race and Ethnicity in American Literature,3,AH & GCUS,ENGL 102,none,
-ENGL,332,Women in American Literature,3,AH & GCUS,ENGL 102,none,
-ENGL,333,Black American Literature and Aesthetics,3,AH & GCUS,ENGL 102,none,
-ENGL,339,Children’s/Young Adult Literature,3,AH,ENGL 102,none,
-ENGL,340,Science Fiction and Fantasy,3,AH,ENGL 102,none,
-ENGL,341,Religion and Spirituality in American Literature,3,AH & GCUS,ENGL 102,none,
-ENGL,342,Literature and Medicine,3,AH,ENGL 102,none,
-ENGL,345,Graphic Novel and Comics,3,AH,ENGL 102,none,
-ENGL,346,The Gothic,3,AH,ENGL 102,none,
-ENGL,381,American Tales/Songs/Material Culture: An Introduction to Folklore,3,AH,ENGL 102,none,
-ENGL,389,Literature of the English Bible,3,AH,ENGL 102,none,
-FREN,353,Introduction to Literary Analysis in French,3,AH,FREN 333,none,
-FREN,415,Topics in Modern French and Francophone Literature,3,AH,FREN 353,none,
-FREN,431,Highlights of French Civilization,3,AH,FREN 353,none,
-FREN,433,French and Francophone Women Writers,3,AH,FREN 353,none,
-GERM,322,Children’s Literature,3,AH,GERM 212,none,
-GERM,323,German Film Survey,3,AH,none,none,
-GERM,324,Animal Stories,3,AH,GERM 212,none,
-GERM,325,The German Graphic Novel,3,AH,GERM 212,none,
-GERM,363,Contemporary German Cultures,3,AH,ENGL 102,none,
-GERM,370,Witches: Myth/Reality/Representation,3,AH,ENGL 102,none,
-GLBS,441,Global Justice and Human Rights,3,AH & EI & GCI & SS & WC,ENGL 102,none
-GRDS,150,The Idea of Design,3,AH,none,none,
-HIAS,394,Chinese Intellectual History: Early Times,3,AH,none,none,
-HIEU,321,New Testament and Christian Origins,3,AH & GCI,none,none,
-HIEU,425,The City of Rome: Antiquity,3,AH,none,none,
-HIST,397,Honors Studies in History,3,AH,none,none,
-IARC,221,Theory of Color,3,AH,none,none,
-IARC,222,Interior Perspectives on Art,3,AH,none,none,
-IARN,221,Theory of Color,3,AH,none,none,
-IARN,222,Interior Perspectives on Art,3,AH,none,none,
-ITAL,401,Dante and Medieval Culture,3,AH,none,none,
-ITAL,422,Topics in Italian Cinema,3,AH,none,none,
-JST,311,Hebrew Bible/Old Testament,3,AH & GCI,none,none,
-JST,312,Early Judaism,3,AH & GCI,none,none,
-JST,321,New Testament and Christian Origins,3,AH & GCI,none,none,
-JST,322,Medieval Philosophy,3,AH & GCI & WC,ENGL 102,none,
-MEST,225,Judaism/Christianity/Islam,3,AH,none,none,
-MRST,201,Medieval Civilization I,3,AH & GCI,none,none,
-MRST,202,Medieval Civilization II,3,AH & GCI,none,none,
-MRST,322,Medieval Philosophy,3,AH & GCI & WC,ENGL 102,none,
-MRST,401,Dante and Medieval Culture,3,AH,none,none,
-MRST,442,Northern European Painting (1350-1600),3,AH & GCI,none,none,
-MRST,452,The Art of Italy (1250-1450),3,AH & GCI,none,none,
-MUCO,110,Introduction to Music in Western Culture,3,AH,none,none,
-MUCO,115,Music in the United States,3,AH,none,none,
-MUCO,120,History of Rock,3,AH,none,none,
-MUCO,125,Jazz in American Culture,3,AH,none,none,
-MUCO,210,History of Western Music (Ancient to the Baroque),3,AH,MUCO 110 | ENGL 102,none,
-MUCO,220,History of Western Music (Classical to the Present),3,AH & WC,MUCO 110 | ENGL 102 | MUTH 110,none,
-MUCO,411,Music of Appalachia,3,AH,none,none,
-MUCO,414,Music and Media,3,AH,none,none,
-MUCO,416,Global Soundtracks,3,AH & EI & GCI & WC,ENGL 102,none,
-MUTH,305,Italian Musical Styles,3,AH & AOC & EI,none,none,
-PHIL,101,Introduction to Philosophy,3,AH,none,none,
-PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,
-PHIL,200,Special Topics,3,AH,none,none,
-PHIL,244,Professional Responsibility,3,AH & OC,none,none,
-PHIL,246,Ethics and Technology,3,AH & EI,none,none,
-PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,
-PHIL,320,Ancient Western Philosophy,3,AH & WC,ENGL 102,none,
-PHIL,322,Medieval Philosophy,3,AH & GCI & WC,ENGL 102,none,
-PHIL,324,17th- and 18th-Century Philosophy,3,AH & WC,ENGL 102,none,
-PHIL,326,Topics in 19th- and 20th-Century Philosophy,3,AH & WC,ENGL 102,none,
-PHIL,327,Honors: Ancient Western Philosophy,3,AH & WC,ENGL 102,none,
-PHIL,328,Honors: 17th- and 18th-Century Philosophy,3,AH & WC,ENGL 102,none,
-PHIL,340,Ethical Theory,3,AH & WC,ENGL 102,none,
-PHIL,346,Environmental Ethics,3,AH & EI & WC,ENGL 102,none,
-PHIL,347,Honors: Ethical Theory,3,AH & WC,ENGL 102,none,
-PHIL,348,Honors: Environmental Ethics,3,AH & EI & WC,ENGL 102,none,
-PHIL,350,Aesthetics,3,AH & WC,ENGL 102,none,
-PHIL,353,Philosophy and Literature,3,AH & WC,ENGL 102,none,
-PHIL,370,Philosophy of Religion,3,AH & WC,ENGL 102,none,
-PHIL,371,Epistemology,3,AH,none,none,
-PHIL,372,Metaphysics,3,AH & WC,ENGL 102,none,
-PHIL,373,Philosophy of Mind,3,AH & WC,ENGL 102,none,
-PHIL,375,Philosophy of Action,3,AH & WC,ENGL 102,none,
-PHIL,382,Philosophy of Feminism,3,AH & WC,ENGL 102,none,
-PHIL,383,Philosophy of Disability,3,AH & EI & GCUS & WC,ENGL 102,none,
-PHIL,391,Social and Political Philosophy,3,AH & WC,ENGL 102,none,
-PHIL,392,Philosophy of Law,3,AH & EI & WC,ENGL 102,none,
-PHIL,397,Honors Studies in Philosophy,3,AH,none,none,
-PHIL,441,Global Justice and Human Rights,3,AH & EI & GCI & SS & WC,ENGL 102,none,
-PLSC,180,Landscape Design/Performance/Function,3,AH,none,none,
-REED,230,Using Children’s Literature to Support Instructional Practices and Motivate Students to Read,3,AH,none,none,
-REST,202,Religion and Film,3,AH,none,none,
-REST,203,Religion and Music,3,AH,none,none,
-REST,225,Judaism/Christianity/Islam,3,AH,none,none,
-REST,227,Honors: Judaism/Christianity/Islam,3,AH,none,none,
-REST,280,Religions of Asia,3,AH & GCI,none,none,
-REST,306,Contemporary Christian Thought,3,AH,none,none,
-REST,311,Hebrew Bible/Old Testament,3,AH & GCI,none,none,
-REST,312,Early Judaism,3,AH & GCI,none,none,
-REST,316,Topics in Religion and Film,3,AH,none,none,
-REST,321,New Testament and Christian Origins,3,AH & GCI,none,none,
-REST,341,Religion and Spirituality in American Literature,3,AH & GCUS,ENGL 102,none,
-REST,353,Religion/Race/Ethnicity in North America,3,AH & GCUS,ENGL 102,none,
-REST,354,Popular Religion in the United States,3,AH & GCUS,none,none,
-REST,370,Philosophy of Religion,3,AH & WC,ENGL 102,none,
-REST,389,Literature of the English Bible,3,AH,ENGL 102,none,
-RUSS,221,Rebels/Dreamers/Fools: The Outcast in 19th Century Russian Literature,3,AH & GCI & WC,ENGL 102,none,
-RUSS,222,Heaven or Hell: Utopias and Dystopias in 20th-Century Russian Literature,3,AH & GCI & WC,ENGL 102,none,
-RUSS,322,Dostoevsky/Terror/Pan-Slavic Utopia,3,AH & WC,ENGL 102,none,
-RUSS,324,Science Fiction in Russia and Eastern Europe,3,AH & GCI,none,none,
-RUSS,325,Russian Film,3,AH & GCI,none,none,
-RUSS,341,Humor and the Absurd in Russian Literature and Culture,3,AH,none,none,
-RUSS,352,Ukrainian-Russian Culture and Conflict,3,AH,none,none,
-RUSS,421,Tolstoy and the Quest for the Good Life,3,AH & WC,ENGL 102,none,
-RUSS,424,Nabokov’s Novels and Stories,3,AH,ENGL 102,none,
-THEA,100,Introduction to Theatre,3,AH,none,none,
-THEA,107,Honors: Introduction to Theatre,3,AH,none,none,
-UNHO,257,Honors: Special Topics in the Arts and Humanities,3,AH,ENGL 102,none,
-UNHO,258,Honors: Special Topics in the Arts and Humanities,3,AH & WC,ENGL 102,none,
-WGS,332,Women in American Literature,3,AH & GCUS,none,none,
-WGS,382,Philosophy of Feminism,3,AH & WC,none,none,
-WLC,300,Global Texts and Cultures,3,AH,none,none,
+ENGL,231,American Literature I: Colonial Era to the Civil War,3,AH & GCUS,ENGL 102,none,0910-1000,MWF,AYR,none,none,none
+ENGL,231,American Literature I: Colonial Era to the Civil War,3,AH & GCUS,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+ENGL,232,American Literature II: Civil War to the Present,3,AH,ENGL 102,none,1240-1330,MWF,HSS,none,none,none
+ENGL,232,American Literature II: Civil War to the Present,3,AH,ENGL 102,none,1130-1220,MWF,HSS,none,none,none
+ENGL,233,Major Black Writers,3,AH & GCUS,ENGL 102,none,1130-1220,MWF,HSS,none,none,none
+ENGL,233,Major Black Writers,3,AH & GCUS,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+ENGL,237,Honors: American Literature I: Colonial Era to the Civil War,3,AH & GCUS & WC,ENGL 102,none,0910-1000,MWF,AYR,none,none,none
+ENGL,237,Honors: American Literature I: Colonial Era to the Civil War,3,AH & GCUS & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+ENGL,238,Honors: American Literature II: Civil War to the Present,3,AH & WC,ENGL 102,none,1240-1330,MWF,HSS,none,none,none
+ENGL,238,Honors: American Literature II: Civil War to the Present,3,AH & WC,ENGL 102,none,1130-1220,MWF,HSS,none,none,none
+ENGL,247,Honors: Introduction to Poetry,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+ENGL,247,Honors: Introduction to Poetry,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+ENGL,248,Honors: Introduction to Drama,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+ENGL,248,Honors: Introduction to Drama,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1120-1235,TR,MOS,none,none,none
+ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1120-1235,TR,HSS,none,none,none
+ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1350-1440,MWF,BEC,none,none,none
+ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1350-1440,MWF,HBB,none,none,none
+ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1240-1330,MWF,BEC,none,none,none
+ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1120-1235,TR,HSS,none,none,none
+ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1130-1220,MWF,NEB,none,none,none
+ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+ENGL,252,Introduction to Drama,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+ENGL,252,Introduction to Drama,3,AH & WC,ENGL 102,none,0910-1000,MWF,HSS,none,none,none
+ENGL,252,Introduction to Drama,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+ENGL,252,Introduction to Drama,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+ENGL,252,Introduction to Drama,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0910-1000,MWF,HSS,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1255-1410,TR,HSS,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1120-1235,TR,HSS,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0945-1100,TR,NEB,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1240-1330,MWF,HSS,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1350-1440,MWF,AYR,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,00000-0000,MTWRF,none,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1350-1440,MWF,HSS,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0945-1100,TR,AYR,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0910-1000,MWF,HSS,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1240-1330,MWF,AYR,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1255-1410,TR,HSS,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1120-1235,TR,AYR,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0945-1100,TR,HBS,none,none,none
+ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1120-1235,TR,AYR,none,none,none
+ENGL,254,Themes in Literature,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+ENGL,254,Themes in Literature,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+ENGL,254,Themes in Literature,3,AH & WC,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+ENGL,254,Themes in Literature,3,AH & WC,ENGL 102,none,1120-1235,TR,AYR,none,none,none
+ENGL,258,Honors: Introduction to Fiction,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+ENGL,258,Honors: Introduction to Fiction,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+ENGL,301,British Culture to 1660,3,AH & GCI,ENGL 102,none,1020-1110,MWF,HBB,none,none,none
+ENGL,302,British Culture: 1660 to Present,3,AH & GCI,none,none,0910-1000,MWF,HSS,none,none,none
+ENGL,303,American Cultures,3,AH,ENGL 102,none,1350-1440,MWF,BEC,none,none,none
+ENGL,331,Race and Ethnicity in American Literature,3,AH & GCUS,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+ENGL,331,Race and Ethnicity in American Literature,3,AH & GCUS,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+ENGL,332,Women in American Literature,3,AH & GCUS,ENGL 102,none,1120-1235,TR,HSS,none,none,none
+ENGL,332,Women in American Literature,3,AH & GCUS,ENGL 102,none,1130-1220,MWF,HSS,none,none,none
+ENGL,332,Women in American Literature,3,AH & GCUS,ENGL 102,none,0910-1000,MWF,HSS,none,none,none
+ENGL,332,Women in American Literature,3,AH & GCUS,ENGL 102,none,1120-1235,TR,HSS,none,none,none
+ENGL,333,Black American Literature and Aesthetics,3,AH & GCUS,ENGL 102,none,1120-1235,TR,HMC,none,none,none
+ENGL,339,Children’s/Young Adult Literature,3,AH,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+ENGL,340,Science Fiction and Fantasy,3,AH,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+FREN,353,Introduction to Literary Analysis in French,3,AH,FREN 333,none,1350-1440,MWF,HSS,none,none,none
+FREN,353,Introduction to Literary Analysis in French,3,AH,FREN 333,none,1020-1110,MWF,HMC,none,none,none
+GERM,324,Animal Stories,3,AH,GERM 212,none,1120-1235,TR,PER,none,none,none
+GERM,325,The German Graphic Novel,3,AH,GERM 212,none,1020-1110,MWF,ZEC,none,none,none
+GERM,363,Contemporary German Cultures,3,AH,ENGL 102,none,0910-1000,MWF,HBB,none,none,none
+GLBS,441,Global Justice and Human Rights,3,AH & EI & GCI & SS & WC,ENGL 102,none,1240-1330,MWF,HSS,none,none,none
+GRDS,150,The Idea of Design,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+GRDS,150,The Idea of Design,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+HIEU,321,New Testament and Christian Origins,3,AH & GCI,none,none,1350-1440,MWF,HSS,none,none,none
+IARC,222,Interior Perspectives on Art,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+IARN,222,Interior Perspectives on Art,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+JST,311,Hebrew Bible/Old Testament,3,AH & GCI,none,none,0945-1100,TR,AYR,none,none,none
+JST,312,Early Judaism,3,AH & GCI,none,none,1020-1110,MWF,HSS,none,none,none
+JST,321,New Testament and Christian Origins,3,AH & GCI,none,none,1350-1440,MWF,HSS,none,none,none
+MEST,225,Judaism/Christianity/Islam,3,AH,none,none,1240-1330,MWF,HSS,none,none,none
+MEST,225,Judaism/Christianity/Islam,3,AH,none,none,1255-1410,TR,HSS,none,none,none
+MRST,201,Medieval Civilization I,3,AH & GCI,none,none,0945-1100,TR,STR,none,none,none
+MRST,201,Medieval Civilization I,3,AH & GCI,none,none,1255-1410,TR,COM,none,none,none
+MRST,202,Medieval Civilization II,3,AH & GCI,none,none,0945-1100,TR,HSS,none,none,none
+MRST,202,Medieval Civilization II,3,AH & GCI,none,none,1255-1410,TR,HSS,none,none,none
+MRST,452,The Art of Italy (1250-1450),3,AH & GCI,none,none,0945-1100,TR,AAB,none,none,none
+MUCO,110,Introduction to Music in Western Culture,3,AH,none,none,1020-1110,MWF,HMC,none,none,none
+MUCO,110,Introduction to Music in Western Culture,3,AH,none,none,0800-0850,MWF,HMC,none,none,none
+MUCO,110,Introduction to Music in Western Culture,3,AH,none,none,0910-1000,MWF,HMC,none,none,none
+MUCO,110,Introduction to Music in Western Culture,3,AH,none,none,1020-1110,MWF,HMC,none,none,none
+MUCO,115,Music in the United States,3,AH,none,none,0910-1000,MWF,HMC,none,none,none
+MUCO,115,Music in the United States,3,AH,none,none,1240-1330,MWF,HMC,none,none,none
+MUCO,115,Music in the United States,3,AH,none,none,0910-1000,MWF,HMC,none,none,none
+MUCO,120,History of Rock,3,AH,none,none,1130-1220,MWF,HMC,none,none,none
+MUCO,120,History of Rock,3,AH,none,none,1240-1330,MWF,HMC,none,none,none
+MUCO,120,History of Rock,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+MUCO,120,History of Rock,3,AH,none,none,1130-1220,MWF,HMC,none,none,none
+MUCO,120,History of Rock,3,AH,none,none,1240-1330,MWF,HMC,none,none,none
+MUCO,125,Jazz in American Culture,3,AH,none,none,1430-1545,TR,HMC,none,none,none
+MUCO,125,Jazz in American Culture,3,AH,none,none,1120-1235,TR,HMC,none,none,none
+MUCO,210,History of Western Music (Ancient to the Baroque),3,AH,MUCO 110 | ENGL 102,none,1020-1110,MWF,HMC,none,none,none
+MUCO,220,History of Western Music (Classical to the Present),3,AH & WC,MUCO 110 | ENGL 102 | MUTH 110,none,1130-1220,MWF,HMC,none,none,none
+MUCO,411,Music of Appalachia,3,AH,none,none,0910-1000,MWF,HMC,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,0800-0850,F,AMB
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,0800-0850,F,NEB
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,0800-0850,F,DOU
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,0800-0850,F,HSS
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,0800-0850,F,HMC
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,1500-1550,F,HMC
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,1500-1550,F,DOU
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,1500-1550,F,NEB
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,1500-1550,F,FER
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,1500-1550,F,HSS
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1500-1550,MWF,BUE,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1120-1235,TR,NEB,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1120-1235,TR,HSS,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1255-1410,TR,HSS,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,0810-0925,TR,HSS,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,0945-1100,TR,HSS,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,0945-1100,TR,BEC,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1610-1700,MWF,BUE,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1120-1240,TR,BCE,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1720-1810,MWF,BUE,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1430-1545,TR,HSS,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1255-1410,TR,NEB,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1120-1235,TR,PER,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,0945-1100,TR,PER,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,0810-0945,TR,HSS,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1255-1410,TR,FER,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,0800-0850,F,HSS
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,0800-0850,F,HSS
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,0800-0850,F,HSS
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,0800-0850,F,BUE
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,0800-0850,F,TIC
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,1500-1550,F,HSS
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,1500-1550,F,PER
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,1500-1550,F,COM
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,1500-1550,F,PER
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,1500-1550,F,JHB
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1240-1330,MWF,APB,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1350-1440,MWF,APB,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1605-1720,TR,PER,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1255-1410,TR,HSS,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1740-1855,TR,HSS,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,0810-0925,TR,BUE,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,0945-1100,TR,BUE,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1120-1235,TR,BUE,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,0910-1000,MWF,PER,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1240-1330,MWF,BUE,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1350-1440,MWF,BUE,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1120-1235,TR,PER,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1255-1410,TR,PER,none,none,none
+PHIL,101,Introduction to Philosophy,3,AH,none,none,1430-1545,TR,PER,none,none,none
+PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,0945-1100,TR,BUE,none,none,none
+PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,1120-1235,TR,BEC,none,none,none
+PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,1255-1410,TR,STR,none,none,none
+PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,1430-1545,TR,HMC,none,none,none
+PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,1130-1220,MWF,HSS,none,none,none
+PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,1120-1235,TR,AYR,none,none,none
+PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,0945-1100,TR,WAB,none,none,none
+PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,1430-1545,TR,AYR,none,none,none
+PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,1255-1410,TR,PER,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,HBS
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,APB
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,HMC
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,PER
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,NEB
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,DOU
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,BUE
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,APB
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,BUE
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,MOS
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,HSS
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,HSS
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1430-1545,TR,HSS,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1605-1720,TR,HSS,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1500-1550,MWF,HSS,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1350-1440,MWF,HSS,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,0000-0000,MTWRF,none,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1255-1410,TR,HSS,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1430-1545,TR,HSS,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,0810-0925,TR,HSS,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,0945-1100,TR,AYR,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,0810-0925,TR,HSS,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,0000-0000,MTWRF,none,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,HSS
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,BUE
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,FER
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,MOS
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,MOS
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,BUE
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,JHB
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,BUE
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,FER
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,TIC
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,MOS
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,AYR
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,0810-0925,TR,HSS,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1120-1235,TR,JHB,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1430-1545,TR,BUE,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1605-1720,TR,BUE,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,0000-0000,MTWRF,none,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1020-1110,MWF,HBS,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1350-1440,MWF,FER,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,0810-0925,TR,MOS,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,0945-1100,TR,MOS,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1255-1410,TR,BUE,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1430-1545,TR,PER,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,1605-1720,TR,BUE,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,0945-1100,TR,AYR,none,none,none
+PHIL,244,Professional Responsibility,3,AH & OC,none,none,0000-0000,MTWRF,none,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,0800-0850,F,MOS
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,0800-0850,F,HSS
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,0800-0850,F,HPR
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,0800-0850,F,MOS
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,0800-0850,F,HSS
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,1500-1550,F,FER
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,1500-1550,F,HNH
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,1500-1550,F,AAB
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,1500-1550,F,JHB
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,1500-1550,F,MKB
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1120-1235,TR,HBS,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1255-1410,TR,PER,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1430-1545,TR,FER,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1605-1720,TR,HMC,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1120-1235,TR,APB,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1430-1545,TR,HMC,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0945-1100,TR,PER,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1740-1855,TR,HMC,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1915-2030,TR,HMC,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0945-1100,TR,BEC,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1255-1410,TR,AMB,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0910-1000,MWF,HSS,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1240-1330,MWF,HSS,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MWF,HSS,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0910-1000,MWF,BAS,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1020-1110,MWF,MGH,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1130-1220,MWF,MGH,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1430-1545,TR,PER,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,0800-0850,F,WAB
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,0800-0850,F,WAB
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,0800-0850,F,HSS
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,0800-0850,F,MKB
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,0800-0850,F,HSS
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,1500-1550,F,TIC
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,1500-1550,F,AYR
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,1500-1550,F,HSS
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,1500-1550,F,HSS
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,1500-1550,F,HSS
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1255-1410,TR,HSS,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0945-1100,TR,FER,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1120-1235,TR,DOU,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1120-1235,TR,PER,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1255-1410,TR,PER,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1430-1545,TR,PER,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0910-1000,MWF,PER,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1020-1110,MWF,PER,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0800-0850,MWF,PER,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1255-1410,TR,BUE,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1430-1545,TR,BUE,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1740-1855,TR,BUE,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1915-2030,TR,BUE,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0810-0925,TR,PER,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0945-1100,TR,AYR,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0800-0850,MWF,HSS,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1255-1410,TR,PER,none,none,none
+PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+PHIL,320,Ancient Western Philosophy,3,AH & WC,ENGL 102,none,0945-1100,TR,HBS,none,none,none
+PHIL,320,Ancient Western Philosophy,3,AH & WC,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+PHIL,324,17th- and 18th-Century Philosophy,3,AH & WC,ENGL 102,none,1350-1440,MWF,AMB,none,none,none
+PHIL,327,Honors: Ancient Western Philosophy,3,AH & WC,ENGL 102,none,0945-1100,TR,HBS,none,none,none
+PHIL,327,Honors: Ancient Western Philosophy,3,AH & WC,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+PHIL,328,Honors: 17th- and 18th-Century Philosophy,3,AH & WC,ENGL 102,none,1350-1440,MWF,AMB,none,none,none
+PHIL,340,Ethical Theory,3,AH & WC,ENGL 102,none,1130-1220,MWF,HSS,none,none,none
+PHIL,340,Ethical Theory,3,AH & WC,ENGL 102,none,1120-1235,TR,MOS,none,none,none
+PHIL,346,Environmental Ethics,3,AH & EI & WC,ENGL 102,none,1350-1440,MWF,BUE,none,none,none
+PHIL,346,Environmental Ethics,3,AH & EI & WC,ENGL 102,none,0800-0850,MWF,HSS,none,none,none
+PHIL,346,Environmental Ethics,3,AH & EI & WC,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+PHIL,346,Environmental Ethics,3,AH & EI & WC,ENGL 102,none,1605-1720,TR,HSS,none,none,none
+PHIL,347,Honors: Ethical Theory,3,AH & WC,ENGL 102,none,1130-1220,MWF,HSS,none,none,none
+PHIL,347,Honors: Ethical Theory,3,AH & WC,ENGL 102,none,1120-1235,TR,MOS,none,none,none
+PHIL,370,Philosophy of Religion,3,AH & WC,ENGL 102,none,0945-1100,TR,BUE,none,none,none
+PHIL,371,Epistemology,3,AH,none,none,1255-1410,TR,BUE,none,none,none
+PHIL,372,Metaphysics,3,AH & WC,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+PHIL,373,Philosophy of Mind,3,AH & WC,ENGL 102,none,1430-1545,TR,STR,none,none,none
+PHIL,382,Philosophy of Feminism,3,AH & WC,ENGL 102,none,1120-1235,TR,HSS,none,none,none
+PHIL,391,Social and Political Philosophy,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+PHIL,392,Philosophy of Law,3,AH & EI & WC,ENGL 102,none,1240-1330,MWF,HSS,none,none,none
+PHIL,441,Global Justice and Human Rights,3,AH & EI & GCI & SS & WC,ENGL 102,none,1240-1330,MWF,HSS,none,none,none
+PLSC,180,Landscape Design/Performance/Function,3,AH,none,none,1020-1110,MWF,BUE,none,none,none
+REED,230,Using Children’s Literature to Support Instructional Practices and Motivate Students to Read,3,AH,none,none,1630-1910,M,BEC,none,none,none
+REED,230,Using Children’s Literature to Support Instructional Practices and Motivate Students to Read,3,AH,none,none,1630-1910,W,BEC,none,none,none
+REED,230,Using Children’s Literature to Support Instructional Practices and Motivate Students to Read,3,AH,none,none,1630-1910,T,BEC,none,none,none
+REED,230,Using Children’s Literature to Support Instructional Practices and Motivate Students to Read,3,AH,none,none,1610-1920,M,BEC,none,none,none
+REED,230,Using Children’s Literature to Support Instructional Practices and Motivate Students to Read,3,AH,none,none,1605-1955,T,BEC,none,none,none
+REED,230,Using Children’s Literature to Support Instructional Practices and Motivate Students to Read,3,AH,none,none,1610-1920,W,BEC,none,none,none
+REST,202,Religion and Film,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+REST,202,Religion and Film,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+REST,202,Religion and Film,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+REST,202,Religion and Film,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+REST,202,Religion and Film,3,AH,none,none,1120-1235,TR,HSS,none,none,none
+REST,202,Religion and Film,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+REST,225,Judaism/Christianity/Islam,3,AH,none,none,1240-1330,MWF,HSS,none,none,none
+REST,225,Judaism/Christianity/Islam,3,AH,none,none,1255-1410,TR,HSS,none,none,none
+REST,280,Religions of Asia,3,AH & GCI,none,none,0000-0000,MTWRF,none,none,none,none
+REST,280,Religions of Asia,3,AH & GCI,none,none,0000-0000,MTWRF,none,none,none,none
+REST,280,Religions of Asia,3,AH & GCI,none,none,0910-1000,MWF,HSS,none,none,none
+REST,306,Contemporary Christian Thought,3,AH,none,none,1130-1220,MWF,HSS,none,none,none
+REST,311,Hebrew Bible/Old Testament,3,AH & GCI,none,none,0945-1100,TR,AYR,none,none,none
+REST,312,Early Judaism,3,AH & GCI,none,none,1020-1110,MWF,HSS,none,none,none
+REST,321,New Testament and Christian Origins,3,AH & GCI,none,none,1350-1440,MWF,HSS,none,none,none
+REST,370,Philosophy of Religion,3,AH & WC,ENGL 102,none,0945-1100,TR,BUE,none,none,none
+RUSS,221,Rebels/Dreamers/Fools: The Outcast in 19th Century Russian Literature,3,AH & GCI & WC,ENGL 102,none,1255-1410,TR,HSS,none,none,none
+RUSS,324,Science Fiction in Russia and Eastern Europe,3,AH & GCI,none,none,1430-1545,TR,HMC,none,none,none
+RUSS,325,Russian Film,3,AH & GCI,none,none,1350-1440,MWF,LIB,none,none,none,
+RUSS,424,Nabokov’s Novels and Stories,3,AH,ENGL 102,none,1255-1410,TR,HSS,none,none,none
+THEA,100,Introduction to Theatre,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+THEA,100,Introduction to Theatre,3,AH,none,none,0945-1100,TR,HSS,none,none,none
+THEA,100,Introduction to Theatre,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+THEA,100,Introduction to Theatre,3,AH,none,none,1255-1410,TR,AMB,none,none,none
+THEA,100,Introduction to Theatre,3,AH,none,none,1120-1235,TR,AMB,none,none,none
+THEA,100,Introduction to Theatre,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+THEA,100,Introduction to Theatre,3,AH,none,none,0945-1100,TR,AMB,none,none,none
+THEA,107,Honors: Introduction to Theatre,3,AH,none,none,1120-1235,TR,HSS,none,none,none
+UNHO,257,Honors: Special Topics in the Arts and Humanities,3,AH,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+WGS,332,Women in American Literature,3,AH & GCUS,none,none,1120-1235,TR,HSS,none,none,none
+WGS,332,Women in American Literature,3,AH & GCUS,none,none,1130-1220,MWF,HSS,none,none,none
+WGS,332,Women in American Literature,3,AH & GCUS,none,none,0910-1000,MWF,HSS,none,none,none
+WGS,332,Women in American Literature,3,AH & GCUS,none,none,1120-1235,TR,HSS,none,none,none
+WGS,382,Philosophy of Feminism,3,AH & WC,none,none,1120-1235,TR,HSS,none,none,none
