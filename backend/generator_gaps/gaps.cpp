@@ -26,10 +26,6 @@ class course {
         string lab_date;
         string lab_loc;
         int priority = 0;
-
-    // bool operator==(const course *mc) const {
-    //     return ((this->abbrv == mc->abbrv) && (this->num == mc->num));
-    // }
 };
 
 int user_hour = 0;
@@ -54,10 +50,9 @@ priority_queue<course, vector<course>, CompareCourse> create_pq(vector<course> r
         string lec_days = remaining_vector[i].lec_date;
         // find the last minute that a course is scheduled for:
         int rows = schedule.size();
-        int cols = schedule[0].size();
         int startx = 0;
         for (int j = 0; j < rows; ++j) {
-            for (int k = 0; k < lec_days.size(); k++) {
+            for (int k = 0; k < (int)lec_days.size(); k++) {
                 if (schedule[j][0] == 1 && lec_days[k] == 'M') {
                     startx = j;
                 }
@@ -521,9 +516,6 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 }
                 else {
                     cout << "all co-reqs successfully scheduled" << endl;
-                    // for (int j = 0; j < (int)scheduled_cr.size(); j++) {
-                    //     scheduled_courses.push_back(scheduled_cr[j]);
-                    // }
                     temp_schedule = cr_schedule;
                 }
             }
@@ -591,7 +583,9 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
                         for (int i = 0; i < (int)scheduled_courses.size(); i++) {
                             total_hours += scheduled_courses[i].hours;
                             perm_courses.push_back(scheduled_courses[i]);
+
                             cout << "SCHEDULED " << scheduled_courses[i].abbrv << " " << scheduled_courses[i].num << endl;
+
                             // Abbreviation,Number,Title,Hours,Attributes,LcTime,LcDate,LcLocation,LaTime,LaDate,LaLocation
                             appendfile << 
                             scheduled_courses[i].abbrv << "," << 
@@ -882,7 +876,9 @@ int main(int argc, char** argv) {
     // Create the 2D matrix for the course scheduler
     vector<vector<int>> schedule(60*24, vector<int>(5, 0));
 
+    // create schedule
     create_schedule(schedule, course_vector, taken_vector, major_vector);
 
+    // print schedule
     print_array(schedule);
 }
