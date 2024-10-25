@@ -7,6 +7,7 @@ from . import db
 import json
 import csv
 import os
+import subprocess
 
 views = Blueprint('views', __name__)
 
@@ -161,7 +162,30 @@ def submit():
         for entry in data_entries:
             writer.writerow(entry)
 
-    return redirect(url_for('views.generate'))
+    cpp_executable_path = os.path.join('backend', 'c_code', 'loc')
+    file1_path = os.path.join('backend', 'c_code', 'eecs_courses.csv')
+    file2_path = os.path.join('backend', 'c_code', 'major_courses.csv')
+    file3_path = os.path.join('backend', 'c_code', 'taken_courses.csv')
+
+    command = [cpp_executable_path, file1_path, file2_path, file3_path]
+
+    try:
+        result = subprocess.run(command, capture_output=True, text=True)
+        
+        # Collect output and error
+        if result.returncode == 0:
+            output = result.stdout
+            error = None
+        else:
+            output = None
+            error = result.stderr
+
+        # Render a new HTML page with output as context variable
+        return redirect(url_for('views.generate'))
+        #return render_template('output.html', output=output, error=error)
+
+    except Exception as e:
+        return render_template('output.html', output=None, error=str(e))
 
 @views.route('/generated_schedule', methods=['GET'])
 @login_required
