@@ -122,9 +122,10 @@ def submit():
     core_class = request.form.get('core-class')
     seq_1 = request.form.get('sequence-1')
     seq_2 = request.form.get('sequence-2')
+    math_credits = request.form.getlist('math-credit')
     seq_3 = request.form.get('sequence-3')
     seq_4 = request.form.get('sequence-4')
-    seq_5 = request.form.get('sequence-5')
+    cs361_credit = request.form.getlist('cs361-credit')
     elective_credits = request.form.getlist('elective-credit')
     credit_hours = request.form.get('credit-hours')
     mwf_start_time = request.form.get('MWF-start-time')
@@ -135,16 +136,21 @@ def submit():
         [core_class],
         [seq_1],
         [seq_2],
-        [seq_3],
-        [seq_4],
-        [seq_5],
     ]
+
+    # Add all math credits as separate entries
+    for credit in math_credits:
+        data_entries.append([credit])
+
+    data_entries.append([seq_3])
+    data_entries.append([seq_4])
 
     # Add elective credits as separate entries
     for credit in elective_credits:
         data_entries.append([credit])
     
     # Add other data
+    data_entries.append([cs361_credit])
     data_entries.append([credit_hours])
     data_entries.append([mwf_start_time])
     data_entries.append([tr_start_time])
