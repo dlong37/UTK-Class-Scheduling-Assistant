@@ -2,52 +2,151 @@
 
 {% extends "base.html" %}
 
-{% block title %}The job posting I found interesting is for a Public Health Crisis Communication position with the CDC’s Office of Emergency Risk Communication. This role focuses on learning how to communicate essential health information during emergencies and working with partners to reach non-clinical audiences.
-
-Key responsibilities include coordinating the sharing of urgent health information and creating clear, easy-to-understand materials to help the public prepare for and respond to crises. In this position, the ability to communicate clearly is vital for guiding communities through emergencies.
-
-What other benefits do you think clear communication brings to public health during emergencies? How important is it in preventing the spread of misinformation? Could clear crisis communication be as crucial as medical interventions during a public health emergency?
-    Generator
+{% block title %}
+    Generated Schedule
 {% endblock %}
 
 {% block content %}
     <div class="schedule-container">
         <h1 class="heading">Generated Schedule</h1>
-        <!-- MWF Table -->
-        <div class="table-container">
-            <h1 class="subheading">MWF Schedule</h1>
-            <table class="schedule-table">
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>Monday</th>
-                        <th>Wednesday</th>
-                        <th>Friday</th>
-                    </tr>
-                </thead>
-                <tbody id="mwf-schedule-body">
-                    <!-- MWF Rows will be added dynamically by JavaScript -->
-                </tbody>
-            </table>
-        </div>
+        <input type="file" id="csvFile" accept=".csv"/>
 
-        <!-- TR Table -->
-        <div class="table-container">
-            <h1 class="subheading">TR Schedule</h1>
-            <table class="schedule-table">
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>Tuesday</th>
-                        <th>Thursday</th>
-                    </tr>
-                </thead>
-                <tbody id="tr-schedule-body">
-                    <!-- TR Rows will be added dynamically by JavaScript -->
-                </tbody>
-            </table>
+        <div class="schedule-grid">
+            <div class="empty-cell"></div>
+
+            <!-- Days -->
+            <div class="day-header">Monday</div>
+            <div class="day-header">Tuesday</div>
+            <div class="day-header">Wednesday</div>
+            <div class="day-header">Thursday</div>
+            <div class="day-header">Friday</div>
+
+            <!-- Time Slots -->
+            <div class="time-slot">8:00AM</div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot">9:00AM</div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot">10:00AM</div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot">11:00AM</div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot">12:00PM</div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot">1:00PM</div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot">2:00PM</div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot">3:00PM</div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot">4:00PM</div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot">5:00PM</div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot small"></div>
+            <div class="time-slot">6:00PM</div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 
     <script src="{{ url_for('static', filename='generated_schedule.js') }}"></script>
 {% endblock %}

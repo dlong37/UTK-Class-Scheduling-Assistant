@@ -369,7 +369,7 @@ body {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 25px;
-    color: #333; Dark gray text
+    color: #333; /* Dark gray text */
     transition: all 0.3s ease;
 }
 
@@ -1177,96 +1177,6 @@ button[type="submit"]:hover {
     margin-bottom: 10px;
 }
 
-/* 
- * Generated Schedule Page Styling
- */
-.schedule-container {
-    opacity: 0;
-    transform: translateY(100px);
-    transition: opacity 1s ease, transform 1s ease;
-    transition-delay: 0.2s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding: 50px;
-    margin: auto;
-    height: auto;
-    max-width: 1200px;
-    min-height: 100vh;
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: 15px solid transparent;
-    border-image: linear-gradient(to top, #fff, #ff8200) 1;
-} 
-
-.schedule-container.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-/*
-/* Each table's container *
-.table-container {
-    opacity: 0;
-    transform: translateY(100px);
-    transition: opacity 1s ease, transform 1s ease;
-    transition-delay: 0.2s;
-    width: 90%;
-    margin: 0 auto;
-    margin-bottom: 50px;
-}
-
-.table-container.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Styling for the schedule tables *
-.schedule-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.schedule-table th,
-.schedule-table td {
-    border: 1px solid #ddd; /* Light gray border for cleaner look *
-    padding: 15px;
-    text-align: center;
-    font-size: 1rem;
-}
-
-/* Header styling *
-.schedule-table th {
-    background-color: #fafafa;
-    font-weight: bold;
-    color: #333;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    padding: 20px 15px;
-}
-
-/* Default cell styling *
-.schedule-table td {
-    height: 80px;
-    background-color: #fff;
-}
-
-/* Highlight occupied cells *
-.schedule-table td.occupied {
-    background-color: #ff8200; /* orange for occupied slots *
-    color: #fff;
-    font-weight: bold;
-}
-
-/* Add spacing between the table rows and table itself *
-.schedule-table tr {
-    transition: background-color 0.3s ease;
-}
-
 /* Search Button Styles */
 .section-search-button {
     all: unset;
@@ -1295,6 +1205,50 @@ button[type="submit"]:hover {
     transform: scale(1.1);
 }
 
+
+/* 
+ * Generated Schedule Page Styling
+ */
+ .schedule-container {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease, transform 1s ease;
+    transition-delay: 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 50px;
+    margin: auto;
+    height: auto;
+    max-width: 1000px;
+    min-height: 100vh;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 15px solid transparent;
+    border-image: linear-gradient(to top, #fff, #ff8200) 1;
+} 
+
+/* for animation */
+.schedule-container.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* grid layout */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: 100px repeat(5, 1fr);
+    grid-template-rows: 50px repeat(11, 20px 1px 1px 1px 1px 1px 1px 1px 1px 1px 1px 1px);
+    gap: 3px;
+    margin-top: 20px;
+    width: 100%;
+    min-width: 500px;
+    border: 1px solid #ccc;
+}
+
 /* Empty top-left corner */
 .empty-cell {
     background-color: #f5f5f5; /* Light gray for empty cell */
@@ -1306,15 +1260,12 @@ button[type="submit"]:hover {
     padding: 1px; /* Padding for time slots */
     text-align: center; /* Center text */
     grid-column: 1; /* Span first column */
-    font-size: 12px; /* Font size for hour slots */
+    font-size: 14px; /* Font size for hour slots */
 }
 
 /* Smaller time slots for :05, :10, etc. */
 .time-slot.small {
-    height: 1px; /* Very small height for smaller slots */
-    line-height: 1px; /* Center text vertically for smaller slots */
-    font-size: 0; /* Hide text */
-    display: block; /* Ensure the slot is a block element */
+    
 }
 
 /* Day headers */
@@ -1322,16 +1273,20 @@ button[type="submit"]:hover {
     background-color: #ddd; /* Light gray for headers */
     padding: 10px; /* Padding for headers */
     text-align: center; /* Center text in headers */
+    line-height: 25px;
     font-weight: bold; /* Bold text for headers */
 }
 
 /* Class styles */
 .class {
     background-color: #ff8200; /* Orange background for classes */
-    padding: 2px; /* Reduced padding for class blocks */
+    padding: 5px; /* Reduced padding for class blocks */
     text-align: center; /* Center text */
     border: 1px solid #ccc; /* Border around class blocks */
     border-radius: 5px; /* Rounded corners */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Column classes for each day */
