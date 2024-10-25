@@ -15,27 +15,31 @@
             <form id="schedules-form" action="/submit" method="post">
                 <h1 class="heading">Schedule Questionnaire</h1>
                 <h1 class="subheading">Core Classes</h1>
+                <!-- Assume MATH 130 has been completed! -->
                 <label for="question">What was your most recent core class?</label>
                 <select id="question" name="core-class">
+                    <option value="N/A">N/A</option>
                     <option value="COSC 101">COSC 101</option>
                     <option value="COSC 102">COSC 102</option>
                     <option value="COSC 202">COSC 202</option>
-                    <option value="COSC 230">COSC 230</option>
                     <option value="COSC 302">COSC 302</option>
                     <option value="COSC 360">COSC 360</option>
-                    <option value="COSC 366">COSC 366</option>
                     <option value="COSC 401">COSC 401</option>
                 </select>
                 <br><br>
 
                 <h1 class="subheading">Sequences</h1>
-                <label for="question">What was your most recent class in this sequence?</label>
-                <select id="question" name="sequence-1">
+                <label for="question">Which classes have you taken in this sequence?</label><br>
+                <!--<select id="question" name="sequence-1">
                     <option value="MATH 141">MATH 141</option>
                     <option value="MATH 142">MATH 142</option>
                     <option value="MATH 251">MATH 251</option>
                     <option value="ECE 313">ECE 313</option>
-                </select>
+
+                </select> -->
+                <label>COSC 101<input type="checkbox"></label><br>
+                <label>COSC 102<input type="checkbox"></label><br>
+                <label>COSC 230<input type="checkbox"></label><br>
                 <br><br>
 
                 <label for="question">What was your most recent class in this sequence?</label>
