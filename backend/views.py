@@ -150,7 +150,7 @@ def submit():
     data_entries.append([tr_start_time])
 
     # Defines the directory where the csv file will be saved
-    directory = 'backend/courses_generator'
+    directory = 'backend/c_code'
 
     # Create the directory if it doesn't exist
     if not os.path.exists(directory):
