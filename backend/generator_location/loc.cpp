@@ -4,9 +4,11 @@ using namespace std;
 int main(int argc, char** argv) {
 
     // argument checking
-    if(error_check(argv[0], argc, 4)) {
+    if(error_check(argv[0], argc, 5)) {
         return 1;
     }
+
+    int flag = get_flag(argv[argc-1]);
 
     // files streams
     ifstream file; 
@@ -70,7 +72,7 @@ int main(int argc, char** argv) {
     }
     cout << endl;
 
-    vector<vector<float>> distance_vector;
+    vector<vector<float> > distance_vector;
     calc_distance(distance_vector);
 
     cout << "distance vector:" << endl;
@@ -89,7 +91,8 @@ int main(int argc, char** argv) {
     cout << endl;
 
     vector<string> needed;
-    find_next_courses(needed, course_vector, taken_set, major_vector, distance_vector, argv[1], 15);
+    find_next_courses(needed, course_vector, taken_set, major_vector, distance_vector, argv[1], 12);
+    cout << endl;
     for(int i = 0; i < needed.size(); i++) {
         cout << needed[i] << endl;
     }

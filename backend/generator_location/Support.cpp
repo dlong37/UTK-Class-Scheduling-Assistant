@@ -12,7 +12,7 @@
 #include "Support.h"
 using namespace std;
 
-vector<pair<double, double>> coordinates = { APBcoord, AYRcoord, BECcoord, BEOcoord, DOUcoord, HBBcoord, HPRcoord, HSScoord, JHBcoord, LIBcoord, MKBcoord, MOScoord, PERcoord, PHYcoord, SRFcoord, STRcoord, TICcoord, WABcoord, ZECcoord };
+vector<pair<double, double> > coordinates = { APBcoord, AYRcoord, BECcoord, BEOcoord, DOUcoord, HBBcoord, HPRcoord, HSScoord, JHBcoord, LIBcoord, MKBcoord, MOScoord, PERcoord, PHYcoord, SRFcoord, STRcoord, TICcoord, WABcoord, ZECcoord };
 
 void calc_distance(vector<vector<float> > &distance_vector) {
     distance_vector.resize(19);
@@ -21,7 +21,7 @@ void calc_distance(vector<vector<float> > &distance_vector) {
     }
 
     for(int i = 0; i < 19; i++) {
-        for(int j = 0; j <= i; j++) {
+        for(int j = 0; j < 19; j++) {
             float la1 = coordinates[i].first*(M_PI/180.0);
             float la2 = coordinates[j].first*(M_PI/180.0);
             float lo1 = coordinates[i].second*(M_PI/180.0);
@@ -201,26 +201,30 @@ int error_check(string s, int argc, int i) {
     return 0;
 }
 
-void find_next_courses(vector<string> &needed, vector<course> course_vector, set<string> taken_set, vector<string> major_vector, vector<vector<float>> distance_vector, string s, int hours) {
+void find_next_courses(vector<string> &needed, vector<course> course_vector, set<string> taken_set, vector<string> major_vector, vector<vector<float> > distance_vector, string s, int hours) {
     int t = 0;
     srand (time(NULL));
     while(t < hours) {
+        if(major_vector.size() == 0) { break; }
         int i = rand() % major_vector.size();
         for(int j = 0; j < (int)course_vector.size(); j++) {
             string tempTitle = course_vector[j].abbrv + " " + to_string(course_vector[j].num);
             if(tempTitle == major_vector[i]) {
-                vector<vector<string>> temppre(5, vector<string>(5, "NULL"));
+                vector<vector<string> > temppre(5, vector<string>(5, "NULL"));
                 if(get_prereqs(course_vector[j], temppre)) {
                     if(check_prereqs(taken_set, temppre)) {
+                        cout << "scheduled: " << tempTitle << endl;
                         needed.push_back(tempTitle);
                         major_vector.erase(major_vector.begin()+i);
                         t += course_vector[j].hours;
                     }
                     else {
+                        cout << "did not schedule: " << tempTitle << endl;
                         major_vector.erase(major_vector.begin()+i);
                     }
                 }
                 else {
+                    cout << "scheduled: " << tempTitle << endl;
                     needed.push_back(tempTitle);
                     major_vector.erase(major_vector.begin()+i);
                     t += course_vector[j].hours;
@@ -231,7 +235,7 @@ void find_next_courses(vector<string> &needed, vector<course> course_vector, set
     }
 }
 
-bool get_prereqs(course c, vector<vector<string>> &temppre) {
+bool get_prereqs(course c, vector<vector<string> > &temppre) {
     string cc = c.pre_req;
     string ccc = "";
     int loc = 0;
@@ -254,7 +258,7 @@ bool get_prereqs(course c, vector<vector<string>> &temppre) {
     else { return false; }
 }
 
-bool check_prereqs(set<string> taken_set, vector<vector<string>> temppre) {
+bool check_prereqs(set<string> taken_set, vector<vector<string> > temppre) {
     int needed = 0;
     for(int i = 0; i < temppre.size(); i++) {
         if(temppre[i][0] != "NULL") {
@@ -271,4 +275,10 @@ bool check_prereqs(set<string> taken_set, vector<vector<string>> temppre) {
     }
     if(needed == 0) { return true; }
     else { return false; }
+}
+
+int get_flag(string s) {
+    if(s == "timeflag") { return 1; }
+    if(s == "locationflag") { return 2; }
+    return 0;
 }
