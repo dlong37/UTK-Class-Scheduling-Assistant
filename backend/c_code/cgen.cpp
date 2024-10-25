@@ -1,6 +1,15 @@
 #include "Support.h"
 using namespace std;
 
+// eecs_courses.csv + major_courses.csv + taken_courses.csv
+
+int user_hour = 0;
+int user_min = 0;
+int gap = 0;
+int credit_hours = 0;
+vector<course> scheduled_courses;
+vector<course> perm_courses;
+
 int main(int argc, char** argv) {
     // argument checking
     if(error_check(argv[0], argc, 5)) {
@@ -48,11 +57,50 @@ int main(int argc, char** argv) {
     set<string> taken_set;
     remove_duplicates(taken_set, taken_vector, major_vector);
 
-    if(flag == 1) {
+    if (flag == 1) { // gaps program
+        string input;
+        cout << "What time would you like to start your classes?\nPlease enter in 24-hour time (0000-2359): ";
+        while (1) {
+            cin >> input;
+            if (input.length() == 4) { // check string length
+                user_hour = stoi(input.substr(0,2));
+                user_min = stoi(input.substr(2,2));
+                if (user_hour >= 0 && user_hour < 24 && user_min >= 0 && user_min < 60) {
+                    break;
+                }
+            }
+            cout << "Please enter a valid time (0000-2359): ";
+        }
 
+        cout << "How many minutes would you like between classes?: ";
+        while (1) {
+            cin >> gap;
+            if (gap >= 0 && gap < 1440) {
+                break;
+            }
+            cout << "Please enter a valid number of minutes (0-1439): ";
+        }
+
+        cout << "How many credit hours would you like to take next semester?: ";
+        while (1) {
+            cin >> credit_hours;
+            if (credit_hours > 0) {
+                break;
+            }
+            cout << "Please enter a valid number of credit hours (>0): ";
+        }
+
+        // Create the 2D matrix for the course scheduler
+        vector<vector<int>> schedule(60*24, vector<int>(5, 0));
+
+        // create schedule
+        create_schedule(schedule, course_vector, taken_vector, major_vector, credit_hours, scheduled_courses, perm_courses, user_hour, user_min, gap);
+
+        // print schedule
+        print_array(schedule);
     }
 
-    if(flag == 2) {
+    if (flag == 2) {
         vector<vector<float> > distance_vector;
         calc_distance(distance_vector);
 

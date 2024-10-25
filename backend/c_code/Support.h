@@ -6,6 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <queue>
 #include <cmath>
 #include <set>
 #include <utility>
@@ -26,6 +27,13 @@ class course {
         string lab_time;
         string lab_date;
         string lab_loc;
+        int priority = 0;
+};
+
+struct CompareCourse {
+    bool operator()(const course& c1, const course& c2) {
+        return c1.priority > c2.priority;  // Min-heap: closer to 0 = higher priority
+    }
 };
 
 // coordinates for class locations
@@ -61,5 +69,15 @@ void find_next_courses(vector<string> &needed, vector<course> course_vector, set
 bool get_prereqs(course c, vector<vector<string> > &temppre);
 bool check_prereqs(set<string> taken_set, vector<vector<string> > temppre);
 int get_flag(string s);
+// Lexy's Functions
+priority_queue<course, vector<course>, CompareCourse> create_pq(vector<course> remaining_vector, vector<vector<int>> schedule, int user_hour, int user_min, int gap);
+void print_pq(priority_queue<course, vector<course>, CompareCourse> pq);
+void print_array( vector<vector<int>> arr);
+bool check_pr(vector<string> taken_vector, priority_queue<course, vector<course>, CompareCourse> &pq);
+bool check_conflicts(vector<vector<int>> schedule, course course);
+void add_to_schedule(vector<vector<int>> &schedule, course course_c, vector<course> &scheduled_courses);
+vector<course> create_remaining_vector(vector<course> course_vector, vector<string> string_vector);
+bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> course_vector, vector<string> taken_vector, vector<course> &perm_courses, int user_hour, int user_min, int gap, vector<course> &scheduled_courses);
+void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector, vector<string> taken_vector, vector<string> major_vector, int credit_hours, vector<course> &scheduled_courses, vector<course> &perm_courses, int user_hour, int user_min, int gap);
 
 #endif

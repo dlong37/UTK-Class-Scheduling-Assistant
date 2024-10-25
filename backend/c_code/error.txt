@@ -1,0 +1,1 @@
+usage: ./cgen available_courses_file.csv major_courses_file.csv taken_courses_file.csv location|time
