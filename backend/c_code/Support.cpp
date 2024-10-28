@@ -7,6 +7,7 @@
 #include <queue>
 #include <cmath>
 #include <set>
+#include <algorithm>
 #include <utility>
 #include <time.h>
 #include <stdlib.h>
@@ -215,18 +216,18 @@ void find_next_courses(vector<string> &needed, vector<course> course_vector, set
                 vector<vector<string> > temppre(5, vector<string>(5, "NULL"));
                 if(get_prereqs(course_vector[j], temppre)) {
                     if(check_prereqs(taken_set, temppre)) {
-                        cout << "scheduled: " << tempTitle << endl;
+                        //cout << "scheduled: " << tempTitle << endl;
                         needed.push_back(tempTitle);
                         major_vector.erase(major_vector.begin()+i);
                         t += course_vector[j].hours;
                     }
                     else {
-                        cout << "did not schedule: " << tempTitle << endl;
+                        //cout << "did not schedule: " << tempTitle << endl;
                         major_vector.erase(major_vector.begin()+i);
                     }
                 }
                 else {
-                    cout << "scheduled: " << tempTitle << endl;
+                    //cout << "scheduled: " << tempTitle << endl;
                     needed.push_back(tempTitle);
                     major_vector.erase(major_vector.begin()+i);
                     t += course_vector[j].hours;
@@ -871,3 +872,49 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
     }
     appendfile.close();
 };
+
+int schedule_next_courses(vector<course> &next_courses, vector<string> &needed, vector<course> &course_vector) {
+    int scheduled = 0;
+    vector<vector<course> > twodvec;
+    twodvec.resize(needed.size());
+    for(int i = 0; i < needed.size(); i++) {
+        for(int j = 0; j < course_vector.size(); j++) {
+            if(needed[i] == (course_vector[j].abbrv + " " + to_string(course_vector[j].num))) {
+                twodvec[i].push_back(course_vector[j]);
+            }
+        }
+    }
+
+    sort(twodvec.begin(), twodvec.end(), [](const std::vector<course>& a, const std::vector<course>& b) { return a.size() < b.size(); });
+
+    for(int i = 0; i < twodvec.size(); i++) {
+        if(i == 0) { next_courses.push_back(twodvec[i][0]); scheduled++; }
+        else {
+            for(int j = 0; j < twodvec[i].size(); j++) {
+                bool canschedule = true;
+                for(int k = 0; k < next_courses.size(); k++) {
+                    if((next_courses[k].lec_time == twodvec[i][j].lec_time && twodvec[i][j].lec_time != "none") || (next_courses[k].lab_time == twodvec[i][j].lab_time && twodvec[i][j].lab_time != "none")) {
+                        canschedule = false;
+                    }
+                }
+                if(canschedule) {
+                    next_courses.push_back(twodvec[i][j]);
+                    scheduled++;
+                    break;
+                }
+            }
+        }
+    }
+    return scheduled;
+}
+
+bool course::operator==(course rhs) {
+    bool same = true;
+    if(abbrv != rhs.abbrv) { same = false; }
+    if(num != rhs.num) { same = false; }
+    if(lec_time != rhs.lec_time) { same = false; }
+    if(lec_loc != rhs.lec_loc) { same = false; }
+    if(lab_time != rhs.lab_time) { same = false; }
+    if(lab_loc != rhs.lab_loc) { same = false; }
+    return same;
+}

@@ -28,6 +28,7 @@ class course {
         string lab_date;
         string lab_loc;
         int priority = 0;
+        bool operator==(course rhs);
 };
 
 struct CompareCourse {
@@ -69,6 +70,7 @@ void find_next_courses(vector<string> &needed, vector<course> course_vector, set
 bool get_prereqs(course c, vector<vector<string> > &temppre);
 bool check_prereqs(set<string> taken_set, vector<vector<string> > temppre);
 int get_flag(string s);
+int schedule_next_courses(vector<course> &next_courses, vector<string> &needed, vector<course> &course_vector);
 // Lexy's Functions
 priority_queue<course, vector<course>, CompareCourse> create_pq(vector<course> remaining_vector, vector<vector<int>> schedule, int user_hour, int user_min, int gap);
 void print_pq(priority_queue<course, vector<course>, CompareCourse> pq);
