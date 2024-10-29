@@ -187,7 +187,9 @@ void read_file2(vector<string> &vector, ifstream &file) {
     string course;
     while(getline(file, line)) {
         course = line;
-        vector.push_back(course);
+        if(line != "\n") {
+            vector.push_back(course);
+        }
     }
     file.close();
 }
