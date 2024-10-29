@@ -206,7 +206,7 @@ int error_check(string s, int argc, int i) {
 
 void find_next_courses(vector<string> &needed, vector<course> course_vector, set<string> taken_set, vector<string> major_vector, vector<vector<float> > distance_vector, string s, int hours) {
     int t = 0;
-    srand (time(NULL));
+    srand(time(NULL));
     while(t < hours) {
         if(major_vector.size() == 0) { break; }
         int i = rand() % major_vector.size();

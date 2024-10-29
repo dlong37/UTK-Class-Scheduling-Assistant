@@ -118,13 +118,11 @@ int main(int argc, char** argv) {
                         }
                     }
                 }
-                for(int i = 0; i < next_courses.size(); i++) {
-                    cout << next_courses[i].abbrv + " " + to_string(next_courses[i].num) << " @ " << next_courses[i].lec_time << endl;
-                }
+                // for(int i = 0; i < next_courses.size(); i++) {
+                //     cout << next_courses[i].abbrv + " " + to_string(next_courses[i].num) << " @ " << next_courses[i].lec_time << endl;
+                // }
                 running = false;
             }
         }
-
     }
-
 }
