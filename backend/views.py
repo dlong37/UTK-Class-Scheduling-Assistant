@@ -126,7 +126,8 @@ def submit():
     math_credits = request.form.getlist('math-credit')
     seq_3 = request.form.get('sequence-3')
     seq_4 = request.form.get('sequence-4')
-    cs361_credit = request.form.getlist('cs361-credit')
+    cs_credits = request.form.getlist('cs-credit')
+    cs361_credit = request.form.get('cs361-credit')
     elective_credits = request.form.getlist('elective-credit')
     credit_hours = request.form.get('credit-hours')
     start_time = request.form.get('start-time')
@@ -145,6 +146,10 @@ def submit():
 
     data_entries.append([seq_3])
     data_entries.append([seq_4])
+
+    # Add CS credits as separate entries
+    for credit in cs_credits:
+        data_entries.append([credit])
 
     # Add elective credits as separate entries
     for credit in elective_credits:

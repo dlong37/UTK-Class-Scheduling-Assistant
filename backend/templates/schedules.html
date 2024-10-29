@@ -77,9 +77,11 @@
                 <label>COSC 340<input type="checkbox" name="cs-credit" value="COSC 340"></label><br>
                 <br>
 
-                <!-- Convert to Yes or No -->
-                <label for="question">If you have taken COSC 361, please check this box.</label><br>
-                <label>COSC 361<input type="checkbox" name="cs361-credit" value="COSC 361"></label><br>
+                <label for="question">If you have taken COSC 361, please select it from the dropdown</label>
+                <select id="question" name="cs361-credit">
+                    <option value="N/A">N/A</option>
+                    <option value="COSC 361">COSC 361</option>
+                </select>
                 <br><br>
 
                 <h1 class="subheading">Elective Classes</h1>
