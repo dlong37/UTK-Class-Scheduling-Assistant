@@ -1,6 +1,6 @@
 # Backend for routes to other pages
 
-from flask import Blueprint, render_template, request, flash, jsonify, redirect, url_for
+from flask import Blueprint, render_template, request, flash, jsonify, redirect, url_for, send_from_directory
 from flask_login import login_required, current_user
 from .models import Schedule, Course
 from . import db
@@ -119,6 +119,7 @@ def index():
 @views.route('/submit', methods=['POST'])
 @login_required
 def submit():
+    default = 'MATH 130'
     core_class = request.form.get('core-class')
     seq_1 = request.form.get('sequence-1')
     seq_2 = request.form.get('sequence-2')
@@ -128,11 +129,11 @@ def submit():
     cs361_credit = request.form.getlist('cs361-credit')
     elective_credits = request.form.getlist('elective-credit')
     credit_hours = request.form.get('credit-hours')
-    mwf_start_time = request.form.get('MWF-start-time')
-    tr_start_time = request.form.get('TR-start-time')
+    start_time = request.form.get('start-time')
 
     # Prepare data for CSV
     data_entries = [
+        [default],
         [core_class],
         [seq_1],
         [seq_2],
@@ -152,8 +153,7 @@ def submit():
     # Add other data
     data_entries.append([cs361_credit])
     data_entries.append([credit_hours])
-    data_entries.append([mwf_start_time])
-    data_entries.append([tr_start_time])
+    data_entries.append([start_time])
 
     # Defines the directory where the csv file will be saved
     directory = 'backend/c_code'
@@ -164,31 +164,65 @@ def submit():
 
     # Write to CSV file
     with open(os.path.join(directory, 'data.csv'), mode='w', newline='') as file:
-        writer = csv.writer(file)
+        writer = csv.writer(file, lineterminator='\n')
         for entry in data_entries:
             writer.writerow(entry)
 
-    cpp_executable_path = os.path.join('backend', 'c_code', 'loc')
+    cpp_executable_path = os.path.join('backend', 'c_code', 'cgen')
     file1_path = os.path.join('backend', 'c_code', 'eecs_courses.csv')
     file2_path = os.path.join('backend', 'c_code', 'major_courses.csv')
-    file3_path = os.path.join('backend', 'c_code', 'taken_courses.csv')
+    file3_path = os.path.join('backend', 'c_code', 'data.csv')
+    mode = 'location'
 
-    command = [cpp_executable_path, file1_path, file2_path, file3_path]
+    command = [cpp_executable_path, file1_path, file2_path, file3_path, mode]
 
     try:
         result = subprocess.run(command, capture_output=True, text=True)
         
         # Collect output and error
         if result.returncode == 0:
-            output = result.stdout
+            output = result.stdout.strip()
+            print(f"Raw output from C++ program: {output}")
             error = None
+
+            class_ids = list(map(int, output.splitlines()))
+            print(f"Parsed Class IDs: {class_ids}")
+
+            courses = Course.query.filter(Course.id.in_(class_ids)).all()
+
+            # Specify the directory to save the CSV file
+            directory = 'backend/static'
+
+            # Write the course data to a CSV file
+            with open(os.path.join(directory, 'schedule.csv'), mode='w', newline='') as file:
+                writer = csv.writer(file)
+                # Write the header
+                writer.writerow(['ID', 'Abbreviation', 'Number', 'Title', 'Credit_Hours', 
+                                'Lecture_Time', 'Lecture_Days', 'Lecture_Location', 
+                                'Lab_Time', 'Lab_Days', 'Lab_Location'])
+                
+                # Write the data for each course
+                for entry in courses:
+                    writer.writerow([
+                        entry.id,
+                        entry.abbreviation,
+                        entry.number,
+                        entry.title,
+                        entry.credit_hours,
+                        entry.lecture_time,
+                        entry.lecture_days,
+                        entry.lecture_location,
+                        entry.lab_time,
+                        entry.lab_days,
+                        entry.lab_location
+                    ])
         else:
             output = None
             error = result.stderr
 
         # Render a new HTML page with output as context variable
         return redirect(url_for('views.generate'))
-        #return render_template('output.html', output=output, error=error)
+        #return render_template('output.html', courses=courses, error=error)
 
     except Exception as e:
         return render_template('output.html', output=None, error=str(e))
