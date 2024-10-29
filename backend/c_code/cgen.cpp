@@ -114,7 +114,7 @@ int main(int argc, char** argv) {
                 for(int i = 0; i < next_courses.size(); i++) {
                     for(int j = 0; j < course_vector.size(); j++) {
                         if(next_courses[i] == course_vector[j]) {
-                            cout << j+2 << endl;
+                            cout << j+1 << endl;
                             break;
                         }
                     }
