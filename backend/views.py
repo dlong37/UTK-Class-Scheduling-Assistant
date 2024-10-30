@@ -186,47 +186,47 @@ def submit():
 
             # Instead of writing output into a csv file, I create a new Schedule object with 
             # returned class ids
-            new_schedule = Schedule(class_ids=class_ids, user_id=current_user.id)
-            db.session.add(new_schedule)
-            db.session.commit()
-
-            courses = Course.query.filter(Course.id.in_(class_ids)).all()
-            return render_template('view_schedule.html', schedule=new_schedule, courses=courses, user=current_user)
+            # new_schedule = Schedule(class_ids=class_ids, user_id=current_user.id)
+            # db.session.add(new_schedule)
+            # db.session.commit()
 
             # courses = Course.query.filter(Course.id.in_(class_ids)).all()
+            # return render_template('view_schedule.html', schedule=new_schedule, courses=courses, user=current_user)
+
+            courses = Course.query.filter(Course.id.in_(class_ids)).all()
 
             # Specify the directory to save the CSV file
-            # directory = 'backend/static'
+            directory = 'backend/static'
 
             # Write the course data to a CSV file
-            # with open(os.path.join(directory, 'schedule.csv'), mode='w', newline='') as file:
-            #     writer = csv.writer(file)
-            #     # Write the header
-            #     writer.writerow(['ID', 'Abbreviation', 'Number', 'Title', 'Credit_Hours', 
-            #                     'Lecture_Time', 'Lecture_Days', 'Lecture_Location', 
-            #                     'Lab_Time', 'Lab_Days', 'Lab_Location'])
+            with open(os.path.join(directory, 'schedule.csv'), mode='w', newline='') as file:
+                writer = csv.writer(file)
+                # Write the header
+                writer.writerow(['ID', 'Abbreviation', 'Number', 'Title', 'Credit_Hours', 
+                                'Lecture_Time', 'Lecture_Days', 'Lecture_Location', 
+                                'Lab_Time', 'Lab_Days', 'Lab_Location'])
                 
-            #     # Write the data for each course
-            #     for entry in courses:
-            #         writer.writerow([
-            #             entry.id,
-            #             entry.abbreviation,
-            #             entry.number,
-            #             entry.title,
-            #             entry.credit_hours,
-            #             entry.lecture_time,
-            #             entry.lecture_days,
-            #             entry.lecture_location,
-            #             entry.lab_time,
-            #             entry.lab_days,
-            #             entry.lab_location
-            #         ])
+                # Write the data for each course
+                for entry in courses:
+                    writer.writerow([
+                        entry.id,
+                        entry.abbreviation,
+                        entry.number,
+                        entry.title,
+                        entry.credit_hours,
+                        entry.lecture_time,
+                        entry.lecture_days,
+                        entry.lecture_location,
+                        entry.lab_time,
+                        entry.lab_days,
+                        entry.lab_location
+                    ])
         else:
             output = None
             error = result.stderr
 
         # Render a new HTML page with output as context variable
-        # return redirect(url_for('views.generate'))
+        return redirect(url_for('views.generate'))
         # return render_template('output.html', courses=courses, error=error)
         # return render_template('output.html', courses=courses, error=error)
 
