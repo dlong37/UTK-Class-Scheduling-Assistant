@@ -69,8 +69,6 @@ def class_search():
     number = request.args.get('number')
     schedule_id = request.args.get('schedule_id')
     class_id = request.args.get('class_id')
-    # For debugging: remove later
-    print(f"Search term: '{abbreviation}{number}', class_id: {class_id}")
     classes = Course.query
 
     if abbreviation and number:
@@ -92,17 +90,9 @@ def replace_class():
     
     if schedule:
         if schedule.user_id == current_user.id:
-            # For debugging: remove later
-            print(f"Class ids: {schedule.class_ids}")
             if old_class_id in schedule.class_ids:
-                # For debugging: remove later
-                print(f"Old class id: {old_class_id}, new class id: {new_class_id}")
-
                 schedule.class_ids.remove(old_class_id)
                 schedule.class_ids.append(new_class_id)
-                
-                # For debugging: remove later
-                print(f"Class ids: {schedule.class_ids}")
 
                 db.session.commit()
                 return jsonify(success=True)
@@ -110,15 +100,16 @@ def replace_class():
     return jsonify(success=False)
 
 # Schedule Questionnaire
-@views.route('/schedules')
+@views.route('/new_schedule')
 @login_required
 def index():
-    return render_template('schedules.html')
+    return render_template('questionnaire.html')
 
 # Handle form submission
 @views.route('/submit', methods=['POST'])
 @login_required
 def submit():
+    print(f"SUBMIT start")
     default = 'MATH 130'
     core_class = request.form.get('core-class')
     seq_1 = request.form.get('sequence-1')
@@ -193,41 +184,51 @@ def submit():
             class_ids = list(map(int, output.splitlines()))
             print(f"Parsed Class IDs: {class_ids}")
 
+            # Instead of writing output into a csv file, I create a new Schedule object with 
+            # returned class ids
+            new_schedule = Schedule(class_ids=class_ids, user_id=current_user.id)
+            db.session.add(new_schedule)
+            db.session.commit()
+
             courses = Course.query.filter(Course.id.in_(class_ids)).all()
+            return render_template('view_schedule.html', schedule=new_schedule, courses=courses, user=current_user)
+
+            # courses = Course.query.filter(Course.id.in_(class_ids)).all()
 
             # Specify the directory to save the CSV file
-            directory = 'backend/static'
+            # directory = 'backend/static'
 
             # Write the course data to a CSV file
-            with open(os.path.join(directory, 'schedule.csv'), mode='w', newline='') as file:
-                writer = csv.writer(file)
-                # Write the header
-                writer.writerow(['ID', 'Abbreviation', 'Number', 'Title', 'Credit_Hours', 
-                                'Lecture_Time', 'Lecture_Days', 'Lecture_Location', 
-                                'Lab_Time', 'Lab_Days', 'Lab_Location'])
+            # with open(os.path.join(directory, 'schedule.csv'), mode='w', newline='') as file:
+            #     writer = csv.writer(file)
+            #     # Write the header
+            #     writer.writerow(['ID', 'Abbreviation', 'Number', 'Title', 'Credit_Hours', 
+            #                     'Lecture_Time', 'Lecture_Days', 'Lecture_Location', 
+            #                     'Lab_Time', 'Lab_Days', 'Lab_Location'])
                 
-                # Write the data for each course
-                for entry in courses:
-                    writer.writerow([
-                        entry.id,
-                        entry.abbreviation,
-                        entry.number,
-                        entry.title,
-                        entry.credit_hours,
-                        entry.lecture_time,
-                        entry.lecture_days,
-                        entry.lecture_location,
-                        entry.lab_time,
-                        entry.lab_days,
-                        entry.lab_location
-                    ])
+            #     # Write the data for each course
+            #     for entry in courses:
+            #         writer.writerow([
+            #             entry.id,
+            #             entry.abbreviation,
+            #             entry.number,
+            #             entry.title,
+            #             entry.credit_hours,
+            #             entry.lecture_time,
+            #             entry.lecture_days,
+            #             entry.lecture_location,
+            #             entry.lab_time,
+            #             entry.lab_days,
+            #             entry.lab_location
+            #         ])
         else:
             output = None
             error = result.stderr
 
         # Render a new HTML page with output as context variable
-        return redirect(url_for('views.generate'))
-        #return render_template('output.html', courses=courses, error=error)
+        # return redirect(url_for('views.generate'))
+        # return render_template('output.html', courses=courses, error=error)
+        # return render_template('output.html', courses=courses, error=error)
 
     except Exception as e:
         return render_template('output.html', output=None, error=str(e))
