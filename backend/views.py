@@ -106,9 +106,9 @@ def index():
     return render_template('questionnaire.html')
 
 # Handle form submission
-@views.route('/submit', methods=['POST'])
+@views.route('/form_submit', methods=['POST'])
 @login_required
-def submit():
+def form_submit():
     print(f"SUBMIT start")
     default = 'MATH 130'
     core_class = request.form.get('core-class')
@@ -168,6 +168,7 @@ def submit():
         cpp_executable_path = 'backend/c_code/cgen'
     else:
         cpp_executable_path = os.path.abspath('UTK-Class-Scheduling-Assistant/backend/c_code/cgen')
+
     file1_path = os.path.join('backend', 'c_code', 'eecs_courses.csv')
     file2_path = os.path.join('backend', 'c_code', 'major_courses.csv')
     file3_path = os.path.join('backend', 'c_code', 'data.csv')
@@ -189,9 +190,9 @@ def submit():
 
             # Instead of writing output into a csv file, I create a new Schedule object with 
             # returned class ids
-            # new_schedule = Schedule(class_ids=class_ids, user_id=current_user.id)
-            # db.session.add(new_schedule)
-            # db.session.commit()
+            new_schedule = Schedule(class_ids=class_ids, user_id=current_user.id)
+            db.session.add(new_schedule)
+            db.session.commit()
 
             # courses = Course.query.filter(Course.id.in_(class_ids)).all()
             # return render_template('view_schedule.html', schedule=new_schedule, courses=courses, user=current_user)

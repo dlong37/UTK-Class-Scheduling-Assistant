@@ -9,29 +9,22 @@
 {% block content %}
     <div class="content">
         <h1 class="heading">My Schedules</h1>
-        <ul class="list-group-flush" id="schedules">
+
+        <div class="schedule-wrapper">
             {% for schedule in user.schedules %}
-            <li class="list-group-item">
+            <li class="list-group-item schedule-button">
                 <a href="{{ url_for('views.view_schedule', schedule_id=schedule.id) }}">
                     {{ schedule.date.strftime('%Y-%m-%d %H:%M:%S') }}
                 </a>
-
                 <!-- Delete button, uses a separate function to communicate with backend -->
                 <button type="button" class="close" onClick="deleteSchedule({{ schedule.id }})">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </li>
             {% endfor %}
-        </ul>
-        <form class="schedule-form" method="POST">
-            <textarea name="class_ids" id="class_ids" class="form-control" placeholder="Enter class IDs separated by commas"></textarea>
-            <br/>
-                <button type="submit" class="btn btn-primary">Add Schedule</button>
-        </form>
-
-        <!-- New search for classes button -->
-        <div class="button-container">
-            <button class="schedules"><a href="/new_schedule">Schedule Questionnaire</a></button>
+            <div class="list-group-item new-schedule-button">
+                <a href="/new_schedule">Generate a New Schedule</a></button>
+            </div>
         </div>
     </div>
     
