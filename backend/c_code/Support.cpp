@@ -895,7 +895,7 @@ int schedule_next_courses(vector<course> &next_courses, vector<string> &needed, 
             for(int j = 0; j < twodvec[i].size(); j++) {
                 bool canschedule = true;
                 for(int k = 0; k < next_courses.size(); k++) {
-                    if((next_courses[k].lec_time == twodvec[i][j].lec_time && twodvec[i][j].lec_time != "none") || (next_courses[k].lab_time == twodvec[i][j].lab_time && twodvec[i][j].lab_time != "none") || (next_courses[k].lec_time == twodvec[i][j].lab_time && twodvec[i][j].lab_time != "none")) {
+                    if((next_courses[k].lec_time == twodvec[i][j].lec_time && twodvec[i][j].lec_time != "none") || (next_courses[k].lab_time == twodvec[i][j].lab_time && twodvec[i][j].lab_time != "none") || (next_courses[k].lec_time == twodvec[i][j].lab_time && twodvec[i][j].lab_time != "none") || (next_courses[k].lab_time == twodvec[i][j].lec_time && twodvec[i][j].lec_time != "none")) {
                         canschedule = false;
                     }
                 }
