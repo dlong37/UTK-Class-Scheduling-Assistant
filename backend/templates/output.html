@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Output
+{% endblock %}
+
+{% block content %}
+
+{% if courses %}
+<h2>Classes:</h2>
+<ul>
+    {% for course in courses %}
+        <li>
+            {{ course.abbreviation }} {{ course.number }}: {{ course.title }}<br>
+            Credits: {{ course.credit_hours }}<br>
+            Lecture: {{ course.lecture_time }} on {{ course.lecture_days }}<br>
+            Lab: {{ course.lab_time }} on {{ course.lab_days }}
+        </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No classes found or error in generating schedule.</p>
+{% endif %}
+
+{% if error %}
+<h2>Error:</h2>
+<pre>{{ error }}</pre>
+{% endif %}
+
+{% endblock %}

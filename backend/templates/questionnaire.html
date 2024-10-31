@@ -12,7 +12,7 @@
             <div id="success-message" style="display: none; color: green; margin-top: 20px;">
                 Data saved successfully!
             </div>
-            <form id="schedules-form" action="/submit" method="post">
+            <form id="schedules-form" action="/form_submit" method="post">
                 <h1 class="heading">Schedule Questionnaire</h1>
                 <h1 class="subheading">Core Classes</h1>
                 <!-- Assume MATH 130 has been completed! -->
@@ -77,9 +77,11 @@
                 <label>COSC 340<input type="checkbox" name="cs-credit" value="COSC 340"></label><br>
                 <br>
 
-                <!-- Convert to Yes or No -->
-                <label for="question">If you have taken COSC 361, please check this box.</label><br>
-                <label>COSC 361<input type="checkbox" name="cs361-credit" value="COSC 361"></label><br>
+                <label for="question">If you have taken COSC 361, please select it from the dropdown</label>
+                <select id="question" name="cs361-credit">
+                    <option value="N/A">N/A</option>
+                    <option value="COSC 361">COSC 361</option>
+                </select>
                 <br><br>
 
                 <h1 class="subheading">Elective Classes</h1>
@@ -112,22 +114,13 @@
                 <br><br>
 
                 <h1 class="subheading">Time of Day Preferences</h1>
-                <label for="question">What time would you like your classes to start on MWF?</label>
-                <select id="question" name="MWF-start-time">
+                <label for="question">What time would you like your classes to start?</label>
+                <select id="question" name="start-time">
                     <option value="0800">8:00</option>
-                    <option value="0910">9:10</option>
-                    <option value="1020">10:20</option>
-                    <option value="1130">11:30</option>
-                    <option value="1240">12:40</option>
-                </select>
-                <br><br>
-
-                <label for="question">What time would you like your classes to start on TR?</label>
-                <select id="question" name="TR-start-time">
-                    <option value="0810">8:10</option>
-                    <option value="0945">9:45</option>
-                    <option value="1120">11:20</option>
-                    <option value="1255">12:55</option>
+                    <option value="0900">9:00</option>
+                    <option value="1000">10:00</option>
+                    <option value="1100">11:00</option>
+                    <option value="1200">12:00</option>
                 </select>
                 <br><br><br>
 

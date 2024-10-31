@@ -1,6 +1,6 @@
 # Backend for routes to other pages
 
-from flask import Blueprint, render_template, request, flash, jsonify, redirect, url_for
+from flask import Blueprint, render_template, request, flash, jsonify, redirect, url_for, send_from_directory
 from flask_login import login_required, current_user
 from .models import Schedule, Course
 from . import db
@@ -69,8 +69,6 @@ def class_search():
     number = request.args.get('number')
     schedule_id = request.args.get('schedule_id')
     class_id = request.args.get('class_id')
-    # For debugging: remove later
-    print(f"Search term: '{abbreviation}{number}', class_id: {class_id}")
     classes = Course.query
 
     if abbreviation and number:
@@ -92,17 +90,9 @@ def replace_class():
     
     if schedule:
         if schedule.user_id == current_user.id:
-            # For debugging: remove later
-            print(f"Class ids: {schedule.class_ids}")
             if old_class_id in schedule.class_ids:
-                # For debugging: remove later
-                print(f"Old class id: {old_class_id}, new class id: {new_class_id}")
-
                 schedule.class_ids.remove(old_class_id)
                 schedule.class_ids.append(new_class_id)
-                
-                # For debugging: remove later
-                print(f"Class ids: {schedule.class_ids}")
 
                 db.session.commit()
                 return jsonify(success=True)
@@ -110,29 +100,32 @@ def replace_class():
     return jsonify(success=False)
 
 # Schedule Questionnaire
-@views.route('/schedules')
+@views.route('/new_schedule')
 @login_required
 def index():
-    return render_template('schedules.html')
+    return render_template('questionnaire.html')
 
 # Handle form submission
-@views.route('/submit', methods=['POST'])
+@views.route('/form_submit', methods=['POST'])
 @login_required
-def submit():
+def form_submit():
+    print(f"SUBMIT start")
+    default = 'MATH 130'
     core_class = request.form.get('core-class')
     seq_1 = request.form.get('sequence-1')
     seq_2 = request.form.get('sequence-2')
     math_credits = request.form.getlist('math-credit')
     seq_3 = request.form.get('sequence-3')
     seq_4 = request.form.get('sequence-4')
-    cs361_credit = request.form.getlist('cs361-credit')
+    cs_credits = request.form.getlist('cs-credit')
+    cs361_credit = request.form.get('cs361-credit')
     elective_credits = request.form.getlist('elective-credit')
     credit_hours = request.form.get('credit-hours')
-    mwf_start_time = request.form.get('MWF-start-time')
-    tr_start_time = request.form.get('TR-start-time')
+    start_time = request.form.get('start-time')
 
     # Prepare data for CSV
     data_entries = [
+        [default],
         [core_class],
         [seq_1],
         [seq_2],
@@ -145,6 +138,10 @@ def submit():
     data_entries.append([seq_3])
     data_entries.append([seq_4])
 
+    # Add CS credits as separate entries
+    for credit in cs_credits:
+        data_entries.append([credit])
+
     # Add elective credits as separate entries
     for credit in elective_credits:
         data_entries.append([credit])
@@ -152,43 +149,92 @@ def submit():
     # Add other data
     data_entries.append([cs361_credit])
     data_entries.append([credit_hours])
-    data_entries.append([mwf_start_time])
-    data_entries.append([tr_start_time])
+    data_entries.append([start_time])
 
     # Defines the directory where the csv file will be saved
     directory = 'backend/c_code'
 
-    # Create the directory if it doesn't exist
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+    if os.path.exists(directory):
+        directory = directory
+    else:
+        directory = os.path.abspath('UTK-Class-Scheduling-Assistant/backend/c_code/')
 
     # Write to CSV file
     with open(os.path.join(directory, 'data.csv'), mode='w', newline='') as file:
-        writer = csv.writer(file)
+        writer = csv.writer(file, lineterminator='\n')
         for entry in data_entries:
             writer.writerow(entry)
 
-    cpp_executable_path = os.path.join('backend', 'c_code', 'loc')
-    file1_path = os.path.join('backend', 'c_code', 'eecs_courses.csv')
-    file2_path = os.path.join('backend', 'c_code', 'major_courses.csv')
-    file3_path = os.path.join('backend', 'c_code', 'taken_courses.csv')
+    cpp_executable_path = os.path.join(directory, 'cgen')
+    file1_path = os.path.join(directory, 'eecs_courses.csv')
+    file2_path = os.path.join(directory, 'major_courses.csv')
+    file3_path = os.path.join(directory, 'data.csv')
+    mode = 'location'
 
-    command = [cpp_executable_path, file1_path, file2_path, file3_path]
+    command = [cpp_executable_path, file1_path, file2_path, file3_path, mode]
 
     try:
         result = subprocess.run(command, capture_output=True, text=True)
         
         # Collect output and error
         if result.returncode == 0:
-            output = result.stdout
+            output = result.stdout.strip()
+            print(f"Raw output from C++ program: {output}")
             error = None
+
+            class_ids = list(map(int, output.splitlines()))
+            print(f"Parsed Class IDs: {class_ids}")
+
+            # Instead of writing output into a csv file, I create a new Schedule object with 
+            # returned class ids
+            new_schedule = Schedule(class_ids=class_ids, user_id=current_user.id)
+            db.session.add(new_schedule)
+            db.session.commit()
+
+            # courses = Course.query.filter(Course.id.in_(class_ids)).all()
+            # return render_template('view_schedule.html', schedule=new_schedule, courses=courses, user=current_user)
+
+            courses = Course.query.filter(Course.id.in_(class_ids)).all()
+
+            # Specify the directory to save the CSV file
+            directory = 'backend/static'
+
+            if os.path.exists(directory):
+                directory = directory
+            else:
+                directory = os.path.abspath('UTK-Class-Scheduling-Assistant/backend/static/')
+
+            # Write the course data to a CSV file
+            with open(os.path.join(directory, 'schedule.csv'), mode='w', newline='') as file:
+                writer = csv.writer(file)
+                # Write the header
+                writer.writerow(['ID', 'Abbreviation', 'Number', 'Title', 'Credit_Hours', 
+                                'Lecture_Time', 'Lecture_Days', 'Lecture_Location', 
+                                'Lab_Time', 'Lab_Days', 'Lab_Location'])
+                
+                # Write the data for each course
+                for entry in courses:
+                    writer.writerow([
+                        entry.id,
+                        entry.abbreviation,
+                        entry.number,
+                        entry.title,
+                        entry.credit_hours,
+                        entry.lecture_time,
+                        entry.lecture_days,
+                        entry.lecture_location,
+                        entry.lab_time,
+                        entry.lab_days,
+                        entry.lab_location
+                    ])
         else:
             output = None
             error = result.stderr
 
         # Render a new HTML page with output as context variable
         return redirect(url_for('views.generate'))
-        #return render_template('output.html', output=output, error=error)
+        # return render_template('output.html', courses=courses, error=error)
+        # return render_template('output.html', courses=courses, error=error)
 
     except Exception as e:
         return render_template('output.html', output=None, error=str(e))

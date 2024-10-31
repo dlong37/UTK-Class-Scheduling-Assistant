@@ -1,0 +1,5 @@
+ID,Abbreviation,Number,Title,Credit_Hours,Lecture_Time,Lecture_Days,Lecture_Location,Lab_Time,Lab_Days,Lab_Location
+15,MATH,141,Calculus I,4,01:50 PM - 02:20 PM,MWF,HSS,02:30 PM - 03:45 PM,R,HSS
+90,ENGL,101,English Composition I,3,09:10 AM - 10:00 AM,MWF,MKB,,,
+137,COSC,101,Introduction to Programming,3,02:30 PM - 03:45 PM,TR,WAB,,,
+147,EF,151,Physics for Engineers I,4,09:10 AM - 10:00 AM,MWF,ZEC,09:45 AM - 11:00 AM,TR,ZEC
