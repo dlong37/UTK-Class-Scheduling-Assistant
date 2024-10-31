@@ -1,0 +1,560 @@
+cgen.cpp
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400   4) // eecs_courses.csv + major_courses.csv + taken_courses.csv
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400   5) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400   6) int user_hour = 0;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400   7) int user_min = 0;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400   8) int gap = 0;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400   9) int credit_hours = 0;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  10) vector<course> scheduled_courses;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  11) vector<course> perm_courses;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  12) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  60)     if (flag == 1) { // gaps program
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  61)         string input;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  62)         cout << "What time would you like to start your classes?\nPlease enter in 24-hour time (0000-2359): ";
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  63)         while (1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  64)             cin >> input;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  65)             if (input.length() == 4) { // check string length
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  66)                 user_hour = stoi(input.substr(0,2));
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  67)                 user_min = stoi(input.substr(2,2));
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  68)                 if (user_hour >= 0 && user_hour < 24 && user_min >= 0 && user_min < 60) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  69)                     break;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  70)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  71)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  72)             cout << "Please enter a valid time (0000-2359): ";
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  73)         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  74) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  75)         cout << "How many minutes would you like between classes?: ";
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  76)         while (1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  77)             cin >> gap;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  78)             if (gap >= 0 && gap < 1440) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  79)                 break;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  80)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  81)             cout << "Please enter a valid number of minutes (0-1439): ";
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  82)         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  83) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  84)         cout << "How many credit hours would you like to take next semester?: ";
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  85)         while (1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  86)             cin >> credit_hours;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  87)             if (credit_hours > 0) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  88)                 break;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  89)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  90)             cout << "Please enter a valid number of credit hours (>0): ";
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  91)         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  92) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  93)         // Create the 2D matrix for the course scheduler
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  94)         vector<vector<int>> schedule(60*24, vector<int>(5, 0));
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  95) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  96)         // create schedule
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  97)         create_schedule(schedule, course_vector, taken_vector, major_vector, credit_hours, scheduled_courses, perm_courses, user_hour, user_min, gap);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  99)         // print schedule
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 100)         print_array(schedule);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 103)     if (flag == 2) {
+
+Support.cpp
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400   7) #include <queue>
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  15) #define MINS_PER_HOUR 60
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 289) }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 290) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 291) // Lexy's Functions
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 292) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 293) priority_queue<course, vector<course>, CompareCourse> create_pq(vector<course> remaining_vector, vector<vector<int>> schedule, int user_hour, int user_min, int gap) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 294)     priority_queue<course, vector<course>, CompareCourse> pq;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 295)     for (int i = 0; i < (int)remaining_vector.size(); i++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 296)         // calculate start time in minutes
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 297)         // only based on lecture days! I would love to do labs as well, but that would require deep structural changes
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 298)         string lec_days = remaining_vector[i].lec_date;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 299)         // find the last minute that a course is scheduled for:
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 300)         int rows = schedule.size();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 301)         int startx = 0;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 302)         for (int j = 0; j < rows; ++j) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 303)             for (int k = 0; k < (int)lec_days.size(); k++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 304)                 if (schedule[j][0] == 1 && lec_days[k] == 'M') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 305)                     startx = j;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 306)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 307)                 if (schedule[j][1] == 1 && lec_days[k] == 'T') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 308)                     startx = j;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 309)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 310)                 if (schedule[j][2] == 1 && lec_days[k] == 'W') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 311)                     startx = j;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 312)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 313)                 if (schedule[j][3] == 1 && lec_days[k] == 'R') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 314)                     startx = j;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 315)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 316)                 if (schedule[j][4] == 1 && lec_days[k] == 'F') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 317)                     startx = j;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 318)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 319)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 320)         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 321)         // if nothing was scheduled for any time, make startx the global variable start time
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 337) };
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 348) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 349) void print_array( vector<vector<int>> arr) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 350)     // Get number of rows
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 351)     int rows = arr.size();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 352)     // Check if the matrix is non-empty and get the number of columns from the first row
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 353)     if (rows > 0) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 354)         int cols = arr[0].size();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 355) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 356)         // Nested for loops to print the matrix
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 357)         for (int i = 0; i < cols; ++i) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 358)             for (int j = 0; j < rows; ++j) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 359)                 if (arr[j][i] == 1) { // Access elements by index
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 360)                     // print by day + min
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 361)                     if (i == 0) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 362)                         cout << "M at " << j << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 363)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 364)                     else if (i == 1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 365)                         cout << "T at " << j << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 366)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 367)                     else if (i == 2) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 368)                         cout << "W at " << j << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 369)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 370)                     else if (i == 3) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 371)                         cout << "R at " << j << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 372)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 373)                     else if (i == 4) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 374)                         cout << "F at " << j << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 375)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 376)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 377)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 378)         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 379)     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 380) };
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 381) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 458) bool check_conflicts(vector<vector<int>> schedule, course course) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 459)     int lec_start_time = stoi(course.lec_time.substr(0, 2)) * MINS_PER_HOUR + stoi(course.lec_time.substr(2, 2));
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 460)         cout << "lec start time: " << lec_start_time << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 461)     int lec_end_time = stoi(course.lec_time.substr(5, 2)) * MINS_PER_HOUR + stoi(course.lec_time.substr(7, 2));
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 462)         cout << "lec end time: " << lec_end_time << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 463)     int lab_start_time = 0;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 464)         cout << "lab start time: " << lab_start_time << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 465)     int lab_end_time = 0;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 466)         cout << "lab start time: " << lab_end_time << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 467) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 468)     if (course.lab_time != "none") {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 469)         lab_start_time = stoi(course.lab_time.substr(0, 2)) * MINS_PER_HOUR + stoi(course.lab_time.substr(2, 2));
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 470)         lab_end_time = stoi(course.lab_time.substr(5, 2)) * MINS_PER_HOUR + stoi(course.lab_time.substr(7, 2));
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 471)     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 472) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 473)     string lec_days = course.lec_date;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 474)     string lab_days = course.lab_date;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 475) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 476)     // check lecture first
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 477)     for (int i = 0; i < (int)lec_days.length(); i++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 478)         for (int j = lec_start_time; j < lec_end_time; j++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 479)             if (lec_days[i] == 'M') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 480)                 if (schedule[j][0] == 1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 481)                     return true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 482)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 483)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 484)             else if (lec_days[i] == 'T') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 485)                 if (schedule[j][1] == 1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 486)                     return true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 487)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 488)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 489)             else if (lec_days[i] == 'W') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 490)                 if (schedule[j][2] == 1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 491)                     return true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 492)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 493)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 494)             else if (lec_days[i] == 'R') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 495)                 if (schedule[j][3] == 1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 496)                     return true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 497)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 498)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 499)             else if (lec_days[i] == 'F') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 500)                 if (schedule[j][4] == 1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 501)                     return true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 502)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 503)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 504)         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 505)     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 506)     // then, check lab
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 507)     if (lab_days == "none") {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 508)         return false;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 509)     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 510)     else {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 511)         for (int i = 0; i < (int)lab_days.length(); i++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 512)             for (int j = lab_start_time; j < lab_end_time; j++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 513)                 if (lab_days[i] == 'M') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 514)                     if (schedule[j][0] == 1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 515)                         return true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 516)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 517)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 518)                 else if (lab_days[i] == 'T') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 519)                     if (schedule[j][1] == 1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 520)                         return true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 521)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 522)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 523)                 else if (lab_days[i] == 'W') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 524)                     if (schedule[j][2] == 1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 525)                         return true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 526)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 527)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 528)                 else if (lab_days[i] == 'R') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 529)                     if (schedule[j][3] == 1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 530)                         return true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 531)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 532)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 533)                 else if (lab_days[i] == 'F') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 534)                     if (schedule[j][4] == 1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 535)                         return true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 536)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 537)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 538)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 539)         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 540)     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 541) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 542)     // if we got here, the time is free!
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 543)     return false;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 544) };
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 545) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 546) void add_to_schedule(vector<vector<int>> &schedule, course course_c, vector<course> &scheduled_courses) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 547)     scheduled_courses.push_back(course_c);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 548) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 549)     int lec_start_time = stoi(course_c.lec_time.substr(0, 2)) * MINS_PER_HOUR + stoi(course_c.lec_time.substr(2, 2));
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 550)     int lec_end_time = stoi(course_c.lec_time.substr(5, 2)) * MINS_PER_HOUR + stoi(course_c.lec_time.substr(7, 2));
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 551)     int lab_start_time = 0;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 552)     int lab_end_time = 0;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 553) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 554)     if (course_c.lab_time != "none") {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 555)         lab_start_time = stoi(course_c.lab_time.substr(0, 2)) * MINS_PER_HOUR + stoi(course_c.lab_time.substr(2, 2));
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 556)         lab_end_time = stoi(course_c.lab_time.substr(5, 2)) * MINS_PER_HOUR + stoi(course_c.lab_time.substr(7, 2));
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 557)     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 558) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 559)     string lec_days = course_c.lec_date;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 560)     string lab_days = course_c.lab_date;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 561) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 562)     // add lecture first
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 563)     for (int i = 0; i < (int)lec_days.length(); i++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 564)         for (int j = lec_start_time; j < lec_end_time; j++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 565)             if (lec_days[i] == 'M') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 566)                 schedule[j][0] = 1;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 567)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 568)             else if (lec_days[i] == 'T') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 569)                 schedule[j][1] = 1;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 570)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 571)             else if (lec_days[i] == 'W') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 572)                 schedule[j][2] = 1;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 573)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 574)             else if (lec_days[i] == 'R') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 575)                 schedule[j][3] = 1;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 576)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 577)             else if (lec_days[i] == 'F') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 578)                 schedule[j][4] = 1;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 579)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 580)         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 581)     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 582) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 583)     // then add lab
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 584)     if (lab_days == "none") {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 585)         return;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 586)     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 587)     for (int i = 0; i < (int)lab_days.length(); i++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 588)         for (int j = lab_start_time; j < lab_end_time; j++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 589)             if (lab_days[i] == 'M') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 590)                 schedule[j][0] = 1;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 591)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 592)             else if (lab_days[i] == 'T') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 593)                 schedule[j][1] = 1;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 594)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 595)             else if (lab_days[i] == 'W') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 596)                 schedule[j][2] = 1;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 597)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 598)             else if (lab_days[i] == 'R') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 599)                 schedule[j][3] = 1;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 600)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 601)             else if (lab_days[i] == 'F') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 602)                 schedule[j][4] = 1;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 603)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 604)         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 605)     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 606) };
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 607) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 608) vector<course> create_remaining_vector(vector<course> course_vector, vector<string> string_vector) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 609)     vector<course> remaining_vector;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 610)     for (int i = 0; i < (int)course_vector.size(); i++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 611)         for (int j = 0; j < (int)string_vector.size(); j++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 612)             string name = course_vector[i].abbrv + " " + to_string(course_vector[i].num);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 613)             if (string_vector[j] == name) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 614)                 remaining_vector.push_back(course_vector[i]);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 615)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 616)         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 617)     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 618)     return remaining_vector;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 619) };
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 620) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 621) bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> course_vector, vector<string> taken_vector, vector<course> &perm_courses, int user_hour, int user_min, int gap, vector<course> &scheduled_courses) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 622)     vector<course> scheduled_cr;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 623)     bool cr_scheduled = true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 624)     // check for co-reqs
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 625)     if (c.co_req != "none") {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 626)         int index = 0;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 627)         vector<string> or_vector;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 628)         string cr;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 629)         vector<vector<int>> cr_schedule = temp_schedule;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 630) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 631)         // start filtering out the co-req courses
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 632)         for (int i = 0; i < (int)c.co_req.size(); i++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 633) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 634)             // hit an OR sign: add to OR vector
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 635)             if (c.co_req[i] == '|') { // add to OR vector only
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 636)                 cr = c.co_req.substr(index, i-index);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 637)                 or_vector.push_back(cr);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 638)                 index = i+1;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 639)                 cout << "push " << cr << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 640)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 641) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 642)             // hit an AND sign: check OR vector + attempt to schedule
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 643)             if (c.co_req[i] == '&') {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 644)                 // push class onto the OR vector
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 645)                 cr = c.co_req.substr(index, i-index);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 646)                 or_vector.push_back(cr);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 647)                 cout << "push " << cr << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 648) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 649)                 /* attempt to schedule one of the co-reqs */
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 650)                 bool taken;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 651)                 for (int j = 0; j < (int)taken_vector.size(); j++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 652)                     for (int k = 0; k < (int)or_vector.size(); k++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 653)                         if (taken_vector[j] == or_vector[k]) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 654)                             taken = true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 655)                             or_vector.clear();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 656)                         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 657)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 658)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 659)                 // check taken vector first
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 660)                 for (int j = 0; j < (int)perm_courses.size(); j++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 661)                     string name = perm_courses[j].abbrv + " " + to_string(perm_courses[j].num);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 662)                     for (int k = 0; k < (int)or_vector.size(); k++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 663)                         if (name == or_vector[k]) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 664)                             taken = true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 665)                             or_vector.clear();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 666)                         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 667)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 668)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 669)                 if (taken == false) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 670)                     // create a vector of courses from the or_vector
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 671)                     vector<course> remaining_crs = create_remaining_vector(course_vector, or_vector);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 672)                     // create a new priority queue for just the co-reqs
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 673)                     priority_queue<course, vector<course>, CompareCourse> cr_pq = create_pq(remaining_crs, temp_schedule, user_hour, user_min, gap);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 674)                     // check pre-reqs
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 675)                     while(1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 676)                         if (check_pr(taken_vector, cr_pq) == true) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 677)                             // check conflicts
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 678)                             if (check_conflicts(cr_schedule, cr_pq.top()) == false) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 679)                                 // schedule
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 680)                                 add_to_schedule(cr_schedule, cr_pq.top(), scheduled_courses);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 681)                                 scheduled_cr.push_back(cr_pq.top());
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 682)                                 or_vector.clear();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 683)                                 break;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 684)                             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 685)                             // if this doesn't work, pop the queue + try again
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 686)                             cr_pq.pop();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 687)                         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 688)                         else { 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 689)                             cout << "failed to schedule a co-req" << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 690)                             cr_scheduled = false;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 691)                             scheduled_cr.clear();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 692)                             break;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 693)                         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 694)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 695)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 696)                 // if we checked, but weren't able to match, this class is unabled to be scheduled
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 697)                 if (or_vector.size() != 0) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 698)                     cr_scheduled = false;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 699)                     break;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 700)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 701)                 // increment index
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 702)                 index = i+1;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 703)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 704) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 705)             // grab last course + check
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 706)             if (i == (int)c.co_req.size()-1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 707)                 // push
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 708)                 cr = c.co_req.substr(index, c.co_req.size() - index);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 709)                 or_vector.push_back(cr);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 710)                 cout << "push last class" << cr << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 711) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 712)                 /* final attempt to schedule */
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 713)                 bool taken;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 714)                 for (int j = 0; j < (int)taken_vector.size(); j++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 715)                     for (int k = 0; k < (int)or_vector.size(); k++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 716)                         if (taken_vector[j] == or_vector[k]) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 717)                             taken = true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 718)                             or_vector.clear();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 719)                         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 720)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 721)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 722)                 // check taken vector first
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 723)                 for (int j = 0; j < (int)perm_courses.size(); j++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 724)                     string name = perm_courses[j].abbrv + " " + to_string(perm_courses[j].num);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 725)                     for (int k = 0; k < (int)or_vector.size(); k++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 726)                         if (name == or_vector[k]) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 727)                             taken = true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 728)                             or_vector.clear();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 729)                         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 730)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 731)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 732)                 if (taken == false) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 733)                     // create a vector of courses from the or_vector
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 734)                     vector<course> remaining_crs = create_remaining_vector(course_vector, or_vector);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 735)                     // create a new priority queue for just the co-reqs
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 736)                     priority_queue<course, vector<course>, CompareCourse> cr_pq = create_pq(remaining_crs, temp_schedule, user_hour, user_min, gap);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 737)                     // check pre-reqs
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 738)                     while(1) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 739)                         if (check_pr(taken_vector, cr_pq) == true) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 740)                             // check conflicts
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 741)                             if (check_conflicts(cr_schedule, cr_pq.top()) == false) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 742)                                 // schedule
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 743)                                 add_to_schedule(cr_schedule, cr_pq.top(), scheduled_courses);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 744)                                 scheduled_cr.push_back(cr_pq.top());
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 745)                                 or_vector.clear();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 746)                                 break;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 747)                             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 748)                             // if this doesn't work, pop the queue + try again
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 749)                             cr_pq.pop();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 750)                         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 751)                         else { 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 752)                             cout << "failed to schedule a co-req" << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 753)                             cr_scheduled = false;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 754)                             scheduled_cr.clear();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 755)                             break;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 756)                         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 757)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 758)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 759)                 // if we checked, but weren't able to match, this class is unabled to be scheduled
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 760)                 if (or_vector.size() != 0) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 761)                     cr_scheduled = false;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 762)                     scheduled_cr.clear();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 763)                     break;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 764)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 765)                 else {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 766)                     cout << "all co-reqs successfully scheduled" << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 767)                     temp_schedule = cr_schedule;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 768)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 769)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 770)         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 771)     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 772)     return cr_scheduled;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 773) };
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 774) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 775) void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector, vector<string> taken_vector, vector<string> major_vector, int credit_hours, vector<course> &scheduled_courses, vector<course> &perm_courses, int user_hour, int user_min, int gap) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 776)     ofstream appendfile("lexy_schedule.csv");
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 777)     // loop here until credit hours are met
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 778)     int total_hours = 0;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 779)     int passes = 0;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 780)     bool scheduled_success;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 781)     vector<course> remaining_vector;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 782)     priority_queue<course, vector<course>, CompareCourse> pq;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 783) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 784)     while (total_hours < credit_hours) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 785)         if (passes == 0 || scheduled_success == true) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 786)             // Create a remaining courses vector to pull ALL reamining courses from the database.
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 787)             remaining_vector = create_remaining_vector(course_vector, major_vector);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 788)             // Create min heap priority queue
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 789)             pq = create_pq(remaining_vector, schedule, user_hour, user_min, gap);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 790)             // print pq
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 791)             print_pq(pq);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 792)             // reset
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 793)             scheduled_success = false;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 794)         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 795)         passes++;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 796) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 797)         if (check_pr(taken_vector, pq) == true) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 798)             cout << "Passed PRs - " << pq.top().abbrv << " " << pq.top().num << " : " << pq.top().title << " at " << pq.top().lec_time << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 799) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 800)             // attempt to schedule the first class
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 801)             course c = pq.top();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 802) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 803)             // create a temp schedule to hold old values - but as to not destroy the previous schedule in case there are conflicts! only in use with co-reqs
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 804)             vector<vector<int>> temp_schedule = schedule;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 805) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 806)             // check for conflicts
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 807)             if (check_conflicts(schedule, c) == false) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 808)                 cout << "No time conflicts" << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 809) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 810)                 // schedule (tentatively)
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 811)                 add_to_schedule(temp_schedule, c, scheduled_courses);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 812) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 813)                 // check + schedule co-reqs
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 814)                 if (check_crs(c, temp_schedule, course_vector, taken_vector, perm_courses, user_hour, user_min, gap, scheduled_courses) == true) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 815)                     // we scheduled a class!
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 816)                     cout << "Scheduled CRs" << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 817)                     schedule = temp_schedule;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 818)                     scheduled_success = true;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 819) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 820)                     // remove scheduled courses from major_vector
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 821)                     for (int i = 0; i < (int)major_vector.size(); i++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 822)                         for (int j = 0; j < (int)scheduled_courses.size(); j++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 823)                             string name = scheduled_courses[j].abbrv + " " + to_string(scheduled_courses[j].num);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 824)                             if (major_vector[i] == name) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 825)                                 major_vector.erase(major_vector.begin() + i);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 826)                             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 827)                         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 828)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 829)                     // determine number of credit hours + write to file
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 830)                     if (appendfile.is_open()) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 831)                         for (int i = 0; i < (int)scheduled_courses.size(); i++) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 832)                             total_hours += scheduled_courses[i].hours;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 833)                             perm_courses.push_back(scheduled_courses[i]);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 834) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 835)                             cout << "SCHEDULED " << scheduled_courses[i].abbrv << " " << scheduled_courses[i].num << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 836) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 837)                             // Abbreviation,Number,Title,Hours,Attributes,LcTime,LcDate,LcLocation,LaTime,LaDate,LaLocation
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 838)                             appendfile << 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 839)                             scheduled_courses[i].abbrv << "," << 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 840)                             scheduled_courses[i].num << "," <<
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 841)                             scheduled_courses[i].title << "," <<
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 842)                             scheduled_courses[i].hours << "," <<
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 843)                             scheduled_courses[i].attributes << "," <<
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 844)                             scheduled_courses[i].lec_time << "," <<
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 845)                             scheduled_courses[i].lec_date << "," <<
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 846)                             scheduled_courses[i].lec_loc << "," <<
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 847)                             scheduled_courses[i].lab_time << "," <<
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 848)                             scheduled_courses[i].lab_date << "," <<
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 849)                             scheduled_courses[i].lab_loc << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 850)                         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 851)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 852)                     else {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 853)                         cerr << "Unable to open file." << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 854)                     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 855)                     scheduled_courses.clear();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 856)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 857)                 else {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 858)                     // pop the queue + try again
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 859)                     pq.pop();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 860)                 }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 861)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 862)             else {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 863)                 cout << "Time Conflicts!" << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 864)                 pq.pop();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 865)             }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 866)         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 867)         else if (pq.empty()) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 868)             cout << "No more schedulable classes." << endl;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 869)             break;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 870)         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 871)         else {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 872)             pq.pop();
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 873)         }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 874)     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 875)     appendfile.close();
+
+Support.hcd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  9) #include <queue>
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 30)         int priority = 0;
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 32) };
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 33) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 34) struct CompareCourse {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 35)     bool operator()(const course& c1, const course& c2) {
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 36)         return c1.priority > c2.priority;  // Min-heap: closer to 0 = higher priority
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 37)     }
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 74) // Lexy's Functions
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 75) priority_queue<course, vector<course>, CompareCourse> create_pq(vector<course> remaining_vector, vector<vector<int>> schedule, int user_hour, int user_min, int gap);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 76) void print_pq(priority_queue<course, vector<course>, CompareCourse> pq);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 77) void print_array( vector<vector<int>> arr);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 78) bool check_pr(vector<string> taken_vector, priority_queue<course, vector<course>, CompareCourse> &pq);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 79) bool check_conflicts(vector<vector<int>> schedule, course course);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 80) void add_to_schedule(vector<vector<int>> &schedule, course course_c, vector<course> &scheduled_courses);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 81) vector<course> create_remaining_vector(vector<course> course_vector, vector<string> string_vector);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 82) bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> course_vector, vector<string> taken_vector, vector<course> &perm_courses, int user_hour, int user_min, int gap, vector<course> &scheduled_courses);
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400 83) void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector, vector<string> taken_vector, vector<string> major_vector, int credit_hours, vector<course> &scheduled_courses, vector<course> &perm_courses, int user_hour, int user_min, int gap);
