@@ -18,7 +18,7 @@ Group Name: UTK-Class-Scheduling-Assistant</br>
 - Rewriting the program to split it up into different files was hard!
 - I had to adjust some code, such as:
   * making sure I was creating gaps between classes all on the same day (at first, I was not considering this, I just gapped from the class that was last scheduled).
-  * printing out scheduled classes - this was a whole problem to solve since I was manipulating the data in a lot of different places, and so information might not be the same all the time.
+  * printing out scheduled classes - this was difficult because there was a lot of data manipulation (vectors popping and pushing classes, temp and permanent schedules, etc.)
   * making the schedule. It required a lot of temporary storage, since a class might fail to be scheduled for many reasons. I had to save a lot of "temporary schedules" so that I could revert to a previous state in case a class failed to be scheduled.
 - Motivation. It was hard to make myself sit down and actually write the code sometimes.
 
@@ -44,7 +44,7 @@ Group Name: UTK-Class-Scheduling-Assistant</br>
   * If it didn't, I then checked if other co-reqs needed to be scheduled.
   * If they did - rinse and repeat the program (check for pre-reqs, pass in the last class to determine the time to gap, etc.)
   * If everything passed, hooray! We scheduled a class.
-  * If it didn't, move to the next class in the prioirity queue and try to schedule that one.
+  * If it didn't, move to the next class in the prioirity queue and try to schedule that one. Revert back to the last permanent schedule and try to add on.
   * After scheduling, I popped the class off all vectors where it was stored so that it will not be scheduled again in the future.
   * Once a certain number of credit hours were fulfilled (or we ran out of courses to schedule), it stopped scheduling and printed your schedule to lexy_schedule.csv.
 - Support.h:
