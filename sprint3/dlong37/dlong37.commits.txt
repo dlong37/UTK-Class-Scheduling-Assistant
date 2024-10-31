@@ -1,0 +1,513 @@
+backend/templates/questionnaire.html
+NOTE: Tatiana deleted my "schedules.html" file this code is from and created a new file called "questionnaire.html." Because of this, all of my commits were overwritten.
+I do know the code I worked on though, and I hope this is acceptable.
+If needed, here are the specific commits where I altered this file:
+    - b77b892
+    - 18452fb
+    - 84803a9
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  31)                 <h1 class="subheading">Sequences</h1>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  32)                 <label for="question">Which classes have you taken in this sequence?</label><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  33)                 <select id="question" name="sequence-1">
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  34)                     <option value="N/A">N/A</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  35)                     <option value="COSC 101">COSC 101</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  36)                     <option value="COSC 102">COSC 102</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  37)                     <option value="COSC 230">COSC 230</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  38)                 </select>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  39)                 <br><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  40)
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  41)                 <label for="question">Which classes have you taken in this EF sequence?</label><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  42)                 <select id="question" name="sequence-2">
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  43)                     <option value="N/A">N/A</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  44)                     <option value="EF 151">EF 151</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  45)                     <option value="EF 152">EF 152</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  46)                 </select>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  47)                 <br><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  48) 
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  49)                 <label for="question">Which of these MATH classes have you taken?</label><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  50)                 <label>MATH 141<input type="checkbox" name="math-credit" value="MATH 141"></label><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  51)                 <label>MATH 142<input type="checkbox" name="math-credit" value="MATH 142"></label><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  52)                 <label>MATH 251<input type="checkbox" name="math-credit" value="MATH 251"></label><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  53)                 <label>ECE 313<input type="checkbox" name="math-credit" value="ECE 313"></label><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  54)                 <br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  55)
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  56)                 <label for="question">What was your most recent class in this ENGL sequence?</label>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  57)                 <select id="question" name="sequence-3">
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  58)                     <option value="N/A">N/A</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  59)                     <option value="ENGL 101">ENGL 101</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  60)                     <option value="ENGL 102">ENGL 102</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  61)                     <option value="ENGL 355">ENGL 355</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  62)                 </select>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  63)                 <br><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  64)
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  65)                 <label for="question">What was your most recent class in this CS sequence?</label>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  66)                 <select id="question" name="sequence-4">
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  67)                     <option value="N/A">N/A</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  68)                     <option value="COSC 311">COSC 311</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  69)                     <option value="COSC 312">COSC 312</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  70)                 </select>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  71)                 <br><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  72)
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  73)                 <label for="question">Which of these CS classes have you taken?</label><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  74)                 <label>COSC 365<input type="checkbox" name="cs-credit" value="COSC 365"></label><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  75)                 <label>COSC 366<input type="checkbox" name="cs-credit" value="COSC 366"></label><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  76)                 <label>COSC 395<input type="checkbox" name="cs-credit" value="COSC 395"></label><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  77)                 <label>COSC 340<input type="checkbox" name="cs-credit" value="COSC 340"></label><br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  78)                 <br>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  79)
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  80)                 <label for="question">If you have taken COSC 361, please select it from the dropdown</label>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  81)                 <select id="question" name="cs361-credit">
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  82)                     <option value="N/A">N/A</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  83)                     <option value="COSC 361">COSC 361</option>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  84)                 </select>
+68ed51e9 (tdehoff1 2024-10-30 19:48:21 -0400  85)                 <br><br>
+
+backend/views.py
+099bd9c4 backend/views.py         (David Long 2024-10-21 10:31:55 -0400   9) import os
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 115)     seq_1 = request.form.get('sequence-1')
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 116)     seq_2 = request.form.get('sequence-2')
+18452fb6 backend/views.py         (David Long 2024-10-25 14:56:23 -0400 117)     math_credits = request.form.getlist('math-credit')
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 118)     seq_3 = request.form.get('sequence-3')
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 119)     seq_4 = request.form.get('sequence-4')
+b77b8928 backend/views.py         (David Long 2024-10-29 17:11:13 -0400 120)     cs_credits = request.form.getlist('cs-credit')
+b77b8928 backend/views.py         (David Long 2024-10-29 17:11:13 -0400 121)     cs361_credit = request.form.get('cs361-credit')
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 127)     data_entries = [
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 129)         [core_class],
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 130)         [seq_1],
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 131)         [seq_2]
+18452fb6 backend/views.py         (David Long 2024-10-25 14:56:23 -0400 134)     # Add all math credits as separate entries
+18452fb6 backend/views.py         (David Long 2024-10-25 14:56:23 -0400 135)     for credit in math_credits:
+18452fb6 backend/views.py         (David Long 2024-10-25 14:56:23 -0400 136)         data_entries.append([credit])
+18452fb6 backend/views.py         (David Long 2024-10-25 14:56:23 -0400 137)
+18452fb6 backend/views.py         (David Long 2024-10-25 14:56:23 -0400 138)     data_entries.append([seq_3])
+18452fb6 backend/views.py         (David Long 2024-10-25 14:56:23 -0400 139)     data_entries.append([seq_4])
+18452fb6 backend/views.py         (David Long 2024-10-25 14:56:23 -0400 140)
+b77b8928 backend/views.py         (David Long 2024-10-29 17:11:13 -0400 141)     # Add CS credits as separate entries
+b77b8928 backend/views.py         (David Long 2024-10-29 17:11:13 -0400 142)     for credit in cs_credits:
+b77b8928 backend/views.py         (David Long 2024-10-29 17:11:13 -0400 143)         data_entries.append([credit])
+b77b8928 backend/views.py         (David Long 2024-10-29 17:11:13 -0400 144)
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 145)     # Add elective credits as separate entries
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 146)     for credit in elective_credits:
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 147)         data_entries.append([credit])
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 148)
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 149)     # Add other data
+18452fb6 backend/views.py         (David Long 2024-10-25 14:56:23 -0400 150)     data_entries.append([cs361_credit])
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 151)     data_entries.append([credit_hours])
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 153)
+9f6860cc backend/views.py         (David Long 2024-10-21 10:36:54 -0400 154)     # Defines the directory where the csv file will be saved
+c09a1a4e backend/views.py         (David Long 2024-10-25 13:19:18 -0400 155)     directory = 'backend/c_code'
+099bd9c4 backend/views.py         (David Long 2024-10-21 10:31:55 -0400 156)
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 161)
+1b839125 backend/views.py         (David Long 2024-10-21 10:52:02 -0400 163)     with open(os.path.join(directory, 'data.csv'), mode='w', newline='') as file:
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 165)         for entry in data_entries:
+0169d790 backend/views.py         (David Long 2024-10-16 20:46:46 -0400 166)             writer.writerow(entry)
+
+backend/courses_generator/eecs_courses.csv
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 216) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 217) AFST,233,Major Black Writers,3,AH & GCUS,ENGL 102,none,1130-1220,MWF,HSS,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 218) AFST,233,Major Black Writers,3,AH & GCUS,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 219) AFST,331,Race and Ethnicity in American Literature,3,AH & GCUS,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 220) AFST,331,Race and Ethnicity in American Literature,3,AH & GCUS,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 221) AFST,333,Black American Literature and Aesthetics,3,AH & GCUS,ENGL 102,none,1120-1235,TR,HMC,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 222) ALEC,211,Knowledge/Society/Leadership,3,AH,none,none,1605-1720,TR,BEO,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 223) ALEC,211,Knowledge/Society/Leadership,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 224) ALEC,211,Knowledge/Society/Leadership,3,AH,none,none,0945-1100,TR,BAS,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 225) ANTH,443,Archaeology and Art of Ancient Greece,3,AH & GCI & EI,none,none,1430-1545,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 226) ANTH,444,Archaeology and Art of Ancient Italy and Rome,3,AH & GCI & EI,none,none,1020-1110,MWF,DOU,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 227) ARAB,251,Whole New Worlds: Fantasy/Sci-Fi/Dystopia in the Middle East,3,AH,none,none,1255-1410,TR,BEC,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 228) ARCH,111,Architecture and the Built Environment,3,AH,none,none,1430-1545,TR,none,none,none,none    
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 229) ARCH,117,Honors: Architecture and the Built Environment,3,AH,none,none,1430-1545,TR,none,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 230) ARCH,201,The American City: Citizens of the 21st Century,3,AH & GCUS,none,none,1130-1220,MWF,AAB,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 231) ARCH,211,History and Theory of Architecture I,3,AH & GCI,none,none,1255-1410,TR,SMC,none,none,none 
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 232) ARCH,211,History and Theory of Architecture I,3,AH & GCI,none,none,1240-1330,MWF,AMB,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 233) ARCH,212,History and Theory of Architecture II,3,AH & GCI,ARCH 211,none,1255-1410,TR,DOU,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 234) ARCH,217,Honors: History annd Theory of Architecture I,3,AH & GCI,none,none,1255-1410,TR,SMC,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 235) ARCH,217,Honors: History and Theory of Architecture I,3,AH & GCI,none,none,1240-1330,MWF,AMB,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 236) ARCH,218,Honors: History and Theory of Architecture II,3,AH & GCI,ARCH 211,none,1255-1410,TR,DOU,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 237) ARTH,152,Survey of Islamic Art,3,AH,none,none,0910-1000,MWF,HSS,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 238) ARTH,172,Western Art: Ancient through Medieval,3,AH,none,none,1255-1410,TR,HSS,none,none,none      
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 239) ARTH,172,Western Art: Ancient through Medieval,3,AH,none,none,1255-1410,MWF,HSS,none,none,none     
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 240) ARTH,172,Western Art: Ancient through Medieval,3,AH,none,none,1240-1330,MWF,AAB,none,none,none     
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 241) ARTH,172,Western Art: Ancient through Medieval,3,AH,none,none,1130-1220,MWF,AAB,none,none,none     
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 242) ARTH,173,Western Art: Renaissance to Contemporary,3,AH & GCI,none,none,1350-1440,MWF,AAB,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 243) ARTH,173,Western Art: Renaissance to Contemporary,3,AH & GCI,none,none,1120-1235,TR,LIB,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 244) ARTH,173,Western Art: Renaissance to Contemporary,3,AH & GCI,none,none,0810-0925,TR,LIB,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 245) ARTH,173,Western Art: Renaissance to Contemporary,3,AH & GCI,none,none,1120-1235,TR,AAB,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 246) ARTH,173,Western Art: Renaissance to Contemporary,3,AH & GCI,none,none,1255-1410,TR,AMB,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 247) ARTH,173,Western Art: Renaissance to Contemporary,3,AH & GCI,none,none,1350-1440,MW,AAB,1500-1550,M,AAB
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 248) ARTH,173,Western Art: Renaissance to Contemporary,3,AH & GCI,none,none,1350-1440,MW,AAB,1610-1700,M,AAB
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 249) ARTH,173,Western Art: Renaissance to Contemporary,3,AH & GCI,none,none,1350-1440,MW,AAB,1500-1550,W,AAB
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 250) ARTH,173,Western Art: Renaissance to Contemporary,3,AH & GCI,none,none,1350-1440,MW,AAB,1610-1700,W,AAB
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 251) ARTH,451,The Art of Italy (1250-1450),3,AH & GCI,none,none,0945-1100,TR,AAB,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 252) ARTH,452,The Art of Italy (1475-1600),3,AH & GCI,none,none,1240-1330,MWF,AAB,none,none,none        
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 253) ARTH,473,19th-Century American Art,3,AH & GCUS,none,none,0910-1000,MWF,AAB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 254) CLAS,253,Greek and Roman Literature in English Translation,3,AH & GCI,none,none,0000-0000,MTWRF,none,none,none,none
+2cc822eb backend/courses_generator/eecs_courses.csv         (David Long      2024-10-22 21:34:06 -0400 255) CLAS,254,Greek and Roman Epic in English Translation,3,AH & GCI,none,none,1605-1720,TR,AYR,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 256) CLAS,254,Greek and Roman Epic in English Translation,3,AH & GCI,none,none,1605-1720,TR,AYR,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 257) CLAS,255,Greek and Roman Drama in English Translation,3,AH & GCI,none,none,1130-1220,MWF,FER,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 258) CLAS,256,The Ancient World Reimagined,3,AH & GCI,none,none,1605-1720,TR,AYR,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 259) CLAS,351,Cicero and Sallust,3,AH & GCI,CLAS 252,none,0910-1000,MWF,MCT,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 260) CLAS,352,Roman Lyric Poetry,3,AH & GCI,CLAS 252,none,1240-1330,MWF,MCT,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 261) CLAS,382,Roman Civilization,3,AH & GCI,none,none,1430-1545,TR,HSS,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 262) CLAS,439,Pompeii,3,AH & EI & GCI,none,none,1430-1545,TR,DOU,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 263) CLAS,443,Archaeology and Art of Ancient Greece,3,AH & EI & GCI,none,none,1430-1545,TR,HSS,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 264) CLAS,444,Archaeology and Art of Ancient Italy and Rome,3,AH & EI & GCI,none,none,1020-1110,MWF,DOU,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 265) CLAS,462,Ancient Greek and Roman Technology,3,AH & EI,none,none,0945-1100,TR,HSS,none,none,none    
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 266) CNST,325,Russian Film,3,AH & GCI,none,none,1350-1440,MWF,LIB,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 267) ENGL,201,British Literature I: Beowulf through Johnson,3,AH,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 268) ENGL,201,British Literature I: Beowulf through Johnson,3,AH,ENGL 102,none,1255-1410,TR,HSS,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 269) ENGL,202,British Literature II: Wordsworth to the Present,3,AH,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 270) ENGL,206,Introduction to Shakespeare,3,AH & WC,ENGL 102,none,1120-1235,TR,HSS,none,none,none       
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 271) ENGL,206,Introduction to Shakespeare,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none      
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 272) ENGL,206,Introduction to Shakespeare,3,AH & WC,ENGL 102,none,1350-1440,MWF,HSS,none,none,none      
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 273) ENGL,206,Introduction to Shakespeare,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none       
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 274) ENGL,206,Introduction to Shakespeare,3,AH & WC,ENGL 102,none,0910-1000,MWF,HSS,none,none,none      
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 275) ENGL,206,Introduction to Shakespeare,3,AH & WC,ENGL 102,none,1430-1545,TR,HSS,none,none,none       
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 276) ENGL,207,Honors: British Literature I: Beowulf through Johnson,3,AH,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 277) ENGL,207,Honors: British Literature I: Beowulf through Johnson,3,AH,ENGL 102,none,1255-1410,TR,HSS,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 278) ENGL,208,Honors: British Literature II: Wordsworth to the Present,3,AH,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 279) ENGL,209,Introduction to Jane Austen,3,AH & GCI & WC,ENGL 102,none,0910-1000,MWF,HSS,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 280) ENGL,209,Introduction to Jane Austen,3,AH & GCI & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+9baa5194 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-23 19:03:05 -0400 281) ENGL,209,Introduction to Jane Austen,3,AH & GCI & WC,ENGL 102,none,1430-1545,TR,HSS,none,none,none 
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 282) ENGL,231,American Literature I: Colonial Era to the Civil War,3,AH & GCUS,ENGL 102,none,0910-1000,MWF,AYR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 283) ENGL,231,American Literature I: Colonial Era to the Civil War,3,AH & GCUS,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 284) ENGL,232,American Literature II: Civil War to the Present,3,AH,ENGL 102,none,1240-1330,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 285) ENGL,232,American Literature II: Civil War to the Present,3,AH,ENGL 102,none,1130-1220,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 286) ENGL,233,Major Black Writers,3,AH & GCUS,ENGL 102,none,1130-1220,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 287) ENGL,233,Major Black Writers,3,AH & GCUS,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 288) ENGL,237,Honors: American Literature I: Colonial Era to the Civil War,3,AH & GCUS & WC,ENGL 102,none,0910-1000,MWF,AYR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 289) ENGL,237,Honors: American Literature I: Colonial Era to the Civil War,3,AH & GCUS & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 290) ENGL,238,Honors: American Literature II: Civil War to the Present,3,AH & WC,ENGL 102,none,1240-1330,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 291) ENGL,238,Honors: American Literature II: Civil War to the Present,3,AH & WC,ENGL 102,none,1130-1220,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 292) ENGL,247,Honors: Introduction to Poetry,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none    
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 293) ENGL,247,Honors: Introduction to Poetry,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none    
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 294) ENGL,248,Honors: Introduction to Drama,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none     
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 295) ENGL,248,Honors: Introduction to Drama,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none    
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 296) ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 297) ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 298) ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none        
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 299) ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1120-1235,TR,MOS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 300) ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1120-1235,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 301) ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1350-1440,MWF,BEC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 302) ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none        
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 303) ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 304) ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1350-1440,MWF,HBB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 305) ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none        
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 306) ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none        
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 307) ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1240-1330,MWF,BEC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 308) ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1120-1235,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 309) ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,1130-1220,MWF,NEB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 310) ENGL,251,Introduction to Poetry,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 311) ENGL,252,Introduction to Drama,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 312) ENGL,252,Introduction to Drama,3,AH & WC,ENGL 102,none,0910-1000,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 313) ENGL,252,Introduction to Drama,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 314) ENGL,252,Introduction to Drama,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 315) ENGL,252,Introduction to Drama,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 316) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0910-1000,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 317) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1255-1410,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 318) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 319) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1120-1235,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 320) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0945-1100,TR,NEB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 321) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1240-1330,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 322) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 323) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1350-1440,MWF,AYR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 324) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 325) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 326) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,00000-0000,MTWRF,none,none,none,none      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 327) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1350-1440,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 328) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0945-1100,TR,AYR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 329) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0910-1000,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 330) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1240-1330,MWF,AYR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 331) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 332) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1255-1410,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 333) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 334) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1120-1235,TR,AYR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 335) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,0945-1100,TR,HBS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 336) ENGL,253,Introduction to Fiction,3,AH & WC,ENGL 102,none,1120-1235,TR,AYR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 337) ENGL,254,Themes in Literature,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 338) ENGL,254,Themes in Literature,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 339) ENGL,254,Themes in Literature,3,AH & WC,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 340) ENGL,254,Themes in Literature,3,AH & WC,ENGL 102,none,1120-1235,TR,AYR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 341) ENGL,258,Honors: Introduction to Fiction,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none   
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 342) ENGL,258,Honors: Introduction to Fiction,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none  
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 343) ENGL,301,British Culture to 1660,3,AH & GCI,ENGL 102,none,1020-1110,MWF,HBB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 344) ENGL,302,British Culture: 1660 to Present,3,AH & GCI,none,none,0910-1000,MWF,HSS,none,none,none    
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 345) ENGL,303,American Cultures,3,AH,ENGL 102,none,1350-1440,MWF,BEC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 346) ENGL,331,Race and Ethnicity in American Literature,3,AH & GCUS,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 347) ENGL,331,Race and Ethnicity in American Literature,3,AH & GCUS,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 348) ENGL,332,Women in American Literature,3,AH & GCUS,ENGL 102,none,1120-1235,TR,HSS,none,none,none    
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 349) ENGL,332,Women in American Literature,3,AH & GCUS,ENGL 102,none,1130-1220,MWF,HSS,none,none,none   
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 350) ENGL,332,Women in American Literature,3,AH & GCUS,ENGL 102,none,0910-1000,MWF,HSS,none,none,none   
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 351) ENGL,332,Women in American Literature,3,AH & GCUS,ENGL 102,none,1120-1235,TR,HSS,none,none,none    
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 352) ENGL,333,Black American Literature and Aesthetics,3,AH & GCUS,ENGL 102,none,1120-1235,TR,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 353) ENGL,339,Children’s/Young Adult Literature,3,AH,ENGL 102,none,0000-0000,MTWRF,none,none,none,none  
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 354) ENGL,340,Science Fiction and Fantasy,3,AH,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 355) FREN,353,Introduction to Literary Analysis in French,3,AH,FREN 333,none,1350-1440,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 356) FREN,353,Introduction to Literary Analysis in French,3,AH,FREN 333,none,1020-1110,MWF,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 357) GERM,324,Animal Stories,3,AH,GERM 212,none,1120-1235,TR,PER,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 358) GERM,325,The German Graphic Novel,3,AH,GERM 212,none,1020-1110,MWF,ZEC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 359) GERM,363,Contemporary German Cultures,3,AH,ENGL 102,none,0910-1000,MWF,HBB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 360) GLBS,441,Global Justice and Human Rights,3,AH & EI & GCI & SS & WC,ENGL 102,none,1240-1330,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 361) GRDS,150,The Idea of Design,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 362) GRDS,150,The Idea of Design,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 363) HIEU,321,New Testament and Christian Origins,3,AH & GCI,none,none,1350-1440,MWF,HSS,none,none,none 
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 364) IARC,222,Interior Perspectives on Art,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 365) IARN,222,Interior Perspectives on Art,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 366) JST,311,Hebrew Bible/Old Testament,3,AH & GCI,none,none,0945-1100,TR,AYR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 367) JST,312,Early Judaism,3,AH & GCI,none,none,1020-1110,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 368) JST,321,New Testament and Christian Origins,3,AH & GCI,none,none,1350-1440,MWF,HSS,none,none,none  
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 369) MEST,225,Judaism/Christianity/Islam,3,AH,none,none,1240-1330,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 370) MEST,225,Judaism/Christianity/Islam,3,AH,none,none,1255-1410,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 371) MRST,201,Medieval Civilization I,3,AH & GCI,none,none,0945-1100,TR,STR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 372) MRST,201,Medieval Civilization I,3,AH & GCI,none,none,1255-1410,TR,COM,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 373) MRST,202,Medieval Civilization II,3,AH & GCI,none,none,0945-1100,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 374) MRST,202,Medieval Civilization II,3,AH & GCI,none,none,1255-1410,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 375) MRST,452,The Art of Italy (1250-1450),3,AH & GCI,none,none,0945-1100,TR,AAB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 376) MUCO,110,Introduction to Music in Western Culture,3,AH,none,none,1020-1110,MWF,HMC,none,none,none  
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 377) MUCO,110,Introduction to Music in Western Culture,3,AH,none,none,0800-0850,MWF,HMC,none,none,none  
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 378) MUCO,110,Introduction to Music in Western Culture,3,AH,none,none,0910-1000,MWF,HMC,none,none,none  
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 379) MUCO,110,Introduction to Music in Western Culture,3,AH,none,none,1020-1110,MWF,HMC,none,none,none  
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 380) MUCO,115,Music in the United States,3,AH,none,none,0910-1000,MWF,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 381) MUCO,115,Music in the United States,3,AH,none,none,1240-1330,MWF,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 382) MUCO,115,Music in the United States,3,AH,none,none,0910-1000,MWF,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 383) MUCO,120,History of Rock,3,AH,none,none,1130-1220,MWF,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 384) MUCO,120,History of Rock,3,AH,none,none,1240-1330,MWF,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 385) MUCO,120,History of Rock,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 386) MUCO,120,History of Rock,3,AH,none,none,1130-1220,MWF,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 387) MUCO,120,History of Rock,3,AH,none,none,1240-1330,MWF,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 388) MUCO,125,Jazz in American Culture,3,AH,none,none,1430-1545,TR,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 389) MUCO,125,Jazz in American Culture,3,AH,none,none,1120-1235,TR,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 390) MUCO,210,History of Western Music (Ancient to the Baroque),3,AH,MUCO 110 | ENGL 102,none,1020-1110,MWF,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 391) MUCO,220,History of Western Music (Classical to the Present),3,AH & WC,MUCO 110 | ENGL 102 | MUTH 110,none,1130-1220,MWF,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 392) MUCO,411,Music of Appalachia,3,AH,none,none,0910-1000,MWF,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 393) PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,0800-0850,F,AMB
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 394) PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,0800-0850,F,NEB
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 395) PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,0800-0850,F,DOU
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 396) PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,0800-0850,F,HSS
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 397) PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,0800-0850,F,HMC
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 398) PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,1500-1550,F,HMC
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 399) PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,1500-1550,F,DOU
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 400) PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,1500-1550,F,NEB
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 401) PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,1500-1550,F,FER
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 402) PHIL,101,Introduction to Philosophy,3,AH,none,none,1020-1110,MW,AMB,1500-1550,F,HSS
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 403) PHIL,101,Introduction to Philosophy,3,AH,none,none,1500-1550,MWF,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 404) PHIL,101,Introduction to Philosophy,3,AH,none,none,1120-1235,TR,NEB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 405) PHIL,101,Introduction to Philosophy,3,AH,none,none,1120-1235,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 406) PHIL,101,Introduction to Philosophy,3,AH,none,none,1255-1410,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 407) PHIL,101,Introduction to Philosophy,3,AH,none,none,0810-0925,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 408) PHIL,101,Introduction to Philosophy,3,AH,none,none,0945-1100,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 409) PHIL,101,Introduction to Philosophy,3,AH,none,none,0945-1100,TR,BEC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 410) PHIL,101,Introduction to Philosophy,3,AH,none,none,1610-1700,MWF,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 411) PHIL,101,Introduction to Philosophy,3,AH,none,none,1120-1240,TR,BCE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 412) PHIL,101,Introduction to Philosophy,3,AH,none,none,1720-1810,MWF,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 413) PHIL,101,Introduction to Philosophy,3,AH,none,none,1430-1545,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 414) PHIL,101,Introduction to Philosophy,3,AH,none,none,1255-1410,TR,NEB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 415) PHIL,101,Introduction to Philosophy,3,AH,none,none,1120-1235,TR,PER,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 416) PHIL,101,Introduction to Philosophy,3,AH,none,none,0945-1100,TR,PER,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 417) PHIL,101,Introduction to Philosophy,3,AH,none,none,0810-0945,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 418) PHIL,101,Introduction to Philosophy,3,AH,none,none,1255-1410,TR,FER,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 419) PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,0800-0850,F,HSS
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 420) PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,0800-0850,F,HSS
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 421) PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,0800-0850,F,HSS
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 422) PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,0800-0850,F,BUE
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 423) PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,0800-0850,F,TIC
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 424) PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,1500-1550,F,HSS
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 425) PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,1500-1550,F,PER
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 426) PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,1500-1550,F,COM
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 427) PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,1500-1550,F,PER
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 428) PHIL,101,Introduction to Philosophy,3,AH,none,none,1130-1220,MW,MCM,1500-1550,F,JHB
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 429) PHIL,101,Introduction to Philosophy,3,AH,none,none,1240-1330,MWF,APB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 430) PHIL,101,Introduction to Philosophy,3,AH,none,none,1350-1440,MWF,APB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 431) PHIL,101,Introduction to Philosophy,3,AH,none,none,1605-1720,TR,PER,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 432) PHIL,101,Introduction to Philosophy,3,AH,none,none,1255-1410,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 433) PHIL,101,Introduction to Philosophy,3,AH,none,none,1740-1855,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 434) PHIL,101,Introduction to Philosophy,3,AH,none,none,0810-0925,TR,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 435) PHIL,101,Introduction to Philosophy,3,AH,none,none,0945-1100,TR,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 436) PHIL,101,Introduction to Philosophy,3,AH,none,none,1120-1235,TR,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 437) PHIL,101,Introduction to Philosophy,3,AH,none,none,0910-1000,MWF,PER,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 438) PHIL,101,Introduction to Philosophy,3,AH,none,none,1240-1330,MWF,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 439) PHIL,101,Introduction to Philosophy,3,AH,none,none,1350-1440,MWF,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 440) PHIL,101,Introduction to Philosophy,3,AH,none,none,1120-1235,TR,PER,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 441) PHIL,101,Introduction to Philosophy,3,AH,none,none,1255-1410,TR,PER,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 442) PHIL,101,Introduction to Philosophy,3,AH,none,none,1430-1545,TR,PER,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 443) PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,0945-1100,TR,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 444) PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,1120-1235,TR,BEC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 445) PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,1255-1410,TR,STR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 446) PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,1430-1545,TR,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 447) PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,1130-1220,MWF,HSS,none,none,none        
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 448) PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,1120-1235,TR,AYR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 449) PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,0945-1100,TR,WAB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 450) PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,1430-1545,TR,AYR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 451) PHIL,107,Honors: Introduction to Philosophy,3,AH,none,none,1255-1410,TR,PER,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 452) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,HBS
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 453) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,APB
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 454) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,HMC
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 455) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,PER
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 456) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,NEB
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 457) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,DOU
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 458) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,BUE
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 459) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,APB
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 460) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,BUE
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 461) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,MOS
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 462) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,HSS
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 463) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,HSS
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 464) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1430-1545,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 465) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1605-1720,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 466) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1500-1550,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 467) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1350-1440,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 468) PHIL,244,Professional Responsibility,3,AH & OC,none,none,0000-0000,MTWRF,none,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 469) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1255-1410,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 470) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1430-1545,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 471) PHIL,244,Professional Responsibility,3,AH & OC,none,none,0810-0925,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 472) PHIL,244,Professional Responsibility,3,AH & OC,none,none,0945-1100,TR,AYR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 473) PHIL,244,Professional Responsibility,3,AH & OC,none,none,0810-0925,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 474) PHIL,244,Professional Responsibility,3,AH & OC,none,none,0000-0000,MTWRF,none,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 475) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,HSS
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 476) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,BUE
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 477) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,FER
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 478) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,MOS
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 479) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,MOS
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 480) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,0800-0850,F,BUE
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 481) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,JHB
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 482) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,BUE
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 483) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,FER
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 484) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,TIC
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 485) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,MOS
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 486) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1240-1330,MW,AMB,1500-1550,F,AYR
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 487) PHIL,244,Professional Responsibility,3,AH & OC,none,none,0810-0925,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 488) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1120-1235,TR,JHB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 489) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1430-1545,TR,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 490) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1605-1720,TR,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 491) PHIL,244,Professional Responsibility,3,AH & OC,none,none,0000-0000,MTWRF,none,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 492) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1020-1110,MWF,HBS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 493) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1350-1440,MWF,FER,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 494) PHIL,244,Professional Responsibility,3,AH & OC,none,none,0810-0925,TR,MOS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 495) PHIL,244,Professional Responsibility,3,AH & OC,none,none,0945-1100,TR,MOS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 496) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1255-1410,TR,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 497) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1430-1545,TR,PER,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 498) PHIL,244,Professional Responsibility,3,AH & OC,none,none,1605-1720,TR,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 499) PHIL,244,Professional Responsibility,3,AH & OC,none,none,0945-1100,TR,AYR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 500) PHIL,244,Professional Responsibility,3,AH & OC,none,none,0000-0000,MTWRF,none,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 501) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,0800-0850,F,MOS      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 502) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,0800-0850,F,HSS      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 503) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,0800-0850,F,HPR      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 504) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,0800-0850,F,MOS      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 505) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,0800-0850,F,HSS      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 506) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,1500-1550,F,FER      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 507) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,1500-1550,F,HNH      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 508) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,1500-1550,F,AAB      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 509) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,1500-1550,F,JHB      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 510) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,MOS,1500-1550,F,MKB      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 511) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1120-1235,TR,HBS,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 512) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none   
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 513) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1255-1410,TR,PER,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 514) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1430-1545,TR,FER,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 515) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1605-1720,TR,HMC,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 516) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1120-1235,TR,APB,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 517) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1430-1545,TR,HMC,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 518) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0945-1100,TR,PER,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 519) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1740-1855,TR,HMC,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 520) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1915-2030,TR,HMC,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 521) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0945-1100,TR,BEC,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 522) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1255-1410,TR,AMB,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 523) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0910-1000,MWF,HSS,none,none,none      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 524) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1240-1330,MWF,HSS,none,none,none      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 525) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MWF,HSS,none,none,none      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 526) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0910-1000,MWF,BAS,none,none,none      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 527) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1020-1110,MWF,MGH,none,none,none      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 528) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1130-1220,MWF,MGH,none,none,none      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 529) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1430-1545,TR,PER,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 530) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none   
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 531) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none   
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 532) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,0800-0850,F,WAB      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 533) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,0800-0850,F,WAB      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 534) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,0800-0850,F,HSS      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 535) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,0800-0850,F,MKB      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 536) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,0800-0850,F,HSS      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 537) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,1500-1550,F,TIC      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 538) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,1500-1550,F,AYR      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 539) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,1500-1550,F,HSS      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 540) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,1500-1550,F,HSS
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 541) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1350-1440,MW,SRF,1500-1550,F,HSS      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 542) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0945-1100,TR,HSS,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 543) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1255-1410,TR,HSS,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 544) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0945-1100,TR,FER,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 545) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1120-1235,TR,DOU,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 546) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1120-1235,TR,PER,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 547) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none   
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 548) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1255-1410,TR,PER,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 549) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1430-1545,TR,PER,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 550) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0910-1000,MWF,PER,none,none,none      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 551) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1020-1110,MWF,PER,none,none,none      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 552) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0800-0850,MWF,PER,none,none,none      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 553) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1255-1410,TR,BUE,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 554) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1430-1545,TR,BUE,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 555) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1740-1855,TR,BUE,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 556) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1915-2030,TR,BUE,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 557) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0810-0925,TR,PER,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 558) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0945-1100,TR,AYR,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 559) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0800-0850,MWF,HSS,none,none,none      
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 560) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,1255-1410,TR,PER,none,none,none       
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 561) PHIL,252,Contemporary Moral Problems,3,AH & WC,ENGL 102,none,0000-0000,MTWRF,none,none,none,none   
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 562) PHIL,320,Ancient Western Philosophy,3,AH & WC,ENGL 102,none,0945-1100,TR,HBS,none,none,none        
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 563) PHIL,320,Ancient Western Philosophy,3,AH & WC,ENGL 102,none,1430-1545,TR,HSS,none,none,none        
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 564) PHIL,324,17th- and 18th-Century Philosophy,3,AH & WC,ENGL 102,none,1350-1440,MWF,AMB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 565) PHIL,327,Honors: Ancient Western Philosophy,3,AH & WC,ENGL 102,none,0945-1100,TR,HBS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 566) PHIL,327,Honors: Ancient Western Philosophy,3,AH & WC,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 567) PHIL,328,Honors: 17th- and 18th-Century Philosophy,3,AH & WC,ENGL 102,none,1350-1440,MWF,AMB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 568) PHIL,340,Ethical Theory,3,AH & WC,ENGL 102,none,1130-1220,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 569) PHIL,340,Ethical Theory,3,AH & WC,ENGL 102,none,1120-1235,TR,MOS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 570) PHIL,346,Environmental Ethics,3,AH & EI & WC,ENGL 102,none,1350-1440,MWF,BUE,none,none,none        
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 571) PHIL,346,Environmental Ethics,3,AH & EI & WC,ENGL 102,none,0800-0850,MWF,HSS,none,none,none        
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 572) PHIL,346,Environmental Ethics,3,AH & EI & WC,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 573) PHIL,346,Environmental Ethics,3,AH & EI & WC,ENGL 102,none,1605-1720,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 574) PHIL,347,Honors: Ethical Theory,3,AH & WC,ENGL 102,none,1130-1220,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 575) PHIL,347,Honors: Ethical Theory,3,AH & WC,ENGL 102,none,1120-1235,TR,MOS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 576) PHIL,370,Philosophy of Religion,3,AH & WC,ENGL 102,none,0945-1100,TR,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 577) PHIL,371,Epistemology,3,AH,none,none,1255-1410,TR,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 578) PHIL,372,Metaphysics,3,AH & WC,ENGL 102,none,1430-1545,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 579) PHIL,373,Philosophy of Mind,3,AH & WC,ENGL 102,none,1430-1545,TR,STR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 580) PHIL,382,Philosophy of Feminism,3,AH & WC,ENGL 102,none,1120-1235,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 581) PHIL,391,Social and Political Philosophy,3,AH & WC,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 582) PHIL,392,Philosophy of Law,3,AH & EI & WC,ENGL 102,none,1240-1330,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 583) PHIL,441,Global Justice and Human Rights,3,AH & EI & GCI & SS & WC,ENGL 102,none,1240-1330,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 584) PLSC,180,Landscape Design/Performance/Function,3,AH,none,none,1020-1110,MWF,BUE,none,none,none     
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 585) REED,230,Using Children’s Literature to Support Instructional Practices and Motivate Students to Read,3,AH,none,none,1630-1910,M,BEC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 586) REED,230,Using Children’s Literature to Support Instructional Practices and Motivate Students to Read,3,AH,none,none,1630-1910,W,BEC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 587) REED,230,Using Children’s Literature to Support Instructional Practices and Motivate Students to Read,3,AH,none,none,1630-1910,T,BEC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 588) REED,230,Using Children’s Literature to Support Instructional Practices and Motivate Students to Read,3,AH,none,none,1610-1920,M,BEC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 589) REED,230,Using Children’s Literature to Support Instructional Practices and Motivate Students to Read,3,AH,none,none,1605-1955,T,BEC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 590) REED,230,Using Children’s Literature to Support Instructional Practices and Motivate Students to Read,3,AH,none,none,1610-1920,W,BEC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 591) REST,202,Religion and Film,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 592) REST,202,Religion and Film,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 593) REST,202,Religion and Film,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 594) REST,202,Religion and Film,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 595) REST,202,Religion and Film,3,AH,none,none,1120-1235,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 596) REST,202,Religion and Film,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 597) REST,225,Judaism/Christianity/Islam,3,AH,none,none,1240-1330,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 598) REST,225,Judaism/Christianity/Islam,3,AH,none,none,1255-1410,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 599) REST,280,Religions of Asia,3,AH & GCI,none,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 600) REST,280,Religions of Asia,3,AH & GCI,none,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 601) REST,280,Religions of Asia,3,AH & GCI,none,none,0910-1000,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 602) REST,306,Contemporary Christian Thought,3,AH,none,none,1130-1220,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 603) REST,311,Hebrew Bible/Old Testament,3,AH & GCI,none,none,0945-1100,TR,AYR,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 604) REST,312,Early Judaism,3,AH & GCI,none,none,1020-1110,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 605) REST,321,New Testament and Christian Origins,3,AH & GCI,none,none,1350-1440,MWF,HSS,none,none,none 
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 606) REST,370,Philosophy of Religion,3,AH & WC,ENGL 102,none,0945-1100,TR,BUE,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 607) RUSS,221,Rebels/Dreamers/Fools: The Outcast in 19th Century Russian Literature,3,AH & GCI & WC,ENGL 102,none,1255-1410,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 608) RUSS,324,Science Fiction in Russia and Eastern Europe,3,AH & GCI,none,none,1430-1545,TR,HMC,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 609) RUSS,325,Russian Film,3,AH & GCI,none,none,1350-1440,MWF,LIB,none,none,none,
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 610) RUSS,424,Nabokov’s Novels and Stories,3,AH,ENGL 102,none,1255-1410,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 611) THEA,100,Introduction to Theatre,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 612) THEA,100,Introduction to Theatre,3,AH,none,none,0945-1100,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 613) THEA,100,Introduction to Theatre,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 614) THEA,100,Introduction to Theatre,3,AH,none,none,1255-1410,TR,AMB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 615) THEA,100,Introduction to Theatre,3,AH,none,none,1120-1235,TR,AMB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 616) THEA,100,Introduction to Theatre,3,AH,none,none,0000-0000,MTWRF,none,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 617) THEA,100,Introduction to Theatre,3,AH,none,none,0945-1100,TR,AMB,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 618) THEA,107,Honors: Introduction to Theatre,3,AH,none,none,1120-1235,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 619) UNHO,257,Honors: Special Topics in the Arts and Humanities,3,AH,ENGL 102,none,1020-1110,MWF,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 620) WGS,332,Women in American Literature,3,AH & GCUS,none,none,1120-1235,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 621) WGS,332,Women in American Literature,3,AH & GCUS,none,none,1130-1220,MWF,HSS,none,none,none        
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 622) WGS,332,Women in American Literature,3,AH & GCUS,none,none,0910-1000,MWF,HSS,none,none,none        
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 623) WGS,332,Women in American Literature,3,AH & GCUS,none,none,1120-1235,TR,HSS,none,none,none
+28d5ecc4 backend/courses_generator/eecs_courses.csv         (David Long      2024-10-24 14:21:19 -0400 624) WGS,382,Philosophy of Feminism,3,AH & WC,none,none,1120-1235,TR,HSS,none,none,none
