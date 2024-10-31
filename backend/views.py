@@ -154,9 +154,10 @@ def form_submit():
     # Defines the directory where the csv file will be saved
     directory = 'backend/c_code'
 
-    # Create the directory if it doesn't exist
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+    if os.path.exists(directory):
+        directory = directory
+    else:
+        directory = os.path.abspath('UTK-Class-Scheduling-Assistant/backend/c_code/')
 
     # Write to CSV file
     with open(os.path.join(directory, 'data.csv'), mode='w', newline='') as file:
@@ -164,14 +165,10 @@ def form_submit():
         for entry in data_entries:
             writer.writerow(entry)
 
-    if os.path.exists("backend/c_code/cgen"):
-        cpp_executable_path = 'backend/c_code/cgen'
-    else:
-        cpp_executable_path = os.path.abspath('UTK-Class-Scheduling-Assistant/backend/c_code/cgen')
-
-    file1_path = os.path.join('backend', 'c_code', 'eecs_courses.csv')
-    file2_path = os.path.join('backend', 'c_code', 'major_courses.csv')
-    file3_path = os.path.join('backend', 'c_code', 'data.csv')
+    cpp_executable_path = os.path.join(directory, 'cgen')
+    file1_path = os.path.join(directory, 'eecs_courses.csv')
+    file2_path = os.path.join(directory, 'major_courses.csv')
+    file3_path = os.path.join(directory, 'data.csv')
     mode = 'location'
 
     command = [cpp_executable_path, file1_path, file2_path, file3_path, mode]
