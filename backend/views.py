@@ -164,7 +164,10 @@ def submit():
         for entry in data_entries:
             writer.writerow(entry)
 
-    cpp_executable_path = os.path.join('backend', 'c_code', 'cgen')
+    if os.path.exists("backend/c_code/cgen"):
+        cpp_executable_path = 'backend/c_code/cgen'
+    else:
+        cpp_executable_path = os.path.abspath('UTK-Class-Scheduling-Assistant/backend/c_code/cgen')
     file1_path = os.path.join('backend', 'c_code', 'eecs_courses.csv')
     file2_path = os.path.join('backend', 'c_code', 'major_courses.csv')
     file3_path = os.path.join('backend', 'c_code', 'data.csv')
