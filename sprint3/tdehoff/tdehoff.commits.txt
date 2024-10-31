@@ -1,0 +1,260 @@
+* requirements.txt
+5ff806df (tdehoff1        2024-10-30 11:30:55 -0400 13) Flask-Migrate==4.0.7
+
+* backend/__init\__.py  
+e25b8304 (tdehoff1        2024-10-30 13:15:56 -0400  5) from os import path
+e25b8304 (tdehoff1        2024-10-30 13:15:56 -0400 14) 
+
+* backend/views.py  
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400  10) import subprocess
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  14) # Welcome page
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  19) # Main: user's schedules list
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  36) # Display classes in selected schedule
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  51) # Delete schedule from the main page
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  64) # Search selected course sections
+5996e776 (tdehoff1        2024-10-22 16:12:45 -0400  68)     abbreviation = request.args.get('abbreviation')
+5996e776 (tdehoff1        2024-10-22 16:12:45 -0400  69)     number = request.args.get('number')
+5996e776 (tdehoff1        2024-10-22 16:12:45 -0400  70)     schedule_id = request.args.get('schedule_id')
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  71)     class_id = request.args.get('class_id')
+5996e776 (tdehoff1        2024-10-22 16:12:45 -0400  74)     if abbreviation and number:
+5996e776 (tdehoff1        2024-10-22 16:12:45 -0400  75)         results = classes.filter(Course.abbreviation == abbreviation, Course.number == number)
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  77)     return render_template("class_search.html", classes=results, user=current_user, schedule_id=schedule_id, class_id=class_id)
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  78) 
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  79) # Update schedule course with a search result
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  80) @views.route('/replace_class', methods=['POST'])
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  81) @login_required
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  82) def replace_class():
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  83)     data = json.loads(request.data)
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  84) 
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  85)     schedule_id = int(data['scheduleId'])
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  86)     old_class_id = int(data['oldClassId'])
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  87)     new_class_id = int(data['newClassId'])
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  88) 
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  89)     schedule = Schedule.query.get(schedule_id)
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  90)     
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  91)     if schedule:
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  92)         if schedule.user_id == current_user.id:
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  93)             if old_class_id in schedule.class_ids:
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  94)                 schedule.class_ids.remove(old_class_id)
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  95)                 schedule.class_ids.append(new_class_id)
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  96) 
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  97)                 db.session.commit()
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  98)                 return jsonify(success=True)
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  99) 
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400 100)     return jsonify(success=False)
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400 102) # Schedule Questionnaire
+eb385830 (tdehoff1        2024-10-30 19:13:08 -0400 103) @views.route('/new_schedule')
+eb385830 (tdehoff1        2024-10-30 19:13:08 -0400 106)     return render_template('questionnaire.html')
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 109) @views.route('/form_submit', methods=['POST'])
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 111) def form_submit():
+eb385830 (tdehoff1        2024-10-30 19:13:08 -0400 112)     print(f"SUBMIT start")
+fb3f66a8 (tdehoff1        2024-10-31 08:20:53 -0400 157)     if os.path.exists(directory):
+fb3f66a8 (tdehoff1        2024-10-31 08:20:53 -0400 158)         directory = directory
+fb3f66a8 (tdehoff1        2024-10-31 08:20:53 -0400 159)     else:
+fb3f66a8 (tdehoff1        2024-10-31 08:20:53 -0400 160)         directory = os.path.abspath('UTK-Class-Scheduling-Assistant/backend/c_code/')
+fb3f66a8 (tdehoff1        2024-10-31 08:20:53 -0400 168)     cpp_executable_path = os.path.join(directory, 'cgen')
+fb3f66a8 (tdehoff1        2024-10-31 08:20:53 -0400 169)     file1_path = os.path.join(directory, 'eecs_courses.csv')
+fb3f66a8 (tdehoff1        2024-10-31 08:20:53 -0400 170)     file2_path = os.path.join(directory, 'major_courses.csv')
+fb3f66a8 (tdehoff1        2024-10-31 08:20:53 -0400 171)     file3_path = os.path.join(directory, 'data.csv')
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 173) 
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 175) 
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 176)     try:
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 177)         result = subprocess.run(command, capture_output=True, text=True)
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 178)         
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 179)         # Collect output and error
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 180)         if result.returncode == 0:
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 183)             error = None
+eb385830 (tdehoff1        2024-10-30 19:13:08 -0400 188)             # Instead of writing output into a csv file, I create a new Schedule object with 
+eb385830 (tdehoff1        2024-10-30 19:13:08 -0400 189)             # returned class ids
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 190)             new_schedule = Schedule(class_ids=class_ids, user_id=current_user.id)
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 191)             db.session.add(new_schedule)
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 192)             db.session.commit()
+eb385830 (tdehoff1        2024-10-30 19:13:08 -0400 193) 
+eb385830 (tdehoff1        2024-10-30 19:13:08 -0400 194)             # courses = Course.query.filter(Course.id.in_(class_ids)).all()
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 195)             # return render_template('view_schedule.html', schedule=new_schedule, courses=courses, user=current_user)
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 196) 
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 197)             courses = Course.query.filter(Course.id.in_(class_ids)).all()
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 200)             directory = 'backend/static'
+66607a3e (tdehoff1        2024-10-31 08:23:20 -0400 202)             if os.path.exists(directory):
+66607a3e (tdehoff1        2024-10-31 08:23:20 -0400 203)                 directory = directory
+66607a3e (tdehoff1        2024-10-31 08:23:20 -0400 204)             else:
+66607a3e (tdehoff1        2024-10-31 08:23:20 -0400 205)                 directory = os.path.abspath('UTK-Class-Scheduling-Assistant/backend/static/')
+66607a3e (tdehoff1        2024-10-31 08:23:20 -0400 206) 
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 208)             with open(os.path.join(directory, 'schedule.csv'), mode='w', newline='') as file:
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 209)                 writer = csv.writer(file)
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 210)                 # Write the header
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 211)                 writer.writerow(['ID', 'Abbreviation', 'Number', 'Title', 'Credit_Hours', 
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 212)                                 'Lecture_Time', 'Lecture_Days', 'Lecture_Location', 
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 213)                                 'Lab_Time', 'Lab_Days', 'Lab_Location'])
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 215)                 # Write the data for each course
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 216)                 for entry in courses:
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 217)                     writer.writerow([
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 218)                         entry.id,
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 219)                         entry.abbreviation,
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 220)                         entry.number,
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 221)                         entry.title,
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 222)                         entry.credit_hours,
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 223)                         entry.lecture_time,
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 224)                         entry.lecture_days,
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 225)                         entry.lecture_location,
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 226)                         entry.lab_time,
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 227)                         entry.lab_days,
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 228)                         entry.lab_location
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 229)                     ])
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 230)         else:
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 231)             output = None
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 232)             error = result.stderr
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 233) 
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 234)         # Render a new HTML page with output as context variable
+3b099c2d (tdehoff1        2024-10-30 19:37:07 -0400 235)         return redirect(url_for('views.generate'))
+eb385830 (tdehoff1        2024-10-30 19:13:08 -0400 236)         # return render_template('output.html', courses=courses, error=error)
+eb385830 (tdehoff1        2024-10-30 19:13:08 -0400 237)         # return render_template('output.html', courses=courses, error=error)
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 238) 
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 239)     except Exception as e:
+e34e77c9 (tdehoff1        2024-10-25 13:17:15 -0400 240)         return render_template('output.html', output=None, error=str(e))
+
+* backend/models.py  
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  6) from sqlalchemy.ext.mutable import MutableList
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  7) from sqlalchemy import JSON
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400 36)     # Use JSON's MutableList as array
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400 37)     class_ids = db.Column(MutableList.as_mutable(JSON), nullable=False, default=list)
+
+* backend/templates/main.html  
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 12) 
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 13)         <div class="schedule-wrapper">
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 15)             <li class="list-group-item schedule-button">
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 25)             <div class="list-group-item new-schedule-button">
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 26)                 <a href="/new_schedule">Generate a New Schedule</a></button>
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 27)             </div>
+
+* backend/templates/class_search.html 
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400  8)     <div class="container">
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 10)             <h2 class="mt-4 text-center">Section Options for {{ classes[0].abbreviation }}{{ classes[0].number }}:</h2>
+5996e776 (tdehoff1        2024-10-22 16:12:45 -0400 13)                     <div class="course-item">
+5996e776 (tdehoff1        2024-10-22 16:12:45 -0400 14)                         <p>
+5996e776 (tdehoff1        2024-10-22 16:12:45 -0400 15)                             <span>Lecture: {{ class.lecture_days }} at {{ class.lecture_time }} in {{ class.lecture_location }}</span>
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 16)                             {% if class.lab_time %}
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 17)                                 <span> | Lab: {{ class.lab_days }} at {{ class.lab_time }} in {{ class.lab_location }}</span>
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 18)                             {% endif %}
+5996e776 (tdehoff1        2024-10-22 16:12:45 -0400 19)                         </p>
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400 20)                         <!-- Button to replace the current course -->
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400 21)                         <button class="btn btn-danger" onclick="replaceCourse({{ schedule_id }}, '{{ class_id }}', '{{ class.id }}')">
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400 22)                             Replace with this Section
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400 23)                         </button>
+5996e776 (tdehoff1        2024-10-22 16:12:45 -0400 24)                     </div>
+5996e776 (tdehoff1        2024-10-22 16:12:45 -0400 28)         <a href="{{ url_for('views.view_schedule', schedule_id=schedule_id) }}" class="return-button">Return to Schedule</a>
+
+* backend/templates/view_schedule.html  
+f27ea874 (tdehoff1        2024-10-23 10:44:25 -0400 18)                             <p>                              
+f27ea874 (tdehoff1        2024-10-23 10:44:25 -0400 19)                                 <!-- Section Search Button -->
+f27ea874 (tdehoff1        2024-10-23 10:44:25 -0400 20)                                 <form action="{{ url_for('views.class_search') }}" method="get" style="display: inline;">
+f27ea874 (tdehoff1        2024-10-23 10:44:25 -0400 21)                                     <input type="hidden" name="abbreviation" value="{{ course.abbreviation }}">
+f27ea874 (tdehoff1        2024-10-23 10:44:25 -0400 22)                                     <input type="hidden" name="number" value="{{ course.number }}">
+f27ea874 (tdehoff1        2024-10-23 10:44:25 -0400 23)                                     <input type="hidden" name="schedule_id" value="{{ schedule.id }}">
+f27ea874 (tdehoff1        2024-10-23 10:44:25 -0400 24)                                     <input type="hidden" name="class_id" value="{{ course.id }}">
+f27ea874 (tdehoff1        2024-10-23 10:44:25 -0400 25) 
+f27ea874 (tdehoff1        2024-10-23 10:44:25 -0400 26)                                     <button title="Find Other Sections" class="section-search-button">
+f27ea874 (tdehoff1        2024-10-23 10:44:25 -0400 27)                                         <img src="{{ url_for('static', filename='images/search_img.png') }}" alt="Find Other Sections">
+f27ea874 (tdehoff1        2024-10-23 10:44:25 -0400 28)                                     </button>
+f27ea874 (tdehoff1        2024-10-23 10:44:25 -0400 29)                                 </form>
+5996e776 (tdehoff1        2024-10-22 16:12:45 -0400 49) 
+
+* backend/static/index.js  
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  28) /*
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  29)  * replace course in schedule
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  30)  */
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  31) function replaceCourse(scheduleId, oldClassId, newClassId) {
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  32)     fetch('/replace_class', {
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  33)         method: 'POST',
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  34)         headers: {
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  35)             'Content-Type': 'application/json',
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  36)         },
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  37)         body: JSON.stringify({
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  38)             scheduleId: scheduleId,
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  39)             oldClassId: oldClassId,
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  40)             newClassId: newClassId
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  41)         }),
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  42)     }).then((res) => {
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  43)         if (res.ok) {
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  44)             window.location.href = `/schedule/${scheduleId}` ;
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  45)         } else {
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  46)             console.error('Failed to replace course.');
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  47)         }
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  48)     }).catch((error) => {
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  49)         console.error('Error:', error);
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  50)     });
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  51) }
+5fc5a699 (tdehoff1        2024-10-22 17:47:04 -0400  52) 
+
+* backend/static/css/styles.css  
+f27ea874 (tdehoff1        2024-10-23 10:44:25 -0400  927) /* .list-group-item,
+f27ea874 (tdehoff1        2024-10-23 10:44:25 -0400  934) } */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1298) 
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1299) 
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1300) .schedule-wrapper {
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1301)     margin: 0 auto; /* Center the wrapper */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1302)     padding: 50px; /* Add padding around the content */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1303)     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1304)     display: flex; 
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1305)     justify-content: flex-end;
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1306)     flex-wrap: wrap; /* Allow buttons to wrap */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1307)     gap: 15px;
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1308) }
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1309) 
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1310) /* Individual schedule button styles */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1311) .schedule-button {
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1312)     position: relative; /* Position for absolute children (close button) */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1313)     width: 200px; /* Fixed width for buttons */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1314)     height: 200px; /* Fixed height for buttons, same as width for square */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1315)     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1316)     color: black; /* Text color */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1317)     border: 1px solid #ccc; /* Border */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1318)     border-radius: 8px; /* Rounded corners */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1319)     display: flex; /* Use flexbox for centering */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1320)     justify-content: center; /* Center text horizontally */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1321)     align-items: center; /* Center text vertically */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1322)     text-decoration: none; /* Remove underline from link */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1323)     font-size: 12px; /* Font size for button text */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1324)     transition: background-color 0.3s; /* Smooth transition for hover */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1325) }
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1326) 
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1327) /* Ensure the anchor link takes full button size */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1328) .schedule-button a {
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1329)     width: 100%; /* Full width of the button */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1330)     height: 100%; /* Full height of the button */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1331)     display: flex; /* Flexbox for centering */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1332)     justify-content: center; /* Center text horizontally */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1333)     align-items: center; /* Center text vertically */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1334)     font-weight: 700; /* Set the font weight (bold) */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1335)     color: black; /* Text color */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1336)     text-decoration: none; /* Remove underline from link */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1337) }
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1338) 
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1339) .new-schedule-button {
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1340)     position: relative; /* Position for absolute children (close button) */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1341)     width: 200px; /* Fixed width for buttons */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1342)     height: 200px; /* Fixed height for buttons, same as width for square */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1343)     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1344)     color: black; /* Text color */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1345)     border: 1px solid #ccc; /* Border */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1346)     border-radius: 8px; /* Rounded corners */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1347)     display: flex; /* Use flexbox for centering */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1348)     justify-content: center; /* Center text horizontally */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1349)     align-items: center; /* Center text vertically */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1350)     text-decoration: none; /* Remove underline from link */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1351)     font-size: 12px; /* Font size for button text */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1352)     transition: background-color 0.3s; /* Smooth transition for hover */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1353) }
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1354) 
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1355) /* Ensure the anchor link takes full button size */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1356) .new-schedule-button a {
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1357)     width: 100%; /* Full width of the button */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1358)     height: 100%; /* Full height of the button */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1359)     display: flex; /* Flexbox for centering */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1360)     justify-content: center; /* Center text horizontally */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1361)     align-items: center; /* Center text vertically */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1362)     font-weight: 700; /* Set the font weight (bold) */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1363)     color: black; /* Text color */
+9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1364) }
+
+* backend/static/images/search_img.png  
