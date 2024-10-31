@@ -50,7 +50,7 @@ void calc_distance(vector<vector<float> > &distance_vector) {
 void print_error(string r, string s, int i) {
     ofstream ferr("error.txt");
     if(i == 1) { ferr << "error: cannot open " << s << endl; }
-    ferr << "usage: " << r << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv" << endl;
+    ferr << "usage: " << r << " available_courses_file.csv major_courses_file.csv taken_courses_file.csv location|time" << endl;
     ferr.close();
 }
 
@@ -278,7 +278,7 @@ bool check_prereqs(set<string> taken_set, vector<vector<string> > temppre) {
 }
 
 int get_flag(string s) {
-    if(s == "timeflag") { return 1; }
-    if(s == "locationflag") { return 2; }
+    if(s == "time") { return 1; }
+    if(s == "location") { return 2; }
     return 0;
 }
