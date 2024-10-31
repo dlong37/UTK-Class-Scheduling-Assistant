@@ -2,7 +2,6 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_migrate import Migrate
-
 from os import path
 
 db = SQLAlchemy()
@@ -12,6 +11,7 @@ CLASSES_DB_NAME = "classes.db"
 # Initialize web app
 def create_app():
     app = Flask(__name__)
+
     # Used for password hashing
     app.config['SECRET_KEY'] = 'bdqjfbkwbfjknjkwn'
 

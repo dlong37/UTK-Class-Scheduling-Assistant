@@ -1295,3 +1295,70 @@ button[type="submit"]:hover {
 .wed { grid-column: 4; } /* Wednesday's column */
 .thu { grid-column: 5; } /* Thursday's column */
 .fri { grid-column: 6; } /* Friday's column */
+
+
+.schedule-wrapper {
+    margin: 0 auto; /* Center the wrapper */
+    padding: 50px; /* Add padding around the content */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    display: flex; 
+    justify-content: flex-end;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    gap: 15px;
+}
+
+/* Individual schedule button styles */
+.schedule-button {
+    position: relative; /* Position for absolute children (close button) */
+    width: 200px; /* Fixed width for buttons */
+    height: 200px; /* Fixed height for buttons, same as width for square */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    color: black; /* Text color */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 8px; /* Rounded corners */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    text-decoration: none; /* Remove underline from link */
+    font-size: 12px; /* Font size for button text */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+/* Ensure the anchor link takes full button size */
+.schedule-button a {
+    width: 100%; /* Full width of the button */
+    height: 100%; /* Full height of the button */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    font-weight: 700; /* Set the font weight (bold) */
+    color: black; /* Text color */
+    text-decoration: none; /* Remove underline from link */
+}
+
+.new-schedule-button {
+    position: relative; /* Position for absolute children (close button) */
+    width: 200px; /* Fixed width for buttons */
+    height: 200px; /* Fixed height for buttons, same as width for square */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    color: black; /* Text color */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 8px; /* Rounded corners */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    text-decoration: none; /* Remove underline from link */
+    font-size: 12px; /* Font size for button text */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+/* Ensure the anchor link takes full button size */
+.new-schedule-button a {
+    width: 100%; /* Full width of the button */
+    height: 100%; /* Full height of the button */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    font-weight: 700; /* Set the font weight (bold) */
+    color: black; /* Text color */
+}
