@@ -199,6 +199,11 @@ def form_submit():
             # Specify the directory to save the CSV file
             directory = 'backend/static'
 
+            if os.path.exists(directory):
+                directory = directory
+            else:
+                directory = os.path.abspath('UTK-Class-Scheduling-Assistant/backend/static/')
+
             # Write the course data to a CSV file
             with open(os.path.join(directory, 'schedule.csv'), mode='w', newline='') as file:
                 writer = csv.writer(file)
