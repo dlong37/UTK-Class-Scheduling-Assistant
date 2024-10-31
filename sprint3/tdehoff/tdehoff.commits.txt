@@ -258,3 +258,4 @@ f27ea874 (tdehoff1        2024-10-23 10:44:25 -0400  934) } */
 9fabeaa5 (tdehoff1        2024-10-30 23:03:37 -0400 1364) }
 
 * backend/static/images/search_img.png  
+* Website: https://utkclassscheduler.pythonanywhere.com/
