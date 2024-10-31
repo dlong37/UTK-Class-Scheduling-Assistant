@@ -1,5 +1,5 @@
 ID,Abbreviation,Number,Title,Credit_Hours,Lecture_Time,Lecture_Days,Lecture_Location,Lab_Time,Lab_Days,Lab_Location
-82,COSC,402,Senior Design Praticum,3,11:30 AM - 12:20 PM,MWF,MOS,,,
-169,COSC,366,Introduction to Cybersecurity,3,08:10 AM - 09:25 AM,TR,MKB,,,
-170,COSC,361,Operating Systems,3,09:10 AM - 10:00 AM,MWF,MKB,,,
-171,COSC,365,Programming Languages and Systems,3,01:50 PM - 02:40 PM,MWF,MKB,,,
+57,COSC,230,Computer Organization,3,11:20 AM - 12:35 PM,TR,MKB,,,
+59,COSC,202,Data Structures and Algorithms I,4,12:55 PM - 02:10 PM,TR,DOU,09:10 AM - 10:00 AM,W,MKB
+78,ECE,313,Probability and Random Variables,3,08:00 AM - 08:50 AM,MWF,MKB,,,
+83,ENGL,355,Rhetoric and Writing,3,09:45 AM - 11:00 AM,TR,HSS,,,
