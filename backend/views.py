@@ -122,6 +122,7 @@ def form_submit():
     elective_credits = request.form.getlist('elective-credit')
     credit_hours = request.form.get('credit-hours')
     start_time = request.form.get('start-time')
+    gap_time = request.form.get('gap-time')
 
     # Prepare data for CSV
     data_entries = [
@@ -135,6 +136,7 @@ def form_submit():
     for credit in math_credits:
         data_entries.append([credit])
 
+    # Add other sequence entries
     data_entries.append([seq_3])
     data_entries.append([seq_4])
 
@@ -148,22 +150,34 @@ def form_submit():
     
     # Add other data
     data_entries.append([cs361_credit])
-    data_entries.append([credit_hours])
-    data_entries.append([start_time])
 
-    # Defines the directory where the csv file will be saved
+    # Defines the directory where the CSV file will be saved
     directory = 'backend/c_code'
 
+    # Checks if the directory exists and if not, then it is created
     if os.path.exists(directory):
         directory = directory
     else:
         directory = os.path.abspath('UTK-Class-Scheduling-Assistant/backend/c_code/')
 
-    # Write to CSV file
+    # Write to a CSV file for Gian's program to read
     with open(os.path.join(directory, 'data.csv'), mode='w', newline='') as file:
         writer = csv.writer(file, lineterminator='\n')
         for entry in data_entries:
             writer.writerow(entry)
+    
+    # Prepare time-related data for another CSV file
+    time_related_data = [
+        [credit_hours],
+        [start_time],
+        [gap_time]
+    ]
+
+    # Write to another CSV file for Lexy's program to read
+    with open(os.path.join(directory, 'time_data.csv'), mode='w', newline='') as time_file:
+        time_writer = csv.writer(time_file, lineterminator='\n')
+        for entry in time_related_data:
+            time_writer.writerow(entry)
 
     cpp_executable_path = os.path.join(directory, 'cgen')
     file1_path = os.path.join(directory, 'eecs_courses.csv')
