@@ -9,6 +9,13 @@
 {% block content %}
     <div class="schedule-container">
         <h1 class="heading">Generated Schedule</h1>
+
+        <form method="POST">
+            <div>
+                <a href="{{ url_for('views.regenerate_schedule') }}" class="link">Regenerate</a>
+                <a href="{{ url_for('views.save_schedule') }}" class="link">Save</a>
+            </div>
+        </form>
         
 
         <div class="schedule-grid">

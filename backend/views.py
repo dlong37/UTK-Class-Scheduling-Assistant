@@ -1,6 +1,6 @@
 # Backend for routes to other pages
 
-from flask import Blueprint, render_template, request, flash, jsonify, redirect, url_for, send_from_directory
+from flask import Blueprint, render_template, request, flash, jsonify, redirect, url_for, send_from_directory, session
 from flask_login import login_required, current_user
 from .models import Schedule, Course
 from . import db
@@ -108,8 +108,7 @@ def index():
 # Handle form submission
 @views.route('/form_submit', methods=['POST'])
 @login_required
-def form_submit():
-    print(f"SUBMIT start")
+def create_data_csv():
     default = 'MATH 130'
     core_class = request.form.get('core-class')
     seq_1 = request.form.get('sequence-1')
@@ -179,6 +178,17 @@ def form_submit():
         for entry in time_related_data:
             time_writer.writerow(entry)
 
+    return redirect(url_for('views.generate_new'))
+
+@views.route('/generate_new', methods=['GET', 'POST'])
+@login_required
+def generate_new():
+    directory = 'backend/c_code'
+    if os.path.exists(directory):
+        directory = directory
+    else:
+        directory = os.path.abspath('UTK-Class-Scheduling-Assistant/backend/c_code/')
+
     cpp_executable_path = os.path.join(directory, 'cgen')
     file1_path = os.path.join(directory, 'eecs_courses.csv')
     file2_path = os.path.join(directory, 'major_courses.csv')
@@ -199,16 +209,18 @@ def form_submit():
             class_ids = list(map(int, output.splitlines()))
             print(f"Parsed Class IDs: {class_ids}")
 
-            # Instead of writing output into a csv file, I create a new Schedule object with 
-            # returned class ids
-            new_schedule = Schedule(class_ids=class_ids, user_id=current_user.id)
-            db.session.add(new_schedule)
-            db.session.commit()
+            courses = Course.query.filter(Course.id.in_(class_ids)).all()
 
+            # Store data in session as a temporary schedule
+            session['temp_schedule'] = {
+                'class_ids': class_ids,
+                # 'user_id': current_user.id, 
+            }
+
+
+            # new_schedule = Schedule(class_ids=class_ids, user_id=current_user.id)
             # courses = Course.query.filter(Course.id.in_(class_ids)).all()
             # return render_template('view_schedule.html', schedule=new_schedule, courses=courses, user=current_user)
-
-            courses = Course.query.filter(Course.id.in_(class_ids)).all()
 
             # Specify the directory to save the CSV file
             directory = 'backend/static'
@@ -256,4 +268,34 @@ def form_submit():
 @views.route('/generated_schedule', methods=['GET'])
 @login_required
 def generate():
-    return render_template('generated_schedule.html')
+    temp_schedule = session.get('temp_schedule')
+
+    if not temp_schedule:
+        return "No temporary schedule found", 404
+
+    return render_template('generated_schedule.html', schedule=temp_schedule)
+
+@views.route('/regenerate_schedule', methods=['GET'])
+@login_required
+def regenerate_schedule():
+    return redirect(url_for('views.generate_new'))
+
+@views.route('/save_schedule', methods=['GET', 'POST'])
+@login_required
+def save_schedule():
+    temp_schedule = session.get('temp_schedule')
+
+    if not temp_schedule:
+        return "No temporary schedule found", 404 
+
+    new_schedule = Schedule(
+        class_ids=temp_schedule['class_ids'],
+        user_id=current_user.id
+    )
+
+    db.session.add(new_schedule)
+    db.session.commit()
+
+    session.pop('temp_schedule', None)
+
+    return render_template('main.html', user=current_user)
