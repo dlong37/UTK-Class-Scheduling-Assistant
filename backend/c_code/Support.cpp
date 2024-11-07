@@ -108,7 +108,7 @@ int read_file(ifstream &file, vector<course> &course_vector) {
                     my_course.lab_loc = line;
                     break;
                 default:
-                    cout << "error" << endl;
+                    cerr << "error" << endl;
                     return 1;
             }
             i++; 
@@ -338,12 +338,12 @@ priority_queue<course, vector<course>, CompareCourse> create_pq(vector<course> r
 
 void print_pq(priority_queue<course, vector<course>, CompareCourse> pq) {
     priority_queue<course, vector<course>, CompareCourse> print = pq;
-    cout << "\nPriority Queue: " << endl;
+    // cout << "\nPriority Queue: " << endl;
     while (!print.empty()) {
-        cout << print.top().abbrv << " " << print.top().num << " : " << print.top().title << " at " << print.top().lec_time << " (" << print.top().priority << ")" << endl;
+        // cout << print.top().abbrv << " " << print.top().num << " : " << print.top().title << " at " << print.top().lec_time << " (" << print.top().priority << ")" << endl;
         print.pop(); 
     }
-    cout << endl;
+    // cout << endl;
 };
 
 void print_array( vector<vector<int>> arr) {
@@ -457,13 +457,13 @@ bool check_pr(vector<string> taken_vector, priority_queue<course, vector<course>
 
 bool check_conflicts(vector<vector<int>> schedule, course course) {
     int lec_start_time = stoi(course.lec_time.substr(0, 2)) * MINS_PER_HOUR + stoi(course.lec_time.substr(2, 2));
-        cout << "lec start time: " << lec_start_time << endl;
+        // cout << "lec start time: " << lec_start_time << endl;
     int lec_end_time = stoi(course.lec_time.substr(5, 2)) * MINS_PER_HOUR + stoi(course.lec_time.substr(7, 2));
-        cout << "lec end time: " << lec_end_time << endl;
+        // cout << "lec end time: " << lec_end_time << endl;
     int lab_start_time = 0;
-        cout << "lab start time: " << lab_start_time << endl;
+        // cout << "lab start time: " << lab_start_time << endl;
     int lab_end_time = 0;
-        cout << "lab start time: " << lab_end_time << endl;
+        // cout << "lab start time: " << lab_end_time << endl;
 
     if (course.lab_time != "none") {
         lab_start_time = stoi(course.lab_time.substr(0, 2)) * MINS_PER_HOUR + stoi(course.lab_time.substr(2, 2));
@@ -636,7 +636,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 cr = c.co_req.substr(index, i-index);
                 or_vector.push_back(cr);
                 index = i+1;
-                cout << "push " << cr << endl;
+                // cout << "push " << cr << endl;
             }
 
             // hit an AND sign: check OR vector + attempt to schedule
@@ -644,7 +644,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 // push class onto the OR vector
                 cr = c.co_req.substr(index, i-index);
                 or_vector.push_back(cr);
-                cout << "push " << cr << endl;
+                // cout << "push " << cr << endl;
 
                 /* attempt to schedule one of the co-reqs */
                 bool taken;
@@ -686,7 +686,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                             cr_pq.pop();
                         }
                         else { 
-                            cout << "failed to schedule a co-req" << endl;
+                            // cout << "failed to schedule a co-req" << endl;
                             cr_scheduled = false;
                             scheduled_cr.clear();
                             break;
@@ -707,7 +707,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 // push
                 cr = c.co_req.substr(index, c.co_req.size() - index);
                 or_vector.push_back(cr);
-                cout << "push last class" << cr << endl;
+                // cout << "push last class " << cr << endl;
 
                 /* final attempt to schedule */
                 bool taken;
@@ -749,7 +749,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                             cr_pq.pop();
                         }
                         else { 
-                            cout << "failed to schedule a co-req" << endl;
+                            // cout << "failed to schedule a co-req" << endl;
                             cr_scheduled = false;
                             scheduled_cr.clear();
                             break;
@@ -763,7 +763,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                     break;
                 }
                 else {
-                    cout << "all co-reqs successfully scheduled" << endl;
+                    // cout << "all co-reqs successfully scheduled" << endl;
                     temp_schedule = cr_schedule;
                 }
             }
@@ -794,8 +794,8 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
         }
         passes++;
 
-        if (check_pr(taken_vector, pq) == true) {
-            cout << "Passed PRs - " << pq.top().abbrv << " " << pq.top().num << " : " << pq.top().title << " at " << pq.top().lec_time << endl;
+        if (check_pr(taken_vector, pq) == true && check_dup(perm_courses, pq.top()) == true) {
+            // cout << "Passed PRs - " << pq.top().abbrv << " " << pq.top().num << " : " << pq.top().title << " at " << pq.top().lec_time << endl;
 
             // attempt to schedule the first class
             course c = pq.top();
@@ -805,7 +805,7 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
 
             // check for conflicts
             if (check_conflicts(schedule, c) == false) {
-                cout << "No time conflicts" << endl;
+                // cout << "No time conflicts" << endl;
 
                 // schedule (tentatively)
                 add_to_schedule(temp_schedule, c, scheduled_courses);
@@ -813,7 +813,7 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
                 // check + schedule co-reqs
                 if (check_crs(c, temp_schedule, course_vector, taken_vector, perm_courses, user_hour, user_min, gap, scheduled_courses) == true) {
                     // we scheduled a class!
-                    cout << "Scheduled CRs" << endl;
+                    // cout << "Scheduled CRs" << endl;
                     schedule = temp_schedule;
                     scheduled_success = true;
 
@@ -832,7 +832,7 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
                             total_hours += scheduled_courses[i].hours;
                             perm_courses.push_back(scheduled_courses[i]);
 
-                            cout << "SCHEDULED " << scheduled_courses[i].abbrv << " " << scheduled_courses[i].num << endl;
+                            // cout << "SCHEDULED " << scheduled_courses[i].abbrv << " " << scheduled_courses[i].num << endl;
 
                             // Abbreviation,Number,Title,Hours,Attributes,LcTime,LcDate,LcLocation,LaTime,LaDate,LaLocation
                             appendfile << 
@@ -860,12 +860,12 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
                 }
             }
             else {
-                cout << "Time Conflicts!" << endl;
+                // cout << "Time Conflicts!" << endl;
                 pq.pop();
             }
         }
         else if (pq.empty()) {
-            cout << "No more schedulable classes." << endl;
+            // cout << "No more schedulable classes." << endl;
             break;
         }
         else {
@@ -919,4 +919,26 @@ bool course::operator==(course rhs) {
     if(lab_time != rhs.lab_time) { same = false; }
     if(lab_loc != rhs.lab_loc) { same = false; }
     return same;
+}
+
+void print_ids(vector<course> v1, vector<course> v2) {
+    for (int i = 0; i < v1.size(); i++) {
+        for (int j = 0; j < v2.size(); j++) {
+            if (v1[i] == v2[j]) {
+                cout << j+1 << endl;
+                break;
+            }
+        }
+    }
+}
+
+bool check_dup(vector<course> perm_courses, course c) {
+    for (int j = 0; j < (int)perm_courses.size(); j++) {
+        string perm_name = perm_courses[j].abbrv + " " + to_string(perm_courses[j].num);
+        string c_name = c.abbrv + " " + to_string(c.num);
+        if (perm_name == c_name) {
+            return false;
+        }
+    }
+    return true;
 }
