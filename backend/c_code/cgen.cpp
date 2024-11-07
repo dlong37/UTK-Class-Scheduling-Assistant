@@ -61,20 +61,29 @@ int main(int argc, char** argv) {
         // or lexy_time_data.csv for test data
         file.open("time_data.csv");
         string parse;
-        for (int i = 0; i < 3; i++) {
-            getline(file, parse);
-            switch (i) {
-                case 0:
-                    credit_hours = stoi(parse);
-                    break;
-                case 1:
-                    user_hour = stoi(parse.substr(0,2));
-                    user_min = stoi(parse.substr(2,2));
-                    break;
-                case 2:
-                    gap = stoi(parse);
-                    break;
+        if (file.is_open()) {
+            for (int i = 0; i < 3; i++) {
+                getline(file, parse);
+                switch (i) {
+                    case 0:
+                        credit_hours = stoi(parse);
+                        break;
+                    case 1:
+                        user_hour = stoi(parse.substr(0,2));
+                        user_min = stoi(parse.substr(2,2));
+                        break;
+                    case 2:
+                        gap = stoi(parse);
+                        break;
+                }
             }
+        }
+        else {
+            // couldn't open file
+            ofstream ferr("error.txt");
+            ferr << "couldn't open time_data.csv" << endl;
+            ferr.close();
+            return 1;
         }
         file.close();
 
