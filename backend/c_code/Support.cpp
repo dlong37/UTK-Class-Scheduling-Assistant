@@ -942,3 +942,36 @@ bool check_dup(vector<course> perm_courses, course c) {
     }
     return true;
 }
+
+bool open_time_file(ifstream &file, int &credit_hours, int &gap, int &user_min, int &user_hour) {
+    // or lexy_time_data.csv for test data
+    file.open("lexy_time_data.csv");
+    string parse;
+    if (file.is_open()) {
+        for (int i = 0; i < 3; i++) {
+            getline(file, parse);
+            switch (i) {
+                case 0:
+                    credit_hours = stoi(parse);
+                    break;
+                case 1:
+                    user_hour = stoi(parse.substr(0,2));
+                    user_min = stoi(parse.substr(2,2));
+                    break;
+                case 2:
+                    gap = stoi(parse);
+                    break;
+            }
+        }
+        file.close();
+        return true;
+    }
+    else {
+        // couldn't open file
+        ofstream ferr("error.txt");
+        ferr << "couldn't open lexy_time_data.csv" << endl;
+        ferr.close();
+        file.close();
+        return false;
+    }
+}

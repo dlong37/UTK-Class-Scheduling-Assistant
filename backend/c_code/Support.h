@@ -83,5 +83,6 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
 void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector, vector<string> taken_vector, vector<string> major_vector, int credit_hours, vector<course> &scheduled_courses, vector<course> &perm_courses, int user_hour, int user_min, int gap);
 void print_ids(vector<course> v1, vector<course> v2);
 bool check_dup(vector<course> perm_courses, course c);
+bool open_time_file(ifstream &file, int &credit_hours, int &gap, int &user_min, int &user_hour);
 
 #endif

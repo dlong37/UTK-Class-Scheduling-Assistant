@@ -58,34 +58,9 @@ int main(int argc, char** argv) {
     remove_duplicates(taken_set, taken_vector, major_vector);
 
     if (flag == 1) { // gaps program
-        // or lexy_time_data.csv for test data
-        file.open("time_data.csv");
-        string parse;
-        if (file.is_open()) {
-            for (int i = 0; i < 3; i++) {
-                getline(file, parse);
-                switch (i) {
-                    case 0:
-                        credit_hours = stoi(parse);
-                        break;
-                    case 1:
-                        user_hour = stoi(parse.substr(0,2));
-                        user_min = stoi(parse.substr(2,2));
-                        break;
-                    case 2:
-                        gap = stoi(parse);
-                        break;
-                }
-            }
-        }
-        else {
-            // couldn't open file
-            ofstream ferr("error.txt");
-            ferr << "couldn't open time_data.csv" << endl;
-            ferr.close();
+        if (open_time_file(file, credit_hours, gap, user_min, user_hour) == false) {
             return 1;
         }
-        file.close();
 
         // Create the 2D matrix for the course scheduler
         vector<vector<int>> schedule(60*24, vector<int>(5, 0));
@@ -95,7 +70,7 @@ int main(int argc, char** argv) {
 
         // print schedule
         print_ids(perm_courses, course_vector);
-        // print_array(schedule);
+        //print_array(schedule);
     }
 
     if (flag == 2) {
