@@ -59,7 +59,7 @@ int main(int argc, char** argv) {
 
     if (flag == 1) { // gaps program
         // or lexy_time_data.csv for test data
-        file.open("lexy_time_data.csv");
+        file.open("time_data.csv");
         string parse;
         for (int i = 0; i < 3; i++) {
             getline(file, parse);
