@@ -294,7 +294,8 @@ priority_queue<course, vector<course>, CompareCourse> create_pq(vector<course> r
     priority_queue<course, vector<course>, CompareCourse> pq;
     for (int i = 0; i < (int)remaining_vector.size(); i++) {
         // calculate start time in minutes
-        // only based on lecture days! I would love to do labs as well, but that would require deep structural changes
+
+        // start by calculating the lecture priority
         string lec_days = remaining_vector[i].lec_date;
         // find the last minute that a course is scheduled for:
         int rows = schedule.size();
@@ -326,11 +327,54 @@ priority_queue<course, vector<course>, CompareCourse> create_pq(vector<course> r
         int course_min = stoi(remaining_vector[i].lec_time.substr(2, 2));
         int endx = course_hour * MINS_PER_HOUR + course_min;
         int duration = endx - startx;
-        int priority = duration - gap;
-        if (priority < 0) {
-            priority *= -1;
+        int lec_priority = duration - gap;
+        if (lec_priority < 0) {
+            lec_priority *= -1;
         }
-        remaining_vector[i].priority = priority;
+
+        // now, calculate lab priority
+        string lab_days = remaining_vector[i].lab_date;
+        int lab_priority = 0;
+
+        // only calculate if a lab is offered
+        if (lab_days != "none") {
+            // find the last minute that a course is scheduled for:
+            startx = 0;
+            for (int j = 0; j < rows; ++j) {
+                for (int k = 0; k < (int)lab_days.size(); k++) {
+                    if (schedule[j][0] == 1 && lab_days[k] == 'M') {
+                        startx = j;
+                    }
+                    if (schedule[j][1] == 1 && lab_days[k] == 'T') {
+                        startx = j;
+                    }
+                    if (schedule[j][2] == 1 && lab_days[k] == 'W') {
+                        startx = j;
+                    }
+                    if (schedule[j][3] == 1 && lab_days[k] == 'R') {
+                        startx = j;
+                    }
+                    if (schedule[j][4] == 1 && lab_days[k] == 'F') {
+                        startx = j;
+                    }
+                }
+            }
+            // if nothing was scheduled for any time, make startx the global variable start time
+            if (startx == 0) {
+                startx = user_hour * MINS_PER_HOUR + user_min;
+            }
+            course_hour = stoi(remaining_vector[i].lab_time.substr(0, 2));
+            course_min = stoi(remaining_vector[i].lab_time.substr(2, 2));
+            endx = course_hour * MINS_PER_HOUR + course_min;
+            duration = endx - startx;
+            lab_priority = duration - gap;
+            if (lab_priority < 0) {
+                lab_priority *= -1;
+            }
+        }
+        
+        // then, add the two together!
+        remaining_vector[i].priority = lec_priority + lab_priority;
         pq.push(remaining_vector[i]);
     }
     return pq;
@@ -647,6 +691,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 // cout << "push " << cr << endl;
 
                 /* attempt to schedule one of the co-reqs */
+                // check the taken vector before trying to schedule
                 bool taken;
                 for (int j = 0; j < (int)taken_vector.size(); j++) {
                     for (int k = 0; k < (int)or_vector.size(); k++) {
@@ -656,7 +701,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                         }
                     }
                 }
-                // check taken vector first
+                // check the permanent vector as well before we try to schedule
                 for (int j = 0; j < (int)perm_courses.size(); j++) {
                     string name = perm_courses[j].abbrv + " " + to_string(perm_courses[j].num);
                     for (int k = 0; k < (int)or_vector.size(); k++) {
@@ -666,10 +711,11 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                         }
                     }
                 }
+                // we haven't taken the class before, attempt to schedule it
                 if (taken == false) {
                     // create a vector of courses from the or_vector
                     vector<course> remaining_crs = create_remaining_vector(course_vector, or_vector);
-                    // create a new priority queue for just the co-reqs
+                    // create a new priority queue for just the co-reqs classes in the or_vector
                     priority_queue<course, vector<course>, CompareCourse> cr_pq = create_pq(remaining_crs, temp_schedule, user_hour, user_min, gap);
                     // check pre-reqs
                     while(1) {
