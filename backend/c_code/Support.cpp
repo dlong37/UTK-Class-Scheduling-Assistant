@@ -16,6 +16,7 @@
 using namespace std;
 
 vector<pair<double, double> > coordinates = { APBcoord, AYRcoord, BECcoord, BEOcoord, DOUcoord, HBBcoord, HPRcoord, HSScoord, JHBcoord, LIBcoord, MKBcoord, MOScoord, PERcoord, PHYcoord, SRFcoord, STRcoord, TICcoord, WABcoord, ZECcoord };
+vector<string> locnames = { "APB", "AYR", "BEC", "BEO", "DOU", "HBB", "HPR", "HSS", "JHB", "LIB", "MKB", "MOS", "PER", "PHY", "SRF", "STR", "TIC", "WAB", "ZEC" };
 
 void calc_distance(vector<vector<float> > &distance_vector) {
     distance_vector.resize(19);
@@ -206,7 +207,7 @@ int error_check(string s, int argc, int i) {
     return 0;
 }
 
-void find_next_courses(vector<string> &needed, vector<course> course_vector, set<string> taken_set, vector<string> major_vector, vector<vector<float> > distance_vector, string s, int hours) {
+void find_next_courses(vector<string> &needed, vector<course> course_vector, set<string> taken_set, vector<string> major_vector, string s, int hours) {
     int t = 0;
     srand(time(NULL));
     while(t < hours) {
@@ -921,7 +922,7 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
     appendfile.close();
 };
 
-int schedule_next_courses(vector<course> &next_courses, vector<string> &needed, vector<course> &course_vector) {
+int schedule_next_courses(vector<course> &next_courses, vector<string> &needed, vector<course> &course_vector, vector<vector<float> > distance_vector) {
     int scheduled = 0;
     vector<vector<course> > twodvec;
     twodvec.resize(needed.size());
@@ -938,6 +939,7 @@ int schedule_next_courses(vector<course> &next_courses, vector<string> &needed, 
     for(int i = 0; i < twodvec.size(); i++) {
         if(i == 0) { next_courses.push_back(twodvec[i][0]); scheduled++; }
         else {
+            sort_twodvec(twodvec, next_courses, i, distance_vector);
             for(int j = 0; j < twodvec[i].size(); j++) {
                 bool canschedule = true;
                 for(int k = 0; k < next_courses.size(); k++) {
@@ -1020,4 +1022,30 @@ bool open_time_file(ifstream &file, int &credit_hours, int &gap, int &user_min, 
         file.close();
         return false;
     }
+}
+
+void sort_twodvec(vector<vector<course> > &twodvec, vector<course> next_courses, int i, vector<vector<float> > distance_vector) {
+    course current = next_courses.back();
+    int currbuildnum = -1;
+    for(int j = 0; j < locnames.size(); j++) {
+        if(current.lec_loc == locnames[j]) { currbuildnum = j; break; }
+    }
+
+    if(currbuildnum == -1) { return; }
+
+    cout << locnames[currbuildnum] << endl;
+
+    cout << endl << "presorted" << endl;
+    for(int j = 0; j < twodvec[i].size(); j++) {
+        cout << twodvec[i][j].lec_loc << endl;
+    }
+    cout << endl;
+
+    sort(twodvec[i].begin(), twodvec[i].end(), [&currbuildnum, &distance_vector](const course &a, const course &b) { return distance_vector[currbuildnum][distance(locnames.begin(), find(locnames.begin(), locnames.end(), a.lec_loc))] < distance_vector[currbuildnum][distance(locnames.begin(), find(locnames.begin(), locnames.end(), b.lec_loc))]; });
+
+    cout << "sorted" << endl;
+    for(int j = 0; j < twodvec[i].size(); j++) {
+        cout << twodvec[i][j].lec_loc << endl;
+    }
+    cout << endl;
 }

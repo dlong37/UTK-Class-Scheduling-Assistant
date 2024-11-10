@@ -77,21 +77,12 @@ int main(int argc, char** argv) {
         vector<vector<float> > distance_vector;
         calc_distance(distance_vector);
         bool running = true;
-
         while(running) {
             vector<string> needed;
-            find_next_courses(needed, course_vector, taken_set, major_vector, distance_vector, argv[1], 12);
-
+            find_next_courses(needed, course_vector, taken_set, major_vector, argv[1], 12);
             vector<course> next_courses;
-            if(schedule_next_courses(next_courses, needed, course_vector) == needed.size()) {
-                for(int i = 0; i < next_courses.size(); i++) {
-                    for(int j = 0; j < course_vector.size(); j++) {
-                        if(next_courses[i] == course_vector[j]) {
-                            cout << j+1 << endl;
-                            break;
-                        }
-                    }
-                }
+            if(schedule_next_courses(next_courses, needed, course_vector, distance_vector) == needed.size()) {
+                print_ids(next_courses, course_vector);
                 // for(int i = 0; i < next_courses.size(); i++) {
                 //     cout << next_courses[i].abbrv + " " + to_string(next_courses[i].num) << " @ " << next_courses[i].lec_time << endl;
                 // }

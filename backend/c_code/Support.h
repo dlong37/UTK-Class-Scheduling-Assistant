@@ -66,11 +66,12 @@ void remove_duplicates(set<string> &taken_set, vector<string> &taken_vector, vec
 int open_file(string file_name, ifstream &file, string args);
 void read_file2(vector<string> &vector, ifstream &file);
 int error_check(string s, int argc, int i);
-void find_next_courses(vector<string> &needed, vector<course> course_vector, set<string> taken_set, vector<string> major_vector, vector<vector<float> > distance_vector, string s, int hours);
+void find_next_courses(vector<string> &needed, vector<course> course_vector, set<string> taken_set, vector<string> major_vector, string s, int hours);
 bool get_prereqs(course c, vector<vector<string> > &temppre);
 bool check_prereqs(set<string> taken_set, vector<vector<string> > temppre);
 int get_flag(string s);
-int schedule_next_courses(vector<course> &next_courses, vector<string> &needed, vector<course> &course_vector);
+int schedule_next_courses(vector<course> &next_courses, vector<string> &needed, vector<course> &course_vector, vector<vector<float> > distance_vector);
+void sort_twodvec(vector<vector<course> > &twodvec, vector<course> next_courses, int i, vector<vector<float> > distance_vector);
 // Lexy's Functions
 priority_queue<course, vector<course>, CompareCourse> create_pq(vector<course> remaining_vector, vector<vector<int>> schedule, int user_hour, int user_min, int gap);
 void print_pq(priority_queue<course, vector<course>, CompareCourse> pq);
