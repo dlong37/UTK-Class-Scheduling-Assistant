@@ -1033,19 +1033,6 @@ void sort_twodvec(vector<vector<course> > &twodvec, vector<course> next_courses,
 
     if(currbuildnum == -1) { return; }
 
-    cout << locnames[currbuildnum] << endl;
-
-    cout << endl << "presorted" << endl;
-    for(int j = 0; j < twodvec[i].size(); j++) {
-        cout << twodvec[i][j].lec_loc << endl;
-    }
-    cout << endl;
-
     sort(twodvec[i].begin(), twodvec[i].end(), [&currbuildnum, &distance_vector](const course &a, const course &b) { return distance_vector[currbuildnum][distance(locnames.begin(), find(locnames.begin(), locnames.end(), a.lec_loc))] < distance_vector[currbuildnum][distance(locnames.begin(), find(locnames.begin(), locnames.end(), b.lec_loc))]; });
 
-    cout << "sorted" << endl;
-    for(int j = 0; j < twodvec[i].size(); j++) {
-        cout << twodvec[i][j].lec_loc << endl;
-    }
-    cout << endl;
 }

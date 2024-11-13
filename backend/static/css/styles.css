@@ -1362,3 +1362,33 @@ button[type="submit"]:hover {
     font-weight: 700; /* Set the font weight (bold) */
     color: black; /* Text color */
 }
+
+.gs__link {
+    font-size: 1rem;
+    background-color: #ff8200;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #141414;
+    margin-top: 2rem;
+    margin-bottom: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s;
+    outline: none;
+}
+
+.gs__link a {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-decoration: none;
+}
+
+.gs__link:hover {
+    color: #fff;
+}
+
+.gs__link:hover:after  {
+    width: 100%;
+}
