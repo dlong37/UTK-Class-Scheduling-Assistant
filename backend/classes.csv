@@ -13,7 +13,7 @@ MATH,132,Calculus 1B Infused with Precalculus,3,QR,MATH 131,none,1240-1330,MWF,H
 MATH,132,Calculus 1B Infused with Precalculus,3,QR,MATH 131,none,1130-1220,MWF,HBB,none,none,none
 MATH,141,Calculus I,4,QR,MATH 130,none,0800-0850,MWF,HSS,0810-0925,R,HSS
 MATH,141,Calculus I,4,QR,MATH 130,none,1500-1550,MWF,HSS,1605-1720,R,HSS
-MATH,141,Calculus I,4,QR,MATH 130,none,1350-1440,MWF,HSS,1430-1545,R,HSS
+MATH,141,Calculus I,4,QR,MATH 130,none,1350-1420,MWF,HSS,1430-1545,R,HSS
 MATH,141,Calculus I,4,QR,MATH 130,none,1350-1440,MWF,HSS,1430-1545,R,HSS
 MATH,141,Calculus I,4,QR,MATH 130,none,1240-1330,MWF,MKB,1255-1410,R,HSS
 MATH,141,Calculus I,4,QR,MATH 130,none,1240-1330,MWF,HSS,1255-1410,R,HSS
@@ -137,13 +137,13 @@ EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,1020-1110,MWF,ZEC,1120
 COSC,101,Introduction to Programming,3,none,none,none,1430-1545,TR,DOU,none,none,none
 COSC,101,Introduction to Programming,3,none,none,none,1430-1545,TR,WAB,none,none,none
 COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,0800-0850,F,MKB
-COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,0900-0950,F,MKB
-COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1100-1150,F,MKB
-COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1200-1250,F,MKB
-COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1300-1350,F,MKB
-COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1200-1250,W,MKB
-COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1300-1350,W,MKB
-COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1400-1450,W,MKB
+COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,0910-1000,F,MKB
+COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1020-1110,F,MKB
+COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1130-1220,F,MKB
+COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1240-1330,F,MKB
+COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1130-1220,W,MKB
+COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1240-1330,W,MKB
+COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1350-1440,W,MKB
 EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,0810-0925,TR,ZEC
 EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
 EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1120-1235,TR,ZEC
@@ -214,3 +214,50 @@ EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1130-1220,MWF,
 EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,0910-1000,MWF,ZEC,1430-1545,TR,ZEC
 EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1020-1110,MWF,ZEC,1430-1545,TR,ZEC
 EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+VC NS,101,Natural Science Elective,3,none,none,none,0800-0850,MWF,STR,none,none,none
+VC NS,101,Natural Science Elective,3,none,none,none,0910-1000,MWF,STR,none,none,none
+VC NS,101,Natural Science Elective,3,none,none,none,1020-1110,MWF,STR,none,none,none
+VC NS,101,Natural Science Elective,3,none,none,none,1130-1220,MWF,STR,none,none,none
+VC NS,101,Natural Science Elective,3,none,none,none,1240-1330,MWF,STR,none,none,none
+VC NS,101,Natural Science Elective,3,none,none,none,1350-1440,MWF,STR,none,none,none
+VC NS,101,Natural Science Elective,3,none,none,none,1500-1540,MWF,STR,none,none,none
+VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,0800-0850,MWF,HSS,none,none,none
+VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,0910-1000,MWF,HSS,none,none,none
+VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,1020-1110,MWF,HSS,none,none,none
+VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,1130-1220,MWF,HSS,none,none,none
+VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,1240-1330,MWF,HSS,none,none,none
+VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,1350-1440,MWF,HSS,none,none,none
+VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,1500-1540,MWF,HSS,none,none,none
+VC GCI,101,Global Citizenship International Elective,3,none,none,none,0800-0850,MWF,LIB,none,none,none
+VC GCI,101,Global Citizenship International Elective,3,none,none,none,0910-1000,MWF,LIB,none,none,none
+VC GCI,101,Global Citizenship International Elective,3,none,none,none,1020-1110,MWF,LIB,none,none,none
+VC GCI,101,Global Citizenship International Elective,3,none,none,none,1130-1220,MWF,LIB,none,none,none
+VC GCI,101,Global Citizenship International Elective,3,none,none,none,1240-1330,MWF,LIB,none,none,none
+VC GCI,101,Global Citizenship International Elective,3,none,none,none,1350-1440,MWF,LIB,none,none,none
+VC GCI,101,Global Citizenship International Elective,3,none,none,none,1500-1540,MWF,LIB,none,none,none
+VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,0800-0850,MWF,HSS,none,none,none
+VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,0910-1000,MWF,HSS,none,none,none
+VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,1020-1110,MWF,HSS,none,none,none
+VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,1130-1220,MWF,HSS,none,none,none
+VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,1240-1330,MWF,HSS,none,none,none
+VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,1350-1440,MWF,HSS,none,none,none
+VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,1500-1540,MWF,HSS,none,none,none
+VC SS,101,Social Sciences Elective,3,none,none,none,0800-0850,MWF,ABP,none,none,none
+VC SS,101,Social Sciences Elective,3,none,none,none,0910-1000,MWF,ABP,none,none,none
+VC SS,101,Social Sciences Elective,3,none,none,none,1020-1110,MWF,ABP,none,none,none
+VC SS,101,Social Sciences Elective,3,none,none,none,1130-1220,MWF,ABP,none,none,none
+VC SS,101,Social Sciences Elective,3,none,none,none,1350-1440,MWF,ABP,none,none,none
+VC SS,101,Social Sciences Elective,3,none,none,none,1500-1540,MWF,ABP,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,0800-0850,MWF,WAB,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,0910-1000,MWF,WAB,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,1020-1110,MWF,WAB,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,1130-1220,MWF,WAB,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,1350-1440,MWF,WAB,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,1500-1540,MWF,WAB,none,none,none
+VC EP,101,Expanded Perspectives Elective,3,none,none,none,1020-1110,MWF,WAB,none,none,none
+COSC,499,Engaged Inquiries Elective,3,COSC360,none,none,0810-0925,TR,MKB,none,none,none
+COSC,499,Engaged Inquiries Elective,3,COSC360,none,none,0945-1100,TR,MKB,none,none,none
+COSC,499,Engaged Inquiries Elective,3,COSC360,none,none,1120-1235,TR,MKB,none,none,none
+COSC,499,Engaged Inquiries Elective,3,COSC360,none,none,1255-1315,TR,MKB,none,none,none
+COSC,499,Engaged Inquiries Elective,3,COSC360,none,none,1335-1450,TR,MKB,none,none,none
+COSC,499,Engaged Inquiries Elective,3,COSC360,none,none,1510-1625,TR,MKB,none,none,none
