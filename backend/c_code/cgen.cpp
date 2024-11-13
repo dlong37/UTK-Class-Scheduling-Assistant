@@ -79,7 +79,7 @@ int main(int argc, char** argv) {
         bool running = true;
         while(running) {
             vector<string> needed;
-            find_next_courses(needed, course_vector, taken_set, major_vector, argv[1], 12);
+            find_next_courses(needed, course_vector, taken_set, major_vector, argv[1], 19);
             vector<course> next_courses;
             if(schedule_next_courses(next_courses, needed, course_vector, distance_vector) == needed.size()) {
                 print_ids(next_courses, course_vector);

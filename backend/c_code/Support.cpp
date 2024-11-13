@@ -214,7 +214,14 @@ void find_next_courses(vector<string> &needed, vector<course> course_vector, set
         if(major_vector.size() == 0) { break; }
         int i = rand() % major_vector.size();
         for(int j = 0; j < (int)course_vector.size(); j++) {
-            string tempTitle = course_vector[j].abbrv + " " + to_string(course_vector[j].num);
+            string tempTitle;
+
+            if((course_vector[j].abbrv).substr(0,2) == "VC") {
+                tempTitle = course_vector[j].abbrv;
+            }
+            else {
+                tempTitle = course_vector[j].abbrv + " " + to_string(course_vector[j].num);
+            }
             if(tempTitle == major_vector[i]) {
                 vector<vector<string> > temppre(5, vector<string>(5, "NULL"));
                 if(get_prereqs(course_vector[j], temppre)) {
@@ -926,9 +933,10 @@ int schedule_next_courses(vector<course> &next_courses, vector<string> &needed, 
     int scheduled = 0;
     vector<vector<course> > twodvec;
     twodvec.resize(needed.size());
+
     for(int i = 0; i < needed.size(); i++) {
         for(int j = 0; j < course_vector.size(); j++) {
-            if(needed[i] == (course_vector[j].abbrv + " " + to_string(course_vector[j].num))) {
+            if(needed[i] == (course_vector[j].abbrv + " " + to_string(course_vector[j].num)) || needed[i] == (course_vector[j].abbrv)) {
                 twodvec[i].push_back(course_vector[j]);
             }
         }
@@ -937,7 +945,7 @@ int schedule_next_courses(vector<course> &next_courses, vector<string> &needed, 
     sort(twodvec.begin(), twodvec.end(), [](const std::vector<course>& a, const std::vector<course>& b) { return a.size() < b.size(); });
 
     for(int i = 0; i < twodvec.size(); i++) {
-        if(i == 0) { next_courses.push_back(twodvec[i][0]); scheduled++; }
+        if(i == 0) { next_courses.push_back(twodvec[i][0]); scheduled++;}
         else {
             sort_twodvec(twodvec, next_courses, i, distance_vector);
             for(int j = 0; j < twodvec[i].size(); j++) {

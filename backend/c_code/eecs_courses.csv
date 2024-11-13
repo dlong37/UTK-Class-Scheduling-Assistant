@@ -214,3 +214,50 @@ EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1130-1220,MWF,
 EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,0910-1000,MWF,ZEC,1430-1545,TR,ZEC
 EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1020-1110,MWF,ZEC,1430-1545,TR,ZEC
 EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+VC NS,101,Natural Science Elective,3,none,none,none,0800-0850,MWF,STR,none,none,none
+VC NS,101,Natural Science Elective,3,none,none,none,0910-1000,MWF,STR,none,none,none
+VC NS,101,Natural Science Elective,3,none,none,none,1020-1110,MWF,STR,none,none,none
+VC NS,101,Natural Science Elective,3,none,none,none,1130-1220,MWF,STR,none,none,none
+VC NS,101,Natural Science Elective,3,none,none,none,1240-1330,MWF,STR,none,none,none
+VC NS,101,Natural Science Elective,3,none,none,none,1350-1440,MWF,STR,none,none,none
+VC NS,101,Natural Science Elective,3,none,none,none,1500-1540,MWF,STR,none,none,none
+VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,0800-0850,MWF,HSS,none,none,none
+VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,0910-1000,MWF,HSS,none,none,none
+VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,1020-1110,MWF,HSS,none,none,none
+VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,1130-1220,MWF,HSS,none,none,none
+VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,1240-1330,MWF,HSS,none,none,none
+VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,1350-1440,MWF,HSS,none,none,none
+VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,1500-1540,MWF,HSS,none,none,none
+VC GCI,101,Global Citizenship International Elective,3,none,none,none,0800-0850,MWF,LIB,none,none,none
+VC GCI,101,Global Citizenship International Elective,3,none,none,none,0910-1000,MWF,LIB,none,none,none
+VC GCI,101,Global Citizenship International Elective,3,none,none,none,1020-1110,MWF,LIB,none,none,none
+VC GCI,101,Global Citizenship International Elective,3,none,none,none,1130-1220,MWF,LIB,none,none,none
+VC GCI,101,Global Citizenship International Elective,3,none,none,none,1240-1330,MWF,LIB,none,none,none
+VC GCI,101,Global Citizenship International Elective,3,none,none,none,1350-1440,MWF,LIB,none,none,none
+VC GCI,101,Global Citizenship International Elective,3,none,none,none,1500-1540,MWF,LIB,none,none,none
+VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,0800-0850,MWF,HSS,none,none,none
+VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,0910-1000,MWF,HSS,none,none,none
+VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,1020-1110,MWF,HSS,none,none,none
+VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,1130-1220,MWF,HSS,none,none,none
+VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,1240-1330,MWF,HSS,none,none,none
+VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,1350-1440,MWF,HSS,none,none,none
+VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,1500-1540,MWF,HSS,none,none,none
+VC SS,101,Social Sciences Elective,3,none,none,none,0800-0850,MWF,ABP,none,none,none
+VC SS,101,Social Sciences Elective,3,none,none,none,0910-1000,MWF,ABP,none,none,none
+VC SS,101,Social Sciences Elective,3,none,none,none,1020-1110,MWF,ABP,none,none,none
+VC SS,101,Social Sciences Elective,3,none,none,none,1130-1220,MWF,ABP,none,none,none
+VC SS,101,Social Sciences Elective,3,none,none,none,1350-1440,MWF,ABP,none,none,none
+VC SS,101,Social Sciences Elective,3,none,none,none,1500-1540,MWF,ABP,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,0800-0850,MWF,WAB,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,0910-1000,MWF,WAB,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,1020-1110,MWF,WAB,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,1130-1220,MWF,WAB,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,1350-1440,MWF,WAB,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,1500-1540,MWF,WAB,none,none,none
+VC EP,101,Expanded Perspectives Elective,3,none,none,none,1020-1110,MWF,WAB,none,none,none
+COSC,499,Engaged Inquiries Elective,3,none,none,none,0800-0850,TR,MKB,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,0910-1000,MWF,WAB,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,1020-1110,MWF,WAB,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,1130-1220,MWF,WAB,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,1350-1440,MWF,WAB,none,none,none
+VC EI,101,Engaged Inquiries Elective,3,none,none,none,1500-1540,MWF,WAB,none,none,none

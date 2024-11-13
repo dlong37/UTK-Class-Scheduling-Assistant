@@ -1,1 +1,1 @@
-couldn't open time_data.csv
+usage: /home/gfernan5/utkcomputerscience/COSC340/UTK-Class-Scheduling-Assistant/backend/c_code/cgen available_courses_file.csv major_courses_file.csv taken_courses_file.csv location|time
