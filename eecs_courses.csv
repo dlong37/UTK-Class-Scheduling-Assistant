@@ -137,13 +137,13 @@ EF,152,Physics for Engineers II,4,NS & EI,EF 151,MATH 142,1020-1110,MWF,ZEC,1120
 COSC,101,Introduction to Programming,3,none,none,none,1430-1545,TR,DOU,none,none,none
 COSC,101,Introduction to Programming,3,none,none,none,1430-1545,TR,WAB,none,none,none
 COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,0800-0850,F,MKB
-COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,0900-0950,F,MKB
-COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1100-1150,F,MKB
-COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1200-1250,F,MKB
-COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1300-1350,F,MKB
-COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1200-1250,W,MKB
-COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1300-1350,W,MKB
-COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1400-1450,W,MKB
+COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,0910-1000,F,MKB
+COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1020-1110,F,MKB
+COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1130-1220,F,MKB
+COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1240-1330,F,MKB
+COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1130-1220,W,MKB
+COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1240-1330,W,MKB
+COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1350-1440,W,MKB
 EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,0810-0925,TR,ZEC
 EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
 EF,151,Physics for Engineers I,4,EI & NS,none,EF 105 | COSC 101 | COSC 102 & MATH 141,0910-1000,MWF,ZEC,1120-1235,TR,ZEC
@@ -255,9 +255,9 @@ VC EI,101,Engaged Inquiries Elective,3,none,none,none,1130-1220,MWF,WAB,none,non
 VC EI,101,Engaged Inquiries Elective,3,none,none,none,1350-1440,MWF,WAB,none,none,none
 VC EI,101,Engaged Inquiries Elective,3,none,none,none,1500-1540,MWF,WAB,none,none,none
 VC EP,101,Expanded Perspectives Elective,3,none,none,none,1020-1110,MWF,WAB,none,none,none
-COSC,499,Engaged Inquiries Elective,3,none,none,none,0800-0850,TR,MKB,none,none,none
-VC EI,101,Engaged Inquiries Elective,3,none,none,none,0910-1000,MWF,WAB,none,none,none
-VC EI,101,Engaged Inquiries Elective,3,none,none,none,1020-1110,MWF,WAB,none,none,none
-VC EI,101,Engaged Inquiries Elective,3,none,none,none,1130-1220,MWF,WAB,none,none,none
-VC EI,101,Engaged Inquiries Elective,3,none,none,none,1350-1440,MWF,WAB,none,none,none
-VC EI,101,Engaged Inquiries Elective,3,none,none,none,1500-1540,MWF,WAB,none,none,none
+COSC,499,Engaged Inquiries Elective,3,none,none,none,0810-0925,TR,MKB,none,none,none
+COSC,499,Engaged Inquiries Elective,3,none,none,none,0945-1100,MWF,MKB,none,none,none
+COSC,499,Engaged Inquiries Elective,3,none,none,none,1120-1235,MWF,MKB,none,none,none
+COSC,499,Engaged Inquiries Elective,3,none,none,none,1255-1315,MWF,MKB,none,none,none
+COSC,499,Engaged Inquiries Elective,3,none,none,none,1335-1450,MWF,MKB,none,none,none
+COSC,499,Engaged Inquiries Elective,3,none,none,none,1510-1625,MWF,MKB,none,none,none
