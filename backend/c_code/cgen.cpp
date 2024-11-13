@@ -79,14 +79,22 @@ int main(int argc, char** argv) {
         bool running = true;
         while(running) {
             vector<string> needed;
-            find_next_courses(needed, course_vector, taken_set, major_vector, argv[1], 19);
+            find_next_courses(needed, course_vector, taken_set, major_vector, argv[1], 15);
             vector<course> next_courses;
             if(schedule_next_courses(next_courses, needed, course_vector, distance_vector) == needed.size()) {
-                print_ids(next_courses, course_vector);
-                // for(int i = 0; i < next_courses.size(); i++) {
-                //     cout << next_courses[i].abbrv + " " + to_string(next_courses[i].num) << " @ " << next_courses[i].lec_time << endl;
-                // }
-                running = false;
+                int vc = 0;
+                for(int i = 0; i < next_courses.size(); i++) {
+                    if((next_courses[i].abbrv).substr(0,2) == "VC") {
+                        vc++;
+                    }
+                }
+                if(vc < 3) {
+                    print_ids(next_courses, course_vector);
+                    // for(int i = 0; i < next_courses.size(); i++) {
+                    //     cout << next_courses[i].abbrv + " " + to_string(next_courses[i].num) << " @ " << next_courses[i].lec_time << endl;
+                    // }
+                    running = false;
+                }
             }
         }
     }
