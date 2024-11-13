@@ -1243,7 +1243,7 @@ button[type="submit"]:hover {
     grid-template-columns: 100px repeat(5, 1fr);
     grid-template-rows: 50px repeat(11, 20px 1px 1px 1px 1px 1px 1px 1px 1px 1px 1px 1px);
     gap: 3px;
-    margin-top: 20px;
+    margin-top: 40px;
     width: 100%;
     min-width: 500px;
     border: 1px solid #ccc;
@@ -1365,30 +1365,52 @@ button[type="submit"]:hover {
 
 .gs__link {
     font-size: 1rem;
-    background-color: #ff8200;
+    background-image: linear-gradient(to bottom, #ff8200, #FFF);
     padding: 14px 32px;
-    border: none;
-    border-radius: 4px;
+    border: 2px solid #141414; /* Add a contrasting border for depth */
+    border-radius: 8px; /* Slightly increase radius for a softer look */
     color: #141414;
     margin-top: 2rem;
     margin-bottom: 20px;
     cursor: pointer;
     position: relative;
-    transition: all 0.35s;
+    transition: all 0.3s ease-in-out; /* Smooth transition */
     outline: none;
+    overflow: hidden; /* Hide any overflowing background effects */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
 .gs__link a {
     position: relative;
     z-index: 2;
-    color: #fff;
+    color: #fff; /* White text color for better readability */
     text-decoration: none;
+    font-weight: bold; /* Make the text bolder to distinguish it */
 }
 
+/* Hover effects */
 .gs__link:hover {
-    color: #fff;
+    background-image: linear-gradient(to bottom, #4b4b4b, #FFF); /* Darken the background on hover */
+    color: #fff; /* Keep the text color white */
+    border-color: #ff8200; /* Make the border pop with brand color */
+    transform: translateY(-3px); /* Slight lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Intensify shadow on hover */
 }
 
-.gs__link:hover:after  {
-    width: 100%;
+/* Add an after element for an underline effect on hover */
+.gs__link:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 0;
+    background-color: #fff; /* White underline on hover */
+    transition: width 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.gs__link:hover:after {
+    width: 80%; /* Expands underline on hover */
 }
