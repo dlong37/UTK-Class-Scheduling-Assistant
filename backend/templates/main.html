@@ -14,8 +14,10 @@
             {% for schedule in user.schedules %}
             <li class="list-group-item schedule-button">
                 <a href="{{ url_for('views.view_schedule', schedule_id=schedule.id) }}">
-                    {{ schedule.date.strftime('%Y-%m-%d %H:%M:%S') }}
+                    My Schedule {{ loop.index }}
+                    {{ schedule.date.strftime('%Y-%m-%d') }}
                 </a>
+
                 <!-- Delete button, uses a separate function to communicate with backend -->
                 <button type="button" class="close" onClick="deleteSchedule({{ schedule.id }})">
                     <span aria-hidden="true">&times;</span>
