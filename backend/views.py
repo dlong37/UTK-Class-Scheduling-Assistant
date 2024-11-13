@@ -149,6 +149,9 @@ def create_data_csv():
     
     # Add other data
     data_entries.append([cs361_credit])
+    data_entries.append([credit_hours])
+    data_entries.append([start_time])
+    data_entries.append([gap_time])
 
     # Defines the directory where the CSV file will be saved
     directory = 'backend/c_code'
@@ -164,19 +167,6 @@ def create_data_csv():
         writer = csv.writer(file, lineterminator='\n')
         for entry in data_entries:
             writer.writerow(entry)
-    
-    # Prepare time-related data for another CSV file
-    time_related_data = [
-        [credit_hours],
-        [start_time],
-        [gap_time]
-    ]
-
-    # Write to another CSV file for Lexy's program to read
-    with open(os.path.join(directory, 'time_data.csv'), mode='w', newline='') as time_file:
-        time_writer = csv.writer(time_file, lineterminator='\n')
-        for entry in time_related_data:
-            time_writer.writerow(entry)
 
     return redirect(url_for('views.generate_new'))
 
