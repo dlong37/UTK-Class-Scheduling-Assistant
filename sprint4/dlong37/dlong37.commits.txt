@@ -1,0 +1,106 @@
+backend/views.py
+53c439bc backend/views.py         (David Long 2024-11-05 16:18:59 -0500 124)     gap_time = request.form.get('gap-time')
+a1cacb23 backend/views.py         (David Long 2024-11-14 15:35:04 -0500 125)     loc_time_opt = request.form.get('time-location-flag')
+a1cacb23 backend/views.py         (David Long 2024-11-14 15:35:04 -0500 126)     session['loc_time_opt'] = loc_time_opt
+93f5fe11 backend/views.py         (David Long 2024-11-14 14:58:24 -0500 130)         [credit_hours],
+93f5fe11 backend/views.py         (David Long 2024-11-14 14:58:24 -0500 131)         [start_time],
+93f5fe11 backend/views.py         (David Long 2024-11-14 14:58:24 -0500 132)         [gap_time],
+a1cacb23 backend/views.py         (David Long 2024-11-14 15:35:04 -0500 133)         ['none'],
+53c439bc backend/views.py         (David Long 2024-11-05 16:18:59 -0500 144)     # Add other sequence entries
+53c439bc backend/views.py         (David Long 2024-11-05 16:18:59 -0500 159)     # Defines the directory where the CSV file will be saved
+53c439bc backend/views.py         (David Long 2024-11-05 16:18:59 -0500 168)     # Write to a CSV file for Gian's program to read
+a1cacb23 backend/views.py         (David Long 2024-11-14 15:35:04 -0500 189)     mode = session.get('loc_time_opt', 'location')
+
+backend/templates/generated_schedule.html
+9a6d27ff (David Long 2024-11-13 16:19:34 -0500  15)                 <a href="{{ url_for('views.regenerate_schedule') }}" class="gs__link">Regenerate</a>
+9a6d27ff (David Long 2024-11-13 16:19:34 -0500  16)                 <a href="{{ url_for('views.save_schedule') }}" class="gs__link">Save</a>
+
+backend/static/css/styles.css
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1246)     margin-top: 40px;
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1364) }
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1365)
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1366) .gs__link {
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1367)     font-size: 1rem;
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1368)     background-image: linear-gradient(to bottom, #ff8200, #FFF);
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1369)     padding: 14px 32px;
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1370)     border: 2px solid #141414; /* Add a contrasting border for depth */
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1371)     border-radius: 8px; /* Slightly increase radius for a softer look */
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1372)     color: #141414;
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1373)     margin-top: 2rem;
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1374)     margin-bottom: 20px;
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1375)     cursor: pointer;
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1376)     position: relative;
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1377)     transition: all 0.3s ease-in-out; /* Smooth transition */
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1378)     outline: none;
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1379)     overflow: hidden; /* Hide any overflowing background effects */
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1380)     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1381) }
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1382)
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1383) .gs__link a {
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1384)     position: relative;
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1385)     z-index: 2;
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1386)     color: #fff; /* White text color for better readability */
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1387)     text-decoration: none;
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1388)     font-weight: bold; /* Make the text bolder to distinguish it */
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1389) }
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1390)
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1391) /* Hover effects */
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1392) .gs__link:hover {
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1393)     background-image: linear-gradient(to bottom, #4b4b4b, #FFF); /* Darken the background on hover */
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1394)     color: #fff; /* Keep the text color white */
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1395)     border-color: #ff8200; /* Make the border pop with brand color */
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1396)     transform: translateY(-3px); /* Slight lift effect on hover */
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1397)     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Intensify shadow on hover */
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1398) }
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1399)
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1400) /* Add an after element for an underline effect on hover */
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1401) .gs__link:after {
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1402)     content: '';
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1403)     position: absolute;
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1404)     left: 50%;
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1405)     bottom: 0;
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1406)     transform: translateX(-50%);
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1407)     height: 2px;
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1408)     width: 0;
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1409)     background-color: #fff; /* White underline on hover */
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1410)     transition: width 0.3s ease-in-out;
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1411)     z-index: 1;
+9a6d27ff backend/static/css/styles.css         (David Long 2024-11-13 16:19:34 -0500 1412) }
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1413)
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1414) .gs__link:hover:after {
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1415)     width: 80%; /* Expands underline on hover */
+cc98bde3 backend/static/css/styles.css         (David Long 2024-11-13 17:04:06 -0500 1416) }
+
+backend/templates/questionnaire.html
+53c439bc (David Long 2024-11-05 16:18:59 -0500  32)                 <label for="question">What was your most recent class in this CS sequence?</label><br>
+53c439bc (David Long 2024-11-05 16:18:59 -0500  41)                 <label for="question">What was your most recent class in this EF sequence?</label><br>
+a1cacb23 (David Long 2024-11-14 15:35:04 -0500 101)
+a1cacb23 (David Long 2024-11-14 15:35:04 -0500 116)                 <h1 class="subheading">Time/Location Preference</h1>
+a1cacb23 (David Long 2024-11-14 15:35:04 -0500 117)                 <label for="question">Would you prefer to have your schedule optimized based on location or time?
+a1cacb23 (David Long 2024-11-14 15:35:04 -0500 118)                     If time is chosen, then please answer the questions below. If location is chosen, leave those
+a1cacb23 (David Long 2024-11-14 15:35:04 -0500 119)                     boxes with "N/A".
+a1cacb23 (David Long 2024-11-14 15:35:04 -0500 120)                 </label>
+a1cacb23 (David Long 2024-11-14 15:35:04 -0500 121)                 <select id="question" name="time-location-flag"</select>
+a1cacb23 (David Long 2024-11-14 15:35:04 -0500 122)                     <option value="location">Location</option>
+a1cacb23 (David Long 2024-11-14 15:35:04 -0500 123)                     <option value="time">Time</option>
+a1cacb23 (David Long 2024-11-14 15:35:04 -0500 124)                 </select>
+a1cacb23 (David Long 2024-11-14 15:35:04 -0500 125)                 <br><br>
+a1cacb23 (David Long 2024-11-14 15:35:04 -0500 126)
+a1cacb23 (David Long 2024-11-14 15:35:04 -0500 130)                     <option value="0">N/A</option>
+53c439bc (David Long 2024-11-05 16:18:59 -0500 137)                 <br><br>
+53c439bc (David Long 2024-11-05 16:18:59 -0500 138)
+53c439bc (David Long 2024-11-05 16:18:59 -0500 139)                 <h1 class="subheading">Time Between Classes Preference</h1>
+53c439bc (David Long 2024-11-05 16:18:59 -0500 140)                 <label for="question">How much time (in minutes) would you like in between your classes?</label>
+53c439bc (David Long 2024-11-05 16:18:59 -0500 141)                 <select id="question" name="gap-time">
+a1cacb23 (David Long 2024-11-14 15:35:04 -0500 142)                     <option value="0">N/A</option>
+53c439bc (David Long 2024-11-05 16:18:59 -0500 143)                     <option value="20">20</option>
+53c439bc (David Long 2024-11-05 16:18:59 -0500 144)                     <option value="90">90</option>
+53c439bc (David Long 2024-11-05 16:18:59 -0500 145)                     <option value="160">160</option>
+53c439bc (David Long 2024-11-05 16:18:59 -0500 146)                     <option value="230">230</option>
+53c439bc (David Long 2024-11-05 16:18:59 -0500 147)                     <option value="300">300</option>
+53c439bc (David Long 2024-11-05 16:18:59 -0500 148)                 </select>
+
+templates/main.html
+a1e2d07c backend/templates/main.html         (David Long 2024-11-13 17:33:23 -0500 17)                     My Schedule {{ loop.index }}
+a1e2d07c backend/templates/main.html         (David Long 2024-11-13 17:33:23 -0500 18)                     {{ schedule.date.strftime('%Y-%m-%d') }} 
+a1e2d07c backend/templates/main.html         (David Long 2024-11-13 17:33:23 -0500 20)
