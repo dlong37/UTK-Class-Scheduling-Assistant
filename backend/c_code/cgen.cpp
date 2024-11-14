@@ -57,6 +57,12 @@ int main(int argc, char** argv) {
     set<string> taken_set;
     remove_duplicates(taken_set, taken_vector, major_vector);
 
+    for(int i = 0; i < taken_vector.size(); i++) {
+        cout << taken_vector[i] << endl;
+    }
+
+    cout << taken_vector[(taken_vector.size()-1)] << endl;
+
     if (flag == 1) { // gaps program
         if (open_time_file(file, credit_hours, gap, user_min, user_hour) == false) {
             return 1;
