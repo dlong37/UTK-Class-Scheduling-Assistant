@@ -50,6 +50,12 @@ int main(int argc, char** argv) {
     vector<string> taken_vector;
     read_file2(taken_vector, file);
 
+    //cout << user_hour << " " << user_min << " " << gap << " " << credit_hours << endl;
+
+    get_time(taken_vector, user_hour, user_min, gap, credit_hours);
+
+    //cout << user_hour << " " << user_min << " " << gap << " " << credit_hours << endl;
+
     // expands the taken_courses vector to include all the pre reqs that are needed to get to a class in the taken_courses vector
     expand_vector(taken_vector, course_vector);
 
@@ -57,16 +63,16 @@ int main(int argc, char** argv) {
     set<string> taken_set;
     remove_duplicates(taken_set, taken_vector, major_vector);
 
-    for(int i = 0; i < taken_vector.size(); i++) {
-        cout << taken_vector[i] << endl;
-    }
+    // for(int i = 0; i < taken_vector.size(); i++) {
+    //     cout << taken_vector[i] << endl;
+    // }
 
-    cout << taken_vector[(taken_vector.size()-1)] << endl;
+    // cout << taken_vector[(taken_vector.size()-1)] << endl;
 
     if (flag == 1) { // gaps program
-        if (open_time_file(file, credit_hours, gap, user_min, user_hour) == false) {
-            return 1;
-        }
+        // if (open_time_file(file, credit_hours, gap, user_min, user_hour) == false) {
+        //     return 1;
+        // }
 
         // Create the 2D matrix for the course scheduler
         vector<vector<int>> schedule(60*24, vector<int>(5, 0));
@@ -85,7 +91,7 @@ int main(int argc, char** argv) {
         bool running = true;
         while(running) {
             vector<string> needed;
-            find_next_courses(needed, course_vector, taken_set, major_vector, argv[1], 15);
+            find_next_courses(needed, course_vector, taken_set, major_vector, argv[1], credit_hours);
             vector<course> next_courses;
             if(schedule_next_courses(next_courses, needed, course_vector, distance_vector) == needed.size()) {
                 int vc = 0;

@@ -1044,3 +1044,11 @@ void sort_twodvec(vector<vector<course> > &twodvec, vector<course> next_courses,
     sort(twodvec[i].begin(), twodvec[i].end(), [&currbuildnum, &distance_vector](const course &a, const course &b) { return distance_vector[currbuildnum][distance(locnames.begin(), find(locnames.begin(), locnames.end(), a.lec_loc))] < distance_vector[currbuildnum][distance(locnames.begin(), find(locnames.begin(), locnames.end(), b.lec_loc))]; });
 
 }
+
+void get_time(vector<string> taken_vector, int &uh, int &um, int &gap, int &ch) {
+    ch = stoi(taken_vector[0]);
+    string parse = taken_vector[1];
+    uh = stoi(parse.substr(0,2));
+    um = stoi(parse.substr(2,2));
+    gap = stoi(taken_vector[2]);
+}

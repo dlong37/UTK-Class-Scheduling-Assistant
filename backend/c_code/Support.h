@@ -85,5 +85,6 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
 void print_ids(vector<course> v1, vector<course> v2);
 bool check_dup(vector<course> perm_courses, course c);
 bool open_time_file(ifstream &file, int &credit_hours, int &gap, int &user_min, int &user_hour);
+void get_time(vector<string> taken_vector, int &uh, int &um, int &gap, int &ch);
 
 #endif
