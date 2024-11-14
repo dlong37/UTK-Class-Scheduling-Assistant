@@ -125,6 +125,9 @@ def create_data_csv():
 
     # Prepare data for CSV
     data_entries = [
+        [credit_hours],
+        [start_time],
+        [gap_time],
         [default],
         [core_class],
         [seq_1],
@@ -149,9 +152,6 @@ def create_data_csv():
     
     # Add other data
     data_entries.append([cs361_credit])
-    data_entries.append([credit_hours])
-    data_entries.append([start_time])
-    data_entries.append([gap_time])
 
     # Defines the directory where the CSV file will be saved
     directory = 'backend/c_code'
