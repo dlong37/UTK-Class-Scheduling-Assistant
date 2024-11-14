@@ -122,12 +122,15 @@ def create_data_csv():
     credit_hours = request.form.get('credit-hours')
     start_time = request.form.get('start-time')
     gap_time = request.form.get('gap-time')
+    loc_time_opt = request.form.get('time-location-flag')
+    session['loc_time_opt'] = loc_time_opt
 
     # Prepare data for CSV
     data_entries = [
         [credit_hours],
         [start_time],
         [gap_time],
+        ['none'],
         [default],
         [core_class],
         [seq_1],
@@ -183,7 +186,7 @@ def generate_new():
     file1_path = os.path.join(directory, 'eecs_courses.csv')
     file2_path = os.path.join(directory, 'major_courses.csv')
     file3_path = os.path.join(directory, 'data.csv')
-    mode = 'location'
+    mode = session.get('loc_time_opt', 'location')
 
     command = [cpp_executable_path, file1_path, file2_path, file3_path, mode]
 
