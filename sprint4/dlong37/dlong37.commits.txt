@@ -100,7 +100,7 @@ a1cacb23 (David Long 2024-11-14 15:35:04 -0500 142)                     <option 
 53c439bc (David Long 2024-11-05 16:18:59 -0500 147)                     <option value="300">300</option>
 53c439bc (David Long 2024-11-05 16:18:59 -0500 148)                 </select>
 
-templates/main.html
+backend/templates/main.html
 a1e2d07c backend/templates/main.html         (David Long 2024-11-13 17:33:23 -0500 17)                     My Schedule {{ loop.index }}
 a1e2d07c backend/templates/main.html         (David Long 2024-11-13 17:33:23 -0500 18)                     {{ schedule.date.strftime('%Y-%m-%d') }} 
 a1e2d07c backend/templates/main.html         (David Long 2024-11-13 17:33:23 -0500 20)
