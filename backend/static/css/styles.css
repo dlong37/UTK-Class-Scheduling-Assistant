@@ -808,6 +808,7 @@ input:focus, .submit-button:hover {
 
 /* Styling for dropdown select menus inside the form */
 .schedules__container select {
+    margin-left: 25px;
     background-color: #fff;
     color: #fff;
     padding: 10px 20px;
@@ -826,7 +827,7 @@ input:focus, .submit-button:hover {
 
 /* Styling for checkbox inputs, including cursor pointer and shadow */
 .schedules__container input[type="checkbox"] {
-    margin-right: 5px;
+    margin-right: 25px;
     padding: 10px 10px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -860,9 +861,9 @@ input:focus, .submit-button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    margin: 5px 0;
-    cursor: pointer;
+    width: 95%;
+    margin-left: 25px;
+    margin-right: 50px;
 }
 
 /* Visible state for labels with transitions */

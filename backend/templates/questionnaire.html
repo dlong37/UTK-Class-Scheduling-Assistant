@@ -14,13 +14,11 @@
             </div>
             <form id="schedules-form" action="/form_submit" method="post">
                 <h1 class="heading">Schedule Questionnaire</h1>
-                <h1 class="subheading">Core Classes</h1>
+                <h1 class="subheading">Core CS Classes</h1>
                 <!-- Assume MATH 130 has been completed! -->
-                <label for="question">What was your most recent core class?</label>
+                <label for="question">What was your most recent core CS class?</label><br>
                 <select id="question" name="core-class">
                     <option value="N/A">N/A</option>
-                    <option value="COSC 101">COSC 101</option>
-                    <option value="COSC 102">COSC 102</option>
                     <option value="COSC 202">COSC 202</option>
                     <option value="COSC 302">COSC 302</option>
                     <option value="COSC 360">COSC 360</option>
@@ -28,7 +26,55 @@
                 </select>
                 <br><br>
 
+                <label for="question">Which of these CS classes have you taken? (Select multiple if needed)</label><br>
+                    <label>COSC 365<input type="checkbox" name="cs-credit" value="COSC 365"></label><br>
+                    <label>COSC 366<input type="checkbox" name="cs-credit" value="COSC 366"></label><br>
+                    <label>COSC 395<input type="checkbox" name="cs-credit" value="COSC 395"></label><br>
+                    <label>COSC 340<input type="checkbox" name="cs-credit" value="COSC 340"></label><br>
+                <br>
+
+                <label for="question">If you have taken COSC 361, please select it from the dropdown</label><br>
+                <select id="question" name="cs361-credit">
+                    <option value="N/A">N/A</option>
+                    <option value="COSC 361">COSC 361</option>
+                </select>
+                <br><br>
+
+                <label for="question">Which CS Upper Division electives have you satisfied (Select multiple if needed)</label><br>
+                    <label>COSC 425<input type="checkbox" name="cs-credit2" value="COSC 425"></label><br>
+                    <label>COSC 445<input type="checkbox" name="cs-credit2" value="COSC 445"></label><br>
+                    <label>COSC 461<input type="checkbox" name="cs-credit2" value="COSC 461"></label><br>
+                    <label>COSC 462<input type="checkbox" name="cs-credit2" value="COSC 462"></label><br>
+                    <label>COSC 469<input type="checkbox" name="cs-credit2" value="COSC 469"></label><br>
+                    <label>COSC 471<input type="checkbox" name="cs-credit2" value="COSC 471"></label><br>
+                    <label>COSC 483<input type="checkbox" name="cs-credit2" value="COSC 483"></label><br>
+                    <label>COSC 420<input type="checkbox" name="cs-credit2" value="COSC 420"></label><br>
+                    <label>COSC 424<input type="checkbox" name="cs-credit2" value="COSC 424"></label><br>
+                    <label>COSC 426<input type="checkbox" name="cs-credit2" value="COSC 426"></label><br>
+                    <label>COSC 434<input type="checkbox" name="cs-credit2" value="COSC 434"></label><br>
+                    <label>COSC 452<input type="checkbox" name="cs-credit2" value="COSC 452"></label><br>
+                    <label>COSC 466<input type="checkbox" name="cs-credit2" value="COSC 466"></label><br>
+                    <label>COSC 472<input type="checkbox" name="cs-credit2" value="COSC 472"></label><br>
+                <br><br>
+
                 <h1 class="subheading">Sequences</h1>
+                <label for="question">What was your most recent class in this EF sequence?</label><br>
+                <select id="question" name="sequence-2">
+                    <option value="N/A">N/A</option>
+                    <option value="EF 151">EF 151</option>
+                    <option value="EF 152">EF 152</option>
+                </select>
+                <br><br>
+
+                <label for="question">What was your most recent class in this ENGL sequence?</label><br>
+                <select id="question" name="sequence-3">
+                    <option value="N/A">N/A</option>
+                    <option value="ENGL 101">ENGL 101</option>
+                    <option value="ENGL 102">ENGL 102</option>
+                    <option value="ENGL 355">ENGL 355</option>
+                </select>
+                <br><br>
+
                 <label for="question">What was your most recent class in this CS sequence?</label><br>
                 <select id="question" name="sequence-1">
                     <option value="N/A">N/A</option>
@@ -38,31 +84,7 @@
                 </select>
                 <br><br>
 
-                <label for="question">What was your most recent class in this EF sequence?</label><br>
-                <select id="question" name="sequence-2">
-                    <option value="N/A">N/A</option>
-                    <option value="EF 151">EF 151</option>
-                    <option value="EF 152">EF 152</option>
-                </select>
-                <br><br>
-
-                <label for="question">Which of these MATH classes have you taken?</label><br>
-                <label>MATH 141<input type="checkbox" name="math-credit" value="MATH 141"></label><br>
-                <label>MATH 142<input type="checkbox" name="math-credit" value="MATH 142"></label><br>
-                <label>MATH 251<input type="checkbox" name="math-credit" value="MATH 251"></label><br>
-                <label>ECE 313<input type="checkbox" name="math-credit" value="ECE 313"></label><br>
-                <br>
-
-                <label for="question">What was your most recent class in this ENGL sequence?</label>
-                <select id="question" name="sequence-3">
-                    <option value="N/A">N/A</option>
-                    <option value="ENGL 101">ENGL 101</option>
-                    <option value="ENGL 102">ENGL 102</option>
-                    <option value="ENGL 355">ENGL 355</option>
-                </select>
-                <br><br>
-
-                <label for="question">What was your most recent class in this CS sequence?</label>
+                <label for="question">What was your most recent class in this CS sequence?</label><br>
                 <select id="question" name="sequence-4">
                     <option value="N/A">N/A</option>
                     <option value="COSC 311">COSC 311</option>
@@ -70,37 +92,31 @@
                 </select>
                 <br><br>
 
-                <label for="question">Which of these CS classes have you taken?</label><br>
-                <label>COSC 365<input type="checkbox" name="cs-credit" value="COSC 365"></label><br>
-                <label>COSC 366<input type="checkbox" name="cs-credit" value="COSC 366"></label><br>
-                <label>COSC 395<input type="checkbox" name="cs-credit" value="COSC 395"></label><br>
-                <label>COSC 340<input type="checkbox" name="cs-credit" value="COSC 340"></label><br>
+                <h1 class="subheading">Math Classes</h1>
+                <label for="question">Which of these math classes have you taken? (Select multiple if needed)</label><br>
+                    <label>MATH 141<input type="checkbox" name="math-credit" value="MATH 141"></label><br>
+                    <label>MATH 142<input type="checkbox" name="math-credit" value="MATH 142"></label><br>
+                    <label>MATH 251<input type="checkbox" name="math-credit" value="MATH 251"></label><br>
+                    <label>ECE 313<input type="checkbox" name="math-credit" value="ECE 313"></label><br>
                 <br>
 
-                <label for="question">If you have taken COSC 361, please select it from the dropdown</label>
-                <select id="question" name="cs361-credit">
-                    <option value="N/A">N/A</option>
-                    <option value="COSC 361">COSC 361</option>
-                </select>
-                <br><br>
-
-                <h1 class="subheading">Elective Classes</h1>
-                <label for="question">What elective credits do you have yet to satisfy? (Select multiple if needed)</label><br>
-                <label>Quantitative Reasoning (QR)<input type="checkbox" name="elective-credit" value="QR"></label><br>
-                <label>Natural Sciences (NS)<input type="checkbox" name="elective-credit" value="NS"></label><br>
-                <label>Written Communication (WC)<input type="checkbox" name="elective-credit" value="WC"></label><br>
-                <label>Oral Communication (OC)<input type="checkbox" name="elective-credit" value="OC"></label><br>
-                <label>Applied Oral Communication (AOC)<input type="checkbox" name="elective-credit" value="AOC"></label><br>
-                <label>Social Sciences (SS)<input type="checkbox" name="elective-credit" value="SS"></label><br>
-                <label>Arts and Humanities (AH)<input type="checkbox" name="elective-credit" value="AH"></label><br>
-                <label>Global Citizenship International (GCI)<input type="checkbox" name="elective-credit" value="GCI"></label><br>
-                <label>Global Citizenship United States (GCUS)<input type="checkbox" name="elective-credit" value="GCUS"></label><br>
-                <label>Expanded Perspectives (EP)<input type="checkbox" name="elective-credit" value="EP"></label><br>
-                <label>Engaged Inquiries (EI)<input type="checkbox" name="elective-credit" value="EI"></label><br>
+                <h1 class="subheading">VolCore Elective Classes</h1>
+                <label for="question">Which VolCore elective credits have you satisfied (Select multiple if needed)</label><br>
+                    <label>Quantitative Reasoning (QR)<input type="checkbox" name="elective-credit" value="QR"></label><br>
+                    <label>Natural Sciences (NS)<input type="checkbox" name="elective-credit" value="NS"></label><br>
+                    <label>Written Communication (WC)<input type="checkbox" name="elective-credit" value="WC"></label><br>
+                    <label>Oral Communication (OC)<input type="checkbox" name="elective-credit" value="OC"></label><br>
+                    <label>Applied Oral Communication (AOC)<input type="checkbox" name="elective-credit" value="AOC"></label><br>
+                    <label>Social Sciences (SS)<input type="checkbox" name="elective-credit" value="SS"></label><br>
+                    <label>Arts and Humanities (AH)<input type="checkbox" name="elective-credit" value="AH"></label><br>
+                    <label>Global Citizenship International (GCI)<input type="checkbox" name="elective-credit" value="GCI"></label><br>
+                    <label>Global Citizenship United States (GCUS)<input type="checkbox" name="elective-credit" value="GCUS"></label><br>
+                    <label>Expanded Perspectives (EP)<input type="checkbox" name="elective-credit" value="EP"></label><br>
+                    <label>Engaged Inquiries (EI)<input type="checkbox" name="elective-credit" value="EI"></label><br>
                 <br><br>
 
                 <h1 class="subheading">Credit Hours</h1>
-                <label for="question">How many credit hours would you prefer to take this upcoming semester?</label>
+                <label for="question">How many credit hours would you prefer to take this upcoming semester?</label><br>
                 <select id="question" name="credit-hours">
                     <option value="12">12</option>
                     <option value="13">13</option>
@@ -118,16 +134,16 @@
                     If time is chosen, then please answer the questions below. If location is chosen, leave those
                     boxes with "N/A".
                 </label>
-                <select id="question" name="time-location-flag"</select>
+                <select id="question" name="time-location-flag">
                     <option value="location">Location</option>
                     <option value="time">Time</option>
                 </select>
                 <br><br>
 
                 <h1 class="subheading">Time of Day Preferences</h1>
-                <label for="question">What time would you like your classes to start?</label>
+                <label for="question">What time would you like your classes to start?</label><br>
                 <select id="question" name="start-time">
-                    <option value="0">N/A</option>
+                    <option value="0000">N/A</option>
                     <option value="0800">8:00</option>
                     <option value="0900">9:00</option>
                     <option value="1000">10:00</option>
@@ -137,7 +153,7 @@
                 <br><br>
 
                 <h1 class="subheading">Time Between Classes Preference</h1>
-                <label for="question">How much time (in minutes) would you like in between your classes?</label>
+                <label for="question">How much time (in minutes) would you like in between your classes?</label><br>
                 <select id="question" name="gap-time">
                     <option value="0">N/A</option>
                     <option value="20">20</option>

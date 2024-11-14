@@ -151,7 +151,7 @@ def create_data_csv():
 
     # Add elective credits as separate entries
     for credit in elective_credits:
-        data_entries.append([credit])
+        data_entries.append(['VC ' + credit])
     
     # Add other data
     data_entries.append([cs361_credit])
