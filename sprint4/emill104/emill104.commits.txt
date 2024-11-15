@@ -1,0 +1,141 @@
+backend/templates/questionnaire.html
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  17)                 <h1 class="subheading">Core CS Classes</h1>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  19)                 <label for="question">What was your most recent core CS class?</label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  29)                 <label for="question">Which of these CS classes have you taken? (Select multiple if needed)</label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  30)                     <label>COSC 365<input type="checkbox" name="cs-credit" value="COSC 365"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  31)                     <label>COSC 366<input type="checkbox" name="cs-credit" value="COSC 366"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  32)                     <label>COSC 395<input type="checkbox" name="cs-credit" value="COSC 395"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  33)                     <label>COSC 340<input type="checkbox" name="cs-credit" value="COSC 340"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  34)                 <br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  35) 
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  36)                 <label for="question">If you have taken COSC 361, please select it from the dropdown</label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  37)                 <select id="question" name="cs361-credit">
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  39)                     <option value="COSC 361">COSC 361</option>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  43)                 <label for="question">Which CS Upper Division electives have you satisfied (Select multiple if needed)</label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  44)                     <label>COSC 425<input type="checkbox" name="cs-credit2" value="COSC 425"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  45)                     <label>COSC 445<input type="checkbox" name="cs-credit2" value="COSC 445"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  46)                     <label>COSC 461<input type="checkbox" name="cs-credit2" value="COSC 461"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  47)                     <label>COSC 462<input type="checkbox" name="cs-credit2" value="COSC 462"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  48)                     <label>COSC 469<input type="checkbox" name="cs-credit2" value="COSC 469"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  49)                     <label>COSC 471<input type="checkbox" name="cs-credit2" value="COSC 471"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  50)                     <label>COSC 483<input type="checkbox" name="cs-credit2" value="COSC 483"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  51)                     <label>COSC 420<input type="checkbox" name="cs-credit2" value="COSC 420"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  52)                     <label>COSC 424<input type="checkbox" name="cs-credit2" value="COSC 424"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  53)                     <label>COSC 426<input type="checkbox" name="cs-credit2" value="COSC 426"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  54)                     <label>COSC 434<input type="checkbox" name="cs-credit2" value="COSC 434"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  55)                     <label>COSC 452<input type="checkbox" name="cs-credit2" value="COSC 452"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  56)                     <label>COSC 466<input type="checkbox" name="cs-credit2" value="COSC 466"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  57)                     <label>COSC 472<input type="checkbox" name="cs-credit2" value="COSC 472"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  58)                 <br><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  59) 
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  60)                 <h1 class="subheading">Sequences</h1>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  69)                 <label for="question">What was your most recent class in this ENGL sequence?</label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  78)                 <label for="question">What was your most recent class in this CS sequence?</label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  79)                 <select id="question" name="sequence-1">
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  80)                     <option value="N/A">N/A</option>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  81)                     <option value="COSC 101">COSC 101</option>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  82)                     <option value="COSC 102">COSC 102</option>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  83)                     <option value="COSC 230">COSC 230</option>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  84)                 </select>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  85)                 <br><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  86) 
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  87)                 <label for="question">What was your most recent class in this CS sequence?</label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  95)                 <h1 class="subheading">Math Classes</h1>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  96)                 <label for="question">Which of these math classes have you taken? (Select multiple if needed)</label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  97)                     <label>MATH 141<input type="checkbox" name="math-credit" value="MATH 141"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  98)                     <label>MATH 142<input type="checkbox" name="math-credit" value="MATH 142"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500  99)                     <label>MATH 251<input type="checkbox" name="math-credit" value="MATH 251"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 100)                     <label>ECE 313<input type="checkbox" name="math-credit" value="ECE 313"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 103)                 <h1 class="subheading">VolCore Elective Classes</h1>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 104)                 <label for="question">Which VolCore elective credits have you satisfied (Select multiple if needed)</label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 105)                     <label>Quantitative Reasoning (QR)<input type="checkbox" name="elective-credit" value="QR"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 106)                     <label>Natural Sciences (NS)<input type="checkbox" name="elective-credit" value="NS"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 107)                     <label>Written Communication (WC)<input type="checkbox" name="elective-credit" value="WC"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 108)                     <label>Oral Communication (OC)<input type="checkbox" name="elective-credit" value="OC"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 109)                     <label>Applied Oral Communication (AOC)<input type="checkbox" name="elective-credit" value="AOC"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 110)                     <label>Social Sciences (SS)<input type="checkbox" name="elective-credit" value="SS"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 111)                     <label>Arts and Humanities (AH)<input type="checkbox" name="elective-credit" value="AH"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 112)                     <label>Global Citizenship International (GCI)<input type="checkbox" name="elective-credit" value="GCI"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 113)                     <label>Global Citizenship United States (GCUS)<input type="checkbox" name="elective-credit" value="GCUS"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 114)                     <label>Expanded Perspectives (EP)<input type="checkbox" name="elective-credit" value="EP"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 115)                     <label>Engaged Inquiries (EI)<input type="checkbox" name="elective-credit" value="EI"></label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 119)                 <label for="question">How many credit hours would you prefer to take this upcoming semester?</label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 137)                 <select id="question" name="time-location-flag">
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 144)                 <label for="question">What time would you like your classes to start?</label><br>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 146)                     <option value="0000">N/A</option>
+31103207 (EthBeats   2024-11-14 18:03:49 -0500 156)                 <label for="question">How much time (in minutes) would you like in between your classes?</label><br>
+
+backend/templates/view_schedule.html
+93f07c9a (EthBeats 2024-11-14 22:44:46 -0600 10)             <h1 class="heading">Schedule Details</h1>
+93f07c9a (EthBeats 2024-11-14 22:44:46 -0600 11) 
+93f07c9a (EthBeats 2024-11-14 22:44:46 -0600 12)             <p class="created-on"> Created on: {{ schedule.date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+
+backend/templates/main.html
+93f07c9a backend/templates/main.html         (EthBeats   2024-11-14 22:44:46 -0600 12)             <h1 class="heading">My Schedules</h1>
+
+backend/static/css/styles.css
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1341)     /* opacity: 0; */
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1342)     /* transform: translateY(100px); */
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1343)     transition: opacity 1s ease, transform 1s ease;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1344)     transition-delay: 0.2s;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1345)     display: flex;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1346)     flex-direction: column;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1347)     justify-content: space-between;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1348)     align-items: center;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1349)     background-color: #fff;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1350)     padding: 50px;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1351)     margin: auto;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1352)     height: auto;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1353)     max-width: 1000px;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1354)     min-height: 100vh;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1355)     width: 100%;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1356)     border-radius: 10px;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1357)     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1358)     border: 15px solid transparent;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1359)     border-image: linear-gradient(to top, #fff, #ff8200) 1;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1160) .container {
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1161)     /* opacity: 0; */
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1162)     /* transform: translateY(100px); */
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1163)     transition: opacity 1s ease, transform 1s ease;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1164)     transition-delay: 0.2s;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1165)     display: flex;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1166)     flex-direction: column;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1167)     justify-content: center;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1168)     align-items: center;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1169)     margin: auto;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1170)     height: auto;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1171)     min-height: 100vh;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1172)     width: 100%;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1173)     max-width: 850px;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1174)     padding: 20px;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1175)     background-color: #fff;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1176)     border-radius: 10px;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1177)     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1178)     border: 15px solid transparent;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1179)     border-image: linear-gradient(to top, #fff, #ff8200) 1;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1180) }
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1181) 
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1098)     /* opacity: 0; */
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1099)     /* transform: translateY(100px); */
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1100)     transition: opacity 1s ease, transform 1s ease;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1101)     transition-delay: 0.2s;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1102)     display: flex;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1103)     flex-direction: column;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1104)     justify-content: center;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1105)     align-items: center;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1106)     margin: auto;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1107)     height: auto;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1108)     min-height: 100vh;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1109)     width: 100%;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1110)     max-width: 850px;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1111)     padding: 20px;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1112)     background-color: #fff;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1113)     border-radius: 10px;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1114)     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1115)     border: 15px solid transparent;
+93f07c9a backend/static/css/styles.css         (EthBeats   2024-11-14 22:44:46 -0600 1116)     border-image: linear-gradient(to top, #fff, #ff8200) 1;
+31103207 backend/static/css/styles.css         (EthBeats   2024-11-14 18:03:49 -0500  864)     width: 95%;
+31103207 backend/static/css/styles.css         (EthBeats   2024-11-14 18:03:49 -0500  865)     margin-left: 25px;
+31103207 backend/static/css/styles.css         (EthBeats   2024-11-14 18:03:49 -0500  866)     margin-right: 50px;
+31103207 backend/static/css/styles.css         (EthBeats   2024-11-14 18:03:49 -0500  830)     margin-right: 25px;
+31103207 backend/static/css/styles.css         (EthBeats   2024-11-14 18:03:49 -0500  811)     margin-left: 25px;
