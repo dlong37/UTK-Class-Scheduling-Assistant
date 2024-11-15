@@ -73,3 +73,22 @@ fe534f96 (Gian            2024-11-13 18:59:59 -0500 106)                     // 
 fe534f96 (Gian            2024-11-13 18:59:59 -0500 107)                     // }
 fe534f96 (Gian            2024-11-13 18:59:59 -0500 108)                     running = false;
 fe534f96 (Gian            2024-11-13 18:59:59 -0500 109)                 }
+
+classes.csv:
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 258) COSC,361,Operating Systems,3,none,COSC 360,none,1020-1110,MWF,MKB,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 259) COSC,366,Introduction to Cybersecurity,3,none,COSC 302|COSC307&COSC 230,none,0810-0925,TR,MKB,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 260) COSC,425,Introduction to Machine Learning,3,none,ECE 313&MATH 251,none,1255-1410,TR,MKB,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 261) COSC,445,Fundamentals of Digital Archaeology,3,none,COSC 340|ECE 313,none,1605-1720,TR,MKB,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 262) COSC,461,Introduction to Compilers,3,none,COSC 302|COSC 307,none,1430-1545,TR,MKB,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 263) COSC,462,Parallel Programming,3,none,COSC 360|COSC 367,none,1740-1855,TR,MKB,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 264) COSC,469,Human Factors in Cybersecurity,3,none,COSC 366,none,1255-1410,TR,MKB,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 265) COSC,471,Numerical Analysis,3,none,MATH 251,none,1255-1410,TR,AYR,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 266) COSC,483,Applied Cryptography,3,none,COSC 311|COSC 317,none,1430-1545,TR,MKB,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 267) COSC,365,Programming Languages and Systems,3,none,COSC 302,none,1350-1440,MWF,MKB,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 268) COSC,420,Biologically-Inspired Computation,3,none,COSC 360,none,1430-1545,TR,MKB,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 269) COSC,424,Introduction to Deep Learning,3,none,COSC 302&MATH 251,none,0800-0850,MWF,MKB,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 270) COSC,426,Introduction to Data Mining and Analytics,3,none,COSC 302&MATH 251&ECE 313,none,1500-1550,MWF,MKB,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 271) COSC,434,Network Security,3,none,COSC 366,none,0910-1000,MWF,MKB,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 272) COSC,452,Computer Graphics,3,none,COSC 302,none,1120-1235,TR,MKB,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 273) COSC,466,Software Security,3,none,COSC 366,none,1350-1440,MWF,MKB,none,none,none
+fe534f96 (Gian     2024-11-13 18:59:59 -0500 274) COSC,472,Numerical Algebra,3,none,COSC 471,none,1255-1410,TR,AYR,none,none,none
