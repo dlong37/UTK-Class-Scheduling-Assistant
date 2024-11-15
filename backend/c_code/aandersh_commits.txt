@@ -1,0 +1,156 @@
+Support.h
+d8cdd658 (Lexy Andershock 2024-11-07 00:03:30 -0500 85) void print_ids(vector<course> v1, vector<course> v2);
+d8cdd658 (Lexy Andershock 2024-11-07 00:03:30 -0500 86) bool check_dup(vector<course> perm_courses, course c);
+255c6e78 (Lexy Andershock 2024-11-07 09:25:34 -0500 87) bool open_time_file(ifstream &file, int &credit_hours, int &gap, int &user_min, int &user_hour);
+
+Support.cpp
+cd7b3541 (Lexy Andershock   2024-10-25 14:17:36 -0400  299) // Lexy's Functions
+cd7b3541 (Lexy Andershock   2024-10-25 14:17:36 -0400  300) 
+cd7b3541 (Lexy Andershock   2024-10-25 14:17:36 -0400  301) priority_queue<course, vector<course>, CompareCourse> create_pq(vector<course> remaining_vector, vector<vector<int>> schedule, int user_hour, int user_min, int gap) {
+cd7b3541 (Lexy Andershock   2024-10-25 14:17:36 -0400  302)     priority_queue<course, vector<course>, CompareCourse> pq;
+cd7b3541 (Lexy Andershock   2024-10-25 14:17:36 -0400  303)     for (int i = 0; i < (int)remaining_vector.size(); i++) {
+cd7b3541 (Lexy Andershock   2024-10-25 14:17:36 -0400  304)         // calculate start time in minutes
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  305) 
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  306)         // start by calculating the lecture priority
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  343) 
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  344)         // now, calculate lab priority
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  345)         string lab_days = remaining_vector[i].lab_date;
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  346)         int lab_priority = 0;
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  347) 
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  348)         // only calculate if a lab is offered
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  349)         if (lab_days != "none") {
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  350)             // find the last minute that a course is scheduled for:
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  351)             startx = 0;
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  352)             for (int j = 0; j < rows; ++j) {
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  353)                 for (int k = 0; k < (int)lab_days.size(); k++) {
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  354)                     if (schedule[j][0] == 1 && lab_days[k] == 'M') {
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  355)                         startx = j;
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  356)                     }
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  357)                     if (schedule[j][1] == 1 && lab_days[k] == 'T') {
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  358)                         startx = j;
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  359)                     }
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  360)                     if (schedule[j][2] == 1 && lab_days[k] == 'W') {
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  361)                         startx = j;
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  362)                     }
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  363)                     if (schedule[j][3] == 1 && lab_days[k] == 'R') {
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  364)                         startx = j;
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  365)                     }
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  366)                     if (schedule[j][4] == 1 && lab_days[k] == 'F') {
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  367)                         startx = j;
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  368)                     }
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  369)                 }
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  370)             }
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  371)             // if nothing was scheduled for any time, make startx the global variable start time
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  372)             if (startx == 0) {
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  373)                 startx = user_hour * MINS_PER_HOUR + user_min;
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  375)             }
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  376)             course_hour = stoi(remaining_vector[i].lab_time.substr(0, 2));
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  377)             course_min = stoi(remaining_vector[i].lab_time.substr(2, 2));
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  378)             endx = course_hour * MINS_PER_HOUR + course_min;
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  379)             duration = endx - startx;
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  380)             lab_priority = duration - gap;
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  381)             if (lab_priority < 0) {
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  382)                 lab_priority *= -1;
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  383)             }
+cd7b3541 (Lexy Andershock   2024-10-25 14:17:36 -0400  384)         }
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  385)         
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  386)         // then, add the two together!
+203623f2 (Lexy Andershock   2024-11-07 15:15:20 -0500  387)         remaining_vector[i].priority = lec_priority + lab_priority;
+cd7b3541 (Lexy Andershock   2024-10-25 14:17:36 -0400  388)         pq.push(remaining_vector[i]);
+cd7b3541 (Lexy Andershock   2024-10-25 14:17:36 -0400  389)     }
+cd7b3541 (Lexy Andershock   2024-10-25 14:17:36 -0400  390)     return pq;
+cd7b3541 (Lexy Andershock   2024-10-25 14:17:36 -0400  391) };
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  981) 
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  982) void print_ids(vector<course> v1, vector<course> v2) {
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  983)     for (int i = 0; i < v1.size(); i++) {
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  984)         for (int j = 0; j < v2.size(); j++) {
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  985)             if (v1[i] == v2[j]) {
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  986)                 cout << j+1 << endl;
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  987)                 break;
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  988)             }
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  989)         }
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  990)     }
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  991) }
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  992) 
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  993) bool check_dup(vector<course> perm_courses, course c) {
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  994)     for (int j = 0; j < (int)perm_courses.size(); j++) {
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  995)         string perm_name = perm_courses[j].abbrv + " " + to_string(perm_courses[j].num);
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  996)         string c_name = c.abbrv + " " + to_string(c.num);
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  997)         if (perm_name == c_name) {
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  998)             return false;
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500  999)         }
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500 1000)     }
+d8cdd658 (Lexy Andershock   2024-11-07 00:03:30 -0500 1001)     return true;
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1002) }
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1003) 
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1004) bool open_time_file(ifstream &file, int &credit_hours, int &gap, int &user_min, int &user_hour) {
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1005)     // or lexy_time_data.csv for test data
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1006)     file.open("lexy_time_data.csv");
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1007)     string parse;
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1008)     if (file.is_open()) {
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1009)         for (int i = 0; i < 3; i++) {
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1010)             getline(file, parse);
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1011)             switch (i) {
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1012)                 case 0:
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1013)                     credit_hours = stoi(parse);
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1014)                     break;
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1015)                 case 1:
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1016)                     user_hour = stoi(parse.substr(0,2));
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1017)                     user_min = stoi(parse.substr(2,2));
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1018)                     break;
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1019)                 case 2:
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1020)                     gap = stoi(parse);
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1021)                     break;
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1022)             }
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1023)         }
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1024)         file.close();
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1025)         return true;
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1026)     }
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1027)     else {
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1028)         // couldn't open file
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1029)         ofstream ferr("error.txt");
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1030)         ferr << "couldn't open lexy_time_data.csv" << endl;
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1031)         ferr.close();
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1032)         file.close();
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1033)         return false;
+255c6e78 (Lexy Andershock   2024-11-07 09:25:34 -0500 1034)     }
+
+cgen.cpp
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  12) 
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  72)     if (flag == 1) { // gaps program
+cd7b3541 (Lexy Andershock 2024-10-25 14:17:36 -0400  83)         // print schedule
+d8cdd658 (Lexy Andershock 2024-11-07 00:03:30 -0500  84)         print_ids(perm_courses, course_vector);
+
+eecs_courses.csv
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 147) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,0810-0925,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 148) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 149) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1120-1235,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 150) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1255-1410,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 151) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1430-1545,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 152) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1605-1720,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 153) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,0810-0925,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 154) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,0945-1100,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 155) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1120-1235,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 156) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1255-1410,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 157) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1430-1545,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 158) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1605-1720,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 159) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,0810-0925,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 160) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 161) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 162) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 163) EF,151,Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,1605-1720,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 183) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,0945-1100,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 184) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,0945-1100,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 185) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,0945-1100,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 186) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1120-1235,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 187) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1120-1235,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 188) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,1120-1235,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 189) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1255-1410,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 190) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1255-1410,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 191) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,1255-1410,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 192) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1430-1545,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 193) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1430-1545,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 194) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 195) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,0910-1000,MWF,ZEC,1605-1720,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 196) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1020-1110,MWF,ZEC,1605-1720,TR,ZEC
+21d56c6b (Lexy Andershock 2024-11-13 19:54:51 -0500 197) EF,157,Honors: Physics for Engineers I,4,EI & NS,none,EF 105|COSC 101|COSC 102&MATH 141,1130-1220,MWF,ZEC,1605-1720,TR,ZEC
