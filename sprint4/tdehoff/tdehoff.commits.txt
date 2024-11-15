@@ -1,0 +1,111 @@
+* backend/templates/generated_schedule.html
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500  12) 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500  13)         <form method="POST">
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500  14)             <div>
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500  17)             </div>
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500  18)         </form>
+
+* backend/views.py46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500   3) from flask import Blueprint, render_template, request, flash, jsonify, redirect, url_for, send_from_directory, session
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 111) def create_data_csv():
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 174)     return redirect(url_for('views.generate_new'))
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 175) 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 176) @views.route('/generate_new', methods=['GET', 'POST'])
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 177) @login_required
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 178) def generate_new():
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 179)     directory = 'backend/c_code'
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 180)     if os.path.exists(directory):
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 181)         directory = directory
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 182)     else:
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 183)         directory = os.path.abspath('UTK-Class-Scheduling-Assistant/backend/c_code/')
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 184) 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 205)             courses = Course.query.filter(Course.id.in_(class_ids)).all()
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 206) 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 207)             # Store data in session as a temporary schedule
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 208)             session['temp_schedule'] = {
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 209)                 'class_ids': class_ids,
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 210)                 # 'user_id': current_user.id, 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 211)             }
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 212) 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 214)             # new_schedule = Schedule(class_ids=class_ids, user_id=current_user.id)
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 264)     temp_schedule = session.get('temp_schedule')
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 265) 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 266)     if not temp_schedule:
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 267)         return "No temporary schedule found", 404
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 268) 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 269)     return render_template('generated_schedule.html', schedule=temp_schedule)
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 270) 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 271) @views.route('/regenerate_schedule', methods=['GET'])
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 272) @login_required
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 273) def regenerate_schedule():
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 274)     return redirect(url_for('views.generate_new'))
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 275) 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 276) @views.route('/save_schedule', methods=['GET', 'POST'])
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 277) @login_required
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 278) def save_schedule():
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 279)     temp_schedule = session.get('temp_schedule')
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 280) 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 281)     if not temp_schedule:
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 282)         return "No temporary schedule found", 404 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 283) 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 284)     new_schedule = Schedule(
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 285)         class_ids=temp_schedule['class_ids'],
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 286)         user_id=current_user.id
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 287)     )
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 288) 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 289)     db.session.add(new_schedule)
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 290)     db.session.commit()
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 291) 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 292)     session.pop('temp_schedule', None)
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 293) 
+46c0e4d0 (tdehoff1        2024-11-05 20:02:50 -0500 294)     return render_template('main.html', user=current_user)
+
+* backend/classes.csv
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 140) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,0910-1000,F,MKB
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 141) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1020-1110,F,MKB
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 142) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1130-1220,F,MKB
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 143) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,0810-0925,TR,DOU,1240-1330,F,MKB
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 144) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1130-1220,W,MKB
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 145) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1240-1330,W,MKB
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 146) COSC,102,Introduction to Computer Science,4,none,COSC 101,MATH 141,1430-1545,TR,MKB,1350-1440,W,MKB
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 216) EF,158,Honors: Physics for Engineers II,4,EI & NS,EF 157,MATH 142,1130-1220,MWF,ZEC,1430-1545,TR,ZEC
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 217) VC NS,101,Natural Science Elective,3,none,none,none,0800-0850,MWF,STR,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 218) VC NS,101,Natural Science Elective,3,none,none,none,0910-1000,MWF,STR,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 219) VC NS,101,Natural Science Elective,3,none,none,none,1020-1110,MWF,STR,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 220) VC NS,101,Natural Science Elective,3,none,none,none,1130-1220,MWF,STR,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 221) VC NS,101,Natural Science Elective,3,none,none,none,1240-1330,MWF,STR,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 222) VC NS,101,Natural Science Elective,3,none,none,none,1350-1440,MWF,STR,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 223) VC NS,101,Natural Science Elective,3,none,none,none,1500-1540,MWF,STR,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 224) VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,0800-0850,MWF,HSS,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 225) VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,0910-1000,MWF,HSS,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 226) VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,1020-1110,MWF,HSS,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 227) VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,1130-1220,MWF,HSS,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 228) VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,1240-1330,MWF,HSS,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 229) VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,1350-1440,MWF,HSS,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 230) VC GCUS,101,Global Citizenship United States Elective,3,none,none,none,1500-1540,MWF,HSS,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 231) VC GCI,101,Global Citizenship International Elective,3,none,none,none,0800-0850,MWF,LIB,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 232) VC GCI,101,Global Citizenship International Elective,3,none,none,none,0910-1000,MWF,LIB,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 233) VC GCI,101,Global Citizenship International Elective,3,none,none,none,1020-1110,MWF,LIB,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 234) VC GCI,101,Global Citizenship International Elective,3,none,none,none,1130-1220,MWF,LIB,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 235) VC GCI,101,Global Citizenship International Elective,3,none,none,none,1240-1330,MWF,LIB,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 236) VC GCI,101,Global Citizenship International Elective,3,none,none,none,1350-1440,MWF,LIB,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 237) VC GCI,101,Global Citizenship International Elective,3,none,none,none,1500-1540,MWF,LIB,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 238) VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,0800-0850,MWF,HSS,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 239) VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,0910-1000,MWF,HSS,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 240) VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,1020-1110,MWF,HSS,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 241) VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,1130-1220,MWF,HSS,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 242) VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,1240-1330,MWF,HSS,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 243) VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,1350-1440,MWF,HSS,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 244) VC AH,101,Applied Arts and Humanities Elective,3,none,none,none,1500-1540,MWF,HSS,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 245) VC SS,101,Social Sciences Elective,3,none,none,none,0800-0850,MWF,ABP,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 246) VC SS,101,Social Sciences Elective,3,none,none,none,0910-1000,MWF,ABP,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 247) VC SS,101,Social Sciences Elective,3,none,none,none,1020-1110,MWF,ABP,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 248) VC SS,101,Social Sciences Elective,3,none,none,none,1130-1220,MWF,ABP,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 249) VC SS,101,Social Sciences Elective,3,none,none,none,1350-1440,MWF,ABP,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 250) VC SS,101,Social Sciences Elective,3,none,none,none,1500-1540,MWF,ABP,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 251) VC EI,101,Engaged Inquiries Elective,3,none,none,none,0800-0850,MWF,WAB,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 252) VC EI,101,Engaged Inquiries Elective,3,none,none,none,0910-1000,MWF,WAB,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 253) VC EI,101,Engaged Inquiries Elective,3,none,none,none,1020-1110,MWF,WAB,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 254) VC EI,101,Engaged Inquiries Elective,3,none,none,none,1130-1220,MWF,WAB,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 255) VC EI,101,Engaged Inquiries Elective,3,none,none,none,1350-1440,MWF,WAB,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 256) VC EI,101,Engaged Inquiries Elective,3,none,none,none,1500-1540,MWF,WAB,none,none,none
+f1ae45ad (tdehoff1        2024-11-13 17:27:29 -0500 257) VC EP,101,Expanded Perspectives Elective,3,none,none,none,1020-1110,MWF,WAB,none,none,none
