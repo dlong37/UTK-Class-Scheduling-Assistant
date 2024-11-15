@@ -475,6 +475,7 @@ bool check_pr(vector<string> taken_vector, priority_queue<course, vector<course>
                 }
                 // if we checked, but weren't able to match, this class is unabled to be scheduled
                 if (or_vector.size() != 0) {
+                    cout << "Did not pass pre-reqs: " << pq.top().abbrv << " " << pq.top().num << " (" << pq.top().title << ") at " << pq.top().lec_time << endl;
                     pq.pop();
                     break;
                 }
@@ -497,6 +498,7 @@ bool check_pr(vector<string> taken_vector, priority_queue<course, vector<course>
                 }
                 // if we checked, but weren't able to match, this class is unabled to be scheduled
                 if (or_vector.size() != 0) {
+                    cout << "Did not pass pre-reqs: " << pq.top().abbrv << " " << pq.top().num << " (" << pq.top().title << ") at " << pq.top().lec_time << endl;
                     pq.pop();
                     break;
                 }
