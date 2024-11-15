@@ -1095,7 +1095,25 @@ button.class_search a:hover, button.schedules a:hover {
 
 /* Course list styling */
 .course-list {
-    margin-top: 20px;
+    /* opacity: 0; */
+    /* transform: translateY(100px); */
+    transition: opacity 1s ease, transform 1s ease;
+    transition-delay: 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 850px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 15px solid transparent;
+    border-image: linear-gradient(to top, #fff, #ff8200) 1;
 }
 
 /* Individual course item styling */
@@ -1137,6 +1155,28 @@ button.class_search a:hover, button.schedules a:hover {
     color: #000;
     border: 1px solid #ff8200;
     box-shadow: 0 0 8px rgba(255, 130, 0, 0.5);
+}
+
+.container {
+    /* opacity: 0; */
+    /* transform: translateY(100px); */
+    transition: opacity 1s ease, transform 1s ease;
+    transition-delay: 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 850px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 15px solid transparent;
+    border-image: linear-gradient(to top, #fff, #ff8200) 1;
 }
 
 /************/
@@ -1297,15 +1337,26 @@ button[type="submit"]:hover {
 .thu { grid-column: 5; } /* Thursday's column */
 .fri { grid-column: 6; } /* Friday's column */
 
-
 .schedule-wrapper {
-    margin: 0 auto; /* Center the wrapper */
-    padding: 50px; /* Add padding around the content */
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
-    display: flex; 
-    justify-content: flex-end;
-    flex-wrap: wrap; /* Allow buttons to wrap */
-    gap: 15px;
+    /* opacity: 0; */
+    /* transform: translateY(100px); */
+    transition: opacity 1s ease, transform 1s ease;
+    transition-delay: 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 50px;
+    margin: auto;
+    height: auto;
+    max-width: 1000px;
+    min-height: 100vh;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 15px solid transparent;
+    border-image: linear-gradient(to top, #fff, #ff8200) 1;
 }
 
 /* Individual schedule button styles */
