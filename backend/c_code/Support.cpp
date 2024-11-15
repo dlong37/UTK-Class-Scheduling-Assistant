@@ -311,25 +311,26 @@ priority_queue<course, vector<course>, CompareCourse> create_pq(vector<course> r
         for (int j = 0; j < rows; ++j) {
             for (int k = 0; k < (int)lec_days.size(); k++) {
                 if (schedule[j][0] == 1 && lec_days[k] == 'M') {
-                    startx = j;
+                    startx = j + 1;
                 }
                 if (schedule[j][1] == 1 && lec_days[k] == 'T') {
-                    startx = j;
+                    startx = j + 1;
                 }
                 if (schedule[j][2] == 1 && lec_days[k] == 'W') {
-                    startx = j;
+                    startx = j + 1;
                 }
                 if (schedule[j][3] == 1 && lec_days[k] == 'R') {
-                    startx = j;
+                    startx = j + 1;
                 }
                 if (schedule[j][4] == 1 && lec_days[k] == 'F') {
-                    startx = j;
+                    startx = j + 1;
                 }
             }
         }
         // if nothing was scheduled for any time, make startx the global variable start time
         if (startx == 0) {
             startx = user_hour * MINS_PER_HOUR + user_min;
+            gap = 0;
         }
         int course_hour = stoi(remaining_vector[i].lec_time.substr(0, 2));
         int course_min = stoi(remaining_vector[i].lec_time.substr(2, 2));
@@ -351,25 +352,26 @@ priority_queue<course, vector<course>, CompareCourse> create_pq(vector<course> r
             for (int j = 0; j < rows; ++j) {
                 for (int k = 0; k < (int)lab_days.size(); k++) {
                     if (schedule[j][0] == 1 && lab_days[k] == 'M') {
-                        startx = j;
+                        startx = j + 1;
                     }
                     if (schedule[j][1] == 1 && lab_days[k] == 'T') {
-                        startx = j;
+                        startx = j + 1;
                     }
                     if (schedule[j][2] == 1 && lab_days[k] == 'W') {
-                        startx = j;
+                        startx = j + 1;
                     }
                     if (schedule[j][3] == 1 && lab_days[k] == 'R') {
-                        startx = j;
+                        startx = j + 1;
                     }
                     if (schedule[j][4] == 1 && lab_days[k] == 'F') {
-                        startx = j;
+                        startx = j + 1;
                     }
                 }
             }
             // if nothing was scheduled for any time, make startx the global variable start time
             if (startx == 0) {
                 startx = user_hour * MINS_PER_HOUR + user_min;
+                gap = 0;
             }
             course_hour = stoi(remaining_vector[i].lab_time.substr(0, 2));
             course_min = stoi(remaining_vector[i].lab_time.substr(2, 2));
@@ -380,7 +382,7 @@ priority_queue<course, vector<course>, CompareCourse> create_pq(vector<course> r
                 lab_priority *= -1;
             }
         }
-        
+        //cout << "lecture prioity (" << lec_priority << ") + lab priority (" << lab_priority << ") = " << lec_priority + lab_priority << endl;
         // then, add the two together!
         remaining_vector[i].priority = lec_priority + lab_priority;
         pq.push(remaining_vector[i]);
@@ -390,12 +392,12 @@ priority_queue<course, vector<course>, CompareCourse> create_pq(vector<course> r
 
 void print_pq(priority_queue<course, vector<course>, CompareCourse> pq) {
     priority_queue<course, vector<course>, CompareCourse> print = pq;
-    // cout << "\nPriority Queue: " << endl;
+    cout << "\nPriority Queue: " << endl;
     while (!print.empty()) {
-        // cout << print.top().abbrv << " " << print.top().num << " : " << print.top().title << " at " << print.top().lec_time << " (" << print.top().priority << ")" << endl;
+        cout << print.top().abbrv << " " << print.top().num << " : " << print.top().title << " at " << print.top().lec_time << " (" << print.top().priority << ")" << endl;
         print.pop(); 
     }
-    // cout << endl;
+    cout << endl;
 };
 
 void print_array( vector<vector<int>> arr) {
@@ -688,7 +690,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 cr = c.co_req.substr(index, i-index);
                 or_vector.push_back(cr);
                 index = i+1;
-                // cout << "push " << cr << endl;
+                cout << "push " << cr << endl;
             }
 
             // hit an AND sign: check OR vector + attempt to schedule
@@ -696,7 +698,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 // push class onto the OR vector
                 cr = c.co_req.substr(index, i-index);
                 or_vector.push_back(cr);
-                // cout << "push " << cr << endl;
+                cout << "push " << cr << endl;
 
                 /* attempt to schedule one of the co-reqs */
                 // check the taken vector before trying to schedule
@@ -740,7 +742,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                             cr_pq.pop();
                         }
                         else { 
-                            // cout << "failed to schedule a co-req" << endl;
+                            cout << "failed to schedule a co-req" << endl;
                             cr_scheduled = false;
                             scheduled_cr.clear();
                             break;
@@ -761,7 +763,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 // push
                 cr = c.co_req.substr(index, c.co_req.size() - index);
                 or_vector.push_back(cr);
-                // cout << "push last class " << cr << endl;
+                cout << "push last class " << cr << endl;
 
                 /* final attempt to schedule */
                 bool taken;
@@ -803,7 +805,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                             cr_pq.pop();
                         }
                         else { 
-                            // cout << "failed to schedule a co-req" << endl;
+                            cout << "failed to schedule a co-req" << endl;
                             cr_scheduled = false;
                             scheduled_cr.clear();
                             break;
@@ -817,7 +819,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                     break;
                 }
                 else {
-                    // cout << "all co-reqs successfully scheduled" << endl;
+                    cout << "all co-reqs successfully scheduled" << endl;
                     temp_schedule = cr_schedule;
                 }
             }
@@ -849,7 +851,7 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
         passes++;
 
         if (check_pr(taken_vector, pq) == true && check_dup(perm_courses, pq.top()) == true) {
-            // cout << "Passed PRs - " << pq.top().abbrv << " " << pq.top().num << " : " << pq.top().title << " at " << pq.top().lec_time << endl;
+            cout << "Passed PRs - " << pq.top().abbrv << " " << pq.top().num << " : " << pq.top().title << " at " << pq.top().lec_time << endl;
 
             // attempt to schedule the first class
             course c = pq.top();
@@ -859,7 +861,7 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
 
             // check for conflicts
             if (check_conflicts(schedule, c) == false) {
-                // cout << "No time conflicts" << endl;
+                cout << "No time conflicts" << endl;
 
                 // schedule (tentatively)
                 add_to_schedule(temp_schedule, c, scheduled_courses);
@@ -867,7 +869,7 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
                 // check + schedule co-reqs
                 if (check_crs(c, temp_schedule, course_vector, taken_vector, perm_courses, user_hour, user_min, gap, scheduled_courses) == true) {
                     // we scheduled a class!
-                    // cout << "Scheduled CRs" << endl;
+                    cout << "Scheduled CRs" << endl;
                     schedule = temp_schedule;
                     scheduled_success = true;
 
@@ -886,7 +888,7 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
                             total_hours += scheduled_courses[i].hours;
                             perm_courses.push_back(scheduled_courses[i]);
 
-                            // cout << "SCHEDULED " << scheduled_courses[i].abbrv << " " << scheduled_courses[i].num << endl;
+                            cout << "SCHEDULED " << scheduled_courses[i].abbrv << " " << scheduled_courses[i].num << endl;
 
                             // Abbreviation,Number,Title,Hours,Attributes,LcTime,LcDate,LcLocation,LaTime,LaDate,LaLocation
                             appendfile << 
@@ -914,12 +916,12 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
                 }
             }
             else {
-                // cout << "Time Conflicts!" << endl;
+                cout << "Time Conflicts!" << endl;
                 pq.pop();
             }
         }
         else if (pq.empty()) {
-            // cout << "No more schedulable classes." << endl;
+            cout << "No more schedulable classes." << endl;
             break;
         }
         else {
