@@ -1,0 +1,75 @@
+Support.h:
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 69) void find_next_courses(vector<string> &needed, vector<course> course_vector, set<string> taken_set, vector<string> major_vector, string s, int hours);
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 73) int schedule_next_courses(vector<course> &next_courses, vector<string> &needed, vector<course> &course_vector, vector<vector<float> > distance_vector);
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 74) void sort_twodvec(vector<vector<course> > &twodvec, vector<course> next_courses, int i, vector<vector<float> > distance_vector);
+7338498b (Gian            2024-11-14 11:56:25 -0500 88) void get_time(vector<string> taken_vector, int &uh, int &um, int &gap, int &ch);
+
+Support.cpp:
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500   19) vector<string> locnames = { "APB", "AYR", "BEC", "BEO", "DOU", "HBB", "HPR", "HSS", "JHB", "LIB", "MKB", "MOS", "PER", "PHY", "SRF", "STR", "TIC", "WAB", "ZEC" };
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500  210) void find_next_courses(vector<string> &needed, vector<course> course_vector, set<string> taken_set, vector<string> major_vector, string s, int hours) {
+e31bd400 (Gian            2024-11-13 17:13:02 -0500  217)             string tempTitle;
+e31bd400 (Gian            2024-11-13 17:13:02 -0500  218) 
+e31bd400 (Gian            2024-11-13 17:13:02 -0500  219)             if((course_vector[j].abbrv).substr(0,2) == "VC") {
+e31bd400 (Gian            2024-11-13 17:13:02 -0500  220)                 tempTitle = course_vector[j].abbrv;
+e31bd400 (Gian            2024-11-13 17:13:02 -0500  221)             }
+e31bd400 (Gian            2024-11-13 17:13:02 -0500  222)             else {
+e31bd400 (Gian            2024-11-13 17:13:02 -0500  223)                 tempTitle = course_vector[j].abbrv + " " + to_string(course_vector[j].num);
+e31bd400 (Gian            2024-11-13 17:13:02 -0500  224)             }
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500  932) int schedule_next_courses(vector<course> &next_courses, vector<string> &needed, vector<course> &course_vector, vector<vector<float> > distance_vector) {
+e31bd400 (Gian            2024-11-13 17:13:02 -0500  936) 
+e31bd400 (Gian            2024-11-13 17:13:02 -0500  939)             if(needed[i] == (course_vector[j].abbrv + " " + to_string(course_vector[j].num)) || needed[i] == (course_vector[j].abbrv)) {
+e31bd400 (Gian            2024-11-13 17:13:02 -0500  948)         if(i == 0) { next_courses.push_back(twodvec[i][0]); scheduled++;}
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500  950)             sort_twodvec(twodvec, next_courses, i, distance_vector);
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 1033) }
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 1034) 
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 1035) void sort_twodvec(vector<vector<course> > &twodvec, vector<course> next_courses, int i, vector<vector<float> > distance_vector) {
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 1036)     course current = next_courses.back();
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 1037)     int currbuildnum = -1;
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 1038)     for(int j = 0; j < locnames.size(); j++) {
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 1039)         if(current.lec_loc == locnames[j]) { currbuildnum = j; break; }
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 1040)     }
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 1041) 
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 1042)     if(currbuildnum == -1) { return; }
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 1043) 
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 1044)     sort(twodvec[i].begin(), twodvec[i].end(), [&currbuildnum, &distance_vector](const course &a, const course &b) { return distance_vector[currbuildnum][distance(locnames.begin(), find(locnames.begin(), locnames.end(), a.lec_loc))] < distance_vector[currbuildnum][distance(locnames.begin(), find(locnames.begin(), locnames.end(), b.lec_loc))]; });
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500 1045) 
+7338498b (Gian            2024-11-14 11:56:25 -0500 1046) }
+7338498b (Gian            2024-11-14 11:56:25 -0500 1047) 
+7338498b (Gian            2024-11-14 11:56:25 -0500 1048) void get_time(vector<string> taken_vector, int &uh, int &um, int &gap, int &ch) {
+7338498b (Gian            2024-11-14 11:56:25 -0500 1049)     ch = stoi(taken_vector[0]);
+7338498b (Gian            2024-11-14 11:56:25 -0500 1050)     string parse = taken_vector[1];
+7338498b (Gian            2024-11-14 11:56:25 -0500 1051)     uh = stoi(parse.substr(0,2));
+7338498b (Gian            2024-11-14 11:56:25 -0500 1052)     um = stoi(parse.substr(2,2));
+7338498b (Gian            2024-11-14 11:56:25 -0500 1053)     gap = stoi(taken_vector[2]);
+
+cgen.cpp:
+7338498b (Gian            2024-11-14 11:56:25 -0500  53)     //cout << user_hour << " " << user_min << " " << gap << " " << credit_hours << endl;
+7338498b (Gian            2024-11-14 11:56:25 -0500  54) 
+7338498b (Gian            2024-11-14 11:56:25 -0500  55)     get_time(taken_vector, user_hour, user_min, gap, credit_hours);
+7338498b (Gian            2024-11-14 11:56:25 -0500  56) 
+7338498b (Gian            2024-11-14 11:56:25 -0500  57)     //cout << user_hour << " " << user_min << " " << gap << " " << credit_hours << endl;
+7338498b (Gian            2024-11-14 11:56:25 -0500  58) 
+7338498b (Gian            2024-11-14 11:56:25 -0500  66)     // for(int i = 0; i < taken_vector.size(); i++) {
+7338498b (Gian            2024-11-14 11:56:25 -0500  67)     //     cout << taken_vector[i] << endl;
+7338498b (Gian            2024-11-14 11:56:25 -0500  68)     // }
+c7917105 (Gian            2024-11-14 11:29:23 -0500  69) 
+7338498b (Gian            2024-11-14 11:56:25 -0500  70)     // cout << taken_vector[(taken_vector.size()-1)] << endl;
+c7917105 (Gian            2024-11-14 11:29:23 -0500  71) 
+7338498b (Gian            2024-11-14 11:56:25 -0500  73)         // if (open_time_file(file, credit_hours, gap, user_min, user_hour) == false) {
+7338498b (Gian            2024-11-14 11:56:25 -0500  74)         //     return 1;
+7338498b (Gian            2024-11-14 11:56:25 -0500  75)         // }
+7338498b (Gian            2024-11-14 11:56:25 -0500  94)             find_next_courses(needed, course_vector, taken_set, major_vector, argv[1], credit_hours);
+d62b0d3b (Gian            2024-11-10 12:12:24 -0500  96)             if(schedule_next_courses(next_courses, needed, course_vector, distance_vector) == needed.size()) {
+fe534f96 (Gian            2024-11-13 18:59:59 -0500  97)                 int vc = 0;
+fe534f96 (Gian            2024-11-13 18:59:59 -0500  98)                 for(int i = 0; i < next_courses.size(); i++) {
+fe534f96 (Gian            2024-11-13 18:59:59 -0500  99)                     if((next_courses[i].abbrv).substr(0,2) == "VC") {
+fe534f96 (Gian            2024-11-13 18:59:59 -0500 100)                         vc++;
+fe534f96 (Gian            2024-11-13 18:59:59 -0500 101)                     }
+fe534f96 (Gian            2024-11-13 18:59:59 -0500 102)                 }
+fe534f96 (Gian            2024-11-13 18:59:59 -0500 103)                 if(vc < 3) {
+fe534f96 (Gian            2024-11-13 18:59:59 -0500 104)                     print_ids(next_courses, course_vector);
+fe534f96 (Gian            2024-11-13 18:59:59 -0500 105)                     // for(int i = 0; i < next_courses.size(); i++) {
+fe534f96 (Gian            2024-11-13 18:59:59 -0500 106)                     //     cout << next_courses[i].abbrv + " " + to_string(next_courses[i].num) << " @ " << next_courses[i].lec_time << endl;
+fe534f96 (Gian            2024-11-13 18:59:59 -0500 107)                     // }
+fe534f96 (Gian            2024-11-13 18:59:59 -0500 108)                     running = false;
+fe534f96 (Gian            2024-11-13 18:59:59 -0500 109)                 }
