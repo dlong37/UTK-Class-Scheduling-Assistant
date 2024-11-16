@@ -11,6 +11,7 @@
 #include <utility>
 #include <time.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "Support.h"
 #define MINS_PER_HOUR 60
 using namespace std;
@@ -393,11 +394,14 @@ priority_queue<course, vector<course>, CompareCourse> create_pq(vector<course> r
 void print_pq(priority_queue<course, vector<course>, CompareCourse> pq) {
     priority_queue<course, vector<course>, CompareCourse> print = pq;
     cout << "\nPriority Queue: " << endl;
-    while (!print.empty()) {
-        cout << print.top().abbrv << " " << print.top().num << " : " << print.top().title << " at " << print.top().lec_time << " (" << print.top().priority << ")" << endl;
-        print.pop(); 
+    for (int i = 0;  i < 5; i++) {
+        if (!print.empty()) {
+            cout << print.top().abbrv << " " << print.top().num << " : " << print.top().title << " at " << print.top().lec_time << " (" << print.top().priority << ")" << endl;
+            print.pop(); 
+        }
     }
-    cout << endl;
+    cout << "..." << endl;
+    sleep(5);
 };
 
 void print_array( vector<vector<int>> arr) {
@@ -475,7 +479,7 @@ bool check_pr(vector<string> taken_vector, priority_queue<course, vector<course>
                 }
                 // if we checked, but weren't able to match, this class is unabled to be scheduled
                 if (or_vector.size() != 0) {
-                    cout << "Did not pass pre-reqs: " << pq.top().abbrv << " " << pq.top().num << " (" << pq.top().title << ") at " << pq.top().lec_time << endl;
+                    cout << "Did not pass pre-reqs: " << pq.top().abbrv << " " << pq.top().num << " (" << pq.top().title << ") at " << pq.top().lec_time << " and " << pq.top().lab_time << endl;
                     pq.pop();
                     break;
                 }
@@ -692,7 +696,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 cr = c.co_req.substr(index, i-index);
                 or_vector.push_back(cr);
                 index = i+1;
-                cout << "push " << cr << endl;
+                cout << "Adding potential co-req: " << cr << endl;
             }
 
             // hit an AND sign: check OR vector + attempt to schedule
@@ -700,7 +704,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 // push class onto the OR vector
                 cr = c.co_req.substr(index, i-index);
                 or_vector.push_back(cr);
-                cout << "push " << cr << endl;
+                cout << "Adding potential co-req: " << cr << endl;
 
                 /* attempt to schedule one of the co-reqs */
                 // check the taken vector before trying to schedule
@@ -744,7 +748,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                             cr_pq.pop();
                         }
                         else { 
-                            cout << "failed to schedule a co-req" << endl;
+                            cout << "A potential co-req was unable to be scheduled." << endl;
                             cr_scheduled = false;
                             scheduled_cr.clear();
                             return cr_scheduled;
@@ -765,9 +769,10 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 // push
                 cr = c.co_req.substr(index, c.co_req.size() - index);
                 or_vector.push_back(cr);
-                cout << "push last class " << cr << endl;
+                cout << "Adding potential co-req: " << cr << endl;
 
                 /* final attempt to schedule */
+                // check or_vector
                 bool taken;
                 for (int j = 0; j < (int)taken_vector.size(); j++) {
                     for (int k = 0; k < (int)or_vector.size(); k++) {
@@ -807,7 +812,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                             cr_pq.pop();
                         }
                         else { 
-                            cout << "failed to schedule a co-req" << endl;
+                            cout << "A potential co-req was unable to be scheduled." << endl;
                             cr_scheduled = false;
                             scheduled_cr.clear();
                             return cr_scheduled;
@@ -821,11 +826,15 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                     return cr_scheduled;
                 }
                 else {
-                    cout << "all co-reqs successfully scheduled" << endl;
+                    cout << "All co-reqs have been scheduled." << endl;
+                    sleep(5);
                     temp_schedule = cr_schedule;
                 }
             }
         }
+    }
+    else {
+        cout << "No co-reqs to schedule." << endl;
     }
     return cr_scheduled;
 };
@@ -853,7 +862,8 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
         passes++;
 
         if (check_pr(taken_vector, pq) == true && check_dup(perm_courses, pq.top()) == true) {
-            cout << "Passed PRs - " << pq.top().abbrv << " " << pq.top().num << " : " << pq.top().title << " at " << pq.top().lec_time << endl;
+            cout << "Passed pre-reqs: " << pq.top().abbrv << " " << pq.top().num << " (" << pq.top().title << ") at " << pq.top().lec_time << " and " << pq.top().lab_time << endl;
+            sleep(5);
 
             // attempt to schedule the first class
             course c = pq.top();
@@ -863,7 +873,8 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
 
             // check for conflicts
             if (check_conflicts(schedule, c) == false) {
-                cout << "No time conflicts" << endl;
+                cout << "No time conflicts." << endl;
+                sleep(5);
 
                 // schedule (tentatively)
                 add_to_schedule(temp_schedule, c, scheduled_courses);
@@ -871,7 +882,7 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
                 // check + schedule co-reqs
                 if (check_crs(c, temp_schedule, course_vector, taken_vector, perm_courses, user_hour, user_min, gap, scheduled_courses) == true) {
                     // we scheduled a class!
-                    cout << "Scheduled CRs" << endl;
+                    //cout << "All co-reqs have been scheduled." << endl;
                     schedule = temp_schedule;
                     scheduled_success = true;
 
@@ -890,7 +901,8 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
                             total_hours += scheduled_courses[i].hours;
                             perm_courses.push_back(scheduled_courses[i]);
 
-                            cout << "SCHEDULED " << scheduled_courses[i].abbrv << " " << scheduled_courses[i].num << endl;
+                            cout << "Add to schedule: " << scheduled_courses[i].abbrv << " " << scheduled_courses[i].num << endl;
+                            sleep(5);
 
                             // Abbreviation,Number,Title,Hours,Attributes,LcTime,LcDate,LcLocation,LaTime,LaDate,LaLocation
                             appendfile << 
