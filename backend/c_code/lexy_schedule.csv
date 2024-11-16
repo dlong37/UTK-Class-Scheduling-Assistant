@@ -1,4 +1,4 @@
-ENGL,101,English Composition I,3,WC,0800-0850,MWF,HSS,none,none,none
-MATH,141,Calculus I,4,QR,0910-1000,MWF,HSS,0810-0925,R,HSS
-EF,151,Physics for Engineers I,4,EI & NS,1020-1110,MWF,ZEC,0945-1100,TR,ZEC
-COSC,101,Introduction to Programming,3,none,1430-1545,TR,DOU,none,none,none
+COSC,424,Introduction to Deep Learning,3,none,0800-0850,MWF,MKB,none,none,none
+COSC,366,Introduction to Cybersecurity,3,none,0810-0925,TR,MKB,none,none,none
+ENGL,355,Rhetoric and Writing,3,WC,0945-1100,TR,HSS,none,none,none
+COSC,361,Operating Systems,3,none,0910-1000,MWF,MKB,none,none,none

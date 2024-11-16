@@ -747,7 +747,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                             cout << "failed to schedule a co-req" << endl;
                             cr_scheduled = false;
                             scheduled_cr.clear();
-                            break;
+                            return cr_scheduled;
                         }
                     }
                 }
@@ -810,7 +810,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                             cout << "failed to schedule a co-req" << endl;
                             cr_scheduled = false;
                             scheduled_cr.clear();
-                            break;
+                            return cr_scheduled;
                         }
                     }
                 }
@@ -818,7 +818,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 if (or_vector.size() != 0) {
                     cr_scheduled = false;
                     scheduled_cr.clear();
-                    break;
+                    return cr_scheduled;
                 }
                 else {
                     cout << "all co-reqs successfully scheduled" << endl;
@@ -915,11 +915,13 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
                 else {
                     // pop the queue + try again
                     pq.pop();
+                    scheduled_courses.clear();
                 }
             }
             else {
                 cout << "Time Conflicts!" << endl;
                 pq.pop();
+                scheduled_courses.clear();
             }
         }
         else if (pq.empty()) {
@@ -928,6 +930,7 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
         }
         else {
             pq.pop();
+            scheduled_courses.clear();
         }
     }
     appendfile.close();
