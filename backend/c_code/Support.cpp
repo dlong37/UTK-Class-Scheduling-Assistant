@@ -401,7 +401,7 @@ void print_pq(priority_queue<course, vector<course>, CompareCourse> pq) {
         }
     }
     cout << "..." << endl;
-    sleep(5);
+    //sleep(3);
 };
 
 void print_array( vector<vector<int>> arr) {
@@ -827,7 +827,7 @@ bool check_crs(course c, vector<vector<int>> &temp_schedule, vector<course> cour
                 }
                 else {
                     cout << "All co-reqs have been scheduled." << endl;
-                    sleep(5);
+                    //sleep(3);
                     temp_schedule = cr_schedule;
                 }
             }
@@ -863,7 +863,7 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
 
         if (check_pr(taken_vector, pq) == true && check_dup(perm_courses, pq.top()) == true) {
             cout << "Passed pre-reqs: " << pq.top().abbrv << " " << pq.top().num << " (" << pq.top().title << ") at " << pq.top().lec_time << " and " << pq.top().lab_time << endl;
-            sleep(5);
+            //sleep(3);
 
             // attempt to schedule the first class
             course c = pq.top();
@@ -874,7 +874,7 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
             // check for conflicts
             if (check_conflicts(schedule, c) == false) {
                 cout << "No time conflicts." << endl;
-                sleep(5);
+                //sleep(3);
 
                 // schedule (tentatively)
                 add_to_schedule(temp_schedule, c, scheduled_courses);
@@ -902,7 +902,7 @@ void create_schedule(vector<vector<int>> &schedule, vector<course> course_vector
                             perm_courses.push_back(scheduled_courses[i]);
 
                             cout << "Add to schedule: " << scheduled_courses[i].abbrv << " " << scheduled_courses[i].num << endl;
-                            sleep(5);
+                            //sleep(3);
 
                             // Abbreviation,Number,Title,Hours,Attributes,LcTime,LcDate,LcLocation,LaTime,LaDate,LaLocation
                             appendfile << 
