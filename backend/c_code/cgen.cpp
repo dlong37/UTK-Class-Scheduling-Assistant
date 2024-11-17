@@ -81,6 +81,7 @@ int main(int argc, char** argv) {
         create_schedule(schedule, course_vector, taken_vector, major_vector, credit_hours, scheduled_courses, perm_courses, user_hour, user_min, gap);
 
         // print schedule
+        // cout << "\nPrint Courses IDs...\n";
         print_ids(perm_courses, course_vector);
         //print_array(schedule);
     }
