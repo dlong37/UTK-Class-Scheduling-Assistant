@@ -124,6 +124,7 @@ def create_data_csv():
     gap_time = request.form.get('gap-time')
     loc_time_opt = request.form.get('time-location-flag')
     session['loc_time_opt'] = loc_time_opt
+    cs_elec_credits = request.form.getlist('cs-credit2')
 
     # Prepare data for CSV
     data_entries = [
@@ -155,6 +156,9 @@ def create_data_csv():
     
     # Add other data
     data_entries.append([cs361_credit])
+
+    for credit in cs_elec_credits:
+        data_entries.append([credit])
 
     # Defines the directory where the CSV file will be saved
     directory = 'backend/c_code'
