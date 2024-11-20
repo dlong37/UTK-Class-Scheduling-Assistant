@@ -11,7 +11,7 @@
         <div class="schedule-wrapper">
             <h1 class="heading">My Schedules</h1>
             {% for schedule in user.schedules %}
-            <li class="list-group-item schedule-button">
+            <li class="list-group-item new-schedule-button">
                 <a href="{{ url_for('views.view_schedule', schedule_id=schedule.id) }}">
                     My Schedule {{ loop.index }}
                     {{ schedule.date.strftime('%Y-%m-%d') }}

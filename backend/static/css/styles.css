@@ -386,7 +386,7 @@ body {
  * Input and Submit Button Styles
  * Styles for input fields and submit buttons within the form.
  */
-input[type="email"], input[type="password"], .submit-button {
+input[type="email"], input[type="password"], [type="text"], .submit-button {
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 1s ease, transform 1s ease;
@@ -945,7 +945,7 @@ button.schedules.show {
 
 /* List Group Styles */
 .list-group-flush {
-    width: 60%;
+    width: 95%;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 10px;
@@ -1118,6 +1118,7 @@ button.class_search a:hover, button.schedules a:hover {
 
 /* Individual course item styling */
 .course-item {
+    width: 95%;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 15px;
@@ -1344,7 +1345,7 @@ button[type="submit"]:hover {
     transition-delay: 0.2s;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: #fff;
     padding: 50px;
@@ -1361,6 +1362,8 @@ button[type="submit"]:hover {
 
 /* Individual schedule button styles */
 .schedule-button {
+    display: flex;
+    flex-wrap: wrap;
     position: relative; /* Position for absolute children (close button) */
     width: 200px; /* Fixed width for buttons */
     height: 200px; /* Fixed height for buttons, same as width for square */
@@ -1465,4 +1468,31 @@ button[type="submit"]:hover {
 
 .gs__link:hover:after {
     width: 80%; /* Expands underline on hover */
+}
+
+.btn-select-section {
+    background-color: #f8f9fa; /* Light background color */
+    color: #6c757d; /* Gray font color */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 4px; /* Slightly rounded corners */
+    padding: 8px 16px; /* Comfortable padding */
+    font-size: 14px; /* Standard font size */
+    cursor: pointer; /* Pointer cursor for clickability */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+.btn-select-section:hover {
+    background-color: #e2e6ea; /* Slightly darker on hover */
+    color: #5a6268; /* Darker gray font on hover */
+}
+
+.btn-select-section:active {
+    background-color: #dae0e5; /* Even darker for active state */
+    color: #495057; /* Darker text for active state */
+}
+
+.btn-select-section:disabled {
+    background-color: #f8f9fa; /* Same light background */
+    color: #ced4da; /* Faint gray font for disabled state */
+    cursor: not-allowed; /* No click pointer */
 }

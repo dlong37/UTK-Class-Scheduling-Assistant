@@ -51,8 +51,7 @@
             {% else %}
                 <p>No courses found for this schedule.</p>
             {% endif %}
+            <a href="{{ url_for('views.main') }}" class="return-button">Back to Schedules</a>
         </div>
-
-        <a href="{{ url_for('views.main') }}" class="return-button">Back to Schedules</a>
     </div>
 {% endblock %}

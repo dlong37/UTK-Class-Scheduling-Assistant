@@ -5,26 +5,27 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="content">
         {% if classes %}
-            <h2 class="mt-4 text-center">Section Options for {{ classes[0].abbreviation }}{{ classes[0].number }}:</h2>
-            <ul class="list-group-flush" id="classes">
+            <h1 class="heading">Section Options for {{ classes[0].abbreviation }}{{ classes[0].number }}:</h1>
+            <!-- <h2 class="mt-4 text-center">Section Options for {{ classes[0].abbreviation }}{{ classes[0].number }}:</h2> -->
+            <div class="course-list" id="classes">
                 {% for class in classes %}
                     <div class="course-item">
                         <p>
-                            <span>Lecture: {{ class.lecture_days }} at {{ class.lecture_time }} in {{ class.lecture_location }}</span>
+                            <span>Lecture: {{ class.lecture_days }} at {{ class.lecture_time }} in {{ class.lecture_location }}</span><br>
                             {% if class.lab_time %}
-                                <span> | Lab: {{ class.lab_days }} at {{ class.lab_time }} in {{ class.lab_location }}</span>
+                                <span>Lab: {{ class.lab_days }} at {{ class.lab_time }} in {{ class.lab_location }}</span><br>
                             {% endif %}
                         </p>
                         <!-- Button to replace the current course -->
-                        <button class="btn btn-danger" onclick="replaceCourse({{ schedule_id }}, '{{ class_id }}', '{{ class.id }}')">
+                        <button class="btn btn-select-section" onclick="replaceCourse({{ schedule_id }}, '{{ class_id }}', '{{ class.id }}')">
                             Replace with this Section
                         </button>
                     </div>
                 {% endfor %}
-            </ul>
+                <a href="{{ url_for('views.view_schedule', schedule_id=schedule_id) }}" class="return-button">Return to Schedule</a>
+            </div>
         {% endif %}
-        <a href="{{ url_for('views.view_schedule', schedule_id=schedule_id) }}" class="return-button">Return to Schedule</a>
     </div>
 {% endblock %}
