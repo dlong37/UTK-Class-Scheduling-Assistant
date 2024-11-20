@@ -1416,15 +1416,15 @@ button[type="submit"]:hover {
 }
 
 .gs__link {
+    margin: 0 10px;
     font-size: 1rem;
     background-image: linear-gradient(to bottom, #ff8200, #FFF);
     padding: 14px 32px;
-    border: 2px solid #141414; /* Add a contrasting border for depth */
+    border: 2px solid #bc5b24; /* Add a contrasting border for depth */
     border-radius: 8px; /* Slightly increase radius for a softer look */
     color: #141414;
-    margin-top: 2rem;
-    margin-bottom: 20px;
     cursor: pointer;
+    text-decoration: none;
     position: relative;
     transition: all 0.3s ease-in-out; /* Smooth transition */
     outline: none;
@@ -1442,11 +1442,8 @@ button[type="submit"]:hover {
 
 /* Hover effects */
 .gs__link:hover {
-    background-image: linear-gradient(to bottom, #4b4b4b, #FFF); /* Darken the background on hover */
-    color: #fff; /* Keep the text color white */
-    border-color: #ff8200; /* Make the border pop with brand color */
-    transform: translateY(-3px); /* Slight lift effect on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Intensify shadow on hover */
+    background-color: #ff8200; /* Orange background on hover */
+    color: #fff; /* White text on hover */
 }
 
 /* Add an after element for an underline effect on hover */
@@ -1497,9 +1494,10 @@ button[type="submit"]:hover {
 /* Main Page Container */
 .main-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 33%));
+    gap: 0.5%;
+    row-gap: 1%;
+    justify-content: left;
 }
 
 /* Schedule Card */
@@ -1571,4 +1569,10 @@ button[type="submit"]:hover {
 
 .generate-button:hover {
     background-color: #218838;
+}
+
+.button-container {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center horizontally */
+    margin: 10px 0; /* Add some vertical spacing */
 }
