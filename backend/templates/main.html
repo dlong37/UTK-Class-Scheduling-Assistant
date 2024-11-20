@@ -8,24 +8,29 @@
 
 {% block content %}
     <div class="content">
-        <div class="schedule-wrapper">
+        <div class="schedule-container">
             <h1 class="heading">My Schedules</h1>
-            {% for schedule in user.schedules %}
-            <li class="list-group-item new-schedule-button">
-                <a href="{{ url_for('views.view_schedule', schedule_id=schedule.id) }}">
-                    My Schedule {{ loop.index }}
-                    {{ schedule.date.strftime('%Y-%m-%d') }}
-                </a>
-
-                <!-- Delete button, uses a separate function to communicate with backend -->
-                <button type="button" class="close" onClick="deleteSchedule({{ schedule.id }})">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </li>
-            {% endfor %}
-            <div class="list-group-item new-schedule-button">
-                <a href="/new_schedule">Generate a New Schedule</a></button>
-            </div>
+            <div class="main-container">
+                {% for schedule in user.schedules %}
+                <div class="schedule-card">
+                    <h2>My Schedule {{ loop.index }}</h2>
+                    <p>Date: {{ schedule.date.strftime('%Y-%m-%d') }}</p>
+                    <div class="actions">
+                        <a href="{{ url_for('views.view_schedule', schedule_id=schedule.id) }}" class="view-button">
+                            View
+                        </a>
+                        <button class="delete-button" onclick="deleteSchedule({{ schedule.id }})">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- Generate New Schedule -->
+                <div class="schedule-card new-schedule">
+                    <h2>Generate a New Schedule</h2>
+                    <a href="/new_schedule" class="generate-button">Create Now</a>
+                </div>
+                
         </div>
     </div>
     

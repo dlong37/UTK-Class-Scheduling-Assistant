@@ -1256,9 +1256,6 @@ button[type="submit"]:hover {
     transform: translateY(100px);
     transition: opacity 1s ease, transform 1s ease;
     transition-delay: 0.2s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     background-color: #fff;
     padding: 50px;
@@ -1266,7 +1263,7 @@ button[type="submit"]:hover {
     height: auto;
     max-width: 1000px;
     min-height: 100vh;
-    width: 100%;
+    width: 80%;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border: 15px solid transparent;
@@ -1495,4 +1492,83 @@ button[type="submit"]:hover {
     background-color: #f8f9fa; /* Same light background */
     color: #ced4da; /* Faint gray font for disabled state */
     cursor: not-allowed; /* No click pointer */
+}
+
+/* Main Page Container */
+.main-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Schedule Card */
+.schedule-card {
+    background-color: #fff4e6;
+    border: 1px solid #c8bbae;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.schedule-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.schedule-card h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.schedule-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.view-button,
+.delete-button,
+.generate-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.view-button {
+    background-color: #7e7c7b;
+}
+
+.delete-button {
+    background-color: #7e7c7b;
+}
+
+.generate-button {
+    background-color: #7e7c7b;
+}
+
+/* Hover Effects */
+.view-button:hover {
+    background-color: #f47c20;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.generate-button:hover {
+    background-color: #218838;
 }

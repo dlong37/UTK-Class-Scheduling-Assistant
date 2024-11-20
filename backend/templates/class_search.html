@@ -7,9 +7,9 @@
 {% block content %}
     <div class="content">
         {% if classes %}
-            <h1 class="heading">Section Options for {{ classes[0].abbreviation }}{{ classes[0].number }}:</h1>
-            <!-- <h2 class="mt-4 text-center">Section Options for {{ classes[0].abbreviation }}{{ classes[0].number }}:</h2> -->
+            <!-- <h1 class="heading">Section Options for {{ classes[0].abbreviation }}{{ classes[0].number }}:</h1> -->
             <div class="course-list" id="classes">
+                <h2 class="mt-4 text-center" style="margin-bottom: 20px;">Section Options for {{ classes[0].abbreviation }}{{ classes[0].number }}:</h2>
                 {% for class in classes %}
                     <div class="course-item">
                         <p>
