@@ -7,7 +7,8 @@
 * Alexa Andershock: acandershock
 * Gian Fernandez-Aleman: gfernan5
 
-## Logo?
+## Logo
+![Alt text](path/to/image)
 
 
 # How to Run (Local)
