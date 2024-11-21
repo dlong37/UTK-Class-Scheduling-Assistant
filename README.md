@@ -25,4 +25,21 @@ The UTK Class Scheduling Assistant (CSA) simplifies the stressful class scheduli
 
 ## How to use
 
-* Start by
+* Start by hitting the "Get Started" button or the "Login/Register" Button
+* Click on "Don't Have An Account? Register Here" button
+* Sign up with your name, email and password
+* You'll be redirected to the home page, click on the "Get Started" button or the "Login/Register" Button, and log in using your email and password
+* Click the "Create Now" button under "Generate a New Schedule"
+* Use the drop downs and check boxes to select any classes you've already taken
+* Select the amount of credit hours you're looking to take
+* Select location or time generation preference (if you select time, select the time you want to start classes and how long you want your breaks to be)
+* Hit "Submit"
+* You can hit regenerate as many times as you'd like
+* Once you have a schedule you're satisfied with, hit "Save"
+* You can now view or delete your saved schedule
+* Hit "View" on the schedule you saved to view section information
+* You can hit the magnifying glass to look at other sections for that class and swap it out if you'd like by hitting the "Replace with this Section" button
+* You can continue messing around with it if you'd like :)
+
+## License
+This project is licensed under the [LICENSE](./LICENSE) file.
