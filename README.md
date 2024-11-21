@@ -8,7 +8,7 @@
 * Gian Fernandez-Aleman: gfernan5
 
 ## Logo
-![Alt text](path/to/image)
+![Alt text](frontend/logo.png)
 
 
 # How to Run (Local)
