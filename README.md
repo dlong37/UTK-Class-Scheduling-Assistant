@@ -1,4 +1,4 @@
-# UTK Class Scheduling Assisstant
+# UTK Class Scheduling Assistant
 ![Alt text](frontend/logo.png)
 
 ## Group member names & github ID's
