@@ -42,4 +42,4 @@ The UTK Class Scheduling Assistant (CSA) simplifies the stressful class scheduli
 * You can continue messing around with it if you'd like :)
 
 ## License
-This project is licensed under the [LICENSE](./LICENSE) file.
+This project is licensed under the [LICENSE](License.txt) file.
