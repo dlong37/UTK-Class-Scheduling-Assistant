@@ -1,3 +1,15 @@
+# UTK Class Scheduling Assisstant
+
+## Group member names & github ID's
+* David Long: dlong37
+* Ethan Miller: EthBeats
+* Tatiana Dehoff: tdehoff
+* Alexa Andershock: acandershock
+* Gian Fernandez-Aleman: gfernan5
+
+## Logo?
+
+
 # How to Run (Local)
 1. Install dependencies:  
 ```pip install -r requirements.txt```
