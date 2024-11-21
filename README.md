@@ -23,7 +23,7 @@ The UTK Class Scheduling Assistant (CSA) simplifies the stressful class scheduli
 ## How to Run (Website)
 1. Navigate to https://utkclassscheduler.pythonanywhere.com
 
-## How to use
+## How to Use
 
 * Start by hitting the "Get Started" button or the "Login/Register" Button
 * Click on "Don't Have An Account? Register Here" button
